@@ -1,0 +1,40 @@
+#navBar {
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 100px;
+    border-bottom: 4px solid #000;
+    #navCart {
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
+        #cartWrapper {
+            width: 50px;
+            img {
+                width: 100%;
+            }
+        }
+    }
+    #navLogo {
+        display: flex;
+        justify-content: center;
+        #logoWrapper {
+            width: 400px;
+            img {
+                width: 100%;
+            }
+        }    
+    }
+    #navRoutes {
+        display: flex;
+        justify-content: center;
+        padding-top: 30px;
+        #nav {
+            display: flex;
+            list-style: none;
+            li {
+                margin: 0 30px;
+            }
+        }
+    }
+}
