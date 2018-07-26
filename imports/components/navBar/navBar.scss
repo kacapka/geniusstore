@@ -1,5 +1,6 @@
 #navBar {
     width: 1000px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     padding: 20px 0;
@@ -17,7 +18,7 @@
     #navLogo {
         display: flex;
         justify-content: center;
-        padding-bottom: 20px;
+        padding-bottom: 30px;
         #logoWrapper {
             width: 200px;
             img {
@@ -29,8 +30,8 @@
         width: 100%;
         display: flex;
         justify-content: center;
-        border-top: 2px solid #000;
-        border-bottom: 2px solid #000;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
         padding: 20px;
         #nav {
             display: flex;
