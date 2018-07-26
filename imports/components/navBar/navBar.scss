@@ -1,15 +1,14 @@
 #navBar {
-    width: 1200px;
+    width: 1000px;
     display: flex;
     flex-direction: column;
-    padding: 20px 100px;
-    border-bottom: 4px solid #000;
+    padding: 20px 0;
     #navCart {
         display: flex;
         width: 100%;
         justify-content: flex-end;
         #cartWrapper {
-            width: 50px;
+            width: 30px;
             img {
                 width: 100%;
             }
@@ -18,17 +17,21 @@
     #navLogo {
         display: flex;
         justify-content: center;
+        padding-bottom: 20px;
         #logoWrapper {
-            width: 400px;
+            width: 200px;
             img {
                 width: 100%;
             }
         }    
     }
     #navRoutes {
+        width: 100%;
         display: flex;
         justify-content: center;
-        padding-top: 30px;
+        border-top: 2px solid #000;
+        border-bottom: 2px solid #000;
+        padding: 20px;
         #nav {
             display: flex;
             list-style: none;

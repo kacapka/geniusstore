@@ -7,9 +7,7 @@ class MainPage extends Component {
     render() {
         return (
             <div id='mainPage'>
-                <div id='mainHero' style={{backgroundImage: "url('/main_bg.jpg')"}}>
-                    
-                </div>
+                <div id='mainHero' style={{backgroundImage: "url('/main_bg.jpg')"}} />
             </div>
         );
     }
