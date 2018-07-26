@@ -2,7 +2,7 @@ import {Meteor} from 'meteor/meteor';
 import {Products} from '/lib/collections';
 
 Meteor.methods({
-    'addProduct': function(name) {
+    addProduct(name) {
         console.log('server hey');
         Products.insert({
             name: name
