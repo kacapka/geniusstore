@@ -68,6 +68,19 @@
           height: 50px;
         }
       }
+      #detailsDescription {
+        display: flex;
+        flex-direction: column;
+        padding: 40px 0;
+        @extend %text-medium;
+        text-transform: lowercase;
+        #descriptionProduct {
+          margin-bottom: 20px;
+        }
+        .description-feature {
+          margin-bottom: 5px;
+        }
+      }
     }
   }
 

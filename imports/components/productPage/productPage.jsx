@@ -77,6 +77,10 @@ class ProductPage extends Component {
                                 do koszyka
                             </div>
                         </div>
+                        <div id='detailsDescription'>
+                            <p id='descriptionProduct'>{product.description}</p>
+                            {product.features.map(feature => <p key={feature} className='description-feature'>{feature}</p>)}
+                        </div>
                     </div>
                 </div>
             </div>

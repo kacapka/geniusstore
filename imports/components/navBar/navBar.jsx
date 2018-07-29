@@ -1,15 +1,25 @@
 import React, {Component} from 'react';
 import './navBar.scss';
+import {FlowRouter} from 'meteor/kadira:flow-router';
 
 const ROUTES = ['kobiety', 'mezsczyni', 'nowosci', 'promocje'];
 
 class NavBar extends Component {
+
+    constructor(props) {
+        super(props);
+        this.onCartClick = this.onCartClick.bind(this);
+    }
+
+    onCartClick() {
+        FlowRouter.go('/cart');
+    }
     
     render() {
         return(
             <div id='navBar'>
                 <div id='navCart'>
-                    <div id='cartWrapper'>
+                    <div id='cartWrapper' onClick={this.onCartClick}>
                         <img src='/cart.png' alt='shoping cart' id='cart' />
                     </div>
                 </div>
