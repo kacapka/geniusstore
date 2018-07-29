@@ -2,12 +2,33 @@
 @import '../../common/fonts';
 
 #mainPage {
-    #mainHero {
+  #productsAll {
+    display: flex;
+    flex-wrap: wrap;
+    .product-item {
+      width: 25%;
+      padding: 30px;
+      .product-img-wrapper {
         width: 100%;
-        height: 700px;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: top;
-        position: relative;
+        .product-img {
+          width: 100%;
+        }
+      }
+      .product-info {
+        .product-info-collection {
+          @extend %text-small;
+          margin-top: 25px;
+        }
+        .product-info-title {
+          @extend %text-large;
+          margin-top: 10px;
+          text-transform: capitalize;
+        }
+        .product-info-price {
+          @extend %text-medium;
+          margin-top: 15px;
+        }
+      }
     }
+  }
 }

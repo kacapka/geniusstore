@@ -21,7 +21,7 @@ class NavBar extends Component {
                 <div id='navRoutes'>
                     <ul id='nav'>
                         <li>kobiety</li>
-                        <li>mezczyxni</li>
+                        <li>mezczyzni</li>
                         <li>nowosci</li>
                         <li>promocje</li>
                     </ul>

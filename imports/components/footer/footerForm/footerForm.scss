@@ -1,0 +1,48 @@
+@import '../../../common/fonts';
+@import '../../../common/vars';
+@import '../../../common/inputs';
+@import '../../../common/buttons';
+
+#footerForm {
+  display: flex;
+  margin-top: 30px;
+  #footerFormLeft {
+    flex: 2;
+    margin-right: 30px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  #footerFormRight {
+    flex: 3;
+    padding-left: 30px;
+    #footerFormSubmit {
+      display: flex;
+      margin-top: 15px;
+      justify-content: flex-end;
+      #footerBtnSubmit {
+        @extend %nav;
+        @extend %btn;
+        @extend %btn--black;
+      }
+    }
+    .footer-input-wrapper {
+      height: 100px;
+      .footer-textarea {
+        flex: 1;
+      }
+    }
+  }
+  .footer-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    .footer-label {
+      @extend %nav;
+      margin-bottom: 10px;
+    }
+    .footer-input {
+      @extend %input;
+    }
+  }
+}

@@ -2,10 +2,8 @@ import {Meteor} from 'meteor/meteor';
 import {Products} from '/lib/collections';
 
 Meteor.methods({
-    addProduct(name) {
-        console.log('server hey');
-        Products.insert({
-            name: name
-        });
+    addProduct(product) {
+        product.collection = 'summer chill';
+        Products.insert(product);
     }
 });

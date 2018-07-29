@@ -2,6 +2,7 @@ import React, {Component, Fragment} from 'react';
 import './App.scss';
 import MainPage from './mainPage/mainPage';
 import NavBar from './navBar/navBar';
+import Footer from "./footer/footer";
 
 class App extends Component {
 
@@ -12,6 +13,7 @@ class App extends Component {
                 <div id='appContent'>
                     {this.props.content}    
                 </div>
+                <Footer/>
             </div>
         );
     }

@@ -1,3 +1,6 @@
+@import '../../common/fonts';
+@import '../../common/vars';
+
 #navBar {
     width: 1000px;
     margin-top: 50px;
@@ -19,6 +22,7 @@
         display: flex;
         justify-content: center;
         padding-bottom: 30px;
+        font-family: 'Grand hotel', cursive;
         #logoWrapper {
             width: 200px;
             img {
@@ -30,13 +34,14 @@
         width: 100%;
         display: flex;
         justify-content: center;
-        border-top: 1px solid #ddd;
-        border-bottom: 1px solid #ddd;
-        padding: 20px;
+        border-top: 1px solid $grey;
+        border-bottom: 1px solid $grey;
+        padding: 25px;
         #nav {
             display: flex;
             list-style: none;
             li {
+                @extend %nav;
                 margin: 0 30px;
             }
         }

@@ -1,0 +1,21 @@
+@import './vars';
+@import './fonts';
+
+%reset-input {
+  box-shadow: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  border: none;
+}
+
+%input {
+  @extend %reset-input;
+  @extend %text-medium;
+  border-bottom: 1px solid $grey;
+  &::-webkit-input-placeholder {
+    @extend %text-medium;
+    color: rgba(221, 221, 221, 0.7);
+  }
+}

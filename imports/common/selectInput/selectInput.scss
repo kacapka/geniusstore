@@ -1,0 +1,59 @@
+@import '../vars';
+@import '../fonts';
+
+.select-input {
+  height: 35px;
+  width: 100px;
+  position: relative;
+  z-index: 99999;
+  .select-error {
+    @extend %text-small;
+    font-size: 8px;
+    text-transform: lowercase;
+    position: absolute;
+    bottom: calc(100% + 5px);
+    left: 0;
+    color: red;
+  }
+  .select-value {
+    @extend %text-small;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid $grey;
+  }
+  .select-options-wrapper {
+    position: absolute;
+    left: 0;
+    top: 36px;
+    width: 100%;
+    border: 1px solid $grey;
+    background-color: #fff;
+    z-index: 99999;
+    .select-option {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @extend %text-small;
+      height: 35px;
+      cursor: pointer;
+      padding: 0 10px;
+      &:hover {
+        background-color: $grey;
+      }
+      &.extra {
+        justify-content: space-between;
+      }
+      .option-value {
+
+      }
+      .option-extra {
+        font-size: 8px;
+        text-transform: lowercase;
+      }
+    }
+  }
+}
