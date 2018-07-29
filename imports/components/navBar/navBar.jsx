@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './navBar.scss';
 import {FlowRouter} from 'meteor/kadira:flow-router';
-
+import {connect} from 'react-redux';
 const ROUTES = ['kobiety', 'mezsczyni', 'nowosci', 'promocje'];
 
 class NavBar extends Component {
@@ -16,6 +16,8 @@ class NavBar extends Component {
     }
     
     render() {
+        console.log(this.props.cart);
+
         return(
             <div id='navBar'>
                 <div id='navCart'>
@@ -40,6 +42,10 @@ class NavBar extends Component {
         );
     }
     
-} 
+}
 
-export default NavBar;
+const mapStateToProps = state => ({
+    cart: state.cart
+});
+
+export default connect(mapStateToProps)(NavBar);

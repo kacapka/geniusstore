@@ -3,11 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="1e69d3e9-7ada-407a-99b3-ba235fac1035" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/components/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/App.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/imports/components/navBar/navBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/navBar/navBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/components/productPage/productPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/productPage/productPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/components/productPage/productPage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/productPage/productPage.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/startup/routes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/startup/routes.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/methods/Products/insertProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/methods/Products/insertProduct.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,33 +26,33 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="5" />
-          <entry key="js" value="11" />
-          <entry key="jsx" value="14" />
+          <entry key="html" value="6" />
+          <entry key="js" value="15" />
+          <entry key="jsx" value="17" />
           <entry key="scss" value="29" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="5" />
-          <entry key="JSX Harmony" value="14" />
-          <entry key="JavaScript" value="11" />
+          <entry key="HTML" value="6" />
+          <entry key="JSX Harmony" value="17" />
+          <entry key="JavaScript" value="15" />
           <entry key="SCSS" value="29" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="4" />
-          <entry key="js" value="1113" />
-          <entry key="jsx" value="6378" />
+          <entry key="html" value="20" />
+          <entry key="js" value="1262" />
+          <entry key="jsx" value="6551" />
           <entry key="scss" value="3360" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="4" />
-          <entry key="JSX Harmony" value="6378" />
-          <entry key="JavaScript" value="1113" />
+          <entry key="HTML" value="20" />
+          <entry key="JSX Harmony" value="6551" />
+          <entry key="JavaScript" value="1262" />
           <entry key="SCSS" value="3360" />
         </counts>
       </usages-collector>
@@ -62,7 +63,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/imports/startup/routes.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
+            <state relative-caret-position="391">
               <caret line="23" column="3" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -72,61 +73,63 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/components/cartPage/cartPage.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/components/navBar/navBar.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="34" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/components/mainPage/mainPage.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/components/cartPage/cartPage.scss">
+        <entry file="file://$PROJECT_DIR$/client/main.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
-              <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/imports/redux/store.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+              <folding>
+                <element signature="e#0#62#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/imports/redux/actions/index.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/imports/redux/reducers/rootReducer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/imports/components/App.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="40" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
+              <folding>
+                <element signature="e#125#162#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/main.js">
+        <entry file="file://$PROJECT_DIR$/imports/components/navBar/navBar.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="27" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/components/productPage/productPage.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1360">
-              <caret line="82" column="30" selection-start-line="82" selection-start-column="30" selection-end-line="82" selection-end-column="30" />
+            <state relative-caret-position="123">
+              <caret line="18" column="37" lean-forward="true" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -135,28 +138,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/components/productPage/productPage.scss">
+        <entry file="file://$PROJECT_DIR$/imports/redux/reducers/cartReducer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1024">
-              <caret line="75" column="34" selection-start-line="75" selection-start-column="34" selection-end-line="75" selection-end-column="34" />
+            <state relative-caret-position="187">
+              <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/components/mainPage/mainPage.scss">
+        <entry file="file://$PROJECT_DIR$/client/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="10" selection-end-line="33" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/common/fonts.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+            <state relative-caret-position="170">
+              <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -175,14 +169,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/client/main.css" />
-        <option value="$PROJECT_DIR$/client/main.js" />
         <option value="$PROJECT_DIR$/imports/components/App.scss" />
         <option value="$PROJECT_DIR$/server/schema/schemaProduct.js" />
         <option value="$PROJECT_DIR$/server/data.js" />
         <option value="$PROJECT_DIR$/client/main.scss" />
-        <option value="$PROJECT_DIR$/imports/components/App.jsx" />
         <option value="$PROJECT_DIR$/imports/components/navBar/navBar.scss" />
-        <option value="$PROJECT_DIR$/client/main.html" />
         <option value="$PROJECT_DIR$/imports/common/inputs.scss" />
         <option value="$PROJECT_DIR$/imports/components/footer/footerForm/footerForm.jsx" />
         <option value="$PROJECT_DIR$/imports/components/footer/footer.scss" />
@@ -202,8 +193,14 @@
         <option value="$PROJECT_DIR$/imports/components/mainPage/mainPage.scss" />
         <option value="$PROJECT_DIR$/imports/components/cartPage/cartPage.scss" />
         <option value="$PROJECT_DIR$/imports/components/cartPage/cartPage.jsx" />
-        <option value="$PROJECT_DIR$/imports/components/navBar/navBar.jsx" />
         <option value="$PROJECT_DIR$/imports/startup/routes.jsx" />
+        <option value="$PROJECT_DIR$/client/main.html" />
+        <option value="$PROJECT_DIR$/client/main.js" />
+        <option value="$PROJECT_DIR$/imports/redux/store.js" />
+        <option value="$PROJECT_DIR$/imports/redux/reducers/cartReducer.js" />
+        <option value="$PROJECT_DIR$/imports/redux/reducers/rootReducer.js" />
+        <option value="$PROJECT_DIR$/imports/components/App.jsx" />
+        <option value="$PROJECT_DIR$/imports/components/navBar/navBar.jsx" />
       </list>
     </option>
   </component>
@@ -1993,27 +1990,20 @@
               <item name="geniusstore" type="462c0819:PsiDirectoryNode" />
               <item name="imports" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="cartPage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="geniusstore" type="b2602c69:ProjectViewProjectNode" />
-              <item name="geniusstore" type="462c0819:PsiDirectoryNode" />
-              <item name="imports" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="mainPage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="geniusstore" type="b2602c69:ProjectViewProjectNode" />
-              <item name="geniusstore" type="462c0819:PsiDirectoryNode" />
-              <item name="imports" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="navBar" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="geniusstore" type="b2602c69:ProjectViewProjectNode" />
               <item name="geniusstore" type="462c0819:PsiDirectoryNode" />
               <item name="imports" type="462c0819:PsiDirectoryNode" />
-              <item name="startup" type="462c0819:PsiDirectoryNode" />
+              <item name="redux" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="geniusstore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="geniusstore" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="redux" type="462c0819:PsiDirectoryNode" />
+              <item name="reducers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -2026,7 +2016,8 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1532875163897" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1532877218967" />
+    <property name="jsx.switch.disabled" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -2078,12 +2069,12 @@
       <updated>1531659556243</updated>
       <workItem from="1531659558057" duration="11395000" />
       <workItem from="1532463151204" duration="1227000" />
-      <workItem from="1532766813352" duration="37172000" />
+      <workItem from="1532766813352" duration="39222000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49794000" />
+    <option name="totallyTimeSpent" value="51844000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2096,6 +2087,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
@@ -2109,7 +2101,7 @@
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" weight="0.32900432" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Message" order="4" />
-      <window_info anchor="bottom" id="Find" order="5" weight="0.32900432" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.32740214" />
       <window_info anchor="bottom" id="Run" order="6" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
@@ -2229,16 +2221,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/components/App.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/components/App.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -2258,13 +2240,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/imports/common/page.scss">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/imports/common/buttons.scss">
       <provider selected="true" editor-type-id="text-editor">
@@ -2345,16 +2320,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/components/navBar/navBar.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="34" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/components/cartPage/cartPage.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -2367,7 +2332,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/imports/startup/routes.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
+        <state relative-caret-position="391">
           <caret line="23" column="3" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -2375,10 +2340,70 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="27" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/redux/actions/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/redux/reducers/cartReducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/redux/reducers/rootReducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/redux/store.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/components/App.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="40" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
+          <folding>
+            <element signature="e#125#162#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/components/navBar/navBar.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="18" column="37" lean-forward="true" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

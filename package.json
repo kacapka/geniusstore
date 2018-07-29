@@ -13,7 +13,9 @@
     "normalize.css": "^8.0.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-mounter": "^1.2.0"
+    "react-mounter": "^1.2.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0"
   },
   "meteor": {
     "mainModule": {
