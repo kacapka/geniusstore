@@ -13,8 +13,24 @@
         justify-content: flex-end;
         #cartWrapper {
             width: 30px;
+            position: relative;
+            cursor: pointer;
             img {
                 width: 100%;
+            }
+            #cartItems {
+                position: absolute;
+                bottom: 70%;
+                left: 70%;
+                border-radius: 50%;
+                width: 16px;
+                height: 16px;
+                background-color: $mint;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                @extend %text-small;
+                color: #fff;
             }
         }
     }
@@ -27,6 +43,7 @@
             width: 200px;
             img {
                 width: 100%;
+                cursor: pointer;
             }
         }    
     }

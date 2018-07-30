@@ -4,6 +4,10 @@ import {Meteor} from 'meteor/meteor';
 import {withTracker} from 'meteor/react-meteor-data';
 import {Products} from '/lib/collections';
 import SelectInput from "../../common/selectInput/selectInput";
+import {addProductToCart} from "../../redux/actions";
+import {compose} from 'redux';
+import {connect} from 'react-redux';
+import uniqid from 'uniqid';
 
 const SIZES = [
     {value: 'S', extra: 'dostepny'},
@@ -12,7 +16,7 @@ const SIZES = [
     {value: 'XL', extra: 'dostepny'}
 ];
 
-class ProductPage extends Component {
+class Product extends Component {
 
     constructor(props) {
         super(props);
@@ -28,7 +32,12 @@ class ProductPage extends Component {
         if(!this.state.sizeValue) {
             this.setState({sizeError: 'wybierz rozmiar'});
         } else {
-            console.log('send to cart');
+            const product = {
+                product: this.props.product,
+                size: this.state.sizeValue,
+                cartId: uniqid()
+            };
+            this.props.addProductToCart(product);
         }
     }
 
@@ -39,7 +48,6 @@ class ProductPage extends Component {
     render() {
         const {product, handleReady} = this.props;
         if(!handleReady) return <div>loading...</div>;
-        console.log(product);
         return (
             <div id='productPage'>
                 <div id='productArea'>
@@ -89,16 +97,21 @@ class ProductPage extends Component {
 
 }
 
-export default withTracker((props) => {
-    let product;
-    const handle = Meteor.subscribe('product.public', props.productId);
-    const handleReady = handle.ready();
-    if(handleReady) {
-        product = Products.findOne({_id: props.productId});
-    }
+const ProductPage = compose(
+    connect(null, {addProductToCart}),
+    withTracker((props) => {
+        let product;
+        const handle = Meteor.subscribe('product.public', props.productId);
+        const handleReady = handle.ready();
+        if(handleReady) {
+            product = Products.findOne({_id: props.productId});
+        }
 
-    return {
-        handleReady,
-        product
-    }
-})(ProductPage);
+        return {
+            handleReady,
+            product
+        }
+    })
+)(Product);
+
+export default ProductPage;

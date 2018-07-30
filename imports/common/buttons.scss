@@ -1,4 +1,5 @@
 @import './fonts';
+@import './vars';
 
 %btn {
     @extend %nav;
@@ -8,12 +9,22 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    &:hover {
-        background-color: #000;
-        color: #fff;
-    }
 }
 
 %btn--black {
     border: 1px solid #000;
+    &:hover {
+      background-color: #000;
+      border: 1px solid #000;
+      color: #fff;
+    }
+}
+%btn--color {
+  border: 1px solid $mint;
+  background-color: $mint;
+  color: #fff;
+}
+%btn--big {
+    width: 180px;
+    height: 50px;
 }

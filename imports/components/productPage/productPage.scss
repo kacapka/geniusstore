@@ -64,8 +64,7 @@
         #addToCartBtn {
           @extend %btn;
           @extend %btn--black;
-          width: 180px;
-          height: 50px;
+          @extend %btn--big;
         }
       }
       #detailsDescription {
