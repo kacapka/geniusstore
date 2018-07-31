@@ -5,6 +5,7 @@ import App from '../components/App';
 import MainPage from '../components/mainPage/mainPage';
 import ProductPage from '../components/productPage/productPage';
 import CartPage from '../components/cartPage/cartPage';
+import './routesCms';
 
 FlowRouter.route('/', {
     action() {

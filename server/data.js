@@ -7,7 +7,28 @@ Meteor.methods({
     
     resetDb() {
         Meteor.call('resetProducts');
+        Meteor.call('resetUsers');
     },
+
+    resetUsers() {
+        Meteor.users.remove({});
+
+        const user = {
+            email: 'kasiaka@genius.pl',
+            password: 'geniusdot',
+            firstName: 'kasiaka',
+            lastName: 'erynio'
+        };
+
+        Meteor.call('insertUser', user, err => {
+           if(!err) {
+               console.log('users insert ok');
+           } else {
+               console.log(err);
+           }
+        });
+    },
+
     
     
     resetProducts() {
