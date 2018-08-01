@@ -29,24 +29,40 @@ class SelectInput extends Component {
         this.setState({isOpen: !this.state.isOpen});
     }
 
-    onSelectOptionClick(value) {
+    onSelectOptionClick(opt) {
+        if(opt.value === 0) return;
         this.setState({
             isOpen: false,
-            selectedValue: value
+            selectedValue: opt.name
         });
-        this.props.selectValue(value);
+        this.props.selectValue(opt.name);
     }
 
     renderOptions() {
         const options = this.props.options;
         return options.map(opt => {
-            const optionClassName = opt.extra ? 'select-option extra' : 'select-option';
+            const isAviable = opt.value > 0;
+            let aviableClassName = '';
+            let aviableText = '';
+            if(!isAviable) {
+                aviableClassName = 'not-aviable';
+                aviableText = 'niedosteony';
+            } else {
+                if(opt.value === 1) {
+                    aviableClassName = 'last-one';
+                    aviableText = 'ostatni';
+                } else {
+                    aviableClassName = 'aviable';
+                    aviableText = 'dostepny';
+                }
+            }
+            const optionClassName = !isAviable ? 'select-option disabled' : 'select-option';
             return (
-                <div className={optionClassName} key={opt.value}
-                     onClick={() => this.onSelectOptionClick(opt.value)}
+                <div className={optionClassName} key={opt.id}
+                     onClick={() => this.onSelectOptionClick(opt)}
                 >
-                    <div className='option-value'>{opt.value}</div>
-                    {opt.extra && <div className='option-extra'>{opt.extra}</div>}
+                    <div className='option-value'>{opt.name}</div>
+                    <div className={`option-extra ${aviableClassName}`}>{aviableText}</div>
                 </div>
             );
         });

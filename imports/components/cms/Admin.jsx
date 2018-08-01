@@ -3,6 +3,7 @@ import './Admin.scss';
 import {Meteor} from 'meteor/meteor';
 import {withTracker} from 'meteor/react-meteor-data';
 import AdminLogin from "./adminLogin/adminLogin";
+import AdminNavbar from './adminNavbar/adminNavbar';
 
 class Admin extends Component {
 
@@ -10,15 +11,15 @@ class Admin extends Component {
         if(this.props.userId) {
             return (
                 <div id='admin'>
-                    admin !
-                    {this.props.content}
+                    <AdminNavbar />
+                    <div id='adminContent'>
+                        {this.props.content}
+                    </div>
                 </div>
             );
         } else {
             return <AdminLogin />
         }
-
-
     }
 }
 

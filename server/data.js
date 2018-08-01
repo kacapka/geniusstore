@@ -51,7 +51,7 @@ Meteor.methods({
                 price: 69,
                 isNew: false,
                 isSale: false,
-                gender: 'woman'
+                gender: 'woman',
             },
             {
                 photo: '/man2.jpeg',
