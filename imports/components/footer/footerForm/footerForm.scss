@@ -37,12 +37,19 @@
   .footer-input-wrapper {
     display: flex;
     flex-direction: column;
+    position: relative;
     .footer-label {
       @extend %nav;
       margin-bottom: 10px;
     }
     .footer-input {
       @extend %input;
+    }
+    .input-error {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      color: red;
     }
   }
 }

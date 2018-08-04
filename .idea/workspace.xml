@@ -3,16 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1e69d3e9-7ada-407a-99b3-ba235fac1035" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/common/selectInput/selectInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/common/selectInput/selectInput.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/common/selectInput/selectInput.scss" beforeDir="false" afterPath="$PROJECT_DIR$/imports/common/selectInput/selectInput.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/common/vars.scss" beforeDir="false" afterPath="$PROJECT_DIR$/imports/common/vars.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/components/cms/Admin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/cms/Admin.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/components/cms/Admin.scss" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/cms/Admin.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/components/productPage/productPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/productPage/productPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/startup/routesCms.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/startup/routesCms.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/methods/Products/insertProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/methods/Products/insertProduct.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/publish/publish_products.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/publish/publish_products.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/components/footer/footerForm/footerForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/footer/footerForm/footerForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/components/footer/footerForm/footerForm.scss" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/footer/footerForm/footerForm.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,54 +59,49 @@
     <session id="1293443642">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.11" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.28" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="js" value="127" />
-          <entry key="jsx" value="3156" />
-          <entry key="scss" value="1838" />
+          <entry key="jsx" value="3968" />
+          <entry key="scss" value="1896" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JSX Harmony" value="3156" />
+          <entry key="JSX Harmony" value="3968" />
           <entry key="JavaScript" value="127" />
-          <entry key="SCSS" value="1838" />
+          <entry key="SCSS" value="1896" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="1" />
-          <entry key="js" value="3" />
-          <entry key="jsx" value="12" />
-          <entry key="scss" value="13" />
+          <entry key="js" value="4" />
+          <entry key="jsx" value="13" />
+          <entry key="scss" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="1" />
-          <entry key="JSX Harmony" value="12" />
-          <entry key="JavaScript" value="3" />
-          <entry key="SCSS" value="13" />
+          <entry key="JSX Harmony" value="13" />
+          <entry key="JavaScript" value="4" />
+          <entry key="SCSS" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
+      <usages-collector id="statistics.spring.boot.mvc.usages" />
+      <usages-collector id="statistics.spring.boot.run.usages" />
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/data.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="44" column="29" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/methods/Products/insertProduct.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -127,7 +114,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/imports/components/productPage/productPage.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
+            <state relative-caret-position="697">
               <caret line="50" column="29" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -139,7 +126,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/imports/common/selectInput/selectInput.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
+            <state relative-caret-position="680">
               <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="42" />
             </state>
           </provider>
@@ -148,7 +135,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/imports/common/selectInput/selectInput.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
+            <state relative-caret-position="765">
               <caret line="45" column="7" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
             </state>
           </provider>
@@ -157,7 +144,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/adminProduct.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
+            <state relative-caret-position="340">
               <caret line="24" column="85" selection-start-line="24" selection-start-column="85" selection-end-line="24" selection-end-column="85" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -169,17 +156,38 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/adminProduct.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
+            <state relative-caret-position="765">
               <caret line="45" column="19" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/imports/common/vars.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
               <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/imports/components/footer/footerForm/footerForm.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="23" column="41" lean-forward="true" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/imports/components/footer/footerForm/footerForm.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="840">
+              <caret line="51" column="17" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -211,9 +219,7 @@
         <option value="$PROJECT_DIR$/imports/components/App.scss" />
         <option value="$PROJECT_DIR$/server/schema/schemaProduct.js" />
         <option value="$PROJECT_DIR$/client/main.scss" />
-        <option value="$PROJECT_DIR$/imports/components/footer/footerForm/footerForm.jsx" />
         <option value="$PROJECT_DIR$/imports/components/footer/footer.scss" />
-        <option value="$PROJECT_DIR$/imports/components/footer/footerForm/footerForm.scss" />
         <option value="$PROJECT_DIR$/imports/components/footer/footer.jsx" />
         <option value="$PROJECT_DIR$/imports/common/page.scss" />
         <option value="$PROJECT_DIR$/imports/components/mainPage/mainPage.jsx" />
@@ -257,6 +263,9 @@
         <option value="$PROJECT_DIR$/imports/components/cms/adminProduct/adminProduct.jsx" />
         <option value="$PROJECT_DIR$/imports/components/cms/adminProduct/adminProduct.scss" />
         <option value="$PROJECT_DIR$/imports/common/vars.scss" />
+        <option value="$PROJECT_DIR$/imports/functions/emailValidation.js" />
+        <option value="$PROJECT_DIR$/imports/components/footer/footerForm/footerForm.scss" />
+        <option value="$PROJECT_DIR$/imports/components/footer/footerForm/footerForm.jsx" />
       </list>
     </option>
   </component>
@@ -273,36 +282,6 @@
   </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/amdefine/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/ansi-regex/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/ansi-styles/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/asap/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/chalk/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/core-util-is/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/duplexer2/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/escape-string-regexp/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/fibers/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/has-ansi/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/inherits/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/isarray/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/meteor-promise/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/multipipe/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/object-assign/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/process-nextick-args/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/promise/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/readable-stream/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/safe-buffer/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/semver/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/source-map-support/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/source-map/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/split2/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/string_decoder/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/strip-ansi/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/supports-color/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/through2/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/underscore/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/util-deprecate/package.json" />
-      <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/node_modules/xtend/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/npm/node_modules/meteor/babel-compiler/node_modules/@babel/code-frame/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/npm/node_modules/meteor/babel-compiler/node_modules/@babel/core/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/.build584406.build/programs/.build840728.server/npm/node_modules/meteor/babel-compiler/node_modules/@babel/generator/package.json" />
@@ -590,10 +569,12 @@
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/babel-runtime/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/core-js/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/domready/package.json" />
+      <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/encoding/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/fbjs/node_modules/core-js/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/fbjs/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/hoist-non-react-statics/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/iconv-lite/package.json" />
+      <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/invariant/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/is-stream/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/isomorphic-fetch/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/js-tokens/package.json" />
@@ -1015,9 +996,16 @@
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/kadira_flow-router/node_modules/page/node_modules/path-to-regexp/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/kadira_flow-router/node_modules/page/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/kadira_flow-router/node_modules/qs/package.json" />
+      <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/logging/node_modules/cli-color/node_modules/es5-ext/package.json" />
+      <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/logging/node_modules/cli-color/node_modules/memoizee/node_modules/event-emitter/package.json" />
+      <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/logging/node_modules/cli-color/node_modules/memoizee/node_modules/next-tick/package.json" />
+      <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/logging/node_modules/cli-color/node_modules/memoizee/package.json" />
+      <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/logging/node_modules/cli-color/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/meteor/node_modules/meteor-deque/node_modules/double-ended-queue/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/meteor/node_modules/meteor-deque/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/modules-runtime/node_modules/install/package.json" />
+      <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/modules/node_modules/acorn/package.json" />
+      <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/modules/node_modules/reify/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/modules/node_modules/semver/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/mongo/node_modules/mongodb-uri/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/npm-bcrypt/node_modules/bcryptjs/package.json" />
@@ -2331,6 +2319,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -2347,19 +2337,6 @@
               <item name="wasyl" type="b2602c69:ProjectViewProjectNode" />
               <item name="wasyl" type="462c0819:PsiDirectoryNode" />
               <item name="imports" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wasyl" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wasyl" type="462c0819:PsiDirectoryNode" />
-              <item name="imports" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="selectInput" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wasyl" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wasyl" type="462c0819:PsiDirectoryNode" />
-              <item name="imports" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -2367,27 +2344,21 @@
               <item name="wasyl" type="462c0819:PsiDirectoryNode" />
               <item name="imports" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="cartPage" type="462c0819:PsiDirectoryNode" />
+              <item name="footer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wasyl" type="b2602c69:ProjectViewProjectNode" />
               <item name="wasyl" type="462c0819:PsiDirectoryNode" />
               <item name="imports" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="cms" type="462c0819:PsiDirectoryNode" />
+              <item name="footer" type="462c0819:PsiDirectoryNode" />
+              <item name="footerForm" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wasyl" type="b2602c69:ProjectViewProjectNode" />
               <item name="wasyl" type="462c0819:PsiDirectoryNode" />
               <item name="imports" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="productPage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wasyl" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wasyl" type="462c0819:PsiDirectoryNode" />
-              <item name="imports" type="462c0819:PsiDirectoryNode" />
-              <item name="startup" type="462c0819:PsiDirectoryNode" />
+              <item name="functions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wasyl" type="b2602c69:ProjectViewProjectNode" />
@@ -2417,15 +2388,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533155943703" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533408997207" />
     <property name="jsx.switch.disabled" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -2481,12 +2450,13 @@
       <workItem from="1532766813352" duration="39869000" />
       <workItem from="1532974295626" duration="10854000" />
       <workItem from="1533013273865" duration="5218000" />
-      <workItem from="1533042300535" duration="16916000" />
+      <workItem from="1533042300535" duration="17913000" />
+      <workItem from="1533405014469" duration="2402000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85479000" />
+    <option name="totallyTimeSpent" value="88878000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2506,7 +2476,7 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.19936034" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.20149253" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.47830802" />
@@ -2537,9 +2507,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/main_bg.jpg" />
     <entry file="file://$PROJECT_DIR$/server/schema/schemaProduct.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -2550,20 +2517,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/main.scss">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/components/footer/footerForm/footerForm.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="55" column="48" selection-start-line="55" selection-start-column="48" selection-end-line="55" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/components/footer/footerForm/footerForm.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/imports/components/footer/footer.scss">
       <provider selected="true" editor-type-id="text-editor">
@@ -2593,9 +2546,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#62#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2676,9 +2626,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2689,9 +2636,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2699,9 +2643,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2723,9 +2664,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="26" selection-start-line="26" selection-end-line="26" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2740,9 +2678,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="52" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2750,9 +2685,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="14" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2760,9 +2692,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2770,10 +2699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-            <element signature="e#172#209#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2781,9 +2706,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2791,9 +2713,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="599">
           <caret line="48" column="4" selection-start-line="48" selection-start-column="4" selection-end-line="58" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2801,9 +2720,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="56" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2835,41 +2751,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/main.html">
+    <entry file="file://$PROJECT_DIR$/imports/components/cms/adminNavbar/adminNavbar.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        <state relative-caret-position="-78">
+          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/data.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
+        <state relative-caret-position="731">
           <caret line="44" column="29" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/common/selectInput/selectInput.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/components/productPage/productPage.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="50" column="29" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/common/selectInput/selectInput.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="45" column="7" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -2880,9 +2772,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/imports/components/productPage/productPage.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="50" column="29" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/common/selectInput/selectInput.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/common/selectInput/selectInput.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="45" column="7" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/adminProduct.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state relative-caret-position="340">
           <caret line="24" column="85" selection-start-line="24" selection-start-column="85" selection-end-line="24" selection-end-column="85" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
@@ -2890,17 +2806,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/components/cms/adminNavbar/adminNavbar.scss">
+    <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/adminProduct.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-78">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+        <state relative-caret-position="765">
+          <caret line="45" column="19" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/adminProduct.scss">
+    <entry file="file://$PROJECT_DIR$/client/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="45" column="19" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
+        <state relative-caret-position="170">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -2908,6 +2824,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/functions/emailValidation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/components/footer/footerForm/footerForm.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="51" column="17" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/components/footer/footerForm/footerForm.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="23" column="41" lean-forward="true" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
