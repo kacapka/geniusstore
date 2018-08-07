@@ -31,11 +31,11 @@ class FooterForm extends Component {
         let validText = true;
         const {name, email, text} = this.state;
         if(name.length < 2) {
-            this.setState({nameError: 'błedne imię'});
+            this.setState({nameError: 'zapomniałeś się przedstawić'});
             validName = false;
         }
         if(text.length < 10) {
-            this.setState({nameText: 'zbyt krótka wiadomość'});
+            this.setState({textError: 'zbyt krótka wiadomość'});
             validText = false;
         }
         if(!emailValidation(email)) {
@@ -60,11 +60,21 @@ class FooterForm extends Component {
     onSendEmailClick() {
         if(this.validateForm()) {
             this.resetInputs();
-            console.log('send email');
+            const message = {
+                name: this.state.name,
+                text: this.state.text,
+                email: this.state.email
+            }
+            Meteor.call('insertMessage', message, err => {
+               if(err) {
+                   console.log(err);
+               }
+            });
         }
     }
 
     render() {
+        const {nameError, emailError, textError} = this.state;
         return (
             <div id='footerForm'>
                 <div id='footerFormLeft'>
@@ -77,7 +87,7 @@ class FooterForm extends Component {
                                type='text'
                                onChange={this.onInputChange}
                         />
-                        {this.state.nameError && <p className='input-error'>{this.state.nameError}</p>}
+                        {nameError && <p className='input-error'>{nameError}</p>}
                     </div>
                     <div className='footer-input-wrapper'>
                         <label className='footer-label'>email</label>
@@ -88,6 +98,7 @@ class FooterForm extends Component {
                                type='email'
                                onChange={this.onInputChange}
                         />
+                        {emailError && <p className='input-error'>{emailError}</p>}
                     </div>
                 </div>
                 <div id='footerFormRight'>
@@ -99,6 +110,7 @@ class FooterForm extends Component {
                                value={this.state.text}
                                onChange={this.onInputChange}
                         />
+                        {textError && <p className='input-error'>{textError}</p>}
                     </div>
                     <div id='footerFormSubmit'>
                         <div id='footerBtnSubmit' onClick={this.onSendEmailClick}>

@@ -23,6 +23,10 @@
         flex: 0 0 50px;
         ion-icon {
           font-size: 18px;
+          &:hover {
+            cursor: pointer;
+            color: $red;
+          }
         }
       }
       .product-thumbnail {

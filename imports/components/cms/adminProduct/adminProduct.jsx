@@ -29,7 +29,7 @@ class AdminProduct extends Component {
                     </div>
                     <div className='product-feature product-remove'>
                         <ion-icon name="remove-circle"
-                                  onClick={() => this.onDeleteProductClick(item.cartId)}
+                                  onClick={() => this.onDeleteProductClick(product.cartId)}
                         />
                     </div>
                 </div>

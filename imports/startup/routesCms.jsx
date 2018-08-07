@@ -4,6 +4,7 @@ import {mount} from 'react-mounter';
 import Admin from '../components/cms/Admin';
 import AdminHome from '../components/cms/adminHome/adminHome';
 import AdminProduct from "../components/cms/adminProduct/adminProduct";
+import AdminMessages from "../components/cms/adminMessages/adminMessages";
 
 FlowRouter.route('/admin', {
     action() {
@@ -18,6 +19,15 @@ FlowRouter.route('/admin/product', {
     action() {
         mount(Admin, {
             content: <AdminProduct />
+        });
+    }
+});
+
+//messages
+FlowRouter.route('/admin/messages', {
+    action() {
+        mount(Admin, {
+            content: <AdminMessages />
         });
     }
 });

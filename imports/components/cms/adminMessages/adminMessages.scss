@@ -1,0 +1,59 @@
+@import '../../../common/cms';
+@import '../../../common/fonts';
+@import '../../../common/vars';
+
+#adminMessages {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  #messagesList {
+    @extend %cms-box;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    //.message-box {
+      .message-item {
+        @extend %text-medium;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        .message-feature {
+          flex: 1;
+          display: flex;
+          justify-content: flex-start;
+        }
+        .message-remove {
+          flex: 0 0 50px;
+          ion-icon {
+            font-size: 18px;
+            &:hover {
+              cursor: pointer;
+              color: $red;
+            }
+          }
+        }
+        &.message-header {
+          border-bottom: 1px solid #000;
+          padding-bottom: 20px;
+          margin-bottom: 20px;
+          font-weight: 800;
+          .message-photo {
+            flex: 0 0 70px;
+          }
+        }
+        &.message--unread {
+          font-weight: 800;
+        }
+      }
+      .message-full-text {
+          height: 0;
+          overflow: hidden;
+        &.message--open {
+          height: auto;
+        }
+      }
+    //}
+  }
+}
