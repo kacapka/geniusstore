@@ -8,17 +8,15 @@
   flex-direction: column;
   #messagesList {
     @extend %cms-box;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 50px;
-    //.message-box {
+    @extend %cms-list;
+    .message-box {
+      &:nth-child(odd) {
+        background-color: #dff9fb;
+      }
       .message-item {
         @extend %text-medium;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 10px;
+        @extend %cms-list-item;
+        cursor: pointer;
         .message-feature {
           flex: 1;
           display: flex;
@@ -34,15 +32,6 @@
             }
           }
         }
-        &.message-header {
-          border-bottom: 1px solid #000;
-          padding-bottom: 20px;
-          margin-bottom: 20px;
-          font-weight: 800;
-          .message-photo {
-            flex: 0 0 70px;
-          }
-        }
         &.message--unread {
           font-weight: 800;
         }
@@ -52,8 +41,20 @@
           overflow: hidden;
         &.message--open {
           height: auto;
+          padding: 40px 20px;
+          border-bottom: 1px solid $grey;
+          border-left: 1px solid $grey;
         }
       }
-    //}
+    }
+    .message-item{
+      @extend %cms-list-item;
+      &.message-header {
+        @extend %cms-list-header;
+        .message-photo {
+          flex: 0 0 70px;
+        }
+      }
+    }
   }
 }

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './adminProduct.scss';
-import {Products} from "../../../../lib/collections";
+import {Products, Collections} from "../../../../lib/collections";
 import {Meteor} from 'meteor/meteor';
 import {withTracker} from 'meteor/react-meteor-data';
 
@@ -14,7 +14,7 @@ class AdminProduct extends Component {
                         <img src={product.photo} alt='product thumbnail' />
                     </div>
                     <div className='product-feature product-title'>{product.title}</div>
-                    <div className='product-feature product-collection'>{product.collection}</div>
+                    <div className='product-feature product-collection'>{product.collection.name}</div>
                     <div className='product-feature product-price'>{product.price}</div>
                     <div className='product-feature product-sizes'>
                         {product.sizes.map(size => {
@@ -64,6 +64,10 @@ export default withTracker(() => {
     const handleReady = handle.ready();
     if(handleReady) {
         products = Products.find({}).fetch();
+        for(let i=0; i<products.length; i++) {
+            products[i].collection = Collections.findOne({_id: products[i].collectionId});
+            console.log(products[i].collectionId);
+        }
     }
 
     return {

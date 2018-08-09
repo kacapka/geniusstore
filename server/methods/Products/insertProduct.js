@@ -3,7 +3,6 @@ import {Products} from '/lib/collections';
 
 Meteor.methods({
     addProduct(product) {
-        product.collection = 'summer chill';
         const features = [
             'Nasz model ma 180 cm wzrostu i nosi rozmiar S',
             'calkowita dlugos 65 cm w rozmiarze S',

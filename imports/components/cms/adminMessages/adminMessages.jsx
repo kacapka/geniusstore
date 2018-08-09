@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import './adminMessages.scss';
 import {Messages} from "../../../../lib/collections";
 import {withTracker} from 'meteor/react-meteor-data';
-import {Meteor} from 'meteor/meteor';
+import {Meteor} from 'meteor/meteor'
+import dateAgo from '/imports/functions/dateAgo';
 
 class AdminMessages extends Component {
 
@@ -29,7 +30,6 @@ class AdminMessages extends Component {
             });
         }
         const message = e.target.closest('.message-box').lastChild;
-        console.log(e.target);
         message.classList.toggle('message--open');
     }
 
@@ -39,12 +39,12 @@ class AdminMessages extends Component {
         return messages.map(message => {
             const messageClassName = !message.isOpen ? 'message-item message--unread' : 'message-item';
             return (
-                <div className='message-box' key={message._id} onClick={(e) => this.onMessageClick(e, message._id, message.isOpen)}>
+                <li className='message-box' key={message._id} onClick={(e) => this.onMessageClick(e, message._id, message.isOpen)}>
                    <div className={messageClassName}>
                        <div className='message-feature message-name'>{message.name}</div>
                        <div className='message-feature message-email'>{message.email}</div>
                        <div className='message-feature message-text'>{`${message.text.slice(0, 20)}...`}</div>
-                       <div className='message-feature message-date'>date</div>
+                       <div className='message-feature message-date'>{dateAgo(message.date).full}</div>
                        <div className='message-feature message-remove'>
                            <ion-icon name="remove-circle"
                                      onClick={() => this.onDeleteMessageClick(message._id)}
@@ -52,7 +52,7 @@ class AdminMessages extends Component {
                        </div>
                    </div>
                    <div className='message-full-text'>{message.text}</div>
-                </div>
+                </li>
             );
         });
     }
@@ -61,16 +61,16 @@ class AdminMessages extends Component {
         console.log(this.props.messages);
         return (
             <div id='adminMessages'>
-                <div id='messagesList'>
-                    <div className='message-item message-header'>
+                <ul id='messagesList'>
+                    <li className='message-item message-header'>
                         <div className='message-feature message-name'>uzytkownik</div>
                         <div className='message-feature message-email'>email</div>
                         <div className='message-feature message-text'>wiadomosc</div>
                         <div className='message-feature message-date'>data</div>
                         <div className='message-feature message-remove'>usun</div>
-                    </div>
+                    </li>
                     {this.renderMessages()}
-                </div> 
+                </ul>
             </div>
         );
     }

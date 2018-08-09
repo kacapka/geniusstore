@@ -1,4 +1,5 @@
 @import '../../../common/vars';
+@import '../../../common/fonts';
 
 #adminNavbar {
   position: fixed;
@@ -34,12 +35,27 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      position: relative;
       span {
         margin-bottom: 10px;
       }
       ion-icon {
         font-size: 26px;
         color: #000;
+      }
+      .count-alert {
+        @extend %text-small;
+        position: absolute;
+        top: 25%;
+        right: 35%;
+        background-color: $red;
+        border-radius: 50%;
+        color: #fff;
+        display: flex;
+        width: 20px;
+        height: 20px;
+        justify-content: center;
+        align-items: center;
       }
       &:hover {
         background-color: $admin;

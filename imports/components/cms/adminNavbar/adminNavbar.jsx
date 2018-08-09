@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import './adminNavbar.scss';
 import {FlowRouter} from 'meteor/kadira:flow-router';
+import {Messages} from "../../../../lib/collections";
+import {withTracker} from 'meteor/react-meteor-data';
+import {Meteor} from 'meteor/meteor';
 
 const ROUTES = [
     {name: 'zestawienia', icon: 'stats', route: 'stats'},
@@ -29,6 +32,7 @@ class AdminNavbar extends Component {
                <li key={route.name} onClick={() => this.onRouteItemClick(route.route)}>
                    <ion-icon name={route.icon} />
                     <span>{route.name}</span>
+                   {this.props.handleReady && route.route === 'messages' && this.props.messageCount !== 0 && <div className='count-alert'>{this.props.messageCount}</div>}
                </li>
            );
         });
@@ -49,4 +53,16 @@ class AdminNavbar extends Component {
     }
 }
 
-export default AdminNavbar;
+export default withTracker(() => {
+    let messageCount;
+    const handle = Meteor.subscribe('messageCount.admin');
+    const handleReady = handle.ready();
+    if(handleReady) {
+        messageCount = Messages.find({isOpen: false}).fetch().length;
+    }
+
+    return {
+        handleReady,
+        messageCount
+    }
+})(AdminNavbar);

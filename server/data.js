@@ -1,13 +1,15 @@
 import {Meteor} from 'meteor/meteor';
-import {Products} from '/lib/collections';
+import {Products, Messages, Collections} from '/lib/collections';
 
 const LOREM = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.;'
 
 Meteor.methods({
     
     resetDb() {
-        Meteor.call('resetProducts');
         Meteor.call('resetUsers');
+        Meteor.call('resetMessages');
+        Meteor.call('resetCollections');
+        Meteor.call('resetProducts');
     },
 
     resetUsers() {
@@ -180,10 +182,52 @@ Meteor.methods({
                 gender: 'man'
             }
         ];
-        
+        const collections = Collections.find({}).fetch();
+
         for(let i=0; i < products.length; i++) {
+            let random = Math.floor(Math.random() * 3);
+            products[i].collectionId = collections[random]._id;
             Meteor.call('addProduct', products[i]);
-            //Products.insert(products[i]);
+        }
+    },
+
+    resetMessages() {
+        Messages.remove({});
+
+        const messages = [
+            {
+                name: 'kacapka',
+                email: 'kacapka@kon.pl',
+                text: LOREM
+            },
+            {
+                name: 'erynio',
+                email: 'ercion@hauhau.pl',
+                text: LOREM
+            },
+            {
+                name: 'mutant',
+                email: 'mutant1987@gmail.pl',
+                text: LOREM
+            }
+        ];
+
+        for(let i=0; i<messages.length; i++) {
+            Meteor.call('insertMessage', messages[i]);
+        }
+    },
+
+    resetCollections() {
+        Collections.remove({});
+
+        const collections = [
+            {name: 'genius genuine'},
+            {name: 'summer 2018'},
+            {name: 'train & chi;;'}
+        ];
+
+        for(let i=0; i<collections.length; i++) {
+            Meteor.call('insertCollection', collections[i]);
         }
     }
     
