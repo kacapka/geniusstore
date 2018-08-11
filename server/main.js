@@ -6,6 +6,8 @@ import './methods/Messages/insertMessage';
 import './methods/Messages/deleteMessage';
 import './methods/Messages/updateMessage';
 import './methods/Collections/insertCollection';
+import './methods/Collections/deleteCollection';
+import './methods/Collections/editCollection';
 import './methods/Users/insertUser';
 
 //publish

@@ -14,7 +14,7 @@ class ProductList extends Component {
                         <img src={product.photo} alt='product thumbnail' />
                     </div>
                     <div className='product-feature product-title'>{product.title}</div>
-                    <div className='product-feature product-collection'>{product.collection.name}</div>
+                    <div className='product-feature product-collection'>{product.collection ? product.collection.name : <span>brak przypisanej kolekcji !</span>}</div>
                     <div className='product-feature product-price'>{product.price}</div>
                     <div className='product-feature product-sizes'>
                         {product.sizes.map(size => {

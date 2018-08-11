@@ -1,0 +1,95 @@
+@import '../../../../common/cms';
+@import '../../../../common/fonts';
+@import '../../../../common/vars';
+@import '../../../../common/inputs';
+@import '../../../../common/buttons';
+
+#productCollections {
+  display: flex;
+  flex: 1;
+  #collectionsList {
+    @extend %cms-list;
+    @extend %cms-box;
+    margin: 25px;
+    .collection-item {
+      @extend %cms-list-item;
+      div {
+        flex: 1;
+      }
+      ion-icon {
+        flex: 0 0 50px;
+        cursor: pointer;
+        &.icon-red {
+          &:hover {
+            color: $red;
+          }
+        }
+        &.icon-red {
+          &:hover {
+            color: $green;
+          }
+        }
+      }
+    }
+    .collection-item-header {
+      @extend %cms-list-header;
+      font-weight: 800;
+    }
+  }
+  #collectionEdit {
+    @extend %cms-box;
+    flex: 1;
+    margin: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    #collectionForm {
+      display: flex;
+      flex-direction: column;
+      .input-wrapper {
+        display: flex;
+        flex-direction: column;
+        label {
+          @extend %text-medium;
+          margin-bottom: 20px;
+        }
+        input {
+          @extend %input;
+        }
+      }
+      #buttonsWrapper {
+        display: flex;
+        margin-top: 30px;
+        .btn-form {
+          @extend %btn;
+          &.btn-form--red {
+            @extend %btn--red;
+          }
+          &.btn-form--green {
+            @extend %btn--green;
+            margin-right: 20px;
+          }
+        }
+      }
+    }
+    #addCollectionBtn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      ion-icon {
+        font-size: 40px;
+        margin-bottom: 20px;
+        &:hover {
+          color: $admin;
+          cursor: pointer;
+        }
+      }
+      span {
+        @extend %text-medium;
+      }
+    }
+  }
+
+}

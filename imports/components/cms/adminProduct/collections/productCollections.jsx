@@ -2,66 +2,181 @@ import React, {Component} from 'react';
 import './productCollections.scss';
 import {Collections} from "../../../../../lib/collections";
 import {withTracker} from 'meteor/react-meteor-data';
-import {Meteor} from 'meteor/meteor'
-import dateAgo from '/imports/functions/dateAgo';
+import {Meteor} from 'meteor/meteor';
 
 class ProductCollections extends Component {
 
-    // onDeleteMessageClick(id) {
-    //     if(window.confirm('czy na pewno chcesz usunąć tę wiadomość?')) {
-    //         Meteor.call('deleteMessage', id, err => {
-    //             if(!err) {
-    //                 console.log('messaged deleteed success');
-    //             } else {
-    //                 alert('nie masz uprawnień so wykonania tej czynności');
-    //             }
-    //         });
-    //     }
-    // }
+    constructor(props) {
+        super(props);
+        this.state = {
+            isForm: false,
+            isAdd: false,
+            editValue: '',
+            addValue: '',
+            editId: null
+        };
+        this.onAddCollectionBtnClick = this.onAddCollectionBtnClick.bind(this);
+        this.onCloseBtnClick = this.onCloseBtnClick.bind(this);
+        this.onEditIconClick = this.onEditIconClick.bind(this);
+        this.onInputChange = this.onInputChange.bind(this);
+        this.submitAddCollection = this.submitAddCollection.bind(this);
+        this.submitEditCollection = this.submitEditCollection.bind(this);
+    }
 
-    // onMessageClick(e, id, isOpen) {
-    //     if(!isOpen) {
-    //         Meteor.call('setMessageAsRead', id, err => {
-    //             if (!err) {
-    //                 console.log('messaged opened');
-    //             } else {
-    //                 alert('nie masz uprawnień so wykonania tej czynności');
-    //             }
-    //         });
-    //     }
-    //     const message = e.target.closest('.message-box').lastChild;
-    //     message.classList.toggle('message--open');
-    // }
+    onDeleteCollectionClick(id) {
+        if(window.confirm('czy na pewno chcesz usunąć tę kolekcje?')) {
+            Meteor.call('deleteCollection', id, err => {
+                if(!err) {
+                    console.log('collection deleteed success');
+                } else {
+                    alert('nie masz uprawnień so wykonania tej czynności');
+                }
+            });
+        }
+    }
 
-    // renderCollections() {
-    //     const Collections = this.props.Collections;
-    //     if(!Collections) return <div>nie masz żadnych wiadomości</div>;
-    //     return Collections.map(message => {
-    //         const messageClassName = !message.isOpen ? 'message-item message--unread' : 'message-item';
-    //         return (
-    //             <li className='message-box' key={message._id} onClick={(e) => this.onMessageClick(e, message._id, message.isOpen)}>
-    //                 <div className={messageClassName}>
-    //                     <div className='message-feature message-name'>{message.name}</div>
-    //                     <div className='message-feature message-email'>{message.email}</div>
-    //                     <div className='message-feature message-text'>{`${message.text.slice(0, 20)}...`}</div>
-    //                     <div className='message-feature message-date'>{dateAgo(message.date).full}</div>
-    //                     <div className='message-feature message-remove'>
-    //                         <ion-icon name="remove-circle"
-    //                                   onClick={() => this.onDeleteMessageClick(message._id)}
-    //                         />
-    //                     </div>
-    //                 </div>
-    //                 <div className='message-full-text'>{message.text}</div>
-    //             </li>
-    //         );
-    //     });
-    // }
+    submitAddCollection() {
+        const name = this.state.addValue;
+        if(name.length < 2) {
+            alert('nazwa kolekcji musi miec przynajmnije 2 litery');
+            return;
+        }
+        const newCollection = {
+            name
+        };
+        Meteor.call('insertCollection', newCollection, err => {
+            if(!err) {
+                console.log('collection insert success');
+                this.setState({isForm: false, addValue: ''});
+            } else {
+                alert('bload podczas dodwania kolekcji');
+            }
+        });
+    }
+
+    submitEditCollection() {
+        const name = this.state.editValue;
+        const id = this.state.editId;
+        if(name.length < 2) {
+            alert('nazwa kolekcji musi miec przynajmnije 2 litery');
+            return;
+        };
+        Meteor.call('editCollection', name, id, err => {
+            if(!err) {
+                console.log('collection insert success');
+                this.setState({isForm: false, editId: null});
+            } else {
+                alert('bload podczas edycji kolekcji');
+            }
+        });
+    }
+
+    onAddCollectionBtnClick() {
+        this.setState({
+            isForm: true,
+            isAdd: true
+        });
+    }
+
+    onCloseBtnClick() {
+        this.setState({isForm: false, addValue: ''});
+    }
+
+    onEditIconClick(name, id) {
+        this.setState({
+            isForm: true,
+            isAdd: false,
+            editValue: name,
+            editId: id
+        });
+    }
+
+    onInputChange(e) {
+        const value = e.target.value;
+        if(this.state.isAdd) {
+            this.setState({addValue: value});
+        } else {
+            this.setState({editValue: value});
+        }
+    }
+
+
+    renderCollections() {
+        const collections = this.props.collections;
+        if(collections.length === 0) return <div>brak kolekcji</div>;
+        return collections.map(col => {
+            return (
+                <li className='collection-item' key={col._id}>
+                    <div>{col.name}</div>
+                    <ion-icon name="close-circle" className='icon-red'
+                              onClick={() => this.onDeleteCollectionClick(col._id)}
+                    />
+                    <ion-icon name="create" className='icon-green'
+                              onClick={() => this.onEditIconClick(col.name, col._id)}
+                    />
+                </li>
+            );
+        })
+    }
+
 
     render() {
-        console.log(this.props);
         return (
             <div id='productCollections'>
-                colllection page
+                <ul id='collectionsList'>
+                    <li className='collection-item collection-item-header'>
+                        <div>nazwa</div>
+                    </li>
+                    {this.props.handleReady && this.renderCollections()}
+                </ul>
+                <div id='collectionEdit'>
+                    {(()=> {
+                        if(this.state.isForm) {
+                            const {addValue, editValue, isAdd} = this.state;
+                            return (
+                                <div id='collectionForm'>
+                                    <div className='input-wrapper'>
+                                        <label>nazwa</label>
+                                        <input value={isAdd ? addValue : editValue}
+                                                type='text'
+                                               onChange={this.onInputChange}
+                                        />
+                                    </div>
+                                    <div id='buttonsWrapper'>
+                                        {this.state.isAdd ?
+                                            <div className='btn-form btn-form--green'
+                                                 onClick={this.submitAddCollection}
+                                            >
+                                                dodaj
+                                            </div>
+                                        :
+                                            <div className='btn-form btn-form--green'
+                                                 onClick={this.submitEditCollection}
+                                            >
+                                                zapisz
+                                            </div>
+
+                                        }
+                                        <div className='btn-form btn-form--red'
+                                             onClick={this.onCloseBtnClick}
+                                        >
+                                            cofnij
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        } else {
+                            return (
+                                <div id='addCollectionBtn'>
+                                    <ion-icon name='add-circle-outline'
+                                              onClick={this.onAddCollectionBtnClick}
+                                    />
+                                    <span>dodaj kolekcje</span>
+                                </div>
+                            )
+                        }
+                    })()}
+                </div>
             </div>
         );
     }
