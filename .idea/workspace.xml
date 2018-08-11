@@ -2,7 +2,56 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e69d3e9-7ada-407a-99b3-ba235fac1035" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/imports/common/cms.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imports/common/switchInput/switchInput.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imports/common/switchInput/switchInput.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imports/components/cms/adminLogin/adminLogin.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imports/components/cms/adminLogin/adminLogin.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imports/components/cms/adminMessages/adminMessages.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imports/components/cms/adminMessages/adminMessages.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imports/components/cms/adminNavbar/adminNavbar.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imports/components/cms/adminNavbar/adminNavbar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imports/components/cms/adminProduct/adminProduct.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imports/components/cms/adminProduct/adminProduct.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imports/components/cms/adminProduct/collections/productCollections.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imports/components/cms/adminProduct/collections/productCollections.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imports/components/cms/adminProduct/create/productCreate.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imports/components/cms/adminProduct/create/productCreate.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imports/components/cms/adminProduct/list/productList.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imports/components/cms/adminProduct/list/productList.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imports/functions/dateAgo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imports/functions/emailValidation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/methods/Collections/deleteCollection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/methods/Collections/editCollection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/methods/Collections/insertCollection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/methods/Messages/deleteMessage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/methods/Messages/insertMessage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/methods/Messages/updateMessage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/publish/publish_collections.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/publish/publish_messages.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/schema/schemaCollection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/schema/schemaMessage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/schema/validation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/common/buttons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/imports/common/buttons.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/common/fonts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/imports/common/fonts.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/common/inputs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/imports/common/inputs.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/common/selectInput/selectInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/common/selectInput/selectInput.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/common/selectInput/selectInput.scss" beforeDir="false" afterPath="$PROJECT_DIR$/imports/common/selectInput/selectInput.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/common/vars.scss" beforeDir="false" afterPath="$PROJECT_DIR$/imports/common/vars.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/components/cms/Admin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/cms/Admin.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/components/cms/Admin.scss" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/cms/Admin.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/components/footer/footerForm/footerForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/footer/footerForm/footerForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/components/footer/footerForm/footerForm.scss" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/footer/footerForm/footerForm.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/components/mainPage/mainPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/mainPage/mainPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/components/productPage/productPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/productPage/productPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/startup/routesCms.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/startup/routesCms.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/collections.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/collections.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/methods/Products/insertProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/methods/Products/insertProduct.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/methods/Users/insertUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/methods/Users/insertUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/publish/publish_products.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/publish/publish_products.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,39 +73,135 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="7" />
-          <entry key="js" value="23" />
-          <entry key="jsx" value="26" />
-          <entry key="scss" value="39" />
+          <entry key="js" value="26" />
+          <entry key="jsx" value="32" />
+          <entry key="scss" value="46" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="7" />
-          <entry key="JSX Harmony" value="26" />
-          <entry key="JavaScript" value="23" />
-          <entry key="SCSS" value="39" />
+          <entry key="JSX Harmony" value="32" />
+          <entry key="JavaScript" value="26" />
+          <entry key="SCSS" value="46" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="20" />
-          <entry key="js" value="2407" />
-          <entry key="jsx" value="9290" />
-          <entry key="scss" value="4572" />
+          <entry key="js" value="2524" />
+          <entry key="jsx" value="11686" />
+          <entry key="scss" value="5162" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="20" />
-          <entry key="JSX Harmony" value="9290" />
-          <entry key="JavaScript" value="2407" />
-          <entry key="SCSS" value="4572" />
+          <entry key="JSX Harmony" value="11686" />
+          <entry key="JavaScript" value="2524" />
+          <entry key="SCSS" value="5162" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <splitter split-orientation="horizontal" split-proportion="0.6139818">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/create/productCreate.jsx">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="378">
+                  <caret line="64" column="24" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
+                  <folding>
+                    <element signature="e#0#39#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/server/methods/Products/insertProduct.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="140">
+                  <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="17" selection-end-column="10" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/imports/common/selectInput/selectInput.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="56">
+                  <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/imports/common/selectInput/selectInput.jsx">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="364">
+                  <caret line="61" column="36" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="36" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/imports/components/productPage/productPage.jsx">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-504">
+                  <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/imports/common/switchInput/switchInput.jsx">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="266">
+                  <caret line="19" column="54" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
+                  <folding>
+                    <element signature="e#0#39#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/create/productCreate.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="462">
+                  <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/imports/common/inputs.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="280">
+                  <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/imports/common/fonts.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="168">
+                  <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -74,23 +219,19 @@
         <option value="$PROJECT_DIR$/imports/components/App.scss" />
         <option value="$PROJECT_DIR$/server/schema/schemaProduct.js" />
         <option value="$PROJECT_DIR$/client/main.scss" />
-        <option value="$PROJECT_DIR$/imports/common/inputs.scss" />
         <option value="$PROJECT_DIR$/imports/components/footer/footerForm/footerForm.jsx" />
         <option value="$PROJECT_DIR$/imports/components/footer/footer.scss" />
         <option value="$PROJECT_DIR$/imports/components/footer/footerForm/footerForm.scss" />
         <option value="$PROJECT_DIR$/imports/components/footer/footer.jsx" />
         <option value="$PROJECT_DIR$/imports/common/page.scss" />
-        <option value="$PROJECT_DIR$/server/publish/publish_products.js" />
         <option value="$PROJECT_DIR$/imports/components/mainPage/mainPage.jsx" />
         <option value="$PROJECT_DIR$/imports/common/fonts.scss" />
-        <option value="$PROJECT_DIR$/imports/common/selectInput/selectInput.scss" />
         <option value="$PROJECT_DIR$/server/methods/Products/insertProduct.js" />
         <option value="$PROJECT_DIR$/imports/components/mainPage/mainPage.scss" />
         <option value="$PROJECT_DIR$/client/main.html" />
         <option value="$PROJECT_DIR$/imports/redux/store.js" />
         <option value="$PROJECT_DIR$/imports/redux/reducers/rootReducer.js" />
         <option value="$PROJECT_DIR$/imports/components/App.jsx" />
-        <option value="$PROJECT_DIR$/imports/common/selectInput/selectInput.jsx" />
         <option value="$PROJECT_DIR$/imports/components/navBar/navBar.jsx" />
         <option value="$PROJECT_DIR$/imports/components/navBar/navBar.scss" />
         <option value="$PROJECT_DIR$/imports/redux/actions/index.js" />
@@ -102,7 +243,6 @@
         <option value="$PROJECT_DIR$/imports/common/vars.scss" />
         <option value="$PROJECT_DIR$/imports/components/cartPage/cartPage.scss" />
         <option value="$PROJECT_DIR$/imports/common/buttons.scss" />
-        <option value="$PROJECT_DIR$/imports/startup/routesCms.jsx" />
         <option value="$PROJECT_DIR$/imports/components/cms/adminHome/adminHome.jsx" />
         <option value="$PROJECT_DIR$/imports/components/cms/admin.jsx" />
         <option value="$PROJECT_DIR$/imports/startup/routes.jsx" />
@@ -111,6 +251,17 @@
         <option value="$PROJECT_DIR$/imports/components/cms/Admin.jsx" />
         <option value="$PROJECT_DIR$/server/data.js" />
         <option value="$PROJECT_DIR$/server/methods/Users/insertUser.js" />
+        <option value="$PROJECT_DIR$/imports/startup/routesCms.jsx" />
+        <option value="$PROJECT_DIR$/imports/components/cms/adminProduct/create/createProduct.jsx" />
+        <option value="$PROJECT_DIR$/imports/components/cms/adminProduct/adminProduct.scss" />
+        <option value="$PROJECT_DIR$/imports/common/switchInput/switchInput.scss" />
+        <option value="$PROJECT_DIR$/imports/common/inputs.scss" />
+        <option value="$PROJECT_DIR$/server/publish/publish_products.js" />
+        <option value="$PROJECT_DIR$/imports/components/cms/adminProduct/create/productCreate.scss" />
+        <option value="$PROJECT_DIR$/imports/common/selectInput/selectInput.jsx" />
+        <option value="$PROJECT_DIR$/imports/common/selectInput/selectInput.scss" />
+        <option value="$PROJECT_DIR$/imports/common/switchInput/switchInput.jsx" />
+        <option value="$PROJECT_DIR$/imports/components/cms/adminProduct/create/productCreate.jsx" />
       </list>
     </option>
   </component>
@@ -1900,6 +2051,90 @@
             <path>
               <item name="geniusstore" type="b2602c69:ProjectViewProjectNode" />
               <item name="geniusstore" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="geniusstore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="geniusstore" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="geniusstore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="geniusstore" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="selectInput" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="geniusstore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="geniusstore" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="switchInput" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="geniusstore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="geniusstore" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="geniusstore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="geniusstore" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="cms" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="geniusstore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="geniusstore" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="cms" type="462c0819:PsiDirectoryNode" />
+              <item name="adminProduct" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="geniusstore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="geniusstore" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="cms" type="462c0819:PsiDirectoryNode" />
+              <item name="adminProduct" type="462c0819:PsiDirectoryNode" />
+              <item name="create" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="geniusstore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="geniusstore" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="cms" type="462c0819:PsiDirectoryNode" />
+              <item name="adminProduct" type="462c0819:PsiDirectoryNode" />
+              <item name="list" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="geniusstore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="geniusstore" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="navBar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="geniusstore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="geniusstore" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="productPage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="geniusstore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="geniusstore" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="startup" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="geniusstore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="geniusstore" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -1907,6 +2142,19 @@
               <item name="geniusstore" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="methods" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="geniusstore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="geniusstore" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="methods" type="462c0819:PsiDirectoryNode" />
+              <item name="Products" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="geniusstore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="geniusstore" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="publish" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1918,7 +2166,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533019425213" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534010884298" />
     <property name="jsx.switch.disabled" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -1979,7 +2227,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68750000" />
+    <option name="totallyTimeSpent" value="78627000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1992,13 +2240,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" weight="0.20080972" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.20080972" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.47864768" />
@@ -2082,13 +2331,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/common/inputs.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/components/footer/footerForm/footerForm.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -2110,29 +2352,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/publish/publish_products.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/common/page.scss">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/common/selectInput/selectInput.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/methods/Products/insertProduct.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="33" lean-forward="true" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/imports/components/mainPage/mainPage.scss">
       <provider selected="true" editor-type-id="text-editor">
@@ -2159,20 +2380,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/common/fonts.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/common/selectInput/selectInput.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="36" column="38" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -2236,13 +2443,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/components/productPage/productPage.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -2324,13 +2524,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/startup/routesCms.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="12" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/components/cms/adminHome/adminHome.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -2347,6 +2540,113 @@
           <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/adminProduct.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/startup/routesCms.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-74">
+          <caret line="9" column="77" selection-start-line="9" selection-start-column="77" selection-end-line="9" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/adminProduct.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/common/fonts.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/common/inputs.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/components/productPage/productPage.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-504">
+          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/create/productCreate.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/common/selectInput/selectInput.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="61" column="36" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/common/switchInput/switchInput.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/common/switchInput/switchInput.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="19" column="54" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/publish/publish_products.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/common/selectInput/selectInput.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/methods/Products/insertProduct.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="17" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/create/productCreate.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="64" column="24" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>

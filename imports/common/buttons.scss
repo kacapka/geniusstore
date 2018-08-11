@@ -24,6 +24,24 @@
   background-color: $mint;
   color: #fff;
 }
+%btn--red {
+  border: 1px solid $red;
+  background-color: #fff;
+  color: $red;
+  &:hover {
+    background-color: $red;
+    color: #fff;
+  }
+}
+%btn--green {
+  border: 1px solid $green;
+  background-color: #fff;
+  color: $green;
+  &:hover {
+    background-color: $green;
+    color: #fff;
+  }
+}
 %btn--big {
     width: 180px;
     height: 50px;

@@ -1,18 +1,30 @@
 import React, {Component} from 'react';
 import './Admin.scss';
 import {Meteor} from 'meteor/meteor';
+import {withTracker} from 'meteor/react-meteor-data';
+import AdminLogin from "./adminLogin/adminLogin";
+import AdminNavbar from './adminNavbar/adminNavbar';
 
 class Admin extends Component {
 
     render() {
-
-        return (
-            <div id='admin'>
-                admin !
-                {this.props.content}
-            </div>
-        );
+        if(this.props.userId) {
+            return (
+                <div id='admin'>
+                    <AdminNavbar />
+                    <div id='adminContent'>
+                        {this.props.content}
+                    </div>
+                </div>
+            );
+        } else {
+            return <AdminLogin />
+        }
     }
 }
 
-export default Admin;
+export default withTracker(() => {
+    return {
+        userId: Meteor.userId()
+    }
+})(Admin);

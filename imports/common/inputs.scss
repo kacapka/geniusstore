@@ -19,3 +19,7 @@
     color: rgba(221, 221, 221, 0.7);
   }
 }
+%label {
+  @extend %text-medium;
+}
+

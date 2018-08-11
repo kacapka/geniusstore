@@ -5,15 +5,12 @@
   height: 35px;
   width: 100px;
   position: relative;
-  z-index: 99999;
+  //z-index: 99999;
   .select-error {
-    @extend %text-small;
-    font-size: 8px;
-    text-transform: lowercase;
+    @extend %error;
     position: absolute;
     bottom: calc(100% + 5px);
     left: 0;
-    color: red;
   }
   .select-value {
     @extend %text-small;
@@ -32,10 +29,10 @@
     width: 100%;
     border: 1px solid $grey;
     background-color: #fff;
-    z-index: 99999;
+    z-index: 999999;
     .select-option {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       @extend %text-small;
       height: 35px;
@@ -44,15 +41,16 @@
       &:hover {
         background-color: $grey;
       }
-      &.extra {
-        justify-content: space-between;
-      }
-      .option-value {
-
-      }
       .option-extra {
         font-size: 8px;
         text-transform: lowercase;
+        &.last-one {
+          color: red;
+        }
+      }
+      &.disabled {
+        cursor: not-allowed;
+        color: $grey;
       }
     }
   }

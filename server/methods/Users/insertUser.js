@@ -8,18 +8,6 @@ Meteor.methods({
             email: user.email,
             password: user.password
         });
-        Meteor.users.update(
-            {_id: userId},
-            {
-                $set: {
-                    firstName: user.firstName,
-                    lastName: user.lastName
-                }
-            }, (err) => {
-                if(!err) {
-                    console.log('error');
-                }
-            }
-        )
+
     }
 });

@@ -48,6 +48,7 @@ class Product extends Component {
     render() {
         const {product, handleReady} = this.props;
         if(!handleReady) return <div>loading...</div>;
+        console.log(product);
         return (
             <div id='productPage'>
                 <div id='productArea'>
@@ -73,7 +74,7 @@ class Product extends Component {
                             <p id='title-price'>PLN {product.price}</p>
                         </div>
                         <div id='detailsCart'>
-                            <SelectInput options={SIZES}
+                            <SelectInput options={product.sizes}
                                          defaultValue='rozmiar'
                                          selectValue={this.selectNewValue}
                                          className='cart-select-size'

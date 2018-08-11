@@ -50,7 +50,7 @@ export default withTracker(() => {
     const handle = Meteor.subscribe('products.public');
     const handleReady = handle.ready();
     if(handleReady) {
-        products = Products.find({}).fetch();
+        products = Products.find({isActive: true}).fetch();
     }
     
     return {
