@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import './adminCollections.scss';
-import {Collections} from "../../../../lib/collections";
+import './productCollections.scss';
+import {Collections} from "../../../../../lib/collections";
 import {withTracker} from 'meteor/react-meteor-data';
 import {Meteor} from 'meteor/meteor'
 import dateAgo from '/imports/functions/dateAgo';
 
-class AdminCollections extends Component {
+class ProductCollections extends Component {
 
     // onDeleteMessageClick(id) {
     //     if(window.confirm('czy na pewno chcesz usunąć tę wiadomość?')) {
@@ -60,7 +60,7 @@ class AdminCollections extends Component {
     render() {
         console.log(this.props);
         return (
-            <div id='adminCollections'>
+            <div id='productCollections'>
                 colllection page
             </div>
         );
@@ -80,4 +80,4 @@ export default withTracker(() => {
         collections
     }
 
-})(AdminCollections);
+})(ProductCollections);

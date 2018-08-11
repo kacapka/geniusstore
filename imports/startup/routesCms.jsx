@@ -5,7 +5,8 @@ import Admin from '../components/cms/Admin';
 import AdminHome from '../components/cms/adminHome/adminHome';
 import AdminProduct from "../components/cms/adminProduct/adminProduct";
 import AdminMessages from "../components/cms/adminMessages/adminMessages";
-import AdminCollections from "../components/cms/adminCollections/adminCollections";
+import ProductList from "../components/cms/adminProduct/list/productList";
+import ProductCollections from "../components/cms/adminProduct/collections/productCollections";
 
 FlowRouter.route('/admin', {
     action() {
@@ -24,6 +25,24 @@ FlowRouter.route('/admin/product', {
     }
 });
 
+//product --> list
+FlowRouter.route('/admin/product/list', {
+    action() {
+        mount(Admin, {
+            content: <ProductList />
+        });
+    }
+});
+
+//collections
+FlowRouter.route('/admin/product/collections', {
+    action() {
+        mount(Admin, {
+            content: <ProductCollections />
+        });
+    }
+});
+
 //messages
 FlowRouter.route('/admin/messages', {
     action() {
@@ -33,12 +52,4 @@ FlowRouter.route('/admin/messages', {
     }
 });
 
-//collections
-FlowRouter.route('/admin/collections', {
-    action() {
-        mount(Admin, {
-            content: <AdminCollections />
-        });
-    }
-});
 

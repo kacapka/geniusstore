@@ -2,7 +2,7 @@ import {Meteor} from 'meteor/meteor';
 import {Products, Collections} from '/lib/collections';
 
 Meteor.publish('products.public', function() {
-    return Products.find({});
+    return Products.find({isActive: true});
 });
 
 Meteor.publish('product.public', function(id) {

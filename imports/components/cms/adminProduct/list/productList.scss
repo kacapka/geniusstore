@@ -1,0 +1,69 @@
+@import '../../../../common/cms';
+@import '../../../../common/fonts';
+@import '../../../../common/vars';
+
+#ProductList {
+  #productsList {
+    @extend %cms-box;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    .product-item {
+      @extend %text-medium;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      .product-feature {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+      }
+      .product-remove {
+        flex: 0 0 50px;
+        ion-icon {
+          font-size: 18px;
+          &:hover {
+            cursor: pointer;
+            color: $red;
+          }
+        }
+      }
+      .product-thumbnail {
+        flex: 0 0 70px;
+        height: 100px;
+        img {
+          width: 100%;
+        }
+      }
+      .product-sizes {
+        .sizes {
+          display: flex;
+          flex-direction: column;
+          margin: 0 10px;
+          .sizes-name {
+            margin-bottom: 5px;
+          }
+          .sizes-value {
+
+          }
+          &.empty {
+            color: $red;
+          }
+          &.last {
+            color: $yellow;
+          }
+        }
+      }
+      &.product-header {
+        border-bottom: 1px solid #000;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        font-weight: 800;
+        .product-photo {
+          flex: 0 0 70px;
+        }
+      }
+    }
+  }
+}

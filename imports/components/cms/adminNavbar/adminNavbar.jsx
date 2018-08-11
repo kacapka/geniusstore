@@ -9,17 +9,11 @@ const ROUTES = [
     {name: 'zestawienia', icon: 'stats', route: 'stats'},
     {name: 'produkty', icon: 'shirt', route: 'product'},
     {name: 'zamowienia', icon: 'cart', route: 'orders'},
-    {name: 'kolekcje', icon: 'pricetag', route: 'collections'},
     {name: 'wiadomosci', icon: 'mail', route: 'messages'},
     {name: 'wyloguj sie', icon: 'power', route: null},
 ];
 
 class AdminNavbar extends Component {
-
-    constructor(props) {
-        super(props);
-        //this.onRouteItemClick = this.onRouteItemClick.bind(this);
-    }
 
     onRouteItemClick(route) {
         if(!route) {Meteor.logout(); return;}

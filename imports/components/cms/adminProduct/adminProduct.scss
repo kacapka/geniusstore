@@ -3,66 +3,34 @@
 @import '../../../common/vars';
 
 #adminProduct {
-  #productsList {
-    @extend %cms-box;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  #productNav {
+    padding: 200px;
+    flex: 1;
     display: flex;
-    flex-direction: column;
-    padding: 50px;
-    .product-item {
-      @extend %text-medium;
+    flex-wrap: wrap;
+    justify-content: center;
+    .nav-item-wrapper {
+      background-color: #fff;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      margin-bottom: 10px;
-      .product-feature {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-      }
-      .product-remove {
-        flex: 0 0 50px;
-        ion-icon {
-          font-size: 18px;
-          &:hover {
-            cursor: pointer;
-            color: $red;
-          }
-        }
-      }
-      .product-thumbnail {
-        flex: 0 0 70px;
-        height: 100px;
-        img {
-          width: 100%;
-        }
-      }
-      .product-sizes {
-        .sizes {
-          display: flex;
-          flex-direction: column;
-          margin: 0 10px;
-          .sizes-name {
-            margin-bottom: 5px;
-          }
-          .sizes-value {
-
-          }
-          &.empty {
-            color: $red;
-          }
-          &.last {
-            color: $yellow;
-          }
-        }
-      }
-      &.product-header {
-        border-bottom: 1px solid #000;
-        padding-bottom: 20px;
+      width: calc(calc(100% / 3) - 60px);
+      margin: 10px;
+      border: 2px solid transparent;
+      ion-icon {
+        font-size: 40px;
         margin-bottom: 20px;
-        font-weight: 800;
-        .product-photo {
-          flex: 0 0 70px;
-        }
+      }
+      span {
+        @extend %text-medium;
+      }
+      &:hover {
+        cursor: pointer;
+        border: 2px solid $admin;
       }
     }
   }

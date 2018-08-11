@@ -1,77 +1,42 @@
 import React, {Component} from 'react';
 import './adminProduct.scss';
-import {Products, Collections} from "../../../../lib/collections";
-import {Meteor} from 'meteor/meteor';
-import {withTracker} from 'meteor/react-meteor-data';
+import {FlowRouter} from 'meteor/kadira:flow-router';
+
+const NAV_ROUTES = [
+    {id: 0, name: 'lista produktow', route: 'list', icon: 'list'},
+    {id: 1, name: 'kolekcje', route: 'collections', icon: 'ribbon'},
+    {id: 2, name: 'promocje', route: 'sales', icon: 'pricetags'},
+    {id: 3, name: 'dodaj produkt', route: 'addnew', icon: 'add-circle-outline'},
+    {id: 4, name: 'szczegoly produktu', route: 'features', icon: 'more'},
+    {id: 5, name: 'rozmiary', route: 'sizes', icon: 'bookmark'},
+];
 
 class AdminProduct extends Component {
 
-    renderProducts() {
-        return this.props.products.map(product => {
-            return (
-                <div className='product-item' key={product._id}>
-                    <div className='product-feature product-thumbnail'>
-                        <img src={product.photo} alt='product thumbnail' />
-                    </div>
-                    <div className='product-feature product-title'>{product.title}</div>
-                    <div className='product-feature product-collection'>{product.collection.name}</div>
-                    <div className='product-feature product-price'>{product.price}</div>
-                    <div className='product-feature product-sizes'>
-                        {product.sizes.map(size => {
-                            const sizeClassName = size.value === 0 ? 'empty' : size.value < 3 ? 'last' : '';
-                            return (
-                                <div className={`sizes ${sizeClassName}`} key={size.id}>
-                                    <span className='sizes-name'>{size.name}</span>
-                                    <span className='sizes-value'>{size.value}</span>
-                                </div>
-                            )
-                        })}
-                    </div>
-                    <div className='product-feature product-remove'>
-                        <ion-icon name="remove-circle"
-                                  onClick={() => this.onDeleteProductClick(product.cartId)}
-                        />
-                    </div>
-                </div>
-            );
-        });
+    onProductNavItemClick(route) {
+        FlowRouter.go(`/admin/product/${route}`);
     }
 
     render() {
-        if(!this.props.handleReady) return <div>...loading</div>;
-        console.log(this.props.products);
-        return (
+        return(
             <div id='adminProduct'>
-                <div id='productsList'>
-                    <div className='product-item product-header'>
-                        <div className='product-feature product-photo'>produkt</div>
-                        <div className='product-feature product-title'>nazwa</div>
-                        <div className='product-feature product-collection'>kolekcja</div>
-                        <div className='product-feature product-price'>cena</div>
-                        <div className='product-feature product-sizes'>rozmiary</div>
-                        <div className='product-feature product-remove'>usun</div>
-                    </div>
-                    {this.renderProducts()}
+                <div id='productNav'>
+                    {NAV_ROUTES.map(link => {
+                        return (
+                            <div className='nav-item-wrapper'
+                                 key={link.id}
+                                 onClick={() => this.onProductNavItemClick(link.route)}
+                            >
+                                <ion-icon name={link.icon} />
+                                <span>{link.name}</span>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
-        );
+        )
     }
+
 }
 
-export default withTracker(() => {
-    let products = [];
-    const handle = Meteor.subscribe('products.admin');
-    const handleReady = handle.ready();
-    if(handleReady) {
-        products = Products.find({}).fetch();
-        for(let i=0; i<products.length; i++) {
-            products[i].collection = Collections.findOne({_id: products[i].collectionId});
-            console.log(products[i].collectionId);
-        }
-    }
-
-    return {
-        handleReady,
-        products
-    }
-})(AdminProduct);
+export default AdminProduct;

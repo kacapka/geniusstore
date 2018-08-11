@@ -18,6 +18,7 @@ Meteor.methods({
         ];
         product.features = features;
         product.sizes = sizes;
+        product.isActive = true;
         Products.insert(product);
     }
 });
