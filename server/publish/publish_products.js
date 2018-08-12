@@ -1,5 +1,5 @@
 import {Meteor} from 'meteor/meteor';
-import {Products, Collections} from '/lib/collections';
+import {Products, Collections, Features} from '/lib/collections';
 
 Meteor.publish('products.public', function() {
     return Products.find({isActive: true});
@@ -32,4 +32,14 @@ Meteor.publish('products.admin', function() {
 
 Meteor.publish('product.admin', function(id) {
     return Products.find({_id: id});
+});
+
+Meteor.publish('createProduct.admin', function() {
+   const collectionsCursor = Collections.find({});
+   const featuresCursor = Features.find({});
+
+   return [
+       collectionsCursor,
+       featuresCursor
+   ];
 });

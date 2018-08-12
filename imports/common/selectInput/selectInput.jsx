@@ -35,34 +35,37 @@ class SelectInput extends Component {
             isOpen: false,
             selectedValue: opt.name
         });
-        this.props.selectValue(opt.name);
+        this.props.selectValue(opt, this.props.selectName); //to do change sizes with ids! before was as argument opt.name
     }
 
     renderOptions() {
         const options = this.props.options;
         return options.map(opt => {
-            const isAviable = opt.value > 0;
             let aviableClassName = '';
             let aviableText = '';
-            if(!isAviable) {
-                aviableClassName = 'not-aviable';
-                aviableText = 'niedosteony';
-            } else {
-                if(opt.value === 1) {
-                    aviableClassName = 'last-one';
-                    aviableText = 'ostatni';
+            let isAviable;
+            if(opt.value) {
+                isAviable = opt.value > 0;
+                if (!isAviable) {
+                    aviableClassName = 'not-aviable';
+                    aviableText = 'niedosteony';
                 } else {
-                    aviableClassName = 'aviable';
-                    aviableText = 'dostepny';
+                    if (opt.value === 1) {
+                        aviableClassName = 'last-one';
+                        aviableText = 'ostatni';
+                    } else {
+                        aviableClassName = 'aviable';
+                        aviableText = 'dostepny';
+                    }
                 }
             }
-            const optionClassName = !isAviable ? 'select-option disabled' : 'select-option';
+            const optionClassName = isAviable ? 'select-option disabled' : 'select-option';
             return (
-                <div className={optionClassName} key={opt.id}
+                <div className={optionClassName} key={opt.name}
                      onClick={() => this.onSelectOptionClick(opt)}
                 >
                     <div className='option-value'>{opt.name}</div>
-                    <div className={`option-extra ${aviableClassName}`}>{aviableText}</div>
+                    {opt.value && <div className={`option-extra ${aviableClassName}`}>{aviableText}</div>}
                 </div>
             );
         });

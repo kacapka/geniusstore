@@ -7,6 +7,8 @@ import AdminProduct from "../components/cms/adminProduct/adminProduct";
 import AdminMessages from "../components/cms/adminMessages/adminMessages";
 import ProductList from "../components/cms/adminProduct/list/productList";
 import ProductCollections from "../components/cms/adminProduct/collections/productCollections";
+import ProductCreate from "../components/cms/adminProduct/create/productCreate";
+import ProductFeatures from "../components/cms/adminProduct/features/productFeatures";
 
 FlowRouter.route('/admin', {
     action() {
@@ -34,11 +36,29 @@ FlowRouter.route('/admin/product/list', {
     }
 });
 
-//collections
+//product --> collections
 FlowRouter.route('/admin/product/collections', {
     action() {
         mount(Admin, {
             content: <ProductCollections />
+        });
+    }
+});
+
+//product --> create
+FlowRouter.route('/admin/product/create', {
+    action() {
+        mount(Admin, {
+            content: <ProductCreate />
+        });
+    }
+});
+
+//product --> features
+FlowRouter.route('/admin/product/features', {
+    action() {
+        mount(Admin, {
+            content: <ProductFeatures />
         });
     }
 });

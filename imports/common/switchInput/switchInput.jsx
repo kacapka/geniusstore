@@ -4,19 +4,26 @@ import './switchInput.scss';
 class SwitchInput extends Component {
 
     constructor(props) {
-        // super(props);
-        // this.state = {
-        //     isOpen: false,
-        //     selectedValue: null
-        // };
-        // this.toggleOptions = this.toggleOptions.bind(this);
-        // this.closeOptions = this.closeOptions.bind(this);
+        super(props);
+        this.state = {
+            switchStatus: props.isActive
+        };
+        this.onSwitchInputChange = this.onSwitchInputChange.bind(this);
+    }
+
+    onSwitchInputChange(e) {
+        this.setState({switchStatus: e.target.checked});
+        this.props.selectValue(e.target.checked, this.props.name);
     }
 
     render() {
+        const switchClassName = this.props.className ? `switch-input ${this.props.className}` : 'switch-input';
         return(
-            <label className="switch-input">
-                <input type="checkbox" />
+            <label className={switchClassName}>
+                <input type="checkbox"
+                       checked={this.state.switchStatus}
+                       onChange={this.onSwitchInputChange}
+                />
                 <span className="switch-slider" />
             </label>
         );

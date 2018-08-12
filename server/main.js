@@ -8,12 +8,16 @@ import './methods/Messages/updateMessage';
 import './methods/Collections/insertCollection';
 import './methods/Collections/deleteCollection';
 import './methods/Collections/editCollection';
+import './methods/Features/insertFeature';
+import './methods/Features/deleteFeature';
+import './methods/Features/editFeature';
 import './methods/Users/insertUser';
 
 //publish
 import './publish/publish_products';
 import './publish/publish_messages';
 import './publish/publish_collections';
+import './publish/publish_features';
 
 //fake data
 import './data';

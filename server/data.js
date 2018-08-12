@@ -1,5 +1,5 @@
 import {Meteor} from 'meteor/meteor';
-import {Products, Messages, Collections} from '/lib/collections';
+import {Products, Messages, Collections, Features} from '/lib/collections';
 
 const LOREM = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.;'
 
@@ -9,6 +9,7 @@ Meteor.methods({
         Meteor.call('resetUsers');
         Meteor.call('resetMessages');
         Meteor.call('resetCollections');
+        Meteor.call('resetFeatures');
         Meteor.call('resetProducts');
     },
 
@@ -183,10 +184,12 @@ Meteor.methods({
             }
         ];
         const collections = Collections.find({}).fetch();
+        const features = Features.find({}).fetch();
 
         for(let i=0; i < products.length; i++) {
             let random = Math.floor(Math.random() * 3);
             products[i].collectionId = collections[random]._id;
+            products[i].features = features;
             Meteor.call('addProduct', products[i]);
         }
     },
@@ -228,6 +231,21 @@ Meteor.methods({
 
         for(let i=0; i<collections.length; i++) {
             Meteor.call('insertCollection', collections[i]);
+        }
+    },
+
+    resetFeatures() {
+        Features.remove({});
+
+        const features = [
+            {name: 'Nasz model ma 180 cm wzrostu i nosi rozmiar S'},
+            {name: 'calkowita dlugos 65 cm w rozmiarze S'},
+            {name: 'Nie suszyć w suszarce bębnowej, pranie w pralce w 30°C, pranie delikatne'},
+            {name: 'Materiał: 96% bawełna, 4% elastan'}
+        ];
+
+        for(let i=0; i<features.length; i++) {
+            Meteor.call('insertFeature', features[i]);
         }
     }
     
