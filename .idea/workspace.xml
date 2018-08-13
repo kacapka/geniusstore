@@ -2,22 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e69d3e9-7ada-407a-99b3-ba235fac1035" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/imports/components/cms/adminProduct/create/productCreate.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imports/components/cms/adminProduct/create/productCreate.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/common/selectInput/selectInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/common/selectInput/selectInput.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/common/selectInput/selectInput.scss" beforeDir="false" afterPath="$PROJECT_DIR$/imports/common/selectInput/selectInput.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/common/switchInput/switchInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/common/switchInput/switchInput.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/common/switchInput/switchInput.scss" beforeDir="false" afterPath="$PROJECT_DIR$/imports/common/switchInput/switchInput.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/components/cms/adminProduct/adminProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/cms/adminProduct/adminProduct.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/components/cms/adminProduct/create/createProduct.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/components/cms/adminProduct/create/createProduct.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/startup/routesCms.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/startup/routesCms.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/collections.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/collections.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/methods/Products/insertProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/methods/Products/insertProduct.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/publish/publish_products.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/publish/publish_products.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/components/cms/adminProduct/create/productCreate.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/cms/adminProduct/create/productCreate.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,40 +58,41 @@
     <session id="1293443642">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.28" value="1" />
+          <entry key="project.open.time.30" value="1" />
           <entry key="project.open.time.35" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="5343" />
-          <entry key="jsx" value="14469" />
+          <entry key="js" value="7162" />
+          <entry key="jsx" value="15842" />
           <entry key="scss" value="5017" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JSX Harmony" value="14469" />
-          <entry key="JavaScript" value="5343" />
+          <entry key="JSX Harmony" value="15842" />
+          <entry key="JavaScript" value="7162" />
           <entry key="SCSS" value="5017" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="1" />
-          <entry key="js" value="64" />
-          <entry key="jsx" value="52" />
+          <entry key="js" value="66" />
+          <entry key="jsx" value="54" />
           <entry key="scss" value="58" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="1" />
-          <entry key="JSX Harmony" value="52" />
-          <entry key="JavaScript" value="64" />
+          <entry key="JSX Harmony" value="54" />
+          <entry key="JavaScript" value="66" />
           <entry key="SCSS" value="58" />
         </counts>
       </usages-collector>
@@ -115,14 +102,14 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.60738254">
       <split-first>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/create/productCreate.jsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="374">
-                  <caret line="130" column="57" selection-start-line="130" selection-start-column="57" selection-end-line="130" selection-end-column="57" />
+                <state relative-caret-position="1003">
+                  <caret line="59" column="24" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="24" />
                   <folding>
                     <element signature="e#0#39#0" expanded="true" />
                   </folding>
@@ -130,11 +117,20 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/server/publish/publish_features.js">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/create/validateProduct.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="68">
-                  <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+                <state relative-caret-position="741">
+                  <caret line="89" column="51" selection-start-line="89" selection-start-column="51" selection-end-line="89" selection-end-column="51" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/server/data.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="863">
+                  <caret line="172" column="30" selection-start-line="172" selection-start-column="30" selection-end-line="172" selection-end-column="30" />
                   <folding>
                     <element signature="e#0#37#0" expanded="true" />
                   </folding>
@@ -143,10 +139,10 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/server/publish/publish_products.js">
+            <entry file="file://$PROJECT_DIR$/imports/components/productPage/productPage.jsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="17">
-                  <caret line="1" column="39" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
+                <state relative-caret-position="153">
+                  <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="28" />
                 </state>
               </provider>
             </entry>
@@ -154,8 +150,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/imports/common/selectInput/selectInput.jsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="272">
-                  <caret line="37" column="62" selection-start-line="37" selection-start-column="62" selection-end-line="37" selection-end-column="62" />
+                <state relative-caret-position="102">
+                  <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
                   <folding>
                     <element signature="e#0#39#0" expanded="true" />
                   </folding>
@@ -166,11 +162,11 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/create/productCreate.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="449">
+                <state relative-caret-position="364">
                   <caret line="113" column="29" selection-start-line="113" selection-start-column="29" selection-end-line="113" selection-end-column="29" />
                 </state>
               </provider>
@@ -189,11 +185,14 @@
       <find>collection</find>
       <find>Feature</find>
       <find>length</find>
+      <find>uniq</find>
+      <find>productstatus</find>
     </findStrings>
     <replaceStrings>
       <replace>message</replace>
       <replace>Collections</replace>
       <replace>feature</replace>
+      <replace>isActive</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -202,8 +201,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/imports/components/footer/footerForm/footerForm.jsx" />
-        <option value="$PROJECT_DIR$/server/schema/schemaMessage.js" />
         <option value="$PROJECT_DIR$/server/methods/Messages/insertMessage.js" />
         <option value="$PROJECT_DIR$/server/methods/Messages/deleteMessage.js" />
         <option value="$PROJECT_DIR$/imports/functions/dateAgo.js" />
@@ -251,8 +248,10 @@
         <option value="$PROJECT_DIR$/imports/components/cms/adminProduct/features/productFeatures.scss" />
         <option value="$PROJECT_DIR$/server/publish/publish_products.js" />
         <option value="$PROJECT_DIR$/imports/common/selectInput/selectInput.jsx" />
-        <option value="$PROJECT_DIR$/imports/components/cms/adminProduct/create/productCreate.jsx" />
         <option value="$PROJECT_DIR$/imports/components/cms/adminProduct/create/productCreate.scss" />
+        <option value="$PROJECT_DIR$/imports/components/productPage/validateProduct.js" />
+        <option value="$PROJECT_DIR$/imports/components/cms/adminProduct/create/productCreate.jsx" />
+        <option value="$PROJECT_DIR$/imports/components/cms/adminProduct/create/validateProduct.js" />
       </list>
     </option>
   </component>
@@ -802,6 +801,8 @@
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/babel-compiler/node_modules/is-accessor-descriptor/node_modules/kind-of/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/babel-compiler/node_modules/is-accessor-descriptor/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/babel-compiler/node_modules/is-buffer/package.json" />
+      <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/babel-compiler/node_modules/is-data-descriptor/node_modules/kind-of/package.json" />
+      <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/babel-compiler/node_modules/is-data-descriptor/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/babel-compiler/node_modules/is-descriptor/node_modules/kind-of/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/babel-compiler/node_modules/is-descriptor/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/babel-compiler/node_modules/is-extendable/package.json" />
@@ -1036,6 +1037,7 @@
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/webapp/node_modules/inherits/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/webapp/node_modules/lru-cache/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/webapp/node_modules/mime-db/package.json" />
+      <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/webapp/node_modules/mime-types/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/webapp/node_modules/mime/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/webapp/node_modules/ms/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/webapp/node_modules/negotiator/package.json" />
@@ -1054,6 +1056,7 @@
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/webapp/node_modules/stream-to-string/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/webapp/node_modules/tmp/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/webapp/node_modules/unpipe/package.json" />
+      <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/webapp/node_modules/useragent/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/webapp/node_modules/utils-merge/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/meteor/webapp/node_modules/vary/package.json" />
       <path value="$PROJECT_DIR$/.meteor/local/build/programs/server/npm/node_modules/node-fetch/package.json" />
@@ -2347,6 +2350,30 @@
               <item name="wasyl" type="b2602c69:ProjectViewProjectNode" />
               <item name="wasyl" type="462c0819:PsiDirectoryNode" />
               <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="cms" type="462c0819:PsiDirectoryNode" />
+              <item name="adminProduct" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wasyl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wasyl" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="cms" type="462c0819:PsiDirectoryNode" />
+              <item name="adminProduct" type="462c0819:PsiDirectoryNode" />
+              <item name="create" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wasyl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wasyl" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="productPage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wasyl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wasyl" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
               <item name="startup" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -2374,7 +2401,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534082960526" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534191962677" />
     <property name="jsx.switch.disabled" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -2383,6 +2410,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Prezes\Desktop\wasyl\imports\components\cms\adminProduct\create" />
       <recent name="C:\Users\Prezes\Desktop\wasyl\imports\components\cms\adminProduct\collections" />
       <recent name="C:\Users\Prezes\Desktop\wasyl\imports\components\cms\adminProduct\list" />
     </key>
@@ -2439,11 +2467,12 @@
       <workItem from="1533042300535" duration="17913000" />
       <workItem from="1533405014469" duration="9292000" />
       <workItem from="1533673442792" duration="28331000" />
+      <workItem from="1534182511897" duration="8580000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143188000" />
+    <option name="totallyTimeSpent" value="152489000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2463,14 +2492,14 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.20362474" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.20575693" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.47830802" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" weight="0.32900432" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Message" order="4" />
-      <window_info anchor="bottom" id="Find" order="5" visible="true" weight="0.3264642" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.3264642" />
       <window_info anchor="bottom" id="Run" order="6" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
@@ -2494,20 +2523,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/imports/components/cms/adminMessages/adminMessages.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="48" column="37" selection-end-line="91" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/schema/schemaMessage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/schema/validation.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -2541,9 +2556,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2660,9 +2672,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2677,9 +2686,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="135" column="36" selection-start-line="135" selection-start-column="36" selection-end-line="135" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2687,9 +2693,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2697,9 +2700,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="28" column="15" selection-end-line="37" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2710,22 +2710,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/methods/Features/editCollection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/server/methods/Features/editCollection.js" />
     <entry file="file://$PROJECT_DIR$/server/methods/Features/deleteFeature.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="24" lean-forward="true" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2733,9 +2722,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2743,9 +2729,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2753,9 +2736,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2763,9 +2743,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2773,9 +2750,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
-          <folding>
-            <element signature="e#416#452#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2783,9 +2757,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="5" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2793,9 +2764,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2803,9 +2771,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2820,25 +2785,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="136" column="24" selection-start-line="136" selection-start-column="24" selection-end-line="136" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/data.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1302">
-          <caret line="172" column="30" selection-start-line="172" selection-start-column="30" selection-end-line="172" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/publish/publish_features.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
+        <state relative-caret-position="51">
           <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
@@ -2853,30 +2805,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/create/productCreate.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="113" column="29" selection-start-line="113" selection-start-column="29" selection-end-line="113" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/components/productPage/productPage.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/imports/common/selectInput/selectInput.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="37" column="62" selection-start-line="37" selection-start-column="62" selection-end-line="37" selection-end-column="62" />
+        <state relative-caret-position="102">
+          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="863">
+          <caret line="172" column="30" selection-start-line="172" selection-start-column="30" selection-end-line="172" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/create/productCreate.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="130" column="57" selection-start-line="130" selection-start-column="57" selection-end-line="130" selection-end-column="57" />
+        <state relative-caret-position="1003">
+          <caret line="59" column="24" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="24" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/create/productCreate.scss">
+    <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/create/validateProduct.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="113" column="29" selection-start-line="113" selection-start-column="29" selection-end-line="113" selection-end-column="29" />
+        <state relative-caret-position="741">
+          <caret line="89" column="51" selection-start-line="89" selection-start-column="51" selection-end-line="89" selection-end-column="51" />
         </state>
       </provider>
     </entry>

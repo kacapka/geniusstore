@@ -6,6 +6,8 @@ import SelectInput from "../../../../common/selectInput/selectInput";
 import {withTracker} from 'meteor/react-meteor-data';
 import {Meteor} from 'meteor/meteor';
 import {Collections, Features} from "../../../../../lib/collections";
+import uniqid from 'uniqid';
+import {validateProduct} from './validateProduct';
 
 const GENDER_SELECT = [
     {name: 'unisex', systemName: 'unisex'},
@@ -52,10 +54,10 @@ class ProductCreate extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            productStatus: false,
+            isActive: false,
             name: '',
             collectionId: null,
-            gender: '',
+            gender: null,
             isNew: false,
             isSale: false,
             unisex: {value: null, active: false},
@@ -71,7 +73,7 @@ class ProductCreate extends Component {
             },
             description: '',
             featureSelects: [],
-            features: []
+            price: ''
         };
         this.onSwitchChange = this.onSwitchChange.bind(this);
         this.onCollectionSelect = this.onCollectionSelect.bind(this);
@@ -82,6 +84,13 @@ class ProductCreate extends Component {
         this.onAddNewFeatureSelectClick = this.onAddNewFeatureSelectClick.bind(this);
         this.onFeatureSelect = this.onFeatureSelect.bind(this);
         this.onRemoveFeatureClick = this.onRemoveFeatureClick.bind(this);
+        this.onAddProductClick = this.onAddProductClick.bind(this);
+        this.onInputChange = this.onInputChange.bind(this);
+    }
+
+    onInputChange(e) {
+        const value = e.target.name === 'price' ? Number(e.target.value) : e.target.value;
+        this.setState({[e.target.name]: value});
     }
 
     onSwitchChange(bool, name) {
@@ -97,7 +106,7 @@ class ProductCreate extends Component {
     }
 
     onSizeInputChange(e, name) {
-        this.setState({...this.state[name], value: e.target.value, active: true});
+        this.setState({[name]: {value: e.target.value, active: true}});
     }
 
     onSizeClick(name) {
@@ -127,32 +136,46 @@ class ProductCreate extends Component {
         return inputs;
     }
 
-    onFeatureSelect(opt) {
-        if(~this.state.features.indexOf(opt._id)) return;
-        this.setState({features: [...this.state.features, opt._id]});
+    onFeatureSelect(opt, name) {
+        const newSelects = this.state.featureSelects.map(select => {
+           if(select.selectId === name) {
+               select._id = opt._id;
+               return select;
+           } else {
+               return select;
+           }
+        });
+        this.setState({
+            featureSelects: newSelects
+        });
     }
 
-    onRemoveFeatureClick(key) {
-        const newSelects = this.state.featureSelects.filter(select => select.key !== key);
+    onRemoveFeatureClick(selectId) {
+        const newSelects = this.state.featureSelects.filter(select => select.selectId !== selectId);
         this.setState({featureSelects: newSelects});
     }
 
     onAddNewFeatureSelectClick() {
-        const featureId = `feature${this.state.featureSelects.length}`;
+        const selectId = uniqid();
         const newFeatureSelect = (
-            <div className='feature-wrapper' key={featureId}>
+            <div className='feature-wrapper' key={selectId}>
                 <SelectInput defaultValue='wybierz szczegoly produkty'
                              options={this.props.features}
                              selectValue={this.onFeatureSelect}
                              className='feature-select'
+                             selectName={selectId}
                 />
-                <div className='feature-remove' onClick={() => this.onRemoveFeatureClick(featureId)}>
+                <div className='feature-remove' onClick={() => this.onRemoveFeatureClick(selectId)}>
                     <ion-icon name="remove-circle-outline" />
                 </div>
             </div>
         );
 
-        this.setState({featureSelects: [...this.state.featureSelects, newFeatureSelect]});
+        this.setState({featureSelects: [...this.state.featureSelects, {select: newFeatureSelect, selectId, _id: null}]});
+    }
+
+    onAddProductClick() {
+        validateProduct(this.state);
     }
 
     renderSizes() {
@@ -175,20 +198,22 @@ class ProductCreate extends Component {
     }
 
     render() {
-        console.log(this.props);
-        console.log(this.state);
         return(
             <div id='productCreate'>
                 <div id='createBar'>
                     <div id='barTitle'>dodaj nowy produkt</div>
                     <div id='barButtons'>
-                        <div>produkt {this.state.productStatus ? 'aktywny' : 'nieaktywny'}</div>
+                        <div>produkt {this.state.isActive ? 'aktywny' : 'nieaktywny'}</div>
                         <SwitchInput selectValue={this.onSwitchChange}
-                                     isActive={this.state.productStatus}
+                                     isActive={this.state.isActive}
                                      className='switch-status'
-                                     name='productStatus'
+                                     name='isActive'
                         />
-                        <div id='addProductBtn'>dodaj</div>
+                        <div id='addProductBtn'
+                             onClick={this.onAddProductClick}
+                        >
+                            dodaj
+                        </div>
                     </div>
                 </div>
                 <div id='createInputs'>
@@ -196,7 +221,9 @@ class ProductCreate extends Component {
                         <div className='input-wrapper'>
                             <label>nazwa</label>
                             <input className='input-text'
-                                value={this.state.name}
+                                    value={this.state.name}
+                                   name='name'
+                                   onChange={this.onInputChange}
                             />
                         </div>
                         <div className='input-wrapper'>
@@ -204,6 +231,8 @@ class ProductCreate extends Component {
                             <input className='input-number'
                                    type='number'
                                    value={this.state.price}
+                                   name='price'
+                                   onChange={this.onInputChange}
                             />
                         </div>
                         <div className='input-wrapper'>
@@ -261,7 +290,7 @@ class ProductCreate extends Component {
                         </div>
                         <div className='input-wrapper'>
                             <label>szczegoly</label>
-                            {this.state.featureSelects}
+                            {this.state.featureSelects.map(select => select.select)}
                             <div className='add-btn' onClick={this.onAddNewFeatureSelectClick}>
                                 <ion-icon name="add" />
                             </div>
