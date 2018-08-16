@@ -23,7 +23,7 @@ class Product extends Component {
         this.state = {
             sizeValue: null,
             sizeError: null
-        }
+        };
         this.selectNewValue = this.selectNewValue.bind(this);
         this.onAddToCartBtnClick = this.onAddToCartBtnClick.bind(this);
     }
@@ -69,7 +69,7 @@ class Product extends Component {
                     </div>
                     <div id='productAreaDetails'>
                         <div id='detailsTitle'>
-                            <p id='title-collection'>{product.collection}</p>
+                            <p id='title-collection'></p>
                             <p id='title-name'>{product.title}</p>
                             <p id='title-price'>PLN {product.price}</p>
                         </div>
@@ -87,8 +87,8 @@ class Product extends Component {
                             </div>
                         </div>
                         <div id='detailsDescription'>
-                            <p id='descriptionProduct'>{product.description}</p>
-                            {product.features.map(feature => <p key={feature} className='description-feature'>{feature}</p>)}
+                            <p id='descriptionProduct'></p>
+                            {product.features.map(feature => <p key={feature._id} className='description-feature'>{feature.name}</p>)}
                         </div>
                     </div>
                 </div>

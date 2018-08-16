@@ -23,32 +23,6 @@ const SIZES = [
     {id: 4, name: 'XL'}
 ];
 
-// {
-//     photo: '/man1.jpg',
-//         title: 'tank top original',
-//     description: LOREM,
-//     price: 69,
-//     isNew: false,
-//     isSale: false,
-//     gender: 'man'
-// const features = [
-//     'Nasz model ma 180 cm wzrostu i nosi rozmiar S',
-//     'calkowita dlugos 65 cm w rozmiarze S',
-//     'Nie suszyć w suszarce bębnowej, pranie w pralce w 30°C, pranie delikatne',
-//     'Materiał: 96% bawełna, 4% elastan'
-// ];
-// const sizes = [
-//     //{id: 0, name: 'unisex', value: 10},
-//     {id: 1, name: 'S', value: 0},
-//     {id: 2, name: 'M', value: 10},
-//     {id: 3, name: 'L', value: 1},
-//     {id: 4, name: 'XL', value: 5}
-// ];
-// product.features = features;
-// product.sizes = sizes;
-// product.isActive = true;
-// }
-
 class ProductCreate extends Component {
 
     constructor(props) {
@@ -175,7 +149,26 @@ class ProductCreate extends Component {
     }
 
     onAddProductClick() {
-        validateProduct(this.state);
+        console.log(this.state.featureSelects);
+        const validation = validateProduct(this.state);
+        if(validation) {
+            const {isActive, isNew, isSale, featureSelects} = this.state;
+            const features = [];
+            for(let i=0; i<featureSelects.length; i++) {
+                if(!~features.indexOf(featureSelects[i]._id)) {
+                    features.push(featureSelects[i]._id);
+                }
+            }
+            const product = {
+                isActive,
+                isSale,
+                isNew,
+                featuresIds: features,
+                ...validation
+            };
+
+            console.log(product);
+        }
     }
 
     renderSizes() {
@@ -300,8 +293,8 @@ class ProductCreate extends Component {
             </div>
         )
     }
-
 }
+
 
 export default withTracker(() => {
     let collections = [];
@@ -318,4 +311,6 @@ export default withTracker(() => {
         collections,
         features
     }
+
 })(ProductCreate);
+
