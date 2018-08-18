@@ -1,0 +1,129 @@
+@import '../../../../common/cms';
+@import '../../../../common/fonts';
+@import '../../../../common/vars';
+@import '../../../../common/inputs';
+@import '../../../../common/buttons';
+
+#productForm {
+  flex:1;
+  display: flex;
+  flex-direction: column;
+  #formBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    #barTitle {
+      @extend %heading-small;
+    }
+    #barButtons {
+      display: flex;
+      align-items: center;
+      .switch-status {
+        margin: 0 20px;
+      }
+      #addProductBtn {
+        @extend %btn;
+        @extend %btn--green;
+      }
+    }
+  }
+  #formInputs {
+    display: flex;
+    .form-inputs-box {
+      @extend %cms-column;
+      .input-wrapper {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 30px;
+        label {
+          @extend %label;
+          margin-bottom: 10px;
+        }
+        .input-text {
+          @extend %input;
+        }
+        .input-number {
+          @extend %input;
+          width: 100px;
+        }
+        .collection-select {
+          width: 300px;
+        }
+        ion-icon {
+          font-size: 20px;
+          &:hover {
+            cursor: pointer;
+            color: $green;
+          }
+        }
+        #sizesWrapper {
+          .size-wrapper {
+            display: flex;
+            margin-bottom: 10px;
+            .size-name {
+              border: 1px solid $grey;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex: 0 0 75px;
+              height: 30px;
+              cursor: pointer;
+              &.green {
+                border: 1px solid $green;
+              }
+            }
+            input {
+              @extend %input;
+              width: 75px;
+              margin-left: 20px;
+            }
+          }
+        }
+        .input-photo {
+          margin-bottom: 20px;
+        }
+        .add-btn {
+          margin-top: 10px;
+          width: 40px;
+          height: 30px;
+          border: 1px solid $grey;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          &:hover {
+            border: 1px solid $green;
+            cursor: pointer;
+          }
+        }
+        .input-textarea {
+          width: 100%;
+          height: 100px;
+        }
+        .feature-wrapper {
+          position: relative;
+          margin-bottom: 10px;
+          .feature-select {
+            width: 100%;
+          }
+          .feature-remove {
+            position: absolute;
+            height: 35px;
+            width: 35px;
+            top: 0;
+            left: -40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            ion-icon {
+              &:hover {
+                cursor: pointer;
+                color: $red;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -36,161 +36,101 @@ Meteor.methods({
     
     resetProducts() {
         Products.remove({});
+
+        const sizes = [
+            {name: 'unisex', value: 5},
+            {name: 'S', value: 0},
+            {name: 'M', value: 1},
+            {name: 'L', value: 9},
+            {name: 'XL', value: 2}
+        ];
         
         const products = [
             {
-                photo: '/man1.jpg',
-                title: 'tank top original',
+                photos: ['/man1.jpg', '/man2.jpeg', '/man3.jpg'],
+                name: 'tank top original',
                 description: LOREM,
                 price: 69,
                 isNew: false,
                 isSale: false,
+                isActive: true,
                 gender: 'man'
             },
             {
-                photo: '/woman8.jpg',
-                title: 'tank top original',
+                photos: ['/woman1.jpeg', '/woman2.jpg', '/woman3.jpeg'],
+                name: 'tank top original',
                 description: LOREM,
                 price: 69,
                 isNew: false,
                 isSale: false,
+                isActive: true,
                 gender: 'woman',
             },
             {
-                photo: '/man2.jpeg',
-                title: 'tank top original',
+                photos: ['/man2.jpeg', '/man3.jpg', '/man4.jpg'],
+                name: 'tank top original',
                 description: LOREM,
                 price: 69,
                 isNew: false,
                 isSale: false,
+                isActive: true,
                 gender: 'man'
             },
             {
-                photo: '/man3.jpg',
-                title: 'tank top original',
+                photos: ['/man3.jpg', '/man4.jpg', '/man5.jpeg'],
+                name: 'tank top original',
                 description: LOREM,
                 price: 69,
                 isNew: false,
                 isSale: false,
+                isActive: true,
                 gender: 'man'
             },
             {
-                photo: '/man4.jpg',
-                title: 'tank top original',
+                photos: ['/man6.jpeg', '/man7.jpg', '/man8.jpg'],
+                name: 'tank top original',
                 description: LOREM,
                 price: 69,
                 isNew: false,
                 isSale: false,
+                isActive: true,
                 gender: 'man'
             },
             {
-                photo: '/woman1.jpeg',
-                title: 'tank top original',
+                photos: ['/woman4.jpeg', '/woman5.jpeg', '/woman6.jpg'],
+                name: 'tank top original',
                 description: LOREM,
                 price: 69,
                 isNew: false,
                 isSale: false,
+                isActive: true,
                 gender: 'woman'
             },
             {
-                photo: '/woman2.jpg',
-                title: 'tank top original',
+                photos: ['/woman7.jpeg', '/woman8.jpg', '/woman8.jpeg'],
+                name: 'tank top original',
                 description: LOREM,
                 price: 69,
                 isNew: false,
                 isSale: false,
+                isActive: true,
                 gender: 'woman'
-            },
-            {
-                photo: '/man5.jpeg',
-                title: 'tank top original',
-                description: LOREM,
-                price: 69,
-                isNew: false,
-                isSale: false,
-                gender: 'man'
-            },
-            {
-                photo: '/woman3.jpeg',
-                title: 'tank top original',
-                description: LOREM,
-                price: 69,
-                isNew: false,
-                isSale: false,
-                gender: 'woman'
-            },
-            {
-                photo: '/woman4.jpeg',
-                title: 'tank top original',
-                description: LOREM,
-                price: 69,
-                isNew: false,
-                isSale: false,
-                gender: 'woman'
-            },
-            {
-                photo: '/man6.jpeg',
-                title: 'tank top original',
-                description: LOREM,
-                price: 69,
-                isNew: false,
-                isSale: false,
-                gender: 'man'
-            },
-            {
-                photo: '/woman5.jpeg',
-                title: 'tank top original',
-                description: LOREM,
-                price: 69,
-                isNew: false,
-                isSale: false,
-                gender: 'woman'
-            },
-            {
-                photo: '/woman6.jpg',
-                title: 'tank top original',
-                description: LOREM,
-                price: 69,
-                isNew: false,
-                isSale: false,
-                gender: 'woman'
-            },
-            {
-                photo: '/man7.jpg',
-                title: 'tank top original',
-                description: LOREM,
-                price: 69,
-                isNew: false,
-                isSale: false,
-                gender: 'man'
-            },
-            {
-                photo: '/woman7.jpeg',
-                title: 'tank top original',
-                description: LOREM,
-                price: 69,
-                isNew: false,
-                isSale: false,
-                gender: 'woman'
-            },
-            {
-                photo: '/man8.jpg',
-                title: 'tank top original',
-                description: LOREM,
-                price: 69,
-                isNew: false,
-                isSale: false,
-                gender: 'man'
             }
         ];
         const collections = Collections.find({}).fetch();
-        const features = Features.find({}).fetch();
+        const features = Features.find({}).fetch().map(feature => feature._id);
 
         for(let i=0; i < products.length; i++) {
             let random = Math.floor(Math.random() * 3);
             products[i].collectionId = collections[random]._id;
-            products[i].features = features;
-            Meteor.call('addProduct', products[i]);
+            products[i].featuresIds = features;
+            products[i].sizes = sizes;
+            console.log(products[i]);
+            Meteor.call('addProduct', products[i], err => {
+                if(err) {
+                    console.error('error insert fake product');
+                }
+            });
         }
     },
 

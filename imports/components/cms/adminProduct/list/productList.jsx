@@ -3,13 +3,20 @@ import './productList.scss';
 import {Products, Collections} from "../../../../../lib/collections";
 import {Meteor} from 'meteor/meteor';
 import {withTracker} from 'meteor/react-meteor-data';
+import {FlowRouter} from 'meteor/kadira:flow-router';
 
 class ProductList extends Component {
+
+    onProductItemClick(id) {
+        FlowRouter.go(`/admin/product/list/${id}`);
+    }
 
     renderProducts() {
         return this.props.products.map(product => {
             return (
-                <div className='product-item' key={product._id}>
+                <div className='product-item' key={product._id}
+                     onClick={() => this.onProductItemClick(product._id)}
+                >
                     <div className='product-feature product-thumbnail'>
                         <img src={product.photo} alt='product thumbnail' />
                     </div>

@@ -1,0 +1,100 @@
+@import '../../../../../common/cms';
+@import '../../../../../common/fonts';
+@import '../../../../../common/buttons';
+@import '../../../../../common/vars';
+
+#productDetails {
+  @extend %cms-box;
+  flex: 1;
+  flex-direction: column;
+  padding: 30px 50px;
+  #details {
+    #productDetailsBar {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 50px;
+      #barTitle {
+        @extend %heading-small;
+      }
+      #barWrapper {
+        display: flex;
+        align-items: center;
+        .active {
+          color: $green;
+        }
+        .no-active {
+          color: $red;
+        }
+        #barEditBtn {
+          @extend %btn;
+          @extend %btn--green;
+          margin-left: 30px;
+        }
+      }
+    }
+    #productDetailsContent {
+      display: flex;
+      .content-column {
+        @extend %cms-column;
+        .content-box {
+          margin-bottom: 30px;
+          display: flex;
+          flex-direction: column;
+          .label {
+            @extend %heading-small;
+            margin-bottom: 10px;
+          }
+          .value {
+            @extend %text-large;
+          }
+          .feature-item {
+            margin-bottom: 10px;
+          }
+        }
+        .content-info {
+
+        }
+        .content-promo {
+          flex-direction: row;
+          div {
+            flex: 1;
+          }
+        }
+        .content-sizes {
+          .content-size {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            .label {
+              @extend %text-large;
+              font-weight: 800;
+              flex: 0 0 100px;
+              margin-bottom: 0;
+            }
+            .value-err {
+              color: $red;
+            }
+            .value-warn {
+              color: $yellow;
+            }
+            .value-ok {
+              color: $green;
+            }
+          }
+        }
+        .content-photos {
+          flex-direction: row;
+          .details-photo {
+            flex: 0 0 140px;
+            height: 200px;
+            margin-right: 20px;
+            img {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

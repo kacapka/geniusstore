@@ -9,6 +9,7 @@ import ProductList from "../components/cms/adminProduct/list/productList";
 import ProductCollections from "../components/cms/adminProduct/collections/productCollections";
 import ProductCreate from "../components/cms/adminProduct/create/productCreate";
 import ProductFeatures from "../components/cms/adminProduct/features/productFeatures";
+import ProductDetails from "../components/cms/adminProduct/list/productDetails/productDetails";
 
 FlowRouter.route('/admin', {
     action() {
@@ -32,6 +33,15 @@ FlowRouter.route('/admin/product/list', {
     action() {
         mount(Admin, {
             content: <ProductList />
+        });
+    }
+});
+
+//product --> list --> details
+FlowRouter.route('/admin/product/list/:productId', {
+    action(params) {
+        mount(Admin, {
+            content: <ProductDetails productId={params.productId} />
         });
     }
 });

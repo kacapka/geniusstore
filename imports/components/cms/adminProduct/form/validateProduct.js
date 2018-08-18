@@ -43,7 +43,7 @@ const validateSizes = (sizes) => {
     });
     const result = sizesArr.filter(size => size.value);
     if(result.length > 0) {
-        return result;
+        return sizesArr;
     }
     return false;
 };

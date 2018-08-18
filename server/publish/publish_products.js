@@ -31,10 +31,19 @@ Meteor.publish('products.admin', function() {
 });
 
 Meteor.publish('product.admin', function(id) {
-    return Products.find({_id: id});
+    const productCursor = Products.find({_id: id});
+    const product = Products.findOne({_id: id});
+    const collectionCursor = Collections.find({_id: product.collectionId});
+    const featuresCursor = Features.find({_id: {$in: product.featuresIds}});
+
+    return [
+        productCursor,
+        collectionCursor,
+        featuresCursor
+    ]
 });
 
-Meteor.publish('createProduct.admin', function() {
+Meteor.publish('formProduct.admin', function() {
    const collectionsCursor = Collections.find({});
    const featuresCursor = Features.find({});
 

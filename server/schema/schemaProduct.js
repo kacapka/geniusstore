@@ -79,4 +79,24 @@ export default class SchemaProduct {
         }
     }
 
+    update(id, callback) {
+        if(this.validate()) {
+            Products.update(
+                {_id: id},
+                {$set: this.product},
+                err => {
+                    if(err) {
+                        callback('productEditFailed');
+                    } else {
+                        callback(null);
+                    }
+                }
+            )
+        } else {
+            console.log(this.validationKeys);
+            console.log(this.product);
+            callback('productEditValidationFailed');
+        }
+    }
+
 }

@@ -7,7 +7,7 @@ class SelectInput extends Component {
         super(props);
         this.state = {
             isOpen: false,
-            selectedValue: null
+            selectedValue: props.selectedValue ? props.selectedValue : null
         };
         this.toggleOptions = this.toggleOptions.bind(this);
         this.closeOptions = this.closeOptions.bind(this);
