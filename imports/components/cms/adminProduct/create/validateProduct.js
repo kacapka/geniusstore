@@ -1,12 +1,5 @@
 export const validateProduct = (state) => {
-    const {gender, name, collectionId, price, description, photos, unisex, S, M, L, XL} = state;
-    const sizes = [
-        {name: 'unisex', value: unisex.value},
-        {name: 'S', value: S.value},
-        {name: 'M', value: M.value},
-        {name: 'L', value: L.value},
-        {name: 'XL', value: XL.value}
-    ];
+    const {gender, name, collectionId, price, description, photos, sizes} = state;
 
     const sizeValidation = validateSizes(sizes);
     const photosValidation = validatePhotos(photos);
@@ -22,7 +15,7 @@ export const validateProduct = (state) => {
         {text: 'kolekcja - pole obowiazkowe', name: 'collectionId', value: collectionValidation},
         {text: 'plec - pole obowiazkowe', name: 'gender', value: genderValidation},
         {text: 'rozmiary - musisz podac conajmniej jeden rozmiar', name: 'sizes', value: sizeValidation},
-        {text: 'opis - pole obowiazkowe', name: 'descripton', value: descriptionValidation},
+        {text: 'opis - pole obowiazkowe', name: 'description', value: descriptionValidation},
         {text: 'zdjecia - musisz podac conajmneij jedo zdjecie', name: 'photos', value: photosValidation}
     ];
 
@@ -42,7 +35,13 @@ export const validateProduct = (state) => {
 };
 
 const validateSizes = (sizes) => {
-    const result = sizes.filter(size => size.value);
+    const sizesArr = Object.keys(sizes).map(key => {
+        return {
+            name: key,
+            value: sizes[key].value
+        };
+    });
+    const result = sizesArr.filter(size => size.value);
     if(result.length > 0) {
         return result;
     }

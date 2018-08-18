@@ -22,13 +22,7 @@ export const validateKeys = (data, keysValidations) => {
         }
     }
     return validKeysQty;
-}
-
-
-
-
-
-
+};
 
 function validateObject(obj) {
     for (let key in obj) {

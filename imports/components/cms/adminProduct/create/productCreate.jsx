@@ -34,17 +34,14 @@ class ProductCreate extends Component {
             gender: null,
             isNew: false,
             isSale: false,
-            unisex: {value: null, active: false},
-            S: {value: null, active: false},
-            M: {value: null, active: false},
-            L: {value: null, active: false},
-            XL: {value: null, active: false},
-            photos: {
-                0: '',
-                1: '',
-                2: '',
-                3: ''
+            sizes: {
+                unisex: {value: null, active: false},
+                S: {value: null, active: false},
+                M: {value: null, active: false},
+                L: {value: null, active: false},
+                XL: {value: null, active: false},
             },
+            photos: {},
             description: '',
             featureSelects: [],
             price: ''
@@ -80,11 +77,11 @@ class ProductCreate extends Component {
     }
 
     onSizeInputChange(e, name) {
-        this.setState({[name]: {value: e.target.value, active: true}});
+        this.setState({sizes: {...this.state.sizes, [name]: {value: e.target.value, active: true}}});
     }
 
     onSizeClick(name) {
-        this.setState({[name]: {active: !this.state[name].active}});
+        this.setState({sizes: {...this.state.sizes, [name]: {active: !this.state.sizes[name].active}}});
     }
 
     onPhotoInputChange(e,i) {
@@ -149,7 +146,6 @@ class ProductCreate extends Component {
     }
 
     onAddProductClick() {
-        console.log(this.state.featureSelects);
         const validation = validateProduct(this.state);
         if(validation) {
             const {isActive, isNew, isSale, featureSelects} = this.state;
@@ -168,20 +164,28 @@ class ProductCreate extends Component {
             };
 
             console.log(product);
+
+            Meteor.call('addProduct', product, err => {
+                if(!err) {
+                    console.log('product add success');
+                } else {
+                    console.error(err);
+                }
+            });
         }
     }
 
     renderSizes() {
         return SIZES.map(size => {
-            const sizeClassName = this.state[size.name].active ? 'size-name green' : 'size-name';
+            const sizeClassName = this.state.sizes[size.name].active ? 'size-name green' : 'size-name';
             return (
                 <div className='size-wrapper' key={size.id}>
                     <div className={sizeClassName} onClick={() => this.onSizeClick(size.name)}>
                         {size.name}
                     </div>
-                    {this.state[size.name].active &&
+                    {this.state.sizes[size.name].active &&
                         <input type='number'
-                               value={this.state[size.name].value}
+                               value={this.state.sizes[size.name].value}
                                onChange={(e) => this.onSizeInputChange(e, size.name)}
                         />
                     }
