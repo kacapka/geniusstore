@@ -104,7 +104,7 @@ class ProductCollections extends Component {
     renderCollections() {
         const collections = this.props.collections;
         return collections.map(col => {
-            if(col.default) return;
+            if(col.isDefault) return;
             return (
                 <li className='collection-item' key={col._id}>
                     <div>{col.name}</div>

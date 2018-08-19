@@ -36,8 +36,6 @@ export const validateProduct = (state) => {
 
 const validateSizes = (sizes) => {
     const sizesArr = Object.keys(sizes).map(key => {
-        console.log(sizes[key].value);
-        console.log(!!sizes[key].value);
         return {
             name: sizes[key].name,
             value: !!sizes[key].value ? sizes[key].value : null,

@@ -50,7 +50,7 @@ class ProductForm extends Component {
             const product = props.product;
             initialState.isActive = product.isActive;
             initialState.name = product.name;
-            initialState.collectionId = product.collectionId ? product.collectionId : null;
+            initialState.collectionId = product.collectionId ? product.collectionId : this.props.collections[0]._id;
             initialState.gender = product.gender;
             initialState.isNew = product.isNew;
             initialState.isSale = product.isSale;
@@ -353,7 +353,6 @@ class ProductForm extends Component {
                                          selectValue={this.onCollectionSelect}
                                          className='collection-select'
                                          selectedValue={collectionSelectedValue}
-                                         noOptionsText='brak dodanych kolekcji'
                             />
                             }
                         </div>

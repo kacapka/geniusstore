@@ -121,8 +121,8 @@ Meteor.methods({
         const features = Features.find({}).fetch().map(feature => feature._id);
 
         for(let i=0; i < products.length; i++) {
-            let random = Math.floor(Math.random() * 3);
-            products[i].collectionId = collections[random]._id;
+            //let random = Math.floor(Math.random() * 3);
+            products[i].collectionId = collections[0]._id;
             products[i].featuresIds = features;
             products[i].sizes = sizes;
             Meteor.call('addProduct', products[i], err => {
@@ -163,6 +163,7 @@ Meteor.methods({
         Collections.remove({});
 
         const collections = [
+            {name: 'brak kolekcji', isDefault: true},
             {name: 'genius genuine'},
             {name: 'summer 2018'},
             {name: 'train & chill'}

@@ -56,7 +56,7 @@ class ProductDetails extends Component {
                                         </div>
                                         <div className='content-box content-promo'>
                                             <div className='label'>promocja: <span className='value'>{product.isSale ? 'TAK' : 'NIE'}</span></div>
-                                            <div className='label'>nowosc: <span className='value'>{product.isPromo ? 'TAK' : 'NIE'}</span></div>
+                                            <div className='label'>nowosc: <span className='value'>{product.isNew ? 'TAK' : 'NIE'}</span></div>
                                         </div>
                                         <div className='content-box content-sizes'>
                                             <div className='label'>rozmiary</div>

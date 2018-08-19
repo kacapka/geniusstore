@@ -6,7 +6,8 @@ export default class SchemaCollection {
     constructor(collection) {
         this.collection = collection;
         this.validateKeys = {
-            name: this.validateName(collection.name)
+            name: this.validateName(collection.name),
+            isDefault: true
         }
     }
 

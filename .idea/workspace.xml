@@ -2,25 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e69d3e9-7ada-407a-99b3-ba235fac1035" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/common/selectInput/selectInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/common/selectInput/selectInput.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/imports/components/cms/adminProduct/collections/productCollections.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/cms/adminProduct/collections/productCollections.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/imports/components/cms/adminProduct/form/productForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/cms/adminProduct/form/productForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/components/cms/adminProduct/form/productForm.scss" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/cms/adminProduct/form/productForm.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/imports/components/cms/adminProduct/form/validateProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/cms/adminProduct/form/validateProduct.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/imports/components/cms/adminProduct/list/productDetails/productDetails.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/cms/adminProduct/list/productDetails/productDetails.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/components/cms/adminProduct/list/productDetails/productDetails.scss" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/cms/adminProduct/list/productDetails/productDetails.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/components/cms/adminProduct/list/productList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/cms/adminProduct/list/productList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/components/cms/adminProduct/list/productList.scss" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/cms/adminProduct/list/productList.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/methods/Collections/deleteCollection.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/methods/Collections/deleteCollection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/methods/Messages/deleteMessage.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/methods/Messages/deleteMessage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/methods/Products/editProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/methods/Products/editProduct.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/methods/Products/insertProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/methods/Products/insertProduct.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/schema/schemaCollection.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/schema/schemaCollection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/schema/schemaProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/schema/schemaProduct.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -87,31 +75,31 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="12459" />
-          <entry key="jsx" value="23408" />
+          <entry key="js" value="12781" />
+          <entry key="jsx" value="23443" />
           <entry key="scss" value="6301" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JSX Harmony" value="23408" />
-          <entry key="JavaScript" value="12459" />
+          <entry key="JSX Harmony" value="23443" />
+          <entry key="JavaScript" value="12781" />
           <entry key="SCSS" value="6301" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="1" />
-          <entry key="js" value="125" />
-          <entry key="jsx" value="88" />
+          <entry key="js" value="127" />
+          <entry key="jsx" value="89" />
           <entry key="scss" value="87" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="1" />
-          <entry key="JSX Harmony" value="88" />
-          <entry key="JavaScript" value="125" />
+          <entry key="JSX Harmony" value="89" />
+          <entry key="JavaScript" value="127" />
           <entry key="SCSS" value="87" />
         </counts>
       </usages-collector>
@@ -125,16 +113,37 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/form/productForm.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1078">
-              <caret line="287" column="149" selection-start-line="287" selection-start-column="149" selection-end-line="287" selection-end-column="149" />
+            <state relative-caret-position="1537">
+              <caret line="426" selection-start-line="426" selection-end-line="426" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/list/productDetails/productDetails.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="29" column="32" lean-forward="true" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/form/validateProduct.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/schema/schemaProduct.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
+            <state relative-caret-position="663">
               <caret line="39" column="36" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
@@ -157,8 +166,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/schema/schemaCollection.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="153">
+              <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -169,8 +178,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/collections/productCollections.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="59" column="29" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
+            <state>
+              <caret line="72" selection-start-line="72" selection-end-line="72" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -181,8 +190,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/data.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="591">
-              <caret line="164" column="29" selection-start-line="164" selection-start-column="29" selection-end-line="164" selection-end-column="29" />
+            <state relative-caret-position="476">
+              <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/methods/Collections/deleteCollection.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -263,7 +284,6 @@
         <option value="$PROJECT_DIR$/imports/components/cms/adminProduct/create/productCreate.jsx" />
         <option value="$PROJECT_DIR$/imports/components/cms/adminProduct/list/productDetails/productDetails.scss" />
         <option value="$PROJECT_DIR$/server/methods/Products/editProduct.js" />
-        <option value="$PROJECT_DIR$/imports/components/cms/adminProduct/form/validateProduct.js" />
         <option value="$PROJECT_DIR$/imports/components/cms/adminProduct/list/productList.jsx" />
         <option value="$PROJECT_DIR$/imports/components/cms/adminProduct/form/productForm.scss" />
         <option value="$PROJECT_DIR$/server/methods/Products/deleteProduct.js" />
@@ -271,14 +291,15 @@
         <option value="$PROJECT_DIR$/server/main.js" />
         <option value="$PROJECT_DIR$/imports/components/cms/adminProduct/list/productList.scss" />
         <option value="$PROJECT_DIR$/imports/common/selectInput/selectInput.jsx" />
-        <option value="$PROJECT_DIR$/imports/components/cms/adminProduct/list/productDetails/productDetails.jsx" />
-        <option value="$PROJECT_DIR$/server/methods/Collections/deleteCollection.js" />
         <option value="$PROJECT_DIR$/server/methods/Products/insertProduct.js" />
+        <option value="$PROJECT_DIR$/server/schema/schemaProduct.js" />
         <option value="$PROJECT_DIR$/server/schema/schemaCollection.js" />
-        <option value="$PROJECT_DIR$/server/data.js" />
         <option value="$PROJECT_DIR$/imports/components/cms/adminProduct/collections/productCollections.jsx" />
         <option value="$PROJECT_DIR$/imports/components/cms/adminProduct/form/productForm.jsx" />
-        <option value="$PROJECT_DIR$/server/schema/schemaProduct.js" />
+        <option value="$PROJECT_DIR$/server/data.js" />
+        <option value="$PROJECT_DIR$/server/methods/Collections/deleteCollection.js" />
+        <option value="$PROJECT_DIR$/imports/components/cms/adminProduct/form/validateProduct.js" />
+        <option value="$PROJECT_DIR$/imports/components/cms/adminProduct/list/productDetails/productDetails.jsx" />
       </list>
     </option>
   </component>
@@ -2369,7 +2390,35 @@
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="cms" type="462c0819:PsiDirectoryNode" />
               <item name="adminProduct" type="462c0819:PsiDirectoryNode" />
+              <item name="collections" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wasyl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wasyl" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="cms" type="462c0819:PsiDirectoryNode" />
+              <item name="adminProduct" type="462c0819:PsiDirectoryNode" />
               <item name="form" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wasyl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wasyl" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="cms" type="462c0819:PsiDirectoryNode" />
+              <item name="adminProduct" type="462c0819:PsiDirectoryNode" />
+              <item name="list" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wasyl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wasyl" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="cms" type="462c0819:PsiDirectoryNode" />
+              <item name="adminProduct" type="462c0819:PsiDirectoryNode" />
+              <item name="list" type="462c0819:PsiDirectoryNode" />
+              <item name="productDetails" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wasyl" type="b2602c69:ProjectViewProjectNode" />
@@ -2419,7 +2468,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534699706458" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534702442176" />
     <property name="jsx.switch.disabled" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -2488,12 +2537,12 @@
       <workItem from="1533673442792" duration="28331000" />
       <workItem from="1534182511897" duration="13428000" />
       <workItem from="1534443698739" duration="8117000" />
-      <workItem from="1534595687957" duration="42474000" />
+      <workItem from="1534595687957" duration="45190000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="207928000" />
+    <option name="totallyTimeSpent" value="210644000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2751,13 +2800,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/form/validateProduct.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="42" column="64" selection-start-line="42" selection-start-column="64" selection-end-line="42" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/list/productList.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="568">
@@ -2786,16 +2828,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="45" column="62" selection-start-line="45" selection-start-column="62" selection-end-line="45" selection-end-column="75" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/list/productDetails/productDetails.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="46" column="82" selection-start-line="46" selection-start-column="82" selection-end-line="46" selection-end-column="82" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -2903,49 +2935,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/schema/schemaCollection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/data.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="591">
-          <caret line="164" column="29" selection-start-line="164" selection-start-column="29" selection-end-line="164" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/methods/Collections/insertCollection.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/collections/productCollections.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="59" column="29" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/methods/Collections/deleteCollection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
@@ -2961,19 +2953,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/form/productForm.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1078">
-          <caret line="287" column="149" selection-start-line="287" selection-start-column="149" selection-end-line="287" selection-end-column="149" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/schema/schemaProduct.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
+        <state relative-caret-position="663">
           <caret line="39" column="36" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/schema/schemaCollection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/collections/productCollections.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/methods/Collections/deleteCollection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/form/validateProduct.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/form/productForm.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1537">
+          <caret line="426" selection-start-line="426" selection-end-line="426" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/list/productDetails/productDetails.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="32" lean-forward="true" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
