@@ -7,7 +7,9 @@ class ProductCreate extends Component {
 
     render() {
         return (
-            <ProductForm action='create' />
+            <div id='productCreate'>
+                <ProductForm action='create' />
+            </div>
         );
     }
 

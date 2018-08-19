@@ -35,11 +35,11 @@ class ProductForm extends Component {
             isNew: false,
             isSale: false,
             sizes: {
-                unisex: {value: null, active: false},
-                S: {value: null, active: false},
-                M: {value: null, active: false},
-                L: {value: null, active: false},
-                XL: {value: null, active: false},
+                unisex: {name: 'unisex', value: null, active: false},
+                S: {name: 'S', value: null, active: false},
+                M: {name: 'M', value: null, active: false},
+                L: {name: 'L', value: null, active: false},
+                XL: {name: 'XL', value: null, active: false}
             },
             photos: {},
             description: '',
@@ -58,6 +58,7 @@ class ProductForm extends Component {
             initialState.description = product.description;
             initialState.price = product.price;
             initialState.sizes = this.getInitialSizes(product.sizes);
+            initialState.featureSelects = this.getInitialFeatures(product.features);
         }
         this.state = initialState;
         this.onSwitchChange = this.onSwitchChange.bind(this);
@@ -70,18 +71,30 @@ class ProductForm extends Component {
         this.onFeatureSelect = this.onFeatureSelect.bind(this);
         this.onRemoveFeatureClick = this.onRemoveFeatureClick.bind(this);
         this.onAddProductClick = this.onAddProductClick.bind(this);
+        this.onEditProductClick = this.onEditProductClick.bind(this);
         this.onInputChange = this.onInputChange.bind(this);
     }
 
     getInitialSizes(sizes) {
-        const size = {};
+        const initSizes = {};
         for(let i=0; i<sizes.length; i++) {
-            size[sizes[i].name] = {
+            initSizes[sizes[i].name] = {
+                name: sizes[i].name,
                 value: sizes[i].value,
-                active: !!sizes[i].value
+                active: sizes[i].active
             }
         }
-        return size;
+        return initSizes;
+    }
+
+    getInitialFeatures(features) {
+        return features.map(feature => {
+            const selectId = uniqid();
+            return {
+                selectId,
+                _id: feature._id
+            }
+        })
     }
 
     onInputChange(e) {
@@ -102,11 +115,11 @@ class ProductForm extends Component {
     }
 
     onSizeInputChange(e, name) {
-        this.setState({sizes: {...this.state.sizes, [name]: {value: e.target.value, active: true}}});
+        this.setState({sizes: {...this.state.sizes, [name]: {name: name, value: e.target.value, active: true}}});
     }
 
     onSizeClick(name) {
-        this.setState({sizes: {...this.state.sizes, [name]: {active: !this.state.sizes[name].active}}});
+        this.setState({sizes: {...this.state.sizes, [name]: {...this.state.sizes[name], active: !this.state.sizes[name].active}}});
     }
 
     onPhotoInputChange(e,i) {
@@ -153,24 +166,34 @@ class ProductForm extends Component {
 
     onAddNewFeatureSelectClick() {
         const selectId = uniqid();
-        const newFeatureSelect = (
-            <div className='feature-wrapper' key={selectId}>
-                <SelectInput defaultValue='wybierz szczegoly produkty'
-                             options={this.props.features}
-                             selectValue={this.onFeatureSelect}
-                             className='feature-select'
-                             selectName={selectId}
-                />
-                <div className='feature-remove' onClick={() => this.onRemoveFeatureClick(selectId)}>
-                    <ion-icon name="remove-circle-outline" />
-                </div>
-            </div>
-        );
-
-        this.setState({featureSelects: [...this.state.featureSelects, {select: newFeatureSelect, selectId, _id: null}]});
+        this.setState({featureSelects: [...this.state.featureSelects, {selectId, _id: null}]});
     }
 
-    onAddProductClick() {
+    renderFeaturesSelects() {
+        return this.state.featureSelects.map(feature => {
+            let selectedValue;
+            if(this.props.action === 'edit') {
+                console.log(feature);
+                selectedValue = this.props.product.features.find(item => item._id === feature._id).name;
+            }
+            return (
+               <div className='feature-wrapper' key={feature.selectId}>
+                   <SelectInput defaultValue='wybierz szczegoly produkty'
+                                options={this.props.features}
+                                selectValue={this.onFeatureSelect}
+                                className='feature-select'
+                                selectName={feature.selectId}
+                                selectedValue={selectedValue}
+                   />
+                   <div className='feature-remove' onClick={() => this.onRemoveFeatureClick(feature.selectId)}>
+                       <ion-icon name="remove-circle-outline" />
+                   </div>
+               </div>
+            );
+        });
+    }
+
+    validateForm() {
         const validation = validateProduct(this.state);
         if(validation) {
             const {isActive, isNew, isSale, featureSelects} = this.state;
@@ -180,16 +203,20 @@ class ProductForm extends Component {
                     features.push(featureSelects[i]._id);
                 }
             }
-            const product = {
+            return  {
                 isActive,
                 isSale,
                 isNew,
                 featuresIds: features,
                 ...validation
             };
+        }
+    }
 
-            console.log(product);
-
+    onAddProductClick() {
+        const product = this.validateForm();
+        console.log(product);
+        if(product) {
             Meteor.call('addProduct', product, err => {
                 if(!err) {
                     console.log('product add success');
@@ -197,6 +224,14 @@ class ProductForm extends Component {
                     console.error(err);
                 }
             });
+        }
+    }
+
+    onEditProductClick() {
+        const product = this.validateForm();
+        console.log(product);
+        if(product) {
+            console.log('edit validation success')
         }
     }
 
@@ -233,11 +268,25 @@ class ProductForm extends Component {
                                      className='switch-status'
                                      name='isActive'
                         />
-                        <div id='addProductBtn'
-                             onClick={this.onAddProductClick}
-                        >
-                            dodaj
-                        </div>
+                        {(() => {
+                            if(this.props.action === 'edit') {
+                                return (
+                                    <div id='submitProductBtn'
+                                         onClick={this.onEditProductClick}
+                                    >
+                                        edytuj
+                                    </div>
+                                )    ;
+                            } else {
+                                return (
+                                    <div id='submitProductBtn'
+                                         onClick={this.onAddProductClick}
+                                    >
+                                        dodaj
+                                    </div>
+                                );
+                            }
+                        })()}
                     </div>
                 </div>
                 <div id='formInputs'>
@@ -316,7 +365,7 @@ class ProductForm extends Component {
                         </div>
                         <div className='input-wrapper'>
                             <label>szczegoly</label>
-                            {this.state.featureSelects.map(select => select.select)}
+                            {this.renderFeaturesSelects()}
                             <div className='add-btn' onClick={this.onAddNewFeatureSelectClick}>
                                 <ion-icon name="add" />
                             </div>

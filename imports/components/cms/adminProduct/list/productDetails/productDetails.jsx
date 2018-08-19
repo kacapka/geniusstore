@@ -61,11 +61,12 @@ class ProductDetails extends Component {
                                         <div className='content-box content-sizes'>
                                             <div className='label'>rozmiary</div>
                                             {product.sizes.map(size => {
-                                                const color = size.value === 0 ? 'value-err' : size.value === 1 ? 'value-warn' : 'value-ok';
+                                                const color = size.value == 0 ? 'value-err' : size.value == 1 ? 'value-warn' : 'value-ok';
+                                                const active = size.active ? 'content-size active' : 'content-size no-active';
                                                 return (
-                                                    <div key={size.name} className='content-size'>
+                                                    <div key={size.name} className={active}>
                                                         <div className='label'>{size.name}</div>
-                                                        <div className={`value ${color}`}>{size.value}</div>
+                                                        <div className={`value ${color}`}>{size.active ? size.value : 'nieaktywny'}</div>
                                                     </div>
                                                 );
                                             })}

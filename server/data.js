@@ -38,11 +38,11 @@ Meteor.methods({
         Products.remove({});
 
         const sizes = [
-            {name: 'unisex', value: 5},
-            {name: 'S', value: 0},
-            {name: 'M', value: 1},
-            {name: 'L', value: 9},
-            {name: 'XL', value: 2}
+            {name: 'unisex', value: 2, active: true},
+            {name: 'S', value: 0, active: true},
+            {name: 'M', value: null, active: false},
+            {name: 'L', value: 1, active: true},
+            {name: 'XL', value: 5, active: true}
         ];
         
         const products = [
@@ -166,7 +166,7 @@ Meteor.methods({
         const collections = [
             {name: 'genius genuine'},
             {name: 'summer 2018'},
-            {name: 'train & chi;;'}
+            {name: 'train & chill'}
         ];
 
         for(let i=0; i<collections.length; i++) {

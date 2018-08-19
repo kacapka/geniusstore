@@ -65,20 +65,25 @@
             margin-bottom: 10px;
             display: flex;
             align-items: center;
-            .label {
-              @extend %text-large;
-              font-weight: 800;
-              flex: 0 0 100px;
-              margin-bottom: 0;
+            &.active {
+              .label {
+                @extend %text-large;
+                font-weight: 800;
+                flex: 0 0 100px;
+                margin-bottom: 0;
+              }
+              .value-err {
+                color: $red;
+              }
+              .value-warn {
+                color: $yellow;
+              }
+              .value-ok {
+                color: $green;
+              }
             }
-            .value-err {
-              color: $red;
-            }
-            .value-warn {
-              color: $yellow;
-            }
-            .value-ok {
-              color: $green;
+            &.no-active {
+              color: $grey;
             }
           }
         }

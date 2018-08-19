@@ -37,8 +37,9 @@ export const validateProduct = (state) => {
 const validateSizes = (sizes) => {
     const sizesArr = Object.keys(sizes).map(key => {
         return {
-            name: key,
-            value: sizes[key].value
+            name: sizes[key].name,
+            value: sizes[key].value && sizes[key].value,
+            active: sizes[key].value ? sizes[key].active : false
         };
     });
     const result = sizesArr.filter(size => size.value);
