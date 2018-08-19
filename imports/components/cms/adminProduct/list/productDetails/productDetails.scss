@@ -66,12 +66,9 @@
             display: flex;
             align-items: center;
             &.active {
-              .label {
-                @extend %text-large;
-                font-weight: 800;
-                flex: 0 0 100px;
-                margin-bottom: 0;
-              }
+              //.label {
+              //  @extend %text-large;
+              //}
               .value-err {
                 color: $red;
               }
@@ -84,6 +81,12 @@
             }
             &.no-active {
               color: $grey;
+            }
+            .label {
+              @extend %text-large;
+              font-weight: 800;
+              flex: 0 0 100px;
+              margin-bottom: 0;
             }
           }
         }

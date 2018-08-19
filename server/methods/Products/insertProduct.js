@@ -7,10 +7,8 @@ Meteor.methods({
         newProduct.insert(err => {
             if(err) {
                 if(err === 'productInsertFailed') {
-                    console.error('insert');
                     throw new Meteor.Error('insertFailed');
                 } else if(err === 'productValidationFailed') {
-                    console.error('validation');
                     throw new Meteor.Error('validationFailed');
                 }
             }

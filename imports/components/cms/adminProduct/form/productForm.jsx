@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import './productForm.scss';
 import {FlowRouter} from 'meteor/kadira:flow-router';
 import SwitchInput from '/imports/common/switchInput/switchInput';
@@ -50,7 +50,7 @@ class ProductForm extends Component {
             const product = props.product;
             initialState.isActive = product.isActive;
             initialState.name = product.name;
-            initialState.collectionId = product.collectionId;
+            initialState.collectionId = product.collectionId ? product.collectionId : null;
             initialState.gender = product.gender;
             initialState.isNew = product.isNew;
             initialState.isSale = product.isSale;
@@ -72,6 +72,7 @@ class ProductForm extends Component {
         this.onRemoveFeatureClick = this.onRemoveFeatureClick.bind(this);
         this.onAddProductClick = this.onAddProductClick.bind(this);
         this.onEditProductClick = this.onEditProductClick.bind(this);
+        this.onDeleteProductClick = this.onDeleteProductClick.bind(this);
         this.onInputChange = this.onInputChange.bind(this);
     }
 
@@ -173,7 +174,6 @@ class ProductForm extends Component {
         return this.state.featureSelects.map(feature => {
             let selectedValue;
             if(this.props.action === 'edit') {
-                console.log(feature);
                 selectedValue = this.props.product.features.find(item => item._id === feature._id).name;
             }
             return (
@@ -184,6 +184,7 @@ class ProductForm extends Component {
                                 className='feature-select'
                                 selectName={feature.selectId}
                                 selectedValue={selectedValue}
+                                noOptionsText='brak dodanych szczegolow'
                    />
                    <div className='feature-remove' onClick={() => this.onRemoveFeatureClick(feature.selectId)}>
                        <ion-icon name="remove-circle-outline" />
@@ -215,13 +216,17 @@ class ProductForm extends Component {
 
     onAddProductClick() {
         const product = this.validateForm();
-        console.log(product);
         if(product) {
             Meteor.call('addProduct', product, err => {
                 if(!err) {
                     console.log('product add success');
+                    FlowRouter.go('/admin/product/list');
                 } else {
-                    console.error(err);
+                    if(err.error === 'insertFailed') {
+                        alert('blad podczas dodawania produktu');
+                    } else if (err.error === 'validationFailed') {
+                        alert('blad podczas walidacji produktu');
+                    }
                 }
             });
         }
@@ -229,9 +234,34 @@ class ProductForm extends Component {
 
     onEditProductClick() {
         const product = this.validateForm();
-        console.log(product);
+        const id = this.props.product._id;
         if(product) {
-            console.log('edit validation success')
+            Meteor.call('editProduct', id, product, err => {
+                if(!err) {
+                    console.log('product edit success');
+                    FlowRouter.go('/admin/product/list');
+                } else {
+                    if(err.error === 'editFailed') {
+                        alert('blad podczas dodawania produktu');
+                    } else if (err.error === 'validationFailed') {
+                        alert('blad podczas walidacji produktu');
+                    }
+                }
+            });
+        }
+    }
+
+    onDeleteProductClick() {
+        const id = this.props.product._id;
+        if(window.confirm('czy na pewno chcesz usunac ten produkt?')) {
+            Meteor.call('deleteProduct', id, err => {
+                if(!err) {
+                    console.log('product deleted success');
+                    FlowRouter.go('/admin/product/list');
+                } else {
+                    alert('blad podczas usuwania produktu');
+                }
+            });
         }
     }
 
@@ -255,7 +285,7 @@ class ProductForm extends Component {
     }
 
     render() {
-        const collectionSelectedValue = this.props.action === 'edit' && this.props.product.collection.name;
+        const collectionSelectedValue = (this.props.action === 'edit' && this.props.product.collection) ? this.props.product.collection.name : false;
         const genderSelectedValue = this.props.action === 'edit' && GENDER_SELECT.find(gender => gender.systemName === this.props.product.gender).name;
         return(
             <div id='productForm'>
@@ -271,12 +301,19 @@ class ProductForm extends Component {
                         {(() => {
                             if(this.props.action === 'edit') {
                                 return (
-                                    <div id='submitProductBtn'
-                                         onClick={this.onEditProductClick}
-                                    >
-                                        edytuj
-                                    </div>
-                                )    ;
+                                    <Fragment>
+                                        <div id='submitProductBtn'
+                                             onClick={this.onEditProductClick}
+                                        >
+                                            zapisz
+                                        </div>
+                                        <div id='deleteProductBtn'
+                                             onClick={this.onDeleteProductClick}
+                                        >
+                                            usun
+                                        </div>
+                                    </Fragment>
+                                );
                             } else {
                                 return (
                                     <div id='submitProductBtn'
@@ -316,6 +353,7 @@ class ProductForm extends Component {
                                          selectValue={this.onCollectionSelect}
                                          className='collection-select'
                                          selectedValue={collectionSelectedValue}
+                                         noOptionsText='brak dodanych kolekcji'
                             />
                             }
                         </div>
@@ -365,7 +403,7 @@ class ProductForm extends Component {
                         </div>
                         <div className='input-wrapper'>
                             <label>szczegoly</label>
-                            {this.renderFeaturesSelects()}
+                            {this.state.featureSelects ? this.renderFeaturesSelects() : 'brak przypisanych szczegolow'}
                             <div className='add-btn' onClick={this.onAddNewFeatureSelectClick}>
                                 <ion-icon name="add" />
                             </div>

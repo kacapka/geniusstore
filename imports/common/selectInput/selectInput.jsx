@@ -40,6 +40,13 @@ class SelectInput extends Component {
 
     renderOptions() {
         const options = this.props.options;
+        if(options.length === 0) {
+            return (
+                <div className='select-option'>
+                    <div className='option-value'>{this.props.noOptionsText}</div>
+                </div>
+            );
+        }
         return options.map(opt => {
             let aviableClassName = '';
             let aviableText = '';

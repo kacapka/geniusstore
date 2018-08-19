@@ -8,7 +8,7 @@ Meteor.methods({
            const productToEdit = Products.findOne({_id: id});
            const productToEditId = productToEdit._id;
            delete productToEdit['_id'];
-           const newProduct = new SchemaProduct(productToEdit);
+           const newProduct = new SchemaProduct(product);
            newProduct.update(productToEditId, err => {
                 if(err) {
                     if(err === 'productEditFailed') {

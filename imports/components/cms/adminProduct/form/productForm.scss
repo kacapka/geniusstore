@@ -22,9 +22,14 @@
       .switch-status {
         margin: 0 20px;
       }
-      #addProductBtn {
+      #submitProductBtn {
         @extend %btn;
         @extend %btn--green;
+      }
+      #deleteProductBtn {
+        @extend %btn;
+        @extend %btn--red;
+        margin-left: 20px;
       }
     }
   }

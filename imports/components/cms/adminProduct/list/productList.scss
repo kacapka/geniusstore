@@ -14,17 +14,24 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 10px;
+      border: 1px solid transparent;
       .product-feature {
         flex: 1;
         display: flex;
         justify-content: center;
       }
-      .product-remove {
-        flex: 0 0 50px;
+      .product-status {
+        flex: 0 0 70px;
         ion-icon {
-          font-size: 18px;
-          &:hover {
-            cursor: pointer;
+          font-size: 20px;
+        }
+        &.active {
+          ion-icon {
+            color: $green;
+          }
+        }
+        &.no-active {
+          ion-icon {
             color: $red;
           }
         }
@@ -45,6 +52,7 @@
         .sizes {
           display: flex;
           flex-direction: column;
+          align-items: center;
           margin: 0 10px;
           .sizes-name {
             margin-bottom: 5px;
@@ -70,7 +78,8 @@
         }
       }
       &:hover {
-        background-color: red;
+        border: 1px solid $admin;
+        cursor: pointer;
       }
     }
   }

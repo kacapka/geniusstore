@@ -23,13 +23,12 @@ export default class SchemaCollection {
             Collections.insert(this.collection, err => {
                 if(err) {
                     callback('insertCollectionFailed');
-                    console.log('insertFailed');
                 } else {
                     callback(null);
                 }
             })
         } else {
-            console.log('validation failed');
+            console.log('validation collection shcem failed');
             callback('validateCollectionFailed')
         }
     }

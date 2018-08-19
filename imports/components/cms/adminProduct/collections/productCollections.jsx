@@ -24,7 +24,7 @@ class ProductCollections extends Component {
     }
 
     onDeleteCollectionClick(id) {
-        if(window.confirm('czy na pewno chcesz usunąć tę kolekcje?')) {
+        if(window.confirm('usuniecie kolekcji spowoduje usuniecie jej rowniez do przypisanych produktow, czy napewno chesz kontynuowac?')) {
             Meteor.call('deleteCollection', id, err => {
                 if(!err) {
                     console.log('collection deleteed success');
@@ -103,8 +103,8 @@ class ProductCollections extends Component {
 
     renderCollections() {
         const collections = this.props.collections;
-        if(collections.length === 0) return <div>brak kolekcji</div>;
         return collections.map(col => {
+            if(col.default) return;
             return (
                 <li className='collection-item' key={col._id}>
                     <div>{col.name}</div>

@@ -22,7 +22,7 @@ class ProductDetails extends Component {
     render() {
         if(!this.props.handleReady) return <div>...loading</div>;
         const product = this.props.product;
-        console.log(product);
+        const collectionName = product.collection ? product.collection.name : 'brak przypisanych kolekcji';
         return (
             <div id='productDetails'>
                 {(() => {
@@ -44,7 +44,7 @@ class ProductDetails extends Component {
                                     <div className='content-column'>
                                         <div className='content-box content-info'>
                                             <div className='label'>kolekcja</div>
-                                            <div className='value'>{product.collection.name}</div>
+                                            <div className='value'>{collectionName}</div>
                                         </div>
                                         <div className='content-box content-info'>
                                             <div className='label'>cena</div>

@@ -6,7 +6,7 @@ Meteor.methods({
        if(this.userId) {
            Messages.remove({
                _id: id
-           })
+           });
        } else {
            throw new Meteor.Error('notPermission');
        }

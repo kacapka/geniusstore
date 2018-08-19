@@ -1,10 +1,9 @@
 import {Meteor} from 'meteor/meteor';
-import {Collections} from "../../../lib/collections";
+import {Collections, Products} from "../../../lib/collections";
 
 Meteor.methods({
    deleteCollection(id) {
        if(this.userId) {
-           console.log(id);
            Collections.remove({
                _id: id
            });

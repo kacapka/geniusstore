@@ -37,6 +37,8 @@ export default class SchemaProduct {
     }
 
     validateCollection(collectionId) {
+        console.error(collectionId);
+        if(!collectionId) return true;
         return !!Collections.findOne({_id: collectionId});
     }
 
