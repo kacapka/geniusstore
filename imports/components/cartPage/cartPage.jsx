@@ -27,17 +27,15 @@ class CartPage extends Component {
                         onClick={() => this.onProductClick(item.product._id)}
                    >
                        <div className='cart-product-thumbnail'>
-                           <img src={item.product.photo} alt='product thumbnail' />
+                           <img src={item.product.photos[0]} alt='product thumbnail' />
                        </div>
                        <div className='cart-product-name'>
-                           <p className='cart-collection'>{item.product.collection}</p>
-                           <p className='cart-name'>{item.product.title}</p>
+                           <p className='cart-collection'>{item.product.collection.name}</p>
+                           <p className='cart-name'>{item.product.name}</p>
                        </div>
                    </div>
                    <div className='cart-feature cart-price'>PLN {item.product.price}</div>
-                   <div className='cart-feature cart-size'>
-                       {item.size}
-                   </div>
+                   <div className='cart-feature cart-size'>{item.size.name}</div>
                    <div className='cart-feature cart-remove'>
                        <ion-icon name="remove-circle"
                                 onClick={() => this.onDeleteProductClick(item.cartId)}

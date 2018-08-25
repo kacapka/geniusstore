@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './productPage.scss';
 import {Meteor} from 'meteor/meteor';
 import {withTracker} from 'meteor/react-meteor-data';
-import {Products} from '/lib/collections';
+import {Products, Collections, Features} from '/lib/collections';
 import SelectInput from "../../common/selectInput/selectInput";
 import {addProductToCart} from "../../redux/actions";
 import {compose} from 'redux';
@@ -48,29 +48,26 @@ class Product extends Component {
     render() {
         const {product, handleReady} = this.props;
         if(!handleReady) return <div>loading...</div>;
-        console.log(product);
         return (
             <div id='productPage'>
                 <div id='productArea'>
                     <div id='productAreaPhotos'>
-                        <div id='photosMain' style={{backgroundImage: `url(${product.photo})`}}>
+                        <div id='photosMain' style={{backgroundImage: `url(${product.photos[0]})`}}>
                         </div>
                         <div id='photosThumbnails'>
-                            <div className='thumbnail-wrap'>
-                                <img src={product.photo} className='photo-thumbnail' />
-                            </div>
-                            <div className='thumbnail-wrap'>
-                                <img src={product.photo} className='photo-thumbnail' />
-                            </div>
-                            <div className='thumbnail-wrap'>
-                                <img src={product.photo} className='photo-thumbnail' />
-                            </div>
+                            {product.photos.map(photo => {
+                                return (
+                                    <div className='thumbnail-wrap' key={photo}>
+                                        <img src={photo} className='photo-thumbnail' />
+                                    </div>
+                                );
+                            })}
                         </div>
                     </div>
                     <div id='productAreaDetails'>
                         <div id='detailsTitle'>
-                            <p id='title-collection'></p>
-                            <p id='title-name'>{product.title}</p>
+                            <p id='title-collection'>{!product.collection.isDefault && product.collection.name}</p>
+                            <p id='title-name'>{product.name}</p>
                             <p id='title-price'>PLN {product.price}</p>
                         </div>
                         <div id='detailsCart'>
@@ -87,7 +84,7 @@ class Product extends Component {
                             </div>
                         </div>
                         <div id='detailsDescription'>
-                            <p id='descriptionProduct'></p>
+                            <p id='descriptionProduct'>{product.description}</p>
                             {product.features.map(feature => <p key={feature._id} className='description-feature'>{feature.name}</p>)}
                         </div>
                     </div>
@@ -106,6 +103,8 @@ const ProductPage = compose(
         const handleReady = handle.ready();
         if(handleReady) {
             product = Products.findOne({_id: props.productId});
+            product.collection = Collections.findOne({_id: product.collectionId});
+            product.features = Features.find({_id: {$in: product.featuresIds}}).fetch();
         }
 
         return {

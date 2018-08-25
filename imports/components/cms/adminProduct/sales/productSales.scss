@@ -1,0 +1,30 @@
+@import '../../../../common/cms';
+@import '../../../../common/fonts';
+
+#productSales {
+  @extend %cms-box;
+  flex: 1;
+  flex-direction: column;
+  #productsList {
+    .product-item {
+      @extend %text-medium;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      border: 1px solid transparent;
+      .product-feature {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+      }
+      .product-thumbnail {
+        flex: 0 0 70px;
+        height: 100px;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

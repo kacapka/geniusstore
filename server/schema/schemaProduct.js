@@ -17,7 +17,8 @@ export default class SchemaProduct {
             isNew: this.validateBool(product.isNew),
             isSale: this.validateBool(product.isSale),
             isActive: this.validateBool(product.isActive),
-            gender: this.validateGender(product.gender)
+            gender: this.validateGender(product.gender),
+            sales: true
         }
     }
 

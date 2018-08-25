@@ -2,7 +2,12 @@ import React, {Component} from 'react';
 import './navBar.scss';
 import {FlowRouter} from 'meteor/kadira:flow-router';
 import {connect} from 'react-redux';
-const ROUTES = ['kobiety', 'mezsczyni', 'nowosci', 'promocje'];
+const ROUTES = [
+    {name: 'kobiety', route: 'women'},
+    {name: 'mezczyzni', route: 'men'},
+    {name: 'promocje', route: 'sales'},
+    {name: 'nowosci', route: 'new'}
+];
 
 class NavBar extends Component {
 
@@ -18,6 +23,10 @@ class NavBar extends Component {
 
     onCartClick() {
         FlowRouter.go('/cart');
+    }
+
+    onNavItemClick(route) {
+        FlowRouter.go(`/${route}`);
     }
     
     render() {
@@ -37,10 +46,15 @@ class NavBar extends Component {
                 </div>
                 <div id='navRoutes'>
                     <ul id='nav'>
-                        <li>kobiety</li>
-                        <li>mezczyzni</li>
-                        <li>nowosci</li>
-                        <li>promocje</li>
+                        {ROUTES.map(link => {
+                            return (
+                                <li key={link.name}
+                                    onClick={() => this.onNavItemClick(link.route)}
+                                >
+                                    {link.name}
+                                </li>
+                            );
+                        })}
                     </ul>
                 </div>
             </div>

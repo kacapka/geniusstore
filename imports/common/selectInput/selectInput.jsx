@@ -48,6 +48,7 @@ class SelectInput extends Component {
             );
         }
         return options.map(opt => {
+            if(opt.active === false) return;
             let aviableClassName = '';
             let aviableText = '';
             let isAviable;
@@ -57,7 +58,7 @@ class SelectInput extends Component {
                     aviableClassName = 'not-aviable';
                     aviableText = 'niedosteony';
                 } else {
-                    if (opt.value === 1) {
+                    if (opt.value == 1) {
                         aviableClassName = 'last-one';
                         aviableText = 'ostatni';
                     } else {
@@ -66,7 +67,7 @@ class SelectInput extends Component {
                     }
                 }
             }
-            const optionClassName = isAviable ? 'select-option disabled' : 'select-option';
+            const optionClassName = (opt.value && !isAviable) ? 'select-option disabled' : 'select-option';
             return (
                 <div className={optionClassName} key={opt.name}
                      onClick={() => this.onSelectOptionClick(opt)}

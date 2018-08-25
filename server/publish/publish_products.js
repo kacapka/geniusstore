@@ -2,12 +2,27 @@ import {Meteor} from 'meteor/meteor';
 import {Products, Collections, Features} from '/lib/collections';
 
 Meteor.publish('products.public', function() {
-    return Products.find({isActive: true});
+    const productsCursor = Products.find({isActive: true});
+    const collectionsCursor = Collections.find({});
+
+    return [
+        productsCursor,
+        collectionsCursor
+    ]
 });
 
 Meteor.publish('product.public', function(id) {
-    return Products.find({_id: id});
+    const productsCursor =  Products.find({_id: id});
+    const collectionsCursor = Collections.find({});
+    const featuresCursor = Features.find({});
+
+    return [
+        productsCursor,
+        collectionsCursor,
+        featuresCursor
+    ];
 });
+
 
 Meteor.publish('products.admin', function() {
     const productsCursor = Products.find({});
@@ -41,6 +56,10 @@ Meteor.publish('product.admin', function(id) {
         collectionCursor,
         featuresCursor
     ]
+});
+
+Meteor.publish('products.sales.admin', function() {
+    return Products.find({isSale: true});
 });
 
 Meteor.publish('formProduct.admin', function() {

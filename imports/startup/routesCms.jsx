@@ -10,6 +10,7 @@ import ProductCollections from "../components/cms/adminProduct/collections/produ
 import ProductCreate from "../components/cms/adminProduct/create/productCreate";
 import ProductFeatures from "../components/cms/adminProduct/features/productFeatures";
 import ProductDetails from "../components/cms/adminProduct/list/productDetails/productDetails";
+import ProductSales from "../components/cms/adminProduct/sales/productSales";
 
 FlowRouter.route('/admin', {
     action() {
@@ -72,6 +73,16 @@ FlowRouter.route('/admin/product/features', {
         });
     }
 });
+
+//product --> sales
+FlowRouter.route('/admin/product/sales', {
+    action() {
+        mount(Admin, {
+            content: <ProductSales />
+        });
+    }
+})
+
 
 //messages
 FlowRouter.route('/admin/messages', {
