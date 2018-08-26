@@ -12,6 +12,7 @@ class AdminLogin extends Component {
         }
         this.onInputChange = this.onInputChange.bind(this);
         this.onLoginClick = this.onLoginClick.bind(this);
+        this.onSubmitLogIn = this.onSubmitLogIn.bind(this);
     }
 
     onInputChange(e) {
@@ -20,13 +21,17 @@ class AdminLogin extends Component {
         })
     }
 
+    onSubmitLogIn(e) {
+        if(e.keyCode === 13) this.onLoginClick();
+    }
+
     onLoginClick() {
         const {email, password} = this.state;
         Meteor.loginWithPassword(email, password, err => {
            if(!err) {
 
            } else {
-               console.log(err)
+               window.alert('niepopranny login lub haslo');
            }
         });
     }
@@ -42,6 +47,7 @@ class AdminLogin extends Component {
                                value={this.state.email}
                                onChange={this.onInputChange}
                                type='email'
+                               onKeyDown={this.onSubmitLogIn}
                         />
                     </div>
                     <div className='login-input-wrap'>
@@ -51,6 +57,7 @@ class AdminLogin extends Component {
                                value={this.state.password}
                                onChange={this.onInputChange}
                                type='password'
+                               onKeyDown={this.onSubmitLogIn}
                         />
                     </div>
                     <div id='loginBtn'

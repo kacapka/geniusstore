@@ -3,18 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1e69d3e9-7ada-407a-99b3-ba235fac1035" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/common/modal/modal.scss" beforeDir="false" afterPath="$PROJECT_DIR$/imports/common/modal/modal.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/components/cms/adminProduct/sales/productSales.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/cms/adminProduct/sales/productSales.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/components/cms/adminProduct/sales/productSales.scss" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/cms/adminProduct/sales/productSales.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/components/mainPage/mainPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/mainPage/mainPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/components/mainPage/mainPage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/mainPage/mainPage.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/components/mainPage/mainPageMen.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/mainPage/mainPageMen.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/components/mainPage/mainPageNews.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/mainPage/mainPageNews.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/components/mainPage/mainPageSales.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/mainPage/mainPageSales.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/components/mainPage/mainPageWomen.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/mainPage/mainPageWomen.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/components/navBar/navBar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/navBar/navBar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/startup/routes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/startup/routes.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/components/cms/adminLogin/adminLogin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/cms/adminLogin/adminLogin.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/components/mainPage/mainPageCollection.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/components/mainPage/mainPageCollection.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/data.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,32 +74,32 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="14005" />
-          <entry key="jsx" value="29531" />
+          <entry key="js" value="14110" />
+          <entry key="jsx" value="29643" />
           <entry key="scss" value="7639" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JSX Harmony" value="29531" />
-          <entry key="JavaScript" value="14005" />
+          <entry key="JSX Harmony" value="29643" />
+          <entry key="JavaScript" value="14110" />
           <entry key="SCSS" value="7639" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="1" />
-          <entry key="js" value="145" />
-          <entry key="jsx" value="132" />
-          <entry key="scss" value="108" />
+          <entry key="js" value="146" />
+          <entry key="jsx" value="137" />
+          <entry key="scss" value="109" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="1" />
-          <entry key="JSX Harmony" value="132" />
-          <entry key="JavaScript" value="145" />
-          <entry key="SCSS" value="108" />
+          <entry key="JSX Harmony" value="137" />
+          <entry key="JavaScript" value="146" />
+          <entry key="SCSS" value="109" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -121,13 +112,22 @@
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/imports/components/cms/adminProduct/sales/productSales.jsx">
+            <entry file="file://$PROJECT_DIR$/imports/components/cms/adminLogin/adminLogin.jsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="102">
-                  <caret line="101" selection-start-line="101" selection-end-line="101" />
+                <state relative-caret-position="1003">
+                  <caret line="59" column="61" selection-start-line="59" selection-start-column="61" selection-end-line="59" selection-end-column="61" />
                   <folding>
-                    <element signature="e#0#49#0" expanded="true" />
+                    <element signature="e#0#39#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/imports/components/productPage/productPage.jsx">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="312">
+                  <caret line="60" column="85" selection-start-line="60" selection-start-column="85" selection-end-line="60" selection-end-column="85" />
                 </state>
               </provider>
             </entry>
@@ -135,44 +135,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/imports/components/mainPage/mainPage.jsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="527">
-                  <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="38" selection-end-column="30" />
-                  <folding>
-                    <element signature="e#0#39#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/imports/components/mainPage/mainPageMen.jsx">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="646">
-                  <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
-                  <folding>
-                    <element signature="e#0#39#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/imports/components/mainPage/mainPageNews.jsx">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="646">
-                  <caret line="40" column="30" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
-                  <folding>
-                    <element signature="e#0#39#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/imports/components/mainPage/mainPageSales.jsx">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="680">
-                  <caret line="40" column="30" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
+                <state relative-caret-position="-34">
+                  <caret line="28" column="42" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
                   <folding>
                     <element signature="e#0#39#0" expanded="true" />
                   </folding>
@@ -181,34 +145,10 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/imports/components/mainPage/mainPageWomen.jsx">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="646">
-                  <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
-                  <folding>
-                    <element signature="e#0#39#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/imports/startup/routes.jsx">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="721">
-                  <caret line="70" column="3" selection-start-line="70" selection-start-column="3" selection-end-line="70" selection-end-column="3" />
-                  <folding>
-                    <element signature="e#0#26#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/imports/components/mainPage/mainPageCollection.jsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="585">
-                  <caret line="39" column="30" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
+                <state relative-caret-position="500">
+                  <caret line="34" column="50" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
                   <folding>
                     <element signature="e#0#39#0" expanded="true" />
                   </folding>
@@ -217,32 +157,28 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/imports/functions/getSalePrice.js">
+            <entry file="file://$PROJECT_DIR$/server/data.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="85">
-                  <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+                <state relative-caret-position="-289">
+                  <caret line="59" column="146" selection-start-line="59" selection-start-column="146" selection-end-line="59" selection-end-column="146" />
                 </state>
               </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/imports/components/productPage/productPage.scss">
+              <provider selected="true" editor-type-id="text-editor" />
             </entry>
           </file>
         </leaf>
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/imports/common/modal/modal.scss">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="289">
-                  <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/imports/components/mainPage/mainPage.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="408">
-                  <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
+                <state relative-caret-position="357">
+                  <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
                 </state>
               </provider>
             </entry>
@@ -269,6 +205,7 @@
       <find>featuresSelects</find>
       <find>featureSelects</find>
       <find>console</find>
+      <find>img</find>
     </findStrings>
     <replaceStrings>
       <replace>message</replace>
@@ -287,7 +224,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/imports/redux/reducers/rootReducer.js" />
         <option value="$PROJECT_DIR$/imports/components/cms/Admin.jsx" />
         <option value="$PROJECT_DIR$/server/schema/validation.js" />
         <option value="$PROJECT_DIR$/imports/components/cms/adminProduct/create/validateProduct.js" />
@@ -306,14 +242,12 @@
         <option value="$PROJECT_DIR$/server/schema/schemaCollection.js" />
         <option value="$PROJECT_DIR$/imports/components/cms/adminProduct/collections/productCollections.jsx" />
         <option value="$PROJECT_DIR$/imports/components/cms/adminProduct/form/productForm.jsx" />
-        <option value="$PROJECT_DIR$/server/data.js" />
         <option value="$PROJECT_DIR$/imports/components/cms/adminProduct/form/validateProduct.js" />
         <option value="$PROJECT_DIR$/imports/components/cms/adminProduct/list/productDetails/productDetails.jsx" />
         <option value="$PROJECT_DIR$/server/methods/Collections/deleteCollection.js" />
         <option value="$PROJECT_DIR$/imports/common/selectInput/selectInput.jsx" />
         <option value="$PROJECT_DIR$/imports/components/mainPage/mainPgaeWoman.jsx" />
         <option value="$PROJECT_DIR$/imports/components/cartPage/cartPage.jsx" />
-        <option value="$PROJECT_DIR$/imports/components/productPage/productPage.jsx" />
         <option value="$PROJECT_DIR$/imports/components/footer/footerForm/footerForm.scss" />
         <option value="$PROJECT_DIR$/imports/components/navBar/navBar.jsx" />
         <option value="$PROJECT_DIR$/imports/components/cms/adminProduct/adminProduct.jsx" />
@@ -333,11 +267,14 @@
         <option value="$PROJECT_DIR$/imports/startup/routes.jsx" />
         <option value="$PROJECT_DIR$/imports/components/mainPage/mainPage.jsx" />
         <option value="$PROJECT_DIR$/imports/components/mainPage/mainPage.scss" />
-        <option value="$PROJECT_DIR$/imports/components/mainPage/mainPageCollection.jsx" />
         <option value="$PROJECT_DIR$/imports/components/mainPage/mainPageMen.jsx" />
         <option value="$PROJECT_DIR$/imports/components/mainPage/mainPageNews.jsx" />
         <option value="$PROJECT_DIR$/imports/components/mainPage/mainPageSales.jsx" />
         <option value="$PROJECT_DIR$/imports/components/mainPage/mainPageWomen.jsx" />
+        <option value="$PROJECT_DIR$/imports/components/cms/adminLogin/adminLogin.jsx" />
+        <option value="$PROJECT_DIR$/server/data.js" />
+        <option value="$PROJECT_DIR$/imports/components/productPage/productPage.jsx" />
+        <option value="$PROJECT_DIR$/imports/components/mainPage/mainPageCollection.jsx" />
       </list>
     </option>
   </component>
@@ -2420,7 +2357,8 @@
               <item name="wasyl" type="b2602c69:ProjectViewProjectNode" />
               <item name="wasyl" type="462c0819:PsiDirectoryNode" />
               <item name="imports" type="462c0819:PsiDirectoryNode" />
-              <item name="functions" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="productPage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wasyl" type="b2602c69:ProjectViewProjectNode" />
@@ -2445,7 +2383,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535288103521" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535297611181" />
     <property name="jsx.switch.disabled" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -2517,12 +2455,12 @@
       <workItem from="1534595687957" duration="45313000" />
       <workItem from="1535041928417" duration="11275000" />
       <workItem from="1535207848453" duration="8970000" />
-      <workItem from="1535277212177" duration="10848000" />
+      <workItem from="1535277212177" duration="15257000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="241860000" />
+    <option name="totallyTimeSpent" value="246269000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2542,11 +2480,11 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.21641791" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.21641791" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.47830802" />
-      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" weight="0.32900432" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="2" side_tool="true" visible="true" weight="0.3286334" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.3264642" />
@@ -2602,12 +2540,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/server/methods/Messages/insertMessage.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/methods/Messages/updateMessage.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/methods/Features/deleteFeature.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -2662,13 +2594,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/data.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="59" column="42" selection-start-line="59" selection-start-column="42" selection-end-line="59" selection-end-column="53" />
         </state>
       </provider>
     </entry>
@@ -2762,13 +2687,6 @@
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/components/productPage/productPage.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="66" column="45" selection-start-line="66" selection-start-column="45" selection-end-line="66" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -2881,50 +2799,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/functions/getSalePrice.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/startup/routes.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="721">
-          <caret line="70" column="3" selection-start-line="70" selection-start-column="3" selection-end-line="70" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/components/mainPage/mainPage.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/components/mainPage/mainPage.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="38" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/components/mainPage/mainPageCollection.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="30" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/components/mainPage/mainPageMen.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
@@ -2957,8 +2831,79 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/imports/components/mainPage/mainPageWomen.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
+        <state relative-caret-position="144">
           <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/startup/routes.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="721">
+          <caret line="70" column="3" selection-start-line="70" selection-start-column="3" selection-end-line="70" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/functions/getSalePrice.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/components/mainPage/mainPage.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/components/cms/adminLogin/adminLogin.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1003">
+          <caret line="59" column="61" selection-start-line="59" selection-start-column="61" selection-end-line="59" selection-end-column="61" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/components/productPage/productPage.scss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-289">
+          <caret line="59" column="146" selection-start-line="59" selection-start-column="146" selection-end-line="59" selection-end-column="146" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/components/productPage/productPage.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="60" column="85" selection-start-line="60" selection-start-column="85" selection-end-line="60" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/components/mainPage/mainPage.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="28" column="42" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/components/mainPage/mainPageCollection.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="34" column="50" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

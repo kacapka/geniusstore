@@ -33,11 +33,6 @@ class MainPageCollection extends Component {
                         }
                     </div>
                     <div className='product-info'>
-                        <span className='product-info-collection'
-                              onClick={() => this.onCollectionNameClick(product.collectionId)}
-                        >
-                           {!product.collection.isDefault && product.collection.name}
-                       </span>
                         <div className='product-info-title'>{product.name}</div>
                         <div className='product-info-price'>
                             {product.sales.isActive ? <span className='price-none'>PLN {product.price}</span> : `PLN ${product.price}`}
