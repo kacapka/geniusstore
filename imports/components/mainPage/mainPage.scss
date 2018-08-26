@@ -10,14 +10,33 @@
       padding: 30px;
       .product-img-wrapper {
         width: 100%;
+        position: relative;
         .product-img {
           width: 100%;
         }
+        .sale-label {
+          @extend %text-medium;
+          padding: 5px 10px;
+          position: absolute;
+          top: 20px;
+          right: 0;
+          background-color: $mint;
+          color: #fff;
+        }
+        &:hover {
+          cursor: pointer;
+          opacity: .9;
+        }
       }
       .product-info {
+        margin-top: 25px;
         .product-info-collection {
           @extend %text-small;
-          margin-top: 25px;
+          border-bottom: 1px solid transparent;
+          &:hover {
+            cursor: pointer;
+            border-bottom: 1px solid $mint;
+          }
         }
         .product-info-title {
           @extend %text-large;
@@ -27,6 +46,11 @@
         .product-info-price {
           @extend %text-medium;
           margin-top: 15px;
+          display: flex;
+          flex-direction: column;
+          .price-none {
+            text-decoration: line-through;
+          }
         }
       }
     }
@@ -39,5 +63,10 @@
       align-items: center;
       text-align: center;
     }
+  }
+  #collectionTitle {
+    @extend %text-large;
+    @extend %heading-medium;
+    margin: 30px;
   }
 }

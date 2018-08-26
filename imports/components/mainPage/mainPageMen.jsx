@@ -4,12 +4,17 @@ import {withTracker} from 'meteor/react-meteor-data';
 import {Products, Collections} from '/lib/collections';
 import {Meteor} from 'meteor/meteor';
 import {FlowRouter} from 'meteor/kadira:flow-router';
+import getSalePrice from '../../functions/getSalePrice';
 
 
 class MainPage extends Component {
 
     onProductClick(id) {
         FlowRouter.go(`/${id}`);
+    }
+
+    onCollectionNameClick(id) {
+        FlowRouter.go(`/collection/${id}`);
     }
 
     renderProducts() {
@@ -22,11 +27,21 @@ class MainPage extends Component {
                          onClick={() => this.onProductClick(product._id)}
                     >
                         <img src={product.photos[0]} className='product-img' />
+                        {product.sales.isActive &&
+                            <div className='sale-label'>{product.sales.salePercentage} %</div>
+                        }
                     </div>
                     <div className='product-info'>
-                        <div className='product-info-collection'>{!product.collection.isDefault && product.collection.name}</div>
+                        <span className='product-info-collection'
+                              onClick={() => this.onCollectionNameClick(product.collectionId)}
+                        >
+                           {!product.collection.isDefault && product.collection.name}
+                       </span>
                         <div className='product-info-title'>{product.name}</div>
-                        <div className='product-info-price'>PLN {product.price}</div>
+                        <div className='product-info-price'>
+                            {product.sales.isActive ? <span className='price-none'>PLN {product.price}</span> : `PLN ${product.price}`}
+                            {product.sales.isActive && `PLN ${getSalePrice(product.price, product.sales.salePercentage)}`}
+                        </div>
                     </div>
                 </div>
             );

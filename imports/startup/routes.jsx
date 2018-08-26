@@ -10,6 +10,7 @@ import CartPage from '../components/cartPage/cartPage';
 import './routesCms';
 import MainPageNews from "../components/mainPage/mainPageNews";
 import MainPageSales from "../components/mainPage/mainPageSales";
+import MainPageCollection from "../components/mainPage/mainPageCollection";
 
 FlowRouter.route('/', {
     action() {
@@ -61,6 +62,15 @@ FlowRouter.route('/cart', {
 });
 
 //product page
+FlowRouter.route('/collection/:collectionId', {
+    action(params) {
+        mount(App, {
+            content: <MainPageCollection collectionId={params.collectionId} />
+        });
+    }
+});
+
+//product page
 FlowRouter.route('/:productId', {
     action(params) {
         mount(App, {
@@ -68,4 +78,5 @@ FlowRouter.route('/:productId', {
         });
     }
 });
+
 

@@ -4,6 +4,7 @@ import { Meteor } from 'meteor/meteor';
 import './methods/Products/insertProduct';
 import './methods/Products/editProduct';
 import './methods/Products/deleteProduct';
+import './methods/Products/updateSaleProduct';
 
 import './methods/Messages/insertMessage';
 import './methods/Messages/deleteMessage';

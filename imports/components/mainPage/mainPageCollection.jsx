@@ -7,7 +7,7 @@ import {FlowRouter} from 'meteor/kadira:flow-router';
 import getSalePrice from '../../functions/getSalePrice';
 
 
-class MainPageWoman extends Component {
+class MainPageCollection extends Component {
 
     onProductClick(id) {
         FlowRouter.go(`/${id}`);
@@ -19,6 +19,7 @@ class MainPageWoman extends Component {
 
     renderProducts() {
         return this.props.products.map(product => {
+            console.log(product.collection);
             return (
                 <div key={product._id}
                      className='product-item'
@@ -28,7 +29,7 @@ class MainPageWoman extends Component {
                     >
                         <img src={product.photos[0]} className='product-img' />
                         {product.sales.isActive &&
-                            <div className='sale-label'>{product.sales.salePercentage} %</div>
+                        <div className='sale-label'>{product.sales.salePercentage} %</div>
                         }
                     </div>
                     <div className='product-info'>
@@ -49,9 +50,9 @@ class MainPageWoman extends Component {
     }
 
     render() {
-        console.log(this.props);
         return (
             <div id='mainPage'>
+                <h2 id='collectionTitle'>{this.props.handleReady && this.props.collectionName}</h2>
                 <div id='productsAll'>
                     {this.props.handleReady ? this.renderProducts() : <div>loading....</div>}
                 </div>
@@ -61,20 +62,23 @@ class MainPageWoman extends Component {
 
 }
 
-export default withTracker(() => {
+export default withTracker((props) => {
     let products = [];
-    const handle = Meteor.subscribe('products.public');
+    let collectionName = '';
+    const handle = Meteor.subscribe('products.public', props.collectionId);
     const handleReady = handle.ready();
     if(handleReady) {
-        products = Products.find({isActive: true, gender: 'woman'}).fetch();
+        products = Products.find({isActive: true, collectionId: props.collectionId}).fetch();
         for(let i=0; i<products.length; i++) {
             console.log(products[i]);
             products[i].collection = Collections.findOne({_id: products[i].collectionId});
         }
+        collectionName = Collections.findOne({_id: props.collectionId}).name;
     }
 
     return {
         handleReady,
-        products
+        products,
+        collectionName
     }
-})(MainPageWoman);
+})(MainPageCollection);
