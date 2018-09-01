@@ -12,6 +12,7 @@ class CartPage extends Component {
         super(props);
         this.renderTotalAmount = this.renderTotalAmount.bind(this);
         this.setProductAmount = this.setProductAmount.bind(this);
+        this.onGoToCheckoutBtnClick = this.onGoToCheckoutBtnClick.bind(this);
     }
 
     onProductClick(id) {
@@ -24,6 +25,10 @@ class CartPage extends Component {
 
     setProductAmount(opt, id) {
         this.props.updateProductAmount(opt.name, id);
+    }
+
+    onGoToCheckoutBtnClick() {
+        FlowRouter.go('/cart/checkout');
     }
 
     renderCartItems() {
@@ -98,7 +103,9 @@ class CartPage extends Component {
                                         <div id='cartCheckoutWrap'>
                                             <p id='cartCheckoutPrice'>Razem: <br />{this.renderTotalAmount()} PLN</p>
                                             <p id='cartCheckoutInfo'>plus koszt wysyłki</p>
-                                            <div id='cartCheckoutBtn'>
+                                            <div id='cartCheckoutBtn'
+                                                 onClick={this.onGoToCheckoutBtnClick}
+                                            >
                                                 Przejdz do zakupu
                                             </div>
                                         </div>

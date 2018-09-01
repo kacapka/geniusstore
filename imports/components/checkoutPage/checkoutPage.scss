@@ -1,0 +1,50 @@
+@import '../../common/buttons';
+@import '../../common/fonts';
+@import '../../common/vars';
+@import '../../common/inputs';
+
+#checkoutPage {
+  padding: 30px;
+  #checkoutWrapper {
+    display: flex;
+    #checkoutCta {
+      flex: 3;
+      display: flex;
+      flex-direction: column;
+      .checkout-title {
+        @extend %text-large;
+        @extend %heading-medium;
+      }
+      #checkoutAddress {
+        .address-row {
+          display: flex;
+        }
+        .address-input-wrapper {
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          .address-label {
+            @extend %nav;
+            margin-bottom: 10px;
+          }
+          .address-input {
+            @extend %input;
+          }
+          .input-error {
+            @extend %error;
+            position: absolute;
+            top: calc(100% + 5px);
+            left: 0;
+          }
+          &.address-input-row {
+            flex: 1;
+          }
+        }
+
+      }
+    }
+    #checkoutProducts {
+      flex: 2;
+    }
+  }
+}

@@ -11,6 +11,7 @@ import './routesCms';
 import MainPageNews from "../components/mainPage/mainPageNews";
 import MainPageSales from "../components/mainPage/mainPageSales";
 import MainPageCollection from "../components/mainPage/mainPageCollection";
+import CheckoutPage from "../components/checkoutPage/checkoutPage";
 
 FlowRouter.route('/', {
     action() {
@@ -57,6 +58,15 @@ FlowRouter.route('/cart', {
     action() {
         mount(App, {
             content: <CartPage />
+        });
+    }
+});
+
+//cart
+FlowRouter.route('/cart/checkout', {
+    action() {
+        mount(App, {
+            content: <CheckoutPage />
         });
     }
 });
