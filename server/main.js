@@ -30,5 +30,8 @@ import './publish/publish_features';
 import './data';
 
 Meteor.startup(() => {
-  // code to run on server at startup
+    WebApp.connectHandlers.use('/hello', (req, res, next) => {
+        res.writeHead(200);
+        res.end(`Hello world from: ${Meteor.release}`);
+    });
 });
