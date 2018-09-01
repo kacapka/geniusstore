@@ -53,6 +53,14 @@
       .cart-size {
         @extend %text-medium;
       }
+      .cart-amount {
+        .cart-amount-select {
+          width: 60px;
+          .select-option {
+            justify-content: center;
+          }
+        }
+      }
       .cart-remove {
         color: $grey;
         font-size: 18px;

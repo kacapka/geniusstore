@@ -139,7 +139,7 @@ class ProductForm extends Component {
                        key={i}
                        value={this.state.photos[i]}
                        onChange={(e) => this.onPhotoInputChange(e,i)}
-                       placeholder='wklej adres url'
+                       placeholder='wklej nazwe zdjecia'
                 />
             )
         }

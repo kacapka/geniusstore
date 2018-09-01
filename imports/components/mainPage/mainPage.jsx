@@ -4,8 +4,6 @@ import {withTracker} from 'meteor/react-meteor-data';
 import {Products, Collections} from '/lib/collections';
 import {Meteor} from 'meteor/meteor';
 import {FlowRouter} from 'meteor/kadira:flow-router';
-import getSalePrice from '../../functions/getSalePrice';
-
 
 class MainPage extends Component {
 
@@ -40,7 +38,7 @@ class MainPage extends Component {
                        <div className='product-info-title'>{product.name}</div>
                        <div className='product-info-price'>
                            {product.sales.isActive ? <span className='price-none'>PLN {product.price}</span> : `PLN ${product.price}`}
-                           {product.sales.isActive && `PLN ${getSalePrice(product.price, product.sales.salePercentage)}`}
+                           {product.sales.isActive && `PLN ${product.sales.salePrice}`}
                        </div>
                    </div>
                </div>

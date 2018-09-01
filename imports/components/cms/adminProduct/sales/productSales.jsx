@@ -50,6 +50,8 @@ class ProductSales extends Component {
         const id = this.state.modalProduct._id;
         const percentage = this.state.inputModal;
         const isActive = this.state.switchModal;
+        const basePrice = this.props.products.find(product => product._id === id).price;
+        const salePrice = getSalePrice(basePrice, percentage);
 
         if(!percentage || percentage < 5) {
             return window.alert('promocja musi byc conajmniej 5 %');
@@ -57,6 +59,7 @@ class ProductSales extends Component {
 
         const sales = {
             isActive,
+            salePrice,
             salePercentage: percentage
         };
 
@@ -77,7 +80,7 @@ class ProductSales extends Component {
         const products = this.props.products;
         if(products.length === 0) return <div>nie posiadasz produktów w promocji</div>;
         return products.map(product => {
-            const {salePercentage, isActive} = product.sales;
+            const {salePercentage, isActive, salePrice} = product.sales;
             const eyeColor = isActive ? 'active' : 'no-active';
             return (
                 <div className='product-item' key={product._id}>
@@ -88,7 +91,7 @@ class ProductSales extends Component {
                         <img src={product.photos[0]} alt='product thumbnail' />
                     </div>
                     <div className='product-feature'>{salePercentage ? <span className='price-none'>{product.price}</span> : <span className='price-active'>{product.price}</span>}</div>
-                    <div className='product-feature'>{salePercentage ? <span className='price-active'>{getSalePrice(product.price, salePercentage)}</span> : 'brak'}</div>
+                    <div className='product-feature'>{salePercentage ? <span className='price-active'>{salePrice}</span> : 'brak'}</div>
                     <div className='product-feature'>{salePercentage ? salePercentage : 'brak'}</div>
                     <div className='product-feature product-edit'>
                         <ion-icon name="create"

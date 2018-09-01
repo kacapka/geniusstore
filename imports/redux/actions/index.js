@@ -16,4 +16,14 @@ export const deleteProductFromCart = id => {
         type: types.DELETE_PRODUCT_FROM_CART
     }
 
-}
+};
+
+export const updateProductAmount = (amount, id) => {
+
+    return {
+        id,
+        amount,
+        type: types.UPDATE_PRODUCT_AMOUNT
+    }
+
+};

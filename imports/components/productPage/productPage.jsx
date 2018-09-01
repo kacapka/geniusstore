@@ -8,13 +8,8 @@ import {addProductToCart} from "../../redux/actions";
 import {compose} from 'redux';
 import {connect} from 'react-redux';
 import uniqid from 'uniqid';
-
-const SIZES = [
-    {value: 'S', extra: 'dostepny'},
-    {value: 'M', extra: 'dostepny'},
-    {value: 'L', extra: 'dostepny'},
-    {value: 'XL', extra: 'dostepny'}
-];
+import {FlowRouter} from 'meteor/kadira:flow-router';
+import getSalePrice from "../../functions/getSalePrice";
 
 class Product extends Component {
 
@@ -22,20 +17,39 @@ class Product extends Component {
         super(props);
         this.state = {
             sizeValue: null,
-            sizeError: null
+            sizeError: null,
+            mainPhoto: null
         };
         this.selectNewValue = this.selectNewValue.bind(this);
         this.onAddToCartBtnClick = this.onAddToCartBtnClick.bind(this);
     }
 
+    onThumbnailPhotoClick(photo) {
+        this.setState({mainPhoto: photo});
+    }
+
+    onCollectionNameClick(id) {
+        FlowRouter.go(`/collection/${id}`);
+    }
+
+    checkIfProductIsAlreadyInCart() {
+        const {cart, product} = this.props;
+        return cart.some(item => {
+            return item.size.name === this.state.sizeValue.name && item.product._id === product._id
+        });
+    }
+
     onAddToCartBtnClick() {
-        if(!this.state.sizeValue) {
+        if(this.checkIfProductIsAlreadyInCart()) {
+            return window.alert('produkt juz dodany');
+        } else if(!this.state.sizeValue) {
             this.setState({sizeError: 'wybierz rozmiar'});
         } else {
             const product = {
                 product: this.props.product,
                 size: this.state.sizeValue,
-                cartId: uniqid()
+                cartId: uniqid(),
+                amount: 1
             };
             this.props.addProductToCart(product);
         }
@@ -47,17 +61,22 @@ class Product extends Component {
 
     render() {
         const {product, handleReady} = this.props;
+        const mainPhoto = this.state.mainPhoto;
         if(!handleReady) return <div>loading...</div>;
+        const photo = mainPhoto ? mainPhoto : product.photos[0];
+
         return (
             <div id='productPage'>
                 <div id='productArea'>
                     <div id='productAreaPhotos'>
-                        <div id='photosMain' style={{backgroundImage: `url(${product.photos[0]})`}}>
+                        <div id='photosMain' style={{backgroundImage: `url(${photo})`}}>
                         </div>
                         <div id='photosThumbnails'>
                             {product.photos.map(photo => {
                                 return (
-                                    <div className='thumbnail-wrap' key={photo}>
+                                    <div className='thumbnail-wrap' key={photo}
+                                         onClick={() => this.onThumbnailPhotoClick(photo)}
+                                    >
                                         <img src={photo} className='photo-thumbnail' />
                                     </div>
                                 );
@@ -66,9 +85,16 @@ class Product extends Component {
                     </div>
                     <div id='productAreaDetails'>
                         <div id='detailsTitle'>
-                            <p id='title-collection'>{!product.collection.isDefault && product.collection.name}</p>
+                            <span id='title-collection'
+                               onClick={() => this.onCollectionNameClick(product.collectionId)}
+                            >
+                                {!product.collection.isDefault && product.collection.name}
+                            </span>
                             <p id='title-name'>{product.name}</p>
-                            <p id='title-price'>PLN {product.price}</p>
+                            <p id='title-price'>
+                                {product.sales.isActive ? <span className='price-none'>PLN {product.price}</span> : `PLN ${product.price}`}
+                                {product.sales.isActive && `PLN ${product.sales.salePrice}`}
+                            </p>
                         </div>
                         <div id='detailsCart'>
                             <SelectInput options={product.sizes}
@@ -95,8 +121,12 @@ class Product extends Component {
 
 }
 
+const mapStateToProps = state => ({
+    cart: state.cart
+});
+
 const ProductPage = compose(
-    connect(null, {addProductToCart}),
+    connect(mapStateToProps, {addProductToCart}),
     withTracker((props) => {
         let product;
         const handle = Meteor.subscribe('product.public', props.productId);

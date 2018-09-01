@@ -9,8 +9,20 @@ const cart = (state = [], action) => {
                 action.product
             ];
         case types.DELETE_PRODUCT_FROM_CART:
-            const newState = state.filter(item => item.cartId !== action.id);
-            return newState;
+            return state.filter(item => item.cartId !== action.id);
+        case types.UPDATE_PRODUCT_AMOUNT:
+            const updateItem = state.find(item => item.cartId === action.id);
+            const newItem = {
+                ...updateItem,
+                amount: action.amount
+            };
+            return state.map(item => {
+                if(item.cartId === action.id) {
+                    return newItem;
+                } else {
+                    return item;
+                }
+            });
         default:
             return state;
     }

@@ -51,6 +51,9 @@
       &.disabled {
         cursor: not-allowed;
         color: $grey;
+        &:hover {
+          color: #fff;
+        }
       }
     }
   }

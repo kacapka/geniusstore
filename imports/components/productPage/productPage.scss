@@ -32,6 +32,10 @@
             width: 100%;
           }
         }
+        &:hover {
+          cursor: pointer;
+          opacity: .9;
+        }
       }
     }
     #productAreaDetails {
@@ -41,6 +45,10 @@
         border-bottom: 1px solid $grey;
         #title-collection {
           @extend %text-medium;
+          &:hover {
+            cursor: pointer;
+            border-bottom: 1px solid $mint;
+          }
         }
         #title-name {
           @extend %heading-large;
@@ -50,6 +58,11 @@
         #title-price {
           @extend %text-large;
           font-size: 18px;
+          display: flex;
+          flex-direction: column;
+          .price-none {
+            text-decoration: line-through;
+          }
         }
       }
       #detailsCart {
