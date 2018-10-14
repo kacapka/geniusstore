@@ -1,6 +1,9 @@
-const getSalePrice = (price, sale) => {
-    const salePrice = price - (price * sale / 100);
-    return Math.round(salePrice);
+const getSalePrice = (product) => {
+    if(product.sales.isActive) {
+        return product.sales.salePrice;
+    } else {
+        return product.price;
+    }
 };
 
 export default getSalePrice;

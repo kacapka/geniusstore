@@ -11,10 +11,8 @@
       flex: 3;
       display: flex;
       flex-direction: column;
-      .checkout-title {
-        @extend %text-large;
-        @extend %heading-medium;
-      }
+      padding-right: 50px;
+      border-right: 1px solid $grey;
       #checkoutAddress {
         .address-row {
           display: flex;
@@ -23,6 +21,7 @@
           display: flex;
           flex-direction: column;
           position: relative;
+          margin-bottom: 30px;
           .address-label {
             @extend %nav;
             margin-bottom: 10px;
@@ -38,13 +37,90 @@
           }
           &.address-input-row {
             flex: 1;
+            &:nth-child(even) {
+              margin-left: 15px;
+            }
+            &:nth-child(odd) {
+              padding-right: 15px;
+            }
           }
         }
 
       }
+      #checkoutDelivery {
+
+      }
+      #checkoutPayment {
+        display: flex;
+        flex-direction: column;
+        .payment-label {
+          @extend %nav;
+          margin-left: 30px;
+        }
+        #checkoutSubmitBtn {
+          @extend %btn;
+          @extend %btn--color;
+          width: 220px;
+          height: 50px;
+          margin-left: auto;
+          margin-top: 20px;
+        }
+      }
+      .checkbox-wrapper {
+        display: flex;
+        align-items: center;
+        margin-bottom: 25px;
+        .checkbox-label {
+          flex: 1;
+          @extend %nav;
+          margin-left: 30px;
+        }
+        .checkbox {
+          flex: 0 0 20px;
+        }
+      }
+      .info-error {
+        @extend %error;
+        margin-bottom: 20px;
+        margin-left: 50px;
+      }
     }
     #checkoutProducts {
       flex: 2;
+      padding-left: 50px;
+      .checkout-product-item {
+        display: flex;
+        align-items: center;
+        .checkout-product-img {
+          flex: 0 0 70px;
+          position: relative;
+          img {
+            width: 100%;
+            height: auto;
+          }
+          p {
+            position: absolute;
+            top: 3px;
+            right: 3px;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20px;
+            height: 20px;
+          }
+        }
+        .checkout-product-feature {
+          flex: 1;
+          @extend %text-medium;
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+    .checkout-title {
+      @extend %heading-medium;
+      margin-bottom: 30px;
     }
   }
 }

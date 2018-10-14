@@ -27,3 +27,23 @@ export const updateProductAmount = (amount, id) => {
     }
 
 };
+
+export const setInputValue = (name, value) => {
+
+    return {
+        name,
+        value,
+        type: types.SET_CHECKOUT_INPUT_VALUE
+    }
+
+};
+
+export const setInputError = (name, value) => {
+
+    return {
+        name,
+        value,
+        type: types.SET_CHECKOUT_INPUT_ERROR
+    }
+
+};

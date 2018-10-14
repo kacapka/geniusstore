@@ -2,6 +2,7 @@
 @import '../../../../../common/fonts';
 @import '../../../../../common/buttons';
 @import '../../../../../common/vars';
+@import '../../../../../common/inputs';
 
 #productDetails {
   @extend %cms-box;
@@ -9,6 +10,17 @@
   flex-direction: column;
   padding: 30px 50px;
   #details {
+    .feature-edit-wrap {
+      display: flex;
+      align-items: center;
+      ion-icon {
+        margin-left: 10px;
+        &:hover {
+          color: $admin;
+          cursor: pointer;
+        }
+      }
+    }
     #productDetailsBar {
       display: flex;
       justify-content: space-between;
@@ -27,7 +39,7 @@
         }
         #barEditBtn {
           @extend %btn;
-          @extend %btn--green;
+          @extend %btn--red;
           margin-left: 30px;
         }
       }
@@ -104,5 +116,42 @@
       }
     }
   }
-
+  .modal-wrap {
+    .modal-content {
+      .edit-modal-wrap {
+        display: flex;
+        flex-direction: column;
+        .modal-title {
+          @extend %heading-small;
+          margin-bottom: 40px;
+        }
+        .modal-input-wrap {
+          margin-bottom: 20px;
+          min-width: 300px;
+          .input-label {
+            @extend %label;
+            margin-bottom: 10px;
+          }
+          .edit-input {
+            @extend %input;
+            width: 100%;
+          }
+        }
+        .modal-buttons-wrap {
+          display: flex;
+          justify-content: center;
+          margin-top: 40px;
+          .modal-btn-submit {
+            @extend %btn;
+            @extend %btn--green;
+          }
+          .modal-btn-cancel {
+            @extend %btn;
+            @extend %btn--red;
+            margin-left: 20px;
+          }
+        }
+      }
+    }
+  }
 }

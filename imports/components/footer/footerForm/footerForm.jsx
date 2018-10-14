@@ -64,7 +64,7 @@ class FooterForm extends Component {
                 name: this.state.name,
                 text: this.state.text,
                 email: this.state.email
-            }
+            };
             Meteor.call('insertMessage', message, err => {
                if(err) {
                    console.log(err);

@@ -65,7 +65,6 @@ export default withTracker(() => {
     if(handleReady) {
         products = Products.find({isActive: true}).fetch();
         for(let i=0; i<products.length; i++) {
-            console.log(products[i]);
             products[i].collection = Collections.findOne({_id: products[i].collectionId});
         }
     }
