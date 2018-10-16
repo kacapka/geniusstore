@@ -6,6 +6,9 @@ import {withTracker} from 'meteor/react-meteor-data';
 import SwitchInput from "../../../../../common/switchInput/switchInput";
 import Modal from "../../../../../common/modal/modal";
 import EditName from "./editName/editName";
+import EditCollection from "./editCollection/editCollection";
+import EditPrice from "./editPrice/editPrice";
+import EditGender from "./editGender/editGender";
 
 class ProductDetails extends Component {
 
@@ -18,6 +21,7 @@ class ProductDetails extends Component {
         this.openModal = this.openModal.bind(this);
         this.onDeleteProductClcik = this.onDeleteProductClcik.bind(this);
         this.closeModal = this.closeModal.bind(this);
+        this.selectValue = this.selectValue.bind(this);
     }
 
     closeModal() {
@@ -28,6 +32,47 @@ class ProductDetails extends Component {
         this.setState({isModal: true, action});
     }
 
+    selectValue(val, name) {
+        const productId = this.props.product._id;
+        if(name === 'promo') {
+            let confirmMessage = '';
+            if(val) {
+                confirmMessage = 'czy chcesz dodac produkt do promocji?';
+            } else {
+                confirmMessage = 'czy cchesz usunac produkt z promocji?';
+            }
+            if(window.confirm(confirmMessage)) {
+                Meteor.call('editProductPromoStatus', productId, val, err => {
+                    if(!err) {
+                        console.log('zmienienow status promocji produktu'); //todo toast
+                    } else {
+                        console.error(err);
+                        window.alert(err.error);
+                    }
+                });
+
+            }
+        } else if(name === 'new') {
+            let confirmMessage = '';
+            if(val) {
+                confirmMessage = 'czy chcesz dodac produkt do nowosci?';
+            } else {
+                confirmMessage = 'czy cchesz usunac produkt z nowosci?';
+            }
+            if(window.confirm(confirmMessage)) {
+                Meteor.call('editProductNewStatus', productId, val, err => {
+                    if(!err) {
+                        console.log('zmienienow status nowosci produktu'); //todo toast
+                    } else {
+                        console.error(err);
+                        window.alert(err.error);
+                    }
+                });
+
+            }
+        }
+    }
+
     onDeleteProductClcik() {
         console.log('remove');
     }
@@ -35,7 +80,13 @@ class ProductDetails extends Component {
     renderModalContent() {
         switch(this.state.action) {
             case 'name':
-                return <EditName closeModal={this.closeModal} product={this.props.product} />
+                return <EditName closeModal={this.closeModal} product={this.props.product} />;
+            case 'collection':
+                return <EditCollection closeModal={this.closeModal} collection={this.props.product.collection} productId={this.props.product._id} />;
+            case 'price':
+                return <EditPrice closeModal={this.closeModal} productId={this.props.product._id} price={this.props.product.price} />;
+            case 'gender':
+                return <EditGender closeModal={this.closeModal} productId={this.props.product._id} gender={this.props.product.gender} />;
             default:
                 return window.alert('niepoprawny typ edycji produktu');
         }
@@ -45,6 +96,9 @@ class ProductDetails extends Component {
         if(!this.props.handleReady) return <div>...loading</div>;
         const product = this.props.product;
         const collectionName = product.collection ? product.collection.name : 'brak przypisanych kolekcji';
+
+        console.log(product);
+
         return (
             <div id='productDetails'>
                 <div id='details'>
@@ -72,20 +126,49 @@ class ProductDetails extends Component {
                     <div id='productDetailsContent'>
                         <div className='content-column'>
                             <div className='content-box content-info'>
-                                <div className='label'>kolekcja</div>
+                                <div className='feature-edit-wrap'>
+                                    <div className='label'>kolekcja</div>
+                                    <ion-icon name="create" className='edit-icon'
+                                              onClick={() => this.openModal('collection')}
+                                    />
+                                </div>
                                 <div className='value'>{collectionName}</div>
                             </div>
                             <div className='content-box content-info'>
-                                <div className='label'>cena</div>
+                                <div className='feature-edit-wrap'>
+                                    <div className='label'>cena</div>
+                                    <ion-icon name="create" className='edit-icon'
+                                              onClick={() => this.openModal('price')}
+                                    />
+                                </div>
                                 <div className='value'>{product.price}</div>
                             </div>
                             <div className='content-box content-info'>
-                                <div className='label'>plec</div>
+                                <div className='feature-edit-wrap'>
+                                    <div className='label'>plec</div>
+                                    <ion-icon name="create" className='edit-icon'
+                                              onClick={() => this.openModal('gender')}
+                                    />
+                                </div>
                                 <div className='value'>{product.gender}</div>
                             </div>
-                            <div className='content-box content-promo'>
-                                <div className='label'>promocja: <span className='value'>{product.isSale ? 'TAK' : 'NIE'}</span></div>
-                                <div className='label'>nowosc: <span className='value'>{product.isNew ? 'TAK' : 'NIE'}</span></div>
+                            <div className='content-box'>
+                                <div className='switch-wrap'>
+                                    <div className='label'>promocja: <span className='value'>{product.isSale ? 'TAK' : 'NIE'}</span></div>
+                                    <SwitchInput selectValue={this.selectValue}
+                                                 name='promo'
+                                                 className='product-switch'
+                                                 isActive={product.isSale}
+                                    />
+                                </div>
+                                <div className='switch-wrap'>
+                                    <div className='label'>nowosc: <span className='value'>{product.isNew ? 'TAK' : 'NIE'}</span></div>
+                                    <SwitchInput selectValue={this.selectValue}
+                                                 name='new'
+                                                 className='product-switch'
+                                                 isActive={product.isNew}
+                                    />
+                                </div>
                             </div>
                             <div className='content-box content-sizes'>
                                 <div className='label'>rozmiary</div>

@@ -48,33 +48,33 @@ class SelectInput extends Component {
             );
         }
         return options.map(opt => {
-            if(opt.active === false) return;
-            const value = Number(opt.value);
-            let aviableClassName = '';
-            let aviableText = '';
-            let isAviable;
-            if(value >= 0) {
-                isAviable = value > 0;
-                if (!isAviable) {
-                    aviableClassName = 'not-aviable';
-                    aviableText = 'niedosteony';
-                } else {
-                    if (opt.value === 1) {
-                        aviableClassName = 'last-one';
-                        aviableText = 'ostatni';
-                    } else {
-                        aviableClassName = 'aviable';
-                        aviableText = 'dostepny';
-                    }
-                }
-            }
-            const optionClassName = (value <= 0) ? 'select-option disabled' : 'select-option';
+            // if(opt.active === false) return;
+            // const value = Number(opt.value);
+            // let aviableClassName = '';
+            // let aviableText = '';
+            // let isAviable;
+            // if(value >= 0) {
+            //     isAviable = value > 0;
+            //     if (!isAviable) {
+            //         aviableClassName = 'not-aviable';
+            //         aviableText = 'niedosteony';
+            //     } else {
+            //         if (opt.value === 1) {
+            //             aviableClassName = 'last-one';
+            //             aviableText = 'ostatni';
+            //         } else {
+            //             aviableClassName = 'aviable';
+            //             aviableText = 'dostepny';
+            //         }
+            //     }
+            // }
+            // const optionClassName = (value <= 0) ? 'select-option disabled' : 'select-option';
             return (
-                <div className={optionClassName} key={opt.name}
+                <div className='select-option' key={opt.name}
                      onClick={() => this.onSelectOptionClick(opt)}
                 >
                     <div className='option-value'>{opt.name}</div>
-                    {(value >= 0) && <div className={`option-extra ${aviableClassName}`}>{aviableText}</div>}
+                    {/*{(value >= 0) && <div className={`option-extra ${aviableClassName}`}>{aviableText}</div>}*/}
                 </div>
             );
         });
