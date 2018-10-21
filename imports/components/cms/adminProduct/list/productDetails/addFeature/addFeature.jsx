@@ -39,7 +39,7 @@ class AddFeature extends Component {
     }
 
     render() {
-        // if(!this.props.handleReady) return <div>loading...</div>;
+        if(!this.props.handleReady) return <div>loading...</div>;
         console.log(this.props);
         return (
             <div className='edit-modal-wrap'>
@@ -49,6 +49,7 @@ class AddFeature extends Component {
                     <SelectInput options={this.props.features}
                                  selectValue={this.selectValue}
                                  className='modal-select'
+                                 defaultValue='wybierz szczegol'
                     />
                 </div>
                 <div className='modal-buttons-wrap'>
@@ -75,8 +76,8 @@ export default withTracker(props => {
     const handleReady = handle.ready();
     if(handleReady) {
         const usedFeaturesIds = props.featuresIds;
-        const features = Features.find({}).fetch();
-        for(let f of features) {
+        const AllFeatures = Features.find({}).fetch();
+        for(let f of AllFeatures) {
             if(!~usedFeaturesIds.indexOf(f._id)) {
                 features.push(f);
             }
