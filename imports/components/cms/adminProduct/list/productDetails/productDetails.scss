@@ -49,18 +49,42 @@
       display: flex;
       .content-column {
         @extend %cms-column;
+        .add-btn-wrap {
+          margin-bottom: 30px;
+          .add-btn {
+            @extend %btn;
+            @extend %btn--black;
+            width: auto;
+          }
+          &.line {
+            padding-bottom: 30px;
+            border-bottom: 1px solid $grey;
+          }
+        }
         .content-box {
           margin-bottom: 30px;
           display: flex;
           flex-direction: column;
           .label {
             @extend %heading-small;
+            &.label-details {
+              margin-bottom: 10px;
+            }
           }
           .value {
             @extend %text-large;
           }
           .feature-item {
             margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            .delete-icon {
+              margin-left: 20px;
+              &:hover {
+                cursor: pointer;
+                color: $red;
+              }
+            }
           }
           .switch-wrap {
             display: flex;
@@ -69,6 +93,10 @@
             .product-switch {
               margin-left: 30px;
             }
+          }
+          &.line {
+            padding-bottom: 30px;
+            border-bottom: 1px solid $grey;
           }
         }
         .content-info {
@@ -112,12 +140,32 @@
         }
         .content-photos {
           flex-direction: row;
+          flex-wrap: wrap;
+          margin-bottom: 0;
           .details-photo {
             flex: 0 0 140px;
             height: 200px;
-            margin-right: 20px;
+            margin: 0 20px 20px 0;
+            position: relative;
             img {
               width: 100%;
+            }
+            .photo-icon {
+              position: absolute;
+              bottom: 0;
+              width: 20px;
+              height: 20px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background-color: #fff;
+              &.delete-icon {
+                right: 0;
+                &:hover {
+                  cursor: pointer;
+                  color: $red;
+                }
+              }
             }
           }
         }
@@ -144,8 +192,34 @@
             @extend %input;
             width: 100%;
           }
+          .edit-textarea {
+            @extend %input;
+            width: 100%;
+            min-height: 300px;
+            min-width: 400px;
+          }
           .modal-select {
             width: 100%;
+          }
+          .size-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            .size-label {
+              @extend %label;
+              color: $grey;
+              margin-right: 20px;
+              border: 1px solid $grey;
+              padding: 5px 10px;
+              &.active {
+                color: $green;
+                border: 1px solid $green;
+              }
+            }
+            .size-input {
+              width: 100px;
+            }
           }
         }
         .modal-buttons-wrap {

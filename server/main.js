@@ -8,6 +8,10 @@ import './methods/Products/editProductPrice';
 import './methods/Products/editProductGender';
 import './methods/Products/editProductPromoStatus';
 import './methods/Products/editProductNewStatus';
+import './methods/Products/editProductSizes';
+import './methods/Products/editProductDescription';
+import './methods/Products/productPhoto/addProductPhoto';
+import './methods/Products/productPhoto/deleteProductPhoto';
 import './methods/Products/deleteProduct';
 import './methods/Products/updateSaleProduct';
 
