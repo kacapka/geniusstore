@@ -1,15 +1,21 @@
 import {Meteor} from 'meteor/meteor';
 import {Features} from "../../../lib/collections";
+import Future from 'fibers/future';
 
 Meteor.methods({
    deleteFeature(id) {
+       const future = new Future();
        if(this.userId) {
-           console.log(id);
-           Features.remove({
-               _id: id
+           Features.remove({_id: id}, err => {
+               if(!err) {
+                   future.return();
+               } else {
+                   future.throw(new Meteor.Error('featureRemoveFailed'))
+               }
            });
        } else {
-           throw new Meteor.Error('notPermission');
+           future.throw(new Meteor.Error('notPermission'));
        }
+       future.wait();
    }
 });

@@ -9,7 +9,7 @@ class AddFeature extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            feature: {}
+            featureId: ''
         };
         this.onSubmitBtnClick = this.onSubmitBtnClick.bind(this);
         this.onCancelBtnClick = this.onCancelBtnClick.bind(this);
@@ -17,21 +17,20 @@ class AddFeature extends Component {
     }
 
     selectValue(opt) {
-        this.setState({feature: opt.feature});
+        this.setState({featureId: opt._id});
     }
 
     onSubmitBtnClick() {
         const productId = this.props.productId;
-        const feature = this.state.feature;
-        console.log(feature);
-        // Meteor.call('addProductFeature', productId, feature, err => {
-        //     if(!err) {
-        //         this.props.closeModal();
-        //     } else {
-        //         console.error(err);
-        //         window.alert(err.error);
-        //     }
-        // });
+        const featureId = this.state.featureId;
+        Meteor.call('addProductFeature', productId, featureId, err => {
+            if(!err) {
+                this.props.closeModal();
+            } else {
+                console.error(err);
+                window.alert(err.error);
+            }
+        });
     }
 
     onCancelBtnClick() {

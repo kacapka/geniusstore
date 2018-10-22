@@ -1,7 +1,42 @@
-@import '../../../../common/cms';
+@import '../../../../common/fonts';
+@import '../../../../common/buttons';
+@import '../../../../common/inputs';
 
-#productCreate {
-  @extend %cms-box;
-  flex: 1;
-  flex-direction: column;
+.modal-wrap {
+  .modal-content {
+    .edit-modal-wrap {
+      display: flex;
+      flex-direction: column;
+      .modal-title {
+        @extend %heading-small;
+        margin-bottom: 40px;
+      }
+      .modal-input-wrap {
+        margin-bottom: 20px;
+        min-width: 300px;
+        .input-label {
+          @extend %label;
+          margin-bottom: 10px;
+        }
+        .edit-input {
+          @extend %input;
+          width: 100%;
+        }
+      }
+      .modal-buttons-wrap {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+        .modal-btn-submit {
+          @extend %btn;
+          @extend %btn--green;
+        }
+        .modal-btn-cancel {
+          @extend %btn;
+          @extend %btn--red;
+          margin-left: 20px;
+        }
+      }
+    }
+  }
 }

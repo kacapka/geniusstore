@@ -12,8 +12,11 @@ import './methods/Products/editProductSizes';
 import './methods/Products/editProductDescription';
 import './methods/Products/productPhoto/addProductPhoto';
 import './methods/Products/productPhoto/deleteProductPhoto';
+import './methods/Products/productFeature/deleteProductFeature';
+import './methods/Products/productFeature/addProductFeature';
 import './methods/Products/deleteProduct';
 import './methods/Products/updateSaleProduct';
+import './methods/Products/addNewEmptyProduct';
 
 import './methods/Messages/insertMessage';
 import './methods/Messages/deleteMessage';

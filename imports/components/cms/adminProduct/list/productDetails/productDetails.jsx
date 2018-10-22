@@ -12,7 +12,8 @@ import EditGender from "./editGender/editGender";
 import EditSizes from "./editSizes/editSizes";
 import EditPhoto from "./editPhotos/editPhotos";
 import EditDescription from "./editDescription/editDescription";
-import AddFeature from "./addFeature/addFeature";
+import AddFeature from "./addFeature/addFeature"
+import {FlowRouter} from 'meteor/kadira:flow-router';
 
 class ProductDetails extends Component {
 
@@ -24,7 +25,7 @@ class ProductDetails extends Component {
             options: {}
         };
         this.openModal = this.openModal.bind(this);
-        this.onDeleteProductClcik = this.onDeleteProductClcik.bind(this);
+        this.onDeleteProductClick = this.onDeleteProductClick.bind(this);
         this.closeModal = this.closeModal.bind(this);
         this.selectValue = this.selectValue.bind(this);
     }
@@ -78,8 +79,18 @@ class ProductDetails extends Component {
         }
     }
 
-    onDeleteProductClcik() {
-        console.log('remove');
+    onDeleteProductClick() {
+        const productId = this.props.product._id;
+        if(window.confirm('czy na pewno chcesz usunac product?')) {
+            FlowRouter.go('/admin/product/list');
+            Meteor.call('deleteProduct', productId, err => {
+                if(err) {
+                    window.alert(err.error);
+                } else {
+                    console.log('produkt usuniety');
+                }
+            })
+        }
     }
 
     deletePhoto(photo) {
@@ -93,6 +104,17 @@ class ProductDetails extends Component {
                 }
             })
         }
+    }
+
+    deleteFeature(featureId) {
+        const productId = this.props.product._id;
+        Meteor.call('deleteProductFeature', productId, featureId, err => {
+            if(!err) {
+                console.log('szczegol usuniety')
+            } else {
+                window.alert(err.error);
+            }
+        });
     }
 
     renderPhotos() {
@@ -112,14 +134,14 @@ class ProductDetails extends Component {
         })
     }
 
-    renderDetails() {
+    renderFeatures() {
         return this.props.product.features.map(feature => {
             return (
                 <div className='value feature-item' key={feature._id}>
                     <span>{feature.name}</span>
                     <div className='delete-icon'>
                         <ion-icon name="trash"
-                                  onClick={() => this.deleteFeatue(feature._id)}
+                                  onClick={() => this.deleteFeature(feature._id)}
                         />
                     </div>
                 </div>
@@ -173,7 +195,7 @@ class ProductDetails extends Component {
                                 />
                             </div>
                             <div id='barEditBtn'
-                                 onClick={this.onDeleteProductClcik}
+                                 onClick={this.onDeleteProductClick}
                             >
                                 usun
                             </div>
@@ -265,7 +287,7 @@ class ProductDetails extends Component {
                             </div>
                             <div className='content-box'>
                                 <div className='label label-details'>szczegoly</div>
-                                {this.renderDetails()}
+                                {this.renderFeatures()}
                             </div>
                             <div className='add-btn-wrap'>
                                 <div className='add-btn' onClick={() => this.openModal('addFeature')}>

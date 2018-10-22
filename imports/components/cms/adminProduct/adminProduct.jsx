@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './adminProduct.scss';
 import {FlowRouter} from 'meteor/kadira:flow-router';
+import Modal from "../../../common/modal/modal";
+import ProductCreate from "./create/productCreate";
 
 const NAV_ROUTES = [
     {id: 0, name: 'lista produktow', route: 'list', icon: 'list'},
@@ -12,8 +14,24 @@ const NAV_ROUTES = [
 
 class AdminProduct extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            isModal: false
+        };
+        this.closeModal = this.closeModal.bind(this);
+    }
+
+    closeModal() {
+        this.setState({isModal: false});
+    }
+
     onProductNavItemClick(route) {
-        FlowRouter.go(`/admin/product/${route}`);
+        if(route === 'create') {
+            this.setState({isModal: true});
+        } else {
+            FlowRouter.go(`/admin/product/${route}`);
+        }
     }
 
     render() {
@@ -32,6 +50,11 @@ class AdminProduct extends Component {
                         );
                     })}
                 </div>
+                {this.state.isModal &&
+                    <Modal>
+                        <ProductCreate closeModal={this.closeModal} />
+                    </Modal>
+                }
             </div>
         )
     }
