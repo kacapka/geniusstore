@@ -7,6 +7,7 @@ Meteor.methods({
             isActive: false,
             salePercentage: null
         };
+        product.timestamp = new Date();
         const newProduct = new SchemaProduct(product);
         newProduct.insert(err => {
             if(err) {

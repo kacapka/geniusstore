@@ -12,6 +12,8 @@ import './methods/Products/editProductSizes';
 import './methods/Products/editProductDescription';
 import './methods/Products/productPhoto/addProductPhoto';
 import './methods/Products/productPhoto/deleteProductPhoto';
+import './methods/Products/productPhoto/deleteProductMainPhoto';
+import './methods/Products/productPhoto/addProductMainPhoto';
 import './methods/Products/productFeature/deleteProductFeature';
 import './methods/Products/productFeature/addProductFeature';
 import './methods/Products/deleteProduct';
@@ -37,6 +39,7 @@ import './publish/publish_products';
 import './publish/publish_messages';
 import './publish/publish_collections';
 import './publish/publish_features';
+import './publish/publish_colors';
 
 //fake data
 import './data';

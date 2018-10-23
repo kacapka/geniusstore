@@ -8,6 +8,7 @@ Meteor.methods({
        if(this.userId) {
            const newProduct = {
                name,
+               mainPhoto: '',
                photos: [],
                sizes: [],
                featuresIds: [],
@@ -21,7 +22,8 @@ Meteor.methods({
                sales: {
                    isActive: false,
                    salePercentage: null
-               }
+               },
+               timestamp: new Date()
            };
            Products.insert(newProduct, err => {
                if(err) {

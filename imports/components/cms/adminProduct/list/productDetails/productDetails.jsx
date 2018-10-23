@@ -28,6 +28,7 @@ class ProductDetails extends Component {
         this.onDeleteProductClick = this.onDeleteProductClick.bind(this);
         this.closeModal = this.closeModal.bind(this);
         this.selectValue = this.selectValue.bind(this);
+        this.deleteMainPhoto = this.deleteMainPhoto.bind(this);
     }
 
     closeModal() {
@@ -106,6 +107,19 @@ class ProductDetails extends Component {
         }
     }
 
+    deleteMainPhoto() {
+        const productId = this.props.product._id;
+        if(window.confirm('czy na pewno chcesz usunac glowne zdjecie?')) {
+            Meteor.call('deleteProductMainPhoto', productId, err => {
+                if(err) {
+                    window.alert(err.error);
+                } else {
+                    console.log('zdjeceie usuniete');
+                }
+            })
+        }
+    }
+
     deleteFeature(featureId) {
         const productId = this.props.product._id;
         Meteor.call('deleteProductFeature', productId, featureId, err => {
@@ -162,7 +176,7 @@ class ProductDetails extends Component {
             case 'sizes':
                 return <EditSizes closeModal={this.closeModal} productId={this.props.product._id} sizes={this.props.product.sizes} />;
             case 'addPhoto':
-                return <EditPhoto closeModal={this.closeModal} productId={this.props.product._id} photos={this.props.product.photos} />;
+                return <EditPhoto closeModal={this.closeModal} productId={this.props.product._id} photos={this.props.product.photos} action={this.state.options.action} />;
             case 'description':
                 return <EditDescription closeModal={this.closeModal} productId={this.props.product._id} desc={this.props.product.description} />;
             case 'addFeature':
@@ -268,11 +282,30 @@ class ProductDetails extends Component {
                             </div>
                         </div>
                         <div className='content-column'>
+                            <div className='label-photo'>zdjecie glowne</div>
+                            {product.mainPhoto.length > 0 &&
+                                <div className='content-box content-photos'>
+                                    <div className='details-photo'>
+                                        <img src={product.mainPhoto}/>
+                                        <div className='photo-icon delete-icon'>
+                                            <ion-icon name="trash"
+                                                      onClick={this.deleteMainPhoto}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            <div className='add-btn-wrap line'>
+                                <div className='add-btn' onClick={() => this.openModal('addPhoto', {action: 'main'})}>
+                                    {product.mainPhoto.length > 0 ? 'zmien zdjecie' : 'dodaj zdjecie'}
+                                </div>
+                            </div>
+                            <div className='label-photo'>zdjecia</div>
                             <div className='content-box content-photos'>
                                 {this.renderPhotos()}
                             </div>
                             <div className='add-btn-wrap line'>
-                                <div className='add-btn' onClick={() => this.openModal('addPhoto')}>
+                                <div className='add-btn' onClick={() => this.openModal('addPhoto', {action: 'photos'})}>
                                     dodaj zdjecie
                                 </div>
                             </div>

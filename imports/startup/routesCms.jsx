@@ -11,6 +11,7 @@ import ProductCreate from "../components/cms/adminProduct/create/productCreate";
 import ProductFeatures from "../components/cms/adminProduct/features/productFeatures";
 import ProductDetails from "../components/cms/adminProduct/list/productDetails/productDetails";
 import ProductSales from "../components/cms/adminProduct/sales/productSales";
+import ProductColors from "../components/cms/adminProduct/colors/productColors";
 
 FlowRouter.route('/admin', {
     action() {
@@ -81,7 +82,16 @@ FlowRouter.route('/admin/product/sales', {
             content: <ProductSales />
         });
     }
-})
+});
+
+//product --> colors
+FlowRouter.route('/admin/product/colors', {
+    action() {
+        mount(Admin, {
+            content: <ProductColors />
+        });
+    }
+});
 
 
 //messages

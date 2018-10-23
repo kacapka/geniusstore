@@ -22,7 +22,7 @@ class ProductList extends Component {
                         <ion-icon name="eye" />
                     </div>
                     <div className='product-feature product-thumbnail'>
-                        <img src={product.photos[0]} alt='product thumbnail' />
+                        {product.mainPhoto.length > 0 ? <img src={product.mainPhoto} alt='product thumbnail' /> : <div className='no-photo'><span>brak</span> <span>zdjecia</span></div>}
                     </div>
                     <div className='product-feature product-title'>{product.name}</div>
                     <div className='product-feature product-collection'>{product.collection ? product.collection.name : <span>brak przypisanej kolekcji !</span>}</div>
@@ -30,7 +30,7 @@ class ProductList extends Component {
                     <div className='product-feature product-sizes'>
                         {product.sizes.map(size => {
                             if(!size.active) return;
-                            const sizeClassName = size.value == 0 ? 'empty' : size.value < 2 ? 'last' : '';
+                            const sizeClassName = size.value === 0 ? 'empty' : size.value < 2 ? 'last' : '';
                             return (
                                 <div className={`sizes ${sizeClassName}`} key={size.name}>
                                     <span className='sizes-name'>{size.name}</span>
@@ -69,7 +69,7 @@ export default withTracker(() => {
     const handle = Meteor.subscribe('products.admin');
     const handleReady = handle.ready();
     if(handleReady) {
-        products = Products.find({}).fetch();
+        products = Products.find({}, {sort: {timestamp: -1}}).fetch();
         for(let i=0; i<products.length; i++) {
             products[i].collection = Collections.findOne({_id: products[i].collectionId});
         }

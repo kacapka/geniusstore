@@ -47,6 +47,7 @@ Meteor.methods({
         
         const products = [
             {
+                mainPhoto: 'https://s3.eu-west-2.amazonaws.com/madeingenius/man1.jpg',
                 photos: ['https://s3.eu-west-2.amazonaws.com/madeingenius/man1.jpg', 'https://s3.eu-west-2.amazonaws.com/madeingenius/man2.jpeg', 'https://s3.eu-west-2.amazonaws.com/madeingenius/man3.jpg'],
                 name: 'tank top original',
                 description: LOREM,
@@ -57,6 +58,7 @@ Meteor.methods({
                 gender: 'man'
             },
             {
+                mainPhoto: 'https://s3.eu-west-2.amazonaws.com/madeingenius/woman6.jpg',
                 photos: ['https://s3.eu-west-2.amazonaws.com/madeingenius/woman8.jpg', 'https://s3.eu-west-2.amazonaws.com/madeingenius/woman6.jpg', 'https://s3.eu-west-2.amazonaws.com/madeingenius/woman7.jpeg'],
                 name: 'tank top original',
                 description: LOREM,
@@ -67,6 +69,7 @@ Meteor.methods({
                 gender: 'woman',
             },
             {
+                mainPhoto: 'https://s3.eu-west-2.amazonaws.com/madeingenius/man6.jpeg',
                 photos: ['https://s3.eu-west-2.amazonaws.com/madeingenius/man2.jpeg', 'https://s3.eu-west-2.amazonaws.com/madeingenius/man1.jpg', 'https://s3.eu-west-2.amazonaws.com/madeingenius/man6.jpeg'],
                 name: 'tank top original',
                 description: LOREM,
@@ -77,6 +80,7 @@ Meteor.methods({
                 gender: 'man'
             },
             {
+                mainPhoto: 'https://s3.eu-west-2.amazonaws.com/madeingenius/man1.jpg',
                 photos: ['https://s3.eu-west-2.amazonaws.com/madeingenius/man3.jpg', 'https://s3.eu-west-2.amazonaws.com/madeingenius/man6.jpeg', 'https://s3.eu-west-2.amazonaws.com/madeingenius/man1.jpg'],
                 name: 'tank top original',
                 description: LOREM,
@@ -87,6 +91,7 @@ Meteor.methods({
                 gender: 'man'
             },
             {
+                mainPhoto: 'https://s3.eu-west-2.amazonaws.com/madeingenius/man4.jpg',
                 photos: ['https://s3.eu-west-2.amazonaws.com/madeingenius/man2.jpeg', 'https://s3.eu-west-2.amazonaws.com/madeingenius/man4.jpg', 'https://s3.eu-west-2.amazonaws.com/madeingenius/man6.jpeg'],
                 name: 'tank top original',
                 description: LOREM,
@@ -97,6 +102,7 @@ Meteor.methods({
                 gender: 'man'
             },
             {
+                mainPhoto: 'https://s3.eu-west-2.amazonaws.com/madeingenius/man1.jpg',
                 photos: ['https://s3.eu-west-2.amazonaws.com/madeingenius/woman3.jpeg', 'https://s3.eu-west-2.amazonaws.com/madeingenius/woman7.jpeg', 'https://s3.eu-west-2.amazonaws.com/madeingenius/woman1.jpeg'],
                 name: 'tank top original',
                 description: LOREM,
@@ -107,6 +113,7 @@ Meteor.methods({
                 gender: 'woman'
             },
             {
+                mainPhoto: 'https://s3.eu-west-2.amazonaws.com/madeingenius/woman1.jpeg',
                 photos: ['https://s3.eu-west-2.amazonaws.com/madeingenius/woman1.jpeg', 'https://s3.eu-west-2.amazonaws.com/madeingenius/woman3.jpeg', 'https://s3.eu-west-2.amazonaws.com/madeingenius/woman7.jpeg'],
                 name: 'tank top original',
                 description: LOREM,

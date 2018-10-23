@@ -18,19 +18,28 @@ class AddPhoto extends Component {
     }
 
     onSubmitBtnClick() {
-        const productId = this.props.productId;
+        const {productId, action} = this.props;
         const photo = this.state.photo;
-        const exists = this.props.photos.some(ph => ph === photo);
-        if(exists) return window.alert('zdjecie jest juz przypisane do tego produktu');
+        if(action === 'photos') {
+            const exists = this.props.photos.some(ph => ph === photo);
+            if(exists) return window.alert('zdjecie jest juz przypisane do tego produktu');
 
-        Meteor.call('addProductPhoto', productId, photo, err => {
-            if(!err) {
-                this.props.closeModal();
-            } else {
-                window.alert(err.error);
-            }
-        });
-
+            Meteor.call('addProductPhoto', productId, photo, err => {
+                if(!err) {
+                    this.props.closeModal();
+                } else {
+                    window.alert(err.error);
+                }
+            });
+        } else if(action === 'main') {
+            Meteor.call('addProductMainPhoto', productId, photo, err => {
+                if(!err) {
+                    this.props.closeModal();
+                } else {
+                    window.alert(err.error);
+                }
+            });
+        }
     }
 
     onCancelBtnClick() {

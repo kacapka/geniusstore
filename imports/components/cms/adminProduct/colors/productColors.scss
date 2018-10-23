@@ -1,0 +1,13 @@
+@import '../../../../common/cms';
+@import '../../../../common/fonts';
+@import '../../../../common/vars';
+@import '../../../../common/inputs';
+@import '../../../../common/buttons';
+
+#productColors {
+  display: flex;
+  flex: 1;
+  @extend %cms-list;
+  @extend %cms-box;
+  margin: 25px;
+}

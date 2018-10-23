@@ -49,12 +49,16 @@
       display: flex;
       .content-column {
         @extend %cms-column;
+        .label-photo {
+          @extend %heading-small;
+          margin-bottom: 10px;
+        }
         .add-btn-wrap {
           margin-bottom: 30px;
           .add-btn {
             @extend %btn;
             @extend %btn--black;
-            width: auto;
+            width: 200px;
           }
           &.line {
             padding-bottom: 30px;

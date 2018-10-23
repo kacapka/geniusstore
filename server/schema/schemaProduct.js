@@ -7,6 +7,7 @@ export default class SchemaProduct {
     constructor(product) {
         this.product = product;
         this.validationKeys = {
+            mainPhoto: this.validateMainPhoto(product.mainPhoto),
             photos: this.validatePhotos(product.photos),
             sizes: this.validateSizes(product.sizes),
             featuresIds: this.validateFeatures(product.featuresIds),
@@ -18,8 +19,13 @@ export default class SchemaProduct {
             isSale: this.validateBool(product.isSale),
             isActive: this.validateBool(product.isActive),
             gender: this.validateGender(product.gender),
-            sales: true
+            sales: true,
+            timestamp: true
         }
+    }
+
+    validateMainPhoto(photo) {
+        return typeof photo === 'string' && photo.length > 0;
     }
 
     validatePhotos(photos) {

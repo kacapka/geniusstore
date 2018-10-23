@@ -42,6 +42,17 @@
         img {
           width: 100%;
         }
+        .no-photo {
+          @extend %text-medium;
+          width: 100%;
+          height: 100%;
+          border: 1px solid $grey;
+          color: $grey;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+        }
       }
       .product-collection {
         span {
