@@ -132,6 +132,7 @@ Meteor.methods({
             products[i].collectionId = collections[0]._id;
             products[i].featuresIds = features;
             products[i].sizes = sizes;
+            products[i].common = [];
             Meteor.call('addProduct', products[i], err => {
                 if(err) {
                     console.error('error insert fake product');

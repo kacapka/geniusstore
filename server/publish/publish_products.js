@@ -45,16 +45,27 @@ Meteor.publish('products.admin', function() {
     ];
 });
 
+Meteor.publish('products.modal.admin', function() {
+    return Products.find({});
+});
+
 Meteor.publish('product.admin', function(id) {
-    const productCursor = Products.find({_id: id});
     const product = Products.findOne({_id: id});
-    const collectionCursor = Collections.find({_id: product.collectionId});
-    const featuresCursor = Features.find({_id: {$in: product.featuresIds}});
+
+    const collectionId = product.collectionId || '';
+    const featuresIds = product.featuresIds || [];
+
+    const common = product.common || [];
+    let productsIds = [];
+    for(let c of common) {
+        productsIds.push(c);
+    }
+    productsIds.push(id);
 
     return [
-        productCursor,
-        collectionCursor,
-        featuresCursor
+        Products.find({_id: {$in: productsIds}}),
+        Collections.find({_id: collectionId}),
+        Features.find({_id: {$in: featuresIds}})
     ]
 });
 

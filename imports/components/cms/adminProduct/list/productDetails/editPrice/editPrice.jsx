@@ -5,7 +5,7 @@ class EditPrice extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            price: props.price || ''
+            price: props.price || 0
         };
         this.onInputChange = this.onInputChange.bind(this);
         this.onSubmitBtnClick = this.onSubmitBtnClick.bind(this);
@@ -14,7 +14,7 @@ class EditPrice extends Component {
 
     onInputChange(e) {
         const {name, value} = e.target;
-        this.setState({[name]: value});
+        this.setState({[name]: Number(value)});
     }
 
     onSubmitBtnClick() {

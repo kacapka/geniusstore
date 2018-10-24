@@ -39,7 +39,6 @@ class AddFeature extends Component {
 
     render() {
         if(!this.props.handleReady) return <div>loading...</div>;
-        console.log(this.props);
         return (
             <div className='edit-modal-wrap'>
                 <div className='modal-title'>dodaj szczegol</div>

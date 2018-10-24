@@ -10,7 +10,7 @@ const NAV_ROUTES = [
     {id: 2, name: 'promocje', route: 'sales', icon: 'pricetags'},
     {id: 3, name: 'dodaj produkt', route: 'create', icon: 'add-circle-outline'},
     {id: 4, name: 'szczegoly produktu', route: 'features', icon: 'more'},
-    {id: 5, name: 'kolory', route: 'colors', icon: 'color-palette'}
+    // {id: 5, name: 'kolory', route: 'colors', icon: 'color-palette'}
 ];
 
 class AdminProduct extends Component {

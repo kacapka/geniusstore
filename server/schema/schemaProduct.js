@@ -20,7 +20,8 @@ export default class SchemaProduct {
             isActive: this.validateBool(product.isActive),
             gender: this.validateGender(product.gender),
             sales: true,
-            timestamp: true
+            timestamp: true,
+            common: true
         }
     }
 

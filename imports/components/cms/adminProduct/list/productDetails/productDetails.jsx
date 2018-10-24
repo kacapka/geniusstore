@@ -14,6 +14,8 @@ import EditPhoto from "./editPhotos/editPhotos";
 import EditDescription from "./editDescription/editDescription";
 import AddFeature from "./addFeature/addFeature"
 import {FlowRouter} from 'meteor/kadira:flow-router';
+import AddCommon from "./addCommon/addCommon";
+import ActiveProduct from "./active/activeProduct";
 
 class ProductDetails extends Component {
 
@@ -28,7 +30,6 @@ class ProductDetails extends Component {
         this.onDeleteProductClick = this.onDeleteProductClick.bind(this);
         this.closeModal = this.closeModal.bind(this);
         this.selectValue = this.selectValue.bind(this);
-        this.deleteMainPhoto = this.deleteMainPhoto.bind(this);
     }
 
     closeModal() {
@@ -107,24 +108,22 @@ class ProductDetails extends Component {
         }
     }
 
-    deleteMainPhoto() {
-        const productId = this.props.product._id;
-        if(window.confirm('czy na pewno chcesz usunac glowne zdjecie?')) {
-            Meteor.call('deleteProductMainPhoto', productId, err => {
-                if(err) {
-                    window.alert(err.error);
-                } else {
-                    console.log('zdjeceie usuniete');
-                }
-            })
-        }
-    }
-
     deleteFeature(featureId) {
         const productId = this.props.product._id;
         Meteor.call('deleteProductFeature', productId, featureId, err => {
             if(!err) {
                 console.log('szczegol usuniety')
+            } else {
+                window.alert(err.error);
+            }
+        });
+    }
+
+    deleteCommonProduct(commonId) {
+        const productId = this.props.product._id;
+        Meteor.call('deleteCommonProduct', productId, commonId, err => {
+            if(!err) {
+                console.log('product usuniety')
             } else {
                 window.alert(err.error);
             }
@@ -163,24 +162,64 @@ class ProductDetails extends Component {
         })
     }
 
+    renderSizes() {
+        return this.props.product.sizes.map(size => {
+            const color = size.value === 0 ? 'value-err' : size.value === 1 ? 'value-warn' : 'value-ok';
+            const active = size.active ? 'content-size active' : 'content-size no-active';
+            return (
+                <div key={size.name} className={active}>
+                    <div className='label'>{size.name}</div>
+                    <div className={`value ${color}`}>{size.active ? size.value : 'nieaktywny'}</div>
+                </div>
+            );
+        })
+    }
+
+    renderCommonProducts() {
+        return this.props.product._common.map(product => {
+            return (
+                <div key={product._id}
+                     className='details-photo'
+                >
+                    <img src={product.mainPhoto} />
+                    <div className='photo-icon delete-icon'>
+                        <ion-icon name="trash"
+                                  onClick={() => this.deleteCommonProduct(product._id)}
+                        />
+                    </div>
+                </div>
+            )
+        })
+    }
+
+
     renderModalContent() {
+        const product = this.props.product;
+        const modalProps = {
+            closeModal: this.closeModal,
+            productId: product._id
+        };
         switch(this.state.action) {
+            case 'active':
+                return <ActiveProduct product={product} closeModal={this.closeModal} />;
             case 'name':
-                return <EditName closeModal={this.closeModal} product={this.props.product} />;
+                return <EditName {...modalProps} />;
             case 'collection':
-                return <EditCollection closeModal={this.closeModal} collection={this.props.product.collection} productId={this.props.product._id} />;
+                return <EditCollection {...modalProps} collection={product.collection} />;
             case 'price':
-                return <EditPrice closeModal={this.closeModal} productId={this.props.product._id} price={this.props.product.price} />;
+                return <EditPrice {...modalProps} price={product.price} />;
             case 'gender':
-                return <EditGender closeModal={this.closeModal} productId={this.props.product._id} gender={this.props.product.gender} />;
+                return <EditGender {...modalProps} gender={product.gender} />;
             case 'sizes':
-                return <EditSizes closeModal={this.closeModal} productId={this.props.product._id} sizes={this.props.product.sizes} />;
+                return <EditSizes {...modalProps} sizes={product.sizes} />;
             case 'addPhoto':
-                return <EditPhoto closeModal={this.closeModal} productId={this.props.product._id} photos={this.props.product.photos} action={this.state.options.action} />;
+                return <EditPhoto {...modalProps} photos={product.photos} action={this.state.options.action} />;
             case 'description':
-                return <EditDescription closeModal={this.closeModal} productId={this.props.product._id} desc={this.props.product.description} />;
+                return <EditDescription {...modalProps} desc={product.description} />;
             case 'addFeature':
-                return <AddFeature closeModal={this.closeModal} productId={this.props.product._id} featuresIds={this.props.product.featuresIds} />;
+                return <AddFeature {...modalProps} featuresIds={product.featuresIds} />;
+            case 'addCommon':
+                return <AddCommon {...modalProps} common={product.common} />;
             default:
                 return window.alert('niepoprawny typ edycji produktu');
         }
@@ -196,7 +235,7 @@ class ProductDetails extends Component {
                 <div id='details'>
                     <div id='productDetailsBar'>
                         <div id='barTitle' className='feature-edit-wrap'>
-                            {product.name}
+                            <div className='label'><span className='obligatory'>* </span>{product.name}</div>
                             <ion-icon name="create" className='edit-icon'
                                       onClick={() => this.openModal('name')}
                             />
@@ -205,7 +244,7 @@ class ProductDetails extends Component {
                             <div className='feature-edit-wrap'>
                                 {product.isActive ? <span className='active'>aktywny</span> : <span className='no-active'>nieaktywny</span>}
                                 <ion-icon name="create" className='edit-icon'
-                                          onClick={() => this.openModal('acive')}
+                                          onClick={() => this.openModal('active')}
                                 />
                             </div>
                             <div id='barEditBtn'
@@ -228,7 +267,7 @@ class ProductDetails extends Component {
                             </div>
                             <div className='content-box content-info line'>
                                 <div className='feature-edit-wrap'>
-                                    <div className='label'>cena</div>
+                                    <div className='label'><span className='obligatory'>*</span> cena</div>
                                     <ion-icon name="create" className='edit-icon'
                                               onClick={() => this.openModal('price')}
                                     />
@@ -262,36 +301,31 @@ class ProductDetails extends Component {
                                     />
                                 </div>
                             </div>
-                            <div className='content-box content-sizes'>
+                            <div className='content-box content-sizes line'>
                                 <div className='feature-edit-wrap'>
-                                    <div className='label'>rozmiary</div>
+                                    <div className='label'><span className='obligatory'>*</span> rozmiary</div>
                                     <ion-icon name="create" className='edit-icon'
                                               onClick={() => this.openModal('sizes')}
                                     />
                                 </div>
-                                {product.sizes.map(size => {
-                                    const color = size.value === 0 ? 'value-err' : size.value === 1 ? 'value-warn' : 'value-ok';
-                                    const active = size.active ? 'content-size active' : 'content-size no-active';
-                                    return (
-                                        <div key={size.name} className={active}>
-                                            <div className='label'>{size.name}</div>
-                                            <div className={`value ${color}`}>{size.active ? size.value : 'nieaktywny'}</div>
-                                        </div>
-                                    );
-                                })}
+                                {this.renderSizes()}
+                            </div>
+                            <div className='label-photo'>powiazane kolory</div>
+                            <div className='content-box content-photos'>
+                                {this.renderCommonProducts()}
+                            </div>
+                            <div className='add-btn-wrap'>
+                                <div className='add-btn' onClick={() => this.openModal('addCommon')}>
+                                    wybierz produkt
+                                </div>
                             </div>
                         </div>
                         <div className='content-column'>
-                            <div className='label-photo'>zdjecie glowne</div>
+                            <div className='label-photo'><span className='obligatory'>*</span> zdjecie glowne</div>
                             {product.mainPhoto.length > 0 &&
                                 <div className='content-box content-photos'>
                                     <div className='details-photo'>
-                                        <img src={product.mainPhoto}/>
-                                        <div className='photo-icon delete-icon'>
-                                            <ion-icon name="trash"
-                                                      onClick={this.deleteMainPhoto}
-                                            />
-                                        </div>
+                                        <img src={product.mainPhoto} />
                                     </div>
                                 </div>
                             }
@@ -347,8 +381,13 @@ export default withTracker((props) => {
     const handleReady = handle.ready();
     if(handleReady) {
         product = Products.findOne({_id: props.productId});
-        product.collection = Collections.findOne({_id: product.collectionId});
-        product.features = Features.find({_id: {$in: product.featuresIds}}).fetch();
+        console.log(product);
+        if(product) {
+            product.collection = Collections.findOne({_id: product.collectionId});
+            product.features = Features.find({_id: {$in: product.featuresIds}}).fetch();
+            product._common = Products.find({_id: {$in: product.common}}, {fields: {_id: 1, name:1, mainPhoto: 1}}).fetch();
+        }
+
     }
 
     return {

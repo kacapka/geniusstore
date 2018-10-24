@@ -23,7 +23,8 @@ Meteor.methods({
                    isActive: false,
                    salePercentage: null
                },
-               timestamp: new Date()
+               timestamp: new Date(),
+               common: []
            };
            Products.insert(newProduct, err => {
                if(err) {

@@ -10,6 +10,9 @@
   flex-direction: column;
   padding: 30px 50px;
   #details {
+    .obligatory {
+      color: $red;
+    }
     .feature-edit-wrap {
       display: flex;
       align-items: center;
@@ -223,6 +226,59 @@
             }
             .size-input {
               width: 100px;
+            }
+          }
+        }
+        .modal-products-wrap {
+          display: flex;
+          width: 800px;
+          flex-wrap: wrap;
+          .product-wrap {
+            width: 200px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+            .product-thumbnail {
+              margin: 0 auto;
+              width: 100px;
+              height: auto;
+            }
+            .product-name {
+              @extend %text-medium;
+              margin-top: 10px;
+            }
+            &:hover {
+              cursor: pointer;
+              border: 1px solid $admin;
+            }
+            &.active {
+              border: 1px solid $admin;
+            }
+          }
+        }
+        .validation-wrap {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 30px;
+          .validation-field {
+            display: flex;
+            margin-bottom: 10px;
+            @extend %text-medium;
+            .field-label {
+              margin-right: 10px;
+            }
+            .field-value {
+              &.valid {
+                color: $green;
+              }
+              &.invalid {
+                color: $red;
+              }
+              &.warning {
+                color: $yellow;
+              }
             }
           }
         }
