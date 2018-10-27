@@ -5,7 +5,7 @@ class EditName extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: props.product.name || ''
+            name: props.name || ''
         };
         this.onInputChange = this.onInputChange.bind(this);
         this.onSubmitNameBtnClick = this.onSubmitNameBtnClick.bind(this);
@@ -18,15 +18,19 @@ class EditName extends Component {
     }
 
     onSubmitNameBtnClick() {
-        const productId = this.props.product._id;
+        const productId = this.props.productId;
         const name = this.state.name;
-        Meteor.call('editProductName', productId, name, err => {
-            if(!err) {
-                this.props.closeModal();
-            } else {
-                window.alert(err.error);
-            }
-        });
+        if(name.trim().length > 2) {
+            Meteor.call('editProductName', productId, name, err => {
+                if(!err) {
+                    this.props.closeModal();
+                } else {
+                    window.alert(err.error);
+                }
+            });
+        } else {
+            alert('zbyt krotka naza produkt');
+        }
     }
 
     onCancelNameBtnClick() {

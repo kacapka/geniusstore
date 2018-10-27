@@ -203,7 +203,7 @@ class ProductDetails extends Component {
             case 'active':
                 return <ActiveProduct product={product} closeModal={this.closeModal} />;
             case 'name':
-                return <EditName {...modalProps} />;
+                return <EditName {...modalProps} name={product.name} />;
             case 'collection':
                 return <EditCollection {...modalProps} collection={product.collection} />;
             case 'price':

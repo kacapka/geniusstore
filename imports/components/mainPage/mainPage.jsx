@@ -24,7 +24,7 @@ class MainPage extends Component {
                    <div className='product-img-wrapper'
                         onClick={() => this.onProductClick(product._id)}
                    >
-                       <img src={product.photos[0]} className='product-img' />
+                       <img src={product.mainPhoto} className='product-img' />
                        {product.sales.isActive &&
                            <div className='sale-label'>{product.sales.salePercentage} %</div>
                        }
@@ -47,6 +47,7 @@ class MainPage extends Component {
     }
 
     render() {
+        console.log(this.props.products);
         return (
             <div id='mainPage'>
                 <div id='productsAll'>

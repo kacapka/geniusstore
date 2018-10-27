@@ -41,20 +41,32 @@
       &:hover {
         background-color: $grey;
       }
-      .option-extra {
-        font-size: 8px;
-        text-transform: lowercase;
-        &.last-one {
-          color: red;
+      .option-value {
+        &.value-size {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          span {
+            font-size: 10px;
+            text-transform: lowercase;
+          }
+          &.disabled {
+            cursor: not-allowed;
+            color: $grey;
+            &:hover {
+              color: #fff;
+            }
+          }
+          &.last-one {
+            span {
+              color: red;
+            }
+          }
         }
       }
-      &.disabled {
-        cursor: not-allowed;
-        color: $grey;
-        &:hover {
-          color: #fff;
-        }
-      }
+
     }
   }
 }

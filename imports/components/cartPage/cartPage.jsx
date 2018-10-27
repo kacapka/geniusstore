@@ -24,6 +24,7 @@ class CartPage extends Component {
     }
 
     setProductAmount(opt, id) {
+        console.log(opt, id);
         this.props.updateProductAmount(opt.name, id);
     }
 
@@ -34,9 +35,9 @@ class CartPage extends Component {
     renderCartItems() {
         return this.props.cart.map(item => {
             console.log(item);
-            const {_id, photos, collection, name, sales, price} = item.product;
+            const {_id, mainPhoto, _collection, name, sales, price} = item.product;
             const amountOpt = [];
-            for(let i=1; i<=item.size.value; i++) {
+            for(let i=1; i<=item.size.value && i < 6; i++) {
                 amountOpt.push({name: i});
             }
             return (
@@ -45,10 +46,10 @@ class CartPage extends Component {
                         onClick={() => this.onProductClick(_id)}
                     >
                        <div className='cart-product-thumbnail'>
-                           <img src={photos[0]} alt='product thumbnail' />
+                           <img src={mainPhoto} alt='product thumbnail' />
                        </div>
                        <div className='cart-product-name'>
-                           <p className='cart-collection'>{!collection.isDefault && collection.name}</p>
+                           <p className='cart-collection'>{!_collection.isDefault && _collection.name}</p>
                            <p className='cart-name'>{name}</p>
                        </div>
                     </div>

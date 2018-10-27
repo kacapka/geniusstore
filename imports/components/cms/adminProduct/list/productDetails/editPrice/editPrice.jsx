@@ -20,13 +20,17 @@ class EditPrice extends Component {
     onSubmitBtnClick() {
         const productId = this.props.productId;
         const price = this.state.price;
-        Meteor.call('editProductPrice', productId, price, err => {
-            if(!err) {
-                this.props.closeModal();
-            } else {
-                window.alert(err.error);
-            }
-        });
+        if(price > 0) {
+            Meteor.call('editProductPrice', productId, price, err => {
+                if(!err) {
+                    this.props.closeModal();
+                } else {
+                    window.alert(err.error);
+                }
+            });
+        } else {
+            alert('cena musi byc wieksza od zera');
+        }
     }
 
     onCancelBtnClick() {

@@ -72,11 +72,10 @@ class CheckoutPage extends Component {
     renderCheckoutProducts() {
 
         return this.props.cart.map(item => {
-            console.log(item);
             return (
                 <div key={item.cartId} className='checkout-product-item' >
                     <div className='checkout-product-img'>
-                        <img src={item.product.photos[0]} />
+                        <img src={item.product.mainPhoto} />
                         <p>{item.amount}</p>
                     </div>
                     <div className='checkout-product-feature'>{item.size.name}</div>

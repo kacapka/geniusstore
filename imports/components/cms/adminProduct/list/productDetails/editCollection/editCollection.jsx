@@ -9,8 +9,8 @@ class EditCollection extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            collection: props.collection.name || '',
-            collectionId: props.collection._id || ''
+            collection: props.collection ? props.collection.name : 'brak kolekcji',
+            collectionId: props.collection ? props.collection._id : ''
         };
         this.onSubmitBtnClick = this.onSubmitBtnClick.bind(this);
         this.onCancelBtnClick = this.onCancelBtnClick.bind(this);

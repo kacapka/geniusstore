@@ -2,6 +2,14 @@
 @import '../../common/fonts';
 @import '../../common/vars';
 
+%thumbnail {
+  width: 70px;
+  margin-bottom: 10px;
+  .photo-thumbnail {
+    width: 100%;
+  }
+}
+
 #productPage {
   padding: 30px;
   display: flex;
@@ -13,28 +21,47 @@
     #productAreaPhotos {
       flex: 1;
       display: flex;
-      #photosMain {
-        flex: 0 0 350px;
-        height: 500px;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-      #photosThumbnails {
-        flex: 1;
+      flex-direction: column;
+      #productPhotosWrap {
         display: flex;
-        flex-direction: column;
-        padding-left: 30px;
-        .thumbnail-wrap {
-          width: 70px;
-          margin-bottom: 10px;
-          .photo-thumbnail {
-            width: 100%;
+        #photosMain {
+          flex: 0 0 350px;
+          height: 500px;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+        #photosThumbnails {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          padding-left: 30px;
+          .thumbnail-wrap {
+            @extend %thumbnail;
+            &:hover {
+              cursor: pointer;
+              opacity: .9;
+            }
           }
         }
-        &:hover {
-          cursor: pointer;
-          opacity: .9;
+      }
+      #commonPhotosWrap {
+        margin-top: 40px;
+        #commonTitle {
+          @extend %text-large;
+          margin-bottom: 10px;
+        }
+        #commonPhotos {
+          display: flex;
+          flex-wrap: wrap;
+          .thumbnail-wrap {
+            @extend %thumbnail;
+            margin-right: 10px;
+            &:hover {
+              cursor: pointer;
+              opacity: .9;
+            }
+          }
         }
       }
     }
@@ -72,7 +99,7 @@
         //flex-direction: column;
         justify-content: space-around;
         .cart-select-size {
-
+          width: 150px;
         }
         #addToCartBtn {
           @extend %btn;
@@ -86,6 +113,10 @@
         padding: 40px 0;
         @extend %text-medium;
         text-transform: lowercase;
+        .desc-title {
+          @extend %text-large;
+          margin-bottom: 10px;
+        }
         #descriptionProduct {
           margin-bottom: 20px;
         }

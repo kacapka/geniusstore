@@ -12,14 +12,21 @@ Meteor.publish('products.public', function() {
 });
 
 Meteor.publish('product.public', function(id) {
-    const productsCursor =  Products.find({_id: id});
-    const collectionsCursor = Collections.find({});
-    const featuresCursor = Features.find({});
+    const product = Products.findOne({_id: id});
+    let collectionId = '';
+    let featuresIds = [];
+    let common = [];
+    if(product) {
+        collectionId = product.collectionId;
+        featuresIds = product.featuresIds;
+        common = product.common;
+    }
+    let productsIds = [id, ...common];
 
     return [
-        productsCursor,
-        collectionsCursor,
-        featuresCursor
+        Products.find({_id: {$in: productsIds}}),
+        Collections.find({_id: collectionId}),
+        Features.find({_id: {$in: featuresIds}})
     ];
 });
 

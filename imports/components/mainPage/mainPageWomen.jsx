@@ -26,7 +26,7 @@ class MainPageWoman extends Component {
                     <div className='product-img-wrapper'
                          onClick={() => this.onProductClick(product._id)}
                     >
-                        <img src={product.photos[0]} className='product-img' />
+                        <img src={product.mainPage} className='product-img' />
                         {product.sales.isActive &&
                             <div className='sale-label'>{product.sales.salePercentage} %</div>
                         }

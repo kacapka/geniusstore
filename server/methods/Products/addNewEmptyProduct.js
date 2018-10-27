@@ -1,18 +1,19 @@
 import {Meteor} from 'meteor/meteor';
 import Future from 'fibers/future';
-import {Products} from "../../../lib/collections";
+import {Collections, Products} from "../../../lib/collections";
 
 Meteor.methods({
    addNewEmptyProduct(name) {
        const future = new Future();
        if(this.userId) {
+           const collection = Collections.findOne({name: 'brak kolekcji'});
            const newProduct = {
                name,
                mainPhoto: '',
                photos: [],
                sizes: [],
                featuresIds: [],
-               collectionId: '',
+               collectionId: collection ? collection._id : '',
                description: '',
                price: 0,
                isNew: false,

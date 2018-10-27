@@ -32,6 +32,10 @@ class Product extends Component {
         FlowRouter.go(`/collection/${id}`);
     }
 
+    onCommonPhotoClick(id) {
+        FlowRouter.go(`/${id}`);
+    }
+
     checkIfProductIsAlreadyInCart() {
         const {cart, product} = this.props;
         return cart.some(item => {
@@ -56,6 +60,7 @@ class Product extends Component {
     }
 
     selectNewValue(val) {
+        console.log(val);
         this.setState({sizeValue: val, sizeError: null});
     }
 
@@ -63,32 +68,53 @@ class Product extends Component {
         const {product, handleReady} = this.props;
         const mainPhoto = this.state.mainPhoto;
         if(!handleReady) return <div>loading...</div>;
-        const photo = mainPhoto ? mainPhoto : product.photos[0];
+        const photo = mainPhoto ? mainPhoto : product.mainPhoto;
+        const photos = [...product.photos, product.mainPhoto];
+
+        console.log(product);
 
         return (
             <div id='productPage'>
                 <div id='productArea'>
                     <div id='productAreaPhotos'>
-                        <div id='photosMain' style={{backgroundImage: `url(${photo})`}}>
+                        <div id='productPhotosWrap'>
+                            <div id='photosMain' style={{backgroundImage: `url(${photo})`}}>
+                            </div>
+                            <div id='photosThumbnails'>
+                                {photos.map(photo => {
+                                    return (
+                                        <div className='thumbnail-wrap' key={photo}
+                                             onClick={() => this.onThumbnailPhotoClick(photo)}
+                                        >
+                                            <img src={photo} className='photo-thumbnail' />
+                                        </div>
+                                    );
+                                })}
+                            </div>
                         </div>
-                        <div id='photosThumbnails'>
-                            {product.photos.map(photo => {
-                                return (
-                                    <div className='thumbnail-wrap' key={photo}
-                                         onClick={() => this.onThumbnailPhotoClick(photo)}
-                                    >
-                                        <img src={photo} className='photo-thumbnail' />
-                                    </div>
-                                );
-                            })}
-                        </div>
+                        {product._common.length > 0 &&
+                            <div id='commonPhotosWrap'>
+                                <div id='commonTitle'>Dostepne kolory</div>
+                                <div id='commonPhotos'>
+                                    {product._common.map(product => {
+                                        return (
+                                            <div className='thumbnail-wrap' key={product._id}
+                                                 onClick={() => this.onCommonPhotoClick(product._id)}
+                                            >
+                                                <img src={product.mainPhoto} className='photo-thumbnail' />
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        }
                     </div>
                     <div id='productAreaDetails'>
                         <div id='detailsTitle'>
                             <span id='title-collection'
                                onClick={() => this.onCollectionNameClick(product.collectionId)}
                             >
-                                {!product.collection.isDefault && product.collection.name}
+                                {!product._collection.isDefault && product._collection.name}
                             </span>
                             <p id='title-name'>{product.name}</p>
                             <p id='title-price'>
@@ -102,6 +128,7 @@ class Product extends Component {
                                          selectValue={this.selectNewValue}
                                          className='cart-select-size'
                                          error={this.state.sizeError}
+                                         type='sizes'
                             />
                             <div id='addToCartBtn'
                                  onClick={this.onAddToCartBtnClick}
@@ -110,8 +137,10 @@ class Product extends Component {
                             </div>
                         </div>
                         <div id='detailsDescription'>
+                            <div className='desc-title'>Opis</div>
                             <p id='descriptionProduct'>{product.description}</p>
-                            {product.features.map(feature => <p key={feature._id} className='description-feature'>{feature.name}</p>)}
+                            <div className='desc-title'>Szczegoly</div>
+                            {product._features.map(feature => <p key={feature._id} className='description-feature'>{feature.name}</p>)}
                         </div>
                     </div>
                 </div>
@@ -133,8 +162,11 @@ const ProductPage = compose(
         const handleReady = handle.ready();
         if(handleReady) {
             product = Products.findOne({_id: props.productId});
-            product.collection = Collections.findOne({_id: product.collectionId});
-            product.features = Features.find({_id: {$in: product.featuresIds}}).fetch();
+            if(product) {
+                product._collection = Collections.findOne({_id: product.collectionId});
+                product._features = Features.find({_id: {$in: product.featuresIds}}).fetch();
+                product._common = Products.find({_id: {$in: product.common}}, {fields: {_id:1, mainPhoto: 1}}).fetch();
+            }
         }
 
         return {
