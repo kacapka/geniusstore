@@ -19,7 +19,6 @@ class MainPageCollection extends Component {
 
     renderProducts() {
         return this.props.products.map(product => {
-            console.log(product.collection);
             return (
                 <div key={product._id}
                      className='product-item'
@@ -27,7 +26,7 @@ class MainPageCollection extends Component {
                     <div className='product-img-wrapper'
                          onClick={() => this.onProductClick(product._id)}
                     >
-                        <img src={product.mainPage} className='product-img' />
+                        <img src={product.mainPhoto} className='product-img' />
                         {product.sales.isActive &&
                         <div className='sale-label'>{product.sales.salePercentage} %</div>
                         }

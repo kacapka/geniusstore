@@ -47,7 +47,6 @@ class MainPage extends Component {
     }
 
     render() {
-        console.log(this.props.products);
         return (
             <div id='mainPage'>
                 <div id='productsAll'>

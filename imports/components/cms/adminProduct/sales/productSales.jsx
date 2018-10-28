@@ -47,25 +47,22 @@ class ProductSales extends Component {
     }
 
     onSubmitSaleBtnClick() {
-        const id = this.state.modalProduct._id;
-        const percentage = this.state.inputModal;
-        const isActive = this.state.switchModal;
-        const basePrice = this.props.products.find(product => product._id === id).price;
-        const salePrice = getSalePrice(basePrice, percentage);
+        const {modalProduct, inputModal, switchModal} = this.state;
 
-        if(!percentage || percentage < 5) {
+        if(inputModal < 5) {
             return window.alert('promocja musi byc conajmniej 5 %');
         }
 
         const sales = {
-            isActive,
-            salePrice,
-            salePercentage: percentage
+            isActive: switchModal,
+            salePercentage: inputModal,
+            salePrice: Math.round(modalProduct.price - (modalProduct.price * inputModal / 100))
         };
 
-        Meteor.call('updateSaleProduct', id, sales, err => {
+        Meteor.call('updateSaleProduct', modalProduct._id, sales, err => {
             if(!err) {
                 this.setState({isModal: false});
+                console.log('sale added');
             } else {
                 if(err.error === '') {
                     window.alert('wystapil problem z poprawna walidacja');
@@ -81,6 +78,7 @@ class ProductSales extends Component {
         if(products.length === 0) return <div>nie posiadasz produktów w promocji</div>;
         return products.map(product => {
             const {salePercentage, isActive, salePrice} = product.sales;
+            console.log(product.sales);
             const eyeColor = isActive ? 'active' : 'no-active';
             return (
                 <div className='product-item' key={product._id}>
@@ -88,11 +86,11 @@ class ProductSales extends Component {
                         <ion-icon name="eye" />
                     </div>
                     <div className='product-feature product-thumbnail'>
-                        <img src={product.photos[0]} alt='product thumbnail' />
+                        <img src={product.mainPhoto} alt='product thumbnail' />
                     </div>
-                    <div className='product-feature'>{salePercentage ? <span className='price-none'>{product.price}</span> : <span className='price-active'>{product.price}</span>}</div>
-                    <div className='product-feature'>{salePercentage ? <span className='price-active'>{salePrice}</span> : 'brak'}</div>
-                    <div className='product-feature'>{salePercentage ? salePercentage : 'brak'}</div>
+                    <div className='product-feature'><span className={isActive ? 'price-none' : 'price-active'}>{product.price}</span></div>
+                    <div className='product-feature'>{isActive ? <span className='price-active'>{salePrice}</span> : 'brak'}</div>
+                    <div className='product-feature'>{isActive ? salePercentage : 'brak'}</div>
                     <div className='product-feature product-edit'>
                         <ion-icon name="create"
                                   onClick={() => this.onEditSaleBtnClick(product)}
@@ -105,7 +103,7 @@ class ProductSales extends Component {
 
     render() {
         if(!this.props.handleReady) return <div>loading...</div>;
-        const {modalProduct, inputModal, isActive} = this.state;
+        const {modalProduct, inputModal, switchModal} = this.state;
         return (
             <div id='productSales'>
                 <div id='productsList'>
@@ -125,7 +123,10 @@ class ProductSales extends Component {
                             <div id='modalSaleInput'>
                                 <div id='modalLabelsWrap'>
                                     <div className='input-label'>cena podstawowa: {modalProduct.price}</div>
-                                    <div className='input-label'>cena po obnizce: {inputModal ? getSalePrice(modalProduct.price, inputModal) : 'brak'}</div>
+                                    <div className='input-label'>
+                                        cena po obnizce:
+                                        {inputModal > 0 ? Math.round(modalProduct.price - (modalProduct.price * inputModal / 100)) : 'brak'}
+                                    </div>
                                 </div>
                                 <div id='modalInputWrap'>
                                     <input className='input-sale'
@@ -137,9 +138,9 @@ class ProductSales extends Component {
                                 </div>
                             </div>
                             <div id='modalSaleActive'>
-                                <div className='input-label'>promocja {isActive ? 'aktywna' : 'nieaktywna'}</div>
+                                <div className='input-label'>promocja {switchModal ? 'aktywna' : 'nieaktywna'}</div>
                                 <SwitchInput selectValue={this.onSwitchChange}
-                                             isActive={isActive}
+                                             isActive={switchModal}
                                 />
                             </div>
                         </div>

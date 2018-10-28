@@ -88,34 +88,62 @@
     #checkoutProducts {
       flex: 2;
       padding-left: 50px;
-      .checkout-product-item {
-        display: flex;
-        align-items: center;
-        .checkout-product-img {
-          flex: 0 0 70px;
-          position: relative;
-          img {
-            width: 100%;
-            height: auto;
+      #checkoutProductsList {
+        margin-bottom: 20px;
+        .checkout-product-item {
+          display: flex;
+          align-items: center;
+          .checkout-product-img {
+            flex: 0 0 70px;
+            position: relative;
+            img {
+              width: 100%;
+              height: auto;
+            }
+            p {
+              position: absolute;
+              top: 3px;
+              right: 3px;
+              background-color: #fff;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 20px;
+              height: 20px;
+            }
           }
-          p {
-            position: absolute;
-            top: 3px;
-            right: 3px;
-            background-color: #fff;
+          .checkout-product-feature {
+            flex: 1;
+            @extend %text-medium;
             display: flex;
             justify-content: center;
-            align-items: center;
-            width: 20px;
-            height: 20px;
           }
         }
-        .checkout-product-feature {
-          flex: 1;
-          @extend %text-medium;
-          display: flex;
-          justify-content: center;
+      }
+      .delivery-amount {
+        display: flex;
+        justify-content: space-between;
+        @extend %text-medium;
+        margin-bottom: 20px;
+      }
+      .promo-code-wrap {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid $grey;
+        .promo-code-input {
+          @extend %input;
         }
+        .verify-btn {
+          @extend %btn;
+          @extend %btn--black;
+        }
+      }
+      .final-amount {
+        display: flex;
+        justify-content: space-between;
+        @extend %heading-medium;
       }
     }
     .checkout-title {

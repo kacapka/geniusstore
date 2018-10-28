@@ -208,9 +208,23 @@ class CheckoutPage extends Component {
                                     </div>
                                 </div>
                                 <div id='checkoutProducts'>
-                                    <div className='checkout-title'>Twoje produkty</div>
+                                    <div className='checkout-title'>Podsumowanie</div>
                                     <div id='checkoutProductsList'>
                                         {this.renderCheckoutProducts()}
+                                    </div>
+                                    <div className='delivery-amount'>
+                                        <span>dostawa</span>
+                                        <span>15PLN</span>
+                                    </div>
+                                    <div className='promo-code-wrap'>
+                                        <input className='promo-code-input'
+                                               placeholder='kod promocyjny'
+                                        />
+                                        <div className='verify-btn'>zweryfikuj</div>
+                                    </div>
+                                    <div className='final-amount'>
+                                        <span>Razem</span>
+                                        <span>199 PLN</span>
                                     </div>
                                 </div>
                             </div>

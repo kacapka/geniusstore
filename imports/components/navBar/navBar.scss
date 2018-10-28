@@ -12,9 +12,11 @@
     width: 100%;
     justify-content: flex-end;
     #cartWrapper {
+      position: fixed;
+      top: 50px;
       width: 30px;
-      position: relative;
       cursor: pointer;
+      transform: translateX(200%);
       img {
         width: 100%;
       }
@@ -63,10 +65,9 @@
         height: 100%;
         padding: 25px;
         border-bottom: 1px solid transparent;
-        //border-top: 1px solid transparent;
         &:hover {
           cursor: pointer;
-          //border-top: 1px solid $mint;
+          color: $mint;
           border-bottom: 1px solid $mint;
           margin-bottom: -1px;
         }
