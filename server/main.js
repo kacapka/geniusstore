@@ -21,6 +21,7 @@ import './methods/Products/productCommon/addCommonProduct';
 import './methods/Products/deleteProduct';
 import './methods/Products/updateSaleProduct';
 import './methods/Products/addNewEmptyProduct';
+import './methods/PromoCodes/insertPromoCode';
 
 import './methods/Messages/insertMessage';
 import './methods/Messages/deleteMessage';
