@@ -1,18 +1,24 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import './App.scss';
-import MainPage from './mainPage/mainPage';
+import { Provider } from 'react-redux';
+import configStore from '../redux/store';
+const store = configStore();
 import NavBar from './navBar/navBar';
+import Footer from "./footer/footer";
 
 class App extends Component {
 
     render() {
         return (
-            <div id='app'>
-                <NavBar />
-                <div id='appContent'>
-                    {this.props.content}    
+            <Provider store={store} >
+                <div id='app'>
+                    <NavBar />
+                    <div id='appContent'>
+                        {this.props.content}
+                    </div>
+                    <Footer/>
                 </div>
-            </div>
+            </Provider>
         );
     }
 

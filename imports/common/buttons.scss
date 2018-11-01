@@ -1,15 +1,48 @@
+@import './fonts';
+@import './vars';
+
 %btn {
-    width: 150px;
-    height: 40px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
-    font-weight: 500;
+    @extend %nav;
+    width: 120px;
+    height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 %btn--black {
-    background-color: #000;
-    color:#fff;
+    border: 1px solid #000;
+    &:hover {
+      background-color: #000;
+      border: 1px solid #000;
+      color: #fff;
+    }
+}
+%btn--color {
+  border: 1px solid $mint;
+  background-color: $mint;
+  color: #fff;
+}
+%btn--red {
+  border: 1px solid $red;
+  background-color: #fff;
+  color: $red;
+  &:hover {
+    background-color: $red;
+    color: #fff;
+  }
+}
+%btn--green {
+  border: 1px solid $green;
+  background-color: #fff;
+  color: $green;
+  &:hover {
+    background-color: $green;
+    color: #fff;
+  }
+}
+%btn--big {
+    width: 180px;
+    height: 50px;
 }

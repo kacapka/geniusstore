@@ -1,0 +1,37 @@
+@import '../../../common/cms';
+@import '../../../common/fonts';
+@import '../../../common/vars';
+
+#adminProduct {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  #productNav {
+    padding: 200px;
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .nav-item-wrapper {
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: calc(calc(100% / 3) - 60px);
+      margin: 10px;
+      border: 2px solid transparent;
+      ion-icon {
+        font-size: 40px;
+        margin-bottom: 20px;
+      }
+      span {
+        @extend %text-medium;
+      }
+      &:hover {
+        cursor: pointer;
+        border: 2px solid $admin;
+      }
+    }
+  }
+}

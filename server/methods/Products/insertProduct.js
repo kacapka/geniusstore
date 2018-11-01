@@ -1,11 +1,18 @@
 import {Meteor} from 'meteor/meteor';
-import {Products} from '/lib/collections';
+import SchemaProduct from '../../schema/schemaProduct';
 
 Meteor.methods({
-    addProduct(name) {
-        console.log('server hey');
-        Products.insert({
-            name: name
+    addProduct(product) {
+        product.sales = {
+            isActive: false,
+            salePercentage: null
+        };
+        product.timestamp = new Date();
+        const newProduct = new SchemaProduct(product);
+        newProduct.insert(err => {
+            if(err) {
+
+            }
         });
     }
 });

@@ -1,44 +1,77 @@
+@import '../../common/fonts';
+@import '../../common/vars';
+
 #navBar {
-    width: 1000px;
-    margin-top: 50px;
+  width: 1000px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  #navCart {
     display: flex;
-    flex-direction: column;
-    padding: 20px 0;
-    #navCart {
-        display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    #cartWrapper {
+      position: fixed;
+      top: 50px;
+      width: 30px;
+      cursor: pointer;
+      transform: translateX(200%);
+      img {
         width: 100%;
-        justify-content: flex-end;
-        #cartWrapper {
-            width: 30px;
-            img {
-                width: 100%;
-            }
-        }
-    }
-    #navLogo {
+      }
+      #cartItems {
+        position: absolute;
+        bottom: 70%;
+        left: 70%;
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
+        background-color: $mint;
         display: flex;
         justify-content: center;
-        padding-bottom: 30px;
-        #logoWrapper {
-            width: 200px;
-            img {
-                width: 100%;
-            }
-        }    
+        align-items: center;
+        @extend %text-small;
+        color: #fff;
+      }
     }
-    #navRoutes {
+  }
+  #navLogo {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+    font-family: 'Grand hotel', cursive;
+    #logoWrapper {
+      width: 200px;
+      img {
         width: 100%;
-        display: flex;
-        justify-content: center;
-        border-top: 1px solid #ddd;
-        border-bottom: 1px solid #ddd;
-        padding: 20px;
-        #nav {
-            display: flex;
-            list-style: none;
-            li {
-                margin: 0 30px;
-            }
-        }
+        cursor: pointer;
+      }
     }
+  }
+  #navRoutes {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    #nav {
+      width: 100%;
+      display: flex;
+      list-style: none;
+      border-top: 1px solid $grey;
+      border-bottom: 1px solid $grey;
+      justify-content: center;
+      li {
+        @extend %nav;
+        height: 100%;
+        padding: 25px;
+        border-bottom: 1px solid transparent;
+        &:hover {
+          cursor: pointer;
+          color: $mint;
+          border-bottom: 1px solid $mint;
+          margin-bottom: -1px;
+        }
+      }
+    }
+  }
 }

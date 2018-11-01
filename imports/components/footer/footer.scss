@@ -1,0 +1,42 @@
+@import '../../common/fonts';
+@import '../../common/vars';
+
+#footer {
+  width: 1000px;
+  margin-top: 50px;
+  border-top: 1px solid $grey;
+  padding: 25px 30px;
+  #footerLinks {
+    @extend %nav;
+    display: flex;
+    #footerRoutes {
+      flex:1;
+      list-style: none;
+      li {
+        margin: 10px 0;
+      }
+    }
+    #footerInsta {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+      #instaIcon {
+        margin-bottom: 10px;
+        font-size: 20px;
+      }
+      #instaName {
+        @extend %text-medium;
+      }
+    }
+  }
+  #footerCopyrights {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    @extend %text-small;
+    font-weight: 300;
+    font-size: 10px;
+  }
+}

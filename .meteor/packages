@@ -22,3 +22,6 @@ kadira:flow-router
 fourseven:scss
 jquery
 react-meteor-data
+accounts-password
+accounts-base
+webapp
