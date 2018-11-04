@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './promoCode.scss';
 import Modal from "../../../common/modal/modal";
 import AddCode from "./addCode/addCode";
+import CodesList from "./codesList/codesList";
 
 class PromoCodes extends Component {
 
@@ -33,16 +34,7 @@ class PromoCodes extends Component {
                         Dodaj
                     </div>
                 </div>
-                <div className='promo-codes-list'>
-                    <div className='list-header'>
-                        <div>Nazwa</div>
-                        <div>Typ</div>
-                        <div>Wartosc</div>
-                        <div>Jednorazowy</div>
-                        <div>Data waznosci</div>
-                        <div className='list-icon'>Usun</div>
-                    </div>
-                </div>
+                <CodesList />
                 {this.state.isModal &&
                     <Modal>
                         <AddCode closeModal={this.onModalClose}/>

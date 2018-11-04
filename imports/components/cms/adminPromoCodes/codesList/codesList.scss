@@ -1,0 +1,23 @@
+@import '../../../../common/cms';
+
+#codesList {
+  @extend %cms-list;
+  .list-header {
+    @extend %cms-list-header;
+  }
+  .list-item {
+    @extend %cms-list-item;
+  }
+  .list-icon {
+    @extend %cms-list-icon;
+    &.remove-icon {
+      &:hover {
+        color: $red;
+        cursor: pointer;
+      }
+    }
+  }
+  .list-feature {
+    flex: 1;
+  }
+}

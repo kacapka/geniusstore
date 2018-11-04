@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 
 import reducers from './reducers/rootReducer';
+import { persistStore } from 'redux-persist'
 //import ReduxPromise from 'redux-promise';
 //import thunk from 'redux-thunk';
 
@@ -19,7 +20,9 @@ const configStore = (preloadedState) => {
         //composedEnhancer
     );
 
-    return store;
+    const persistor = persistStore(store);
+
+    return { store, persistor }
 
 }
 

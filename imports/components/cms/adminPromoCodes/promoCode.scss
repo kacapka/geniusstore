@@ -21,16 +21,4 @@
       @extend %btn--green;
     }
   }
-  .promo-codes-list {
-    @extend %cms-list;
-    .list-header {
-      @extend %cms-list-header;
-    }
-    .list-item {
-      @extend %cms-list-item;
-      .list-icon {
-        @extend %cms-list-icon;
-      }
-    }
-  }
 }

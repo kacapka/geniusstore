@@ -5,6 +5,7 @@ import '../../../../common/datetime.scss';
 import moment from 'moment';
 import SelectInput from "../../../../common/selectInput/selectInput";
 import SwitchInput from "../../../../common/switchInput/switchInput";
+import {Meteor} from 'meteor/meteor';
 
 const SELECT_DATA = [
     {name: 'PLN'},
@@ -88,7 +89,11 @@ class AddCode extends Component {
                    console.log('promo code added');
                    this.props.closeModal();
                } else {
-                   alert(err.error);
+                   if(err.error === 'codeNameExists') {
+                       alert('kod o tej nazwie juz instieje');
+                   } else {
+                       alert(err.error);
+                   }
                }
             });
         }

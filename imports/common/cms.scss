@@ -19,8 +19,13 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  &:nth-child(odd) {
+    background-color: #dff9fb;
+  }
 }
 %cms-list-icon {
+  display: flex;
+  justify-content: center;
   flex: 0 0 70px;
 }
 %cms-list-header {

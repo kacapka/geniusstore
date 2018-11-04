@@ -38,6 +38,7 @@ class Product extends Component {
 
     checkIfProductIsAlreadyInCart() {
         const {cart, product} = this.props;
+        console.log(cart);
         return cart.some(item => {
             return item.size.name === this.state.sizeValue.name && item.product._id === product._id
         });
@@ -60,7 +61,6 @@ class Product extends Component {
     }
 
     selectNewValue(val) {
-        console.log(val);
         this.setState({sizeValue: val, sizeError: null});
     }
 
@@ -70,8 +70,6 @@ class Product extends Component {
         if(!handleReady) return <div>loading...</div>;
         const photo = mainPhoto ? mainPhoto : product.mainPhoto;
         const photos = [...product.photos, product.mainPhoto];
-
-        console.log(product);
 
         return (
             <div id='productPage'>
@@ -151,7 +149,7 @@ class Product extends Component {
 }
 
 const mapStateToProps = state => ({
-    cart: state.cart
+    cart: state.cart.products
 });
 
 const ProductPage = compose(
