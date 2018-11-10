@@ -64,7 +64,7 @@ class NavBar extends Component {
 }
 
 const mapStateToProps = state => ({
-    cart: state.cart
+    cart: state.cart.products
 });
 
 export default connect(mapStateToProps)(NavBar);

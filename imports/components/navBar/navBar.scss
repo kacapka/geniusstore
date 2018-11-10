@@ -14,9 +14,10 @@
     #cartWrapper {
       position: fixed;
       top: 50px;
+      right: 30px;
       width: 30px;
       cursor: pointer;
-      transform: translateX(200%);
+      //transform: translateX(200%);
       img {
         width: 100%;
       }

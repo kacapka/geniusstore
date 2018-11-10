@@ -1,6 +1,7 @@
 import types from '../actions/actionTypes';
+import {combineReducers} from "redux";
 
-const cart = (state = [], action) => {
+const products = (state = [], action) => {
 
     switch(action.type) {
         case types.ADD_TO_CART:
@@ -28,5 +29,10 @@ const cart = (state = [], action) => {
     }
 
 };
+
+const cart = combineReducers({
+    products
+});
+
 
 export default cart;

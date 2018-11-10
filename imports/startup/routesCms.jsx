@@ -12,6 +12,7 @@ import ProductFeatures from "../components/cms/adminProduct/features/productFeat
 import ProductDetails from "../components/cms/adminProduct/list/productDetails/productDetails";
 import ProductSales from "../components/cms/adminProduct/sales/productSales";
 import ProductColors from "../components/cms/adminProduct/colors/productColors";
+import PromoCodes from "../components/cms/adminPromoCodes/promoCodes";
 
 FlowRouter.route('/admin', {
     action() {
@@ -89,6 +90,15 @@ FlowRouter.route('/admin/product/colors', {
     action() {
         mount(Admin, {
             content: <ProductColors />
+        });
+    }
+});
+
+//messages
+FlowRouter.route('/admin/promo-codes', {
+    action() {
+        mount(Admin, {
+            content: <PromoCodes />
         });
     }
 });

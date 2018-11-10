@@ -1,0 +1,50 @@
+@import '../../../../common/cms';
+@import '../../../../common/fonts';
+@import '../../../../common/vars';
+@import '../../../../common/buttons';
+@import '../../../../common/inputs';
+
+.code-modal-wrap {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  .modal-title {
+    @extend %heading-small;
+    margin-bottom: 40px;
+  }
+  .modal-input-wrap {
+    margin-bottom: 20px;
+    min-width: 300px;
+    .input-label {
+      @extend %label;
+      margin-bottom: 10px;
+    }
+    .modal-input {
+      @extend %input;
+      width: 100%;
+    }
+    input {
+      @extend %input;
+      width: 100%;
+    }
+    p {
+      color: $red;
+      font-size: 10px;
+      margin-top: 4px;
+    }
+  }
+  .modal-buttons-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    .modal-btn-submit {
+      @extend %btn;
+      @extend %btn--green;
+    }
+    .modal-btn-cancel {
+      @extend %btn;
+      @extend %btn--red;
+      margin-left: 20px;
+    }
+  }
+}

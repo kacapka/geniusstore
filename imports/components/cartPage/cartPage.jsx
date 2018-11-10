@@ -127,7 +127,7 @@ class CartPage extends Component {
 }
 
 const mapStateToProps = state => ({
-   cart: state.cart
+   cart: state.cart.products
 });
 
 export default connect(mapStateToProps, {updateProductAmount, deleteProductFromCart})(CartPage);

@@ -7,8 +7,9 @@ import {Meteor} from 'meteor/meteor';
 
 const ROUTES = [
     {name: 'zestawienia', icon: 'stats', route: 'stats'},
-    {name: 'produkty', icon: 'shirt', route: 'product'},
     {name: 'zamowienia', icon: 'cart', route: 'orders'},
+    {name: 'produkty', icon: 'shirt', route: 'product'},
+    {name: 'kody promocyjne', icon: 'star', route: 'promo-codes'},
     {name: 'wiadomosci', icon: 'mail', route: 'messages'},
     {name: 'wyloguj sie', icon: 'power', route: null},
 ];
