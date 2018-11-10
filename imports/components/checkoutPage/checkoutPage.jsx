@@ -1,26 +1,41 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import './checkoutPage.scss';
 import {connect} from 'react-redux';
 import {FlowRouter} from 'meteor/kadira:flow-router';
 import {setInputValue, setInputError} from '../../redux/actions/index';
+import {selectDeliveryType} from '../../redux/actions/checkout';
 import Checkbox from "../../common/checkbox/checkbox";
 import emailValidation from '../../functions/emailValidation';
 import zipcodeValidation from '../../functions/zipcodeValidation';
 import getSalePrice from '../../functions/getSalePrice';
+import CheckoutPromoCode from "./checkoutPromoCode";
 
 class CheckoutPage extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            deliveryPrice: null,
+            totalPrice: null
+        };
         this.onInputChange = this.onInputChange.bind(this);
         this.onCheckboxClick = this.onCheckboxClick.bind(this);
         this.onSubmitCheckoutBtnClick = this.onSubmitCheckoutBtnClick.bind(this);
+        this.onDeliveryCheckboxClick = this.onDeliveryCheckboxClick.bind(this);
     }
 
     onCheckboxClick(value, name) {
         this.props.setInputValue(name, value);
         this.props.setInputError(`${name}Err`, '');
     }
+
+    onDeliveryCheckboxClick(value, name, options) {
+        if(!value) return;
+        this.setState({deliveryPrice: options.price});
+        this.props.setInputError('deliveryErr', '');
+        this.props.selectDeliveryType(name,value);
+    }
+
 
     onSubmitCheckoutBtnClick() {
         this.validateForm();
@@ -39,7 +54,7 @@ class CheckoutPage extends Component {
     }
 
     validateForm() {
-        const {name, surname, address, zipCode, town, mail, phone, delivery, terms, rodo} = this.props.checkout.inputs;
+        const {name, surname, address, zipCode, town, mail, phone, terms, rodo} = this.props.checkout.inputs;
         const strings = [
             {name: 'name', value: name},
             {name: 'surname', value: surname},
@@ -54,7 +69,7 @@ class CheckoutPage extends Component {
         if(!emailValidation(mail)) {
             this.props.setInputError('mailErr', 'niepoprawna wartosc pola');
         }
-        if(!delivery) {
+        if(!this.props.checkout.delivery.some(type => type.selected)) {
             this.props.setInputError('deliveryErr', 'wybierz sposob dostawy');
         }
         if(!terms || !rodo) {
@@ -64,13 +79,11 @@ class CheckoutPage extends Component {
             this.props.setInputError('phoneErr', 'niepoprawna wartosc pola');
         }
         if(!zipcodeValidation(zipCode)){
-            console.log('zip');
             this.props.setInputError('zipCodeErr', 'niepoprawna wartosc pola');
         }
     };
 
     renderCheckoutProducts() {
-
         return this.props.cart.map(item => {
             return (
                 <div key={item.cartId} className='checkout-product-item' >
@@ -79,15 +92,45 @@ class CheckoutPage extends Component {
                         <p>{item.amount}</p>
                     </div>
                     <div className='checkout-product-feature'>{item.size.name}</div>
-                    <div className='checkout-product-feature'>PLN {getSalePrice(item.product) * item.amount}</div>
+                    <div className='checkout-product-feature product-price'>{getSalePrice(item.product) * item.amount} PLN</div>
                 </div>
             );
         })
     }
 
+    renderDeliveryTypes() {
+        return this.props.checkout.delivery.map(type => {
+            return (
+                <div className='checkbox-wrapper' key={type.name}>
+                    <Checkbox value={type.selected}
+                              name={type.name}
+                              selectCheckbox={this.onDeliveryCheckboxClick}
+                              options={{price: type.price}}
+                              isMultiple={true}
+                    />
+                    <label className='checkbox-label'>{type.fullName} <span>{type.price} PLN</span></label>
+                </div>
+            );
+        });
+    }
+
+    getFinalPrice() {
+        let totalPrice = 0;
+        for(let cartItem of this.props.cart ) {
+            if(cartItem.product.sales.isActive) {
+                totalPrice += cartItem.product.sales.salePrice * cartItem.amount;
+            } else {
+                totalPrice += cartItem.product.price * cartItem.amount;
+            }
+        }
+
+        return totalPrice + this.state.deliveryPrice;
+    }
+
     render() {
-        const {name, surname, address, zipCode, town, mail, phone, delivery, terms, rodo} = this.props.checkout.inputs;
+        const {name, surname, address, zipCode, town, mail, phone, terms, rodo} = this.props.checkout.inputs;
         const {nameErr, surnameErr, addressErr, zipCodeErr, townErr, mailErr, phoneErr, deliveryErr, termsErr} = this.props.checkout.errors;
+
         return (
             <div id='checkoutPage'>
                 {(() => {
@@ -174,26 +217,20 @@ class CheckoutPage extends Component {
                                     </div>
                                     <div className='checkout-title'>Sposob dostawy</div>
                                     <div id='checkoutDelivery'>
-                                        <div className='checkbox-wrapper'>
-                                            <Checkbox defaultValue={delivery}
-                                                      name='delivery'
-                                                      selectCheckbox={this.onCheckboxClick}
-                                            />
-                                            <label className='checkbox-label'>paczka kurierska DHL PLN 15</label>
-                                        </div>
+                                        {this.renderDeliveryTypes()}
                                         {deliveryErr && <p className='info-error'>{deliveryErr}</p>}
                                     </div>
                                     <div className='checkout-title'>Platnosc</div>
                                     <div id='checkoutPayment'>
                                         <div className='checkbox-wrapper'>
-                                            <Checkbox defaultValue={terms}
+                                            <Checkbox value={terms}
                                                       name='terms'
                                                       selectCheckbox={this.onCheckboxClick}
                                             />
                                             <label className='checkbox-label'>akceptuje regulamin sklepu</label>
                                         </div>
                                         <div className='checkbox-wrapper'>
-                                            <Checkbox defaultValue={rodo}
+                                            <Checkbox value={rodo}
                                                       name='rodo'
                                                       selectCheckbox={this.onCheckboxClick}
                                             />
@@ -212,19 +249,16 @@ class CheckoutPage extends Component {
                                     <div id='checkoutProductsList'>
                                         {this.renderCheckoutProducts()}
                                     </div>
-                                    <div className='delivery-amount'>
-                                        <span>dostawa</span>
-                                        <span>15PLN</span>
-                                    </div>
-                                    <div className='promo-code-wrap'>
-                                        <input className='promo-code-input'
-                                               placeholder='kod promocyjny'
-                                        />
-                                        <div className='verify-btn'>zweryfikuj</div>
-                                    </div>
+                                    {this.state.deliveryPrice !== null &&
+                                        <div className='delivery-amount'>
+                                            <span>dostawa</span>
+                                            <span>{this.state.deliveryPrice} PLN</span>
+                                        </div>
+                                    }
+                                    <CheckoutPromoCode cart={this.props.cart} />
                                     <div className='final-amount'>
                                         <span>Razem</span>
-                                        <span>199 PLN</span>
+                                        <span>{this.state.totalPrice ? (this.state.totalPrice + this.state.deliveryPrice) : this.getFinalPrice()} PLN</span>
                                     </div>
                                 </div>
                             </div>
@@ -246,4 +280,4 @@ const mapStateToProps = state => ({
     checkout: state.checkout
 });
 
-export default connect(mapStateToProps, {setInputValue, setInputError})(CheckoutPage);
+export default connect(mapStateToProps, {setInputValue, setInputError, selectDeliveryType})(CheckoutPage);

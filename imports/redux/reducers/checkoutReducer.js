@@ -1,5 +1,6 @@
 import types from '../actions/actionTypes';
 import { combineReducers } from 'redux';
+import deliveryTypes from '../../data/delivery';
 
 const initialInputs = {
     name: '',
@@ -55,9 +56,32 @@ const errors = (state = initialErrors, action) => {
 
 };
 
+const initialDelivery =  deliveryTypes;
+
+const delivery = (state = initialDelivery, action) => {
+
+    switch(action.type) {
+        case types.SELECT_DELIVERY:
+            const newState = state.map(type => {
+                if(type.name === action.name) {
+                    type.selected = true;
+                } else {
+                    type.selected = false;
+                }
+                return type;
+            });
+
+            return newState;
+        default:
+            return state;
+    }
+
+};
+
 const checkout = combineReducers({
     inputs,
-    errors
+    errors,
+    delivery
 });
 
 

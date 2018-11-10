@@ -23,6 +23,7 @@ import './methods/Products/updateSaleProduct';
 import './methods/Products/addNewEmptyProduct';
 import './methods/PromoCodes/insertPromoCode';
 import './methods/PromoCodes/deletePromoCode';
+import './methods/PromoCodes/verifyPromoCode';
 
 import './methods/Messages/insertMessage';
 import './methods/Messages/deleteMessage';

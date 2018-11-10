@@ -74,6 +74,8 @@
           flex: 1;
           @extend %nav;
           margin-left: 30px;
+          display: flex;
+          justify-content: space-between;
         }
         .checkbox {
           flex: 0 0 20px;
@@ -90,6 +92,8 @@
       padding-left: 50px;
       #checkoutProductsList {
         margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid $grey;
         .checkout-product-item {
           display: flex;
           align-items: center;
@@ -117,6 +121,9 @@
             @extend %text-medium;
             display: flex;
             justify-content: center;
+            &.product-price {
+              justify-content: flex-end;
+            }
           }
         }
       }
@@ -124,14 +131,15 @@
         display: flex;
         justify-content: space-between;
         @extend %text-medium;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid $grey;
       }
       .promo-code-wrap {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 30px;
-        padding-bottom: 30px;
-        border-bottom: 1px solid $grey;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
         .promo-code-input {
           @extend %input;
         }
