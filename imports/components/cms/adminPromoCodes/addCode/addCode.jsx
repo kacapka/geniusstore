@@ -145,6 +145,8 @@ class AddCode extends Component {
                     <div className='input-label'>Data waznosci</div>
                     <Datetime onChange={this.onDateChange}
                               defaultValue={this.state.exp}
+                              locale="pl"
+                              timeFormat='HH:mm'
                     />
                     <p>{this.state.expErr && 'niepoprawna data'}</p>
                 </div>

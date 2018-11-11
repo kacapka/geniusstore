@@ -147,6 +147,15 @@
           @extend %btn;
           @extend %btn--black;
         }
+        .remove-circle {
+          &:hover {
+            color: $mint;
+            cursor: pointer;
+          }
+        }
+        .code {
+          @extend %text-medium;
+        }
       }
       .final-amount {
         display: flex;
