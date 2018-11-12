@@ -65,9 +65,19 @@ class CheckoutPage extends Component {
                     email: inputs.mail,
                     phone: inputs.phone
                 },
-                promoCode: promoCode ? promoCode.name : promoCode
+                promoCode: promoCode ? promoCode.name : promoCode,
+                notes: inputs.notes,
+                status: 'pending',
+                deliveryStatus: 'pending'
             };
             console.log(order);
+            Meteor.call('insertOrder', order, err => {
+                if(!err) {
+                    console.log('order insert success');
+                } else {
+                    alert(err.error);
+                }
+            })
         }
     }
 
@@ -154,7 +164,7 @@ class CheckoutPage extends Component {
     }
 
     render() {
-        const {name, surname, address, zipCode, town, mail, phone, terms, rodo} = this.props.checkout.inputs;
+        const {name, surname, address, zipCode, town, mail, phone, notes, terms, rodo} = this.props.checkout.inputs;
         const {nameErr, surnameErr, addressErr, zipCodeErr, townErr, mailErr, phoneErr, deliveryErr, termsErr} = this.props.checkout.errors;
         const promoCode = this.props.checkout.promoCode;
 
@@ -238,6 +248,15 @@ class CheckoutPage extends Component {
                                                    onChange={this.onInputChange}
                                                    value={phone}
                                                    type='phone'
+                                            />
+                                            {phoneErr && <p className='input-error'>{phoneErr}</p>}
+                                        </div>
+                                        <div className='address-input-wrapper'>
+                                            <label className='address-label'>uwagi do zamowienia (dostawa, faktura VAT)</label>
+                                            <textarea className='address-input'
+                                                   name='notes'
+                                                   onChange={this.onInputChange}
+                                                   value={notes}
                                             />
                                             {phoneErr && <p className='input-error'>{phoneErr}</p>}
                                         </div>

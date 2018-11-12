@@ -1,5 +1,5 @@
-import {Products} from "../../lib/collections";
-import {validateEmail} from './validation';
+import {Products, Orders} from "../../lib/collections";
+import {validateEmail, validateKeys} from './validation';
 
 export default class SchemaOrder {
 
@@ -11,6 +11,10 @@ export default class SchemaOrder {
             deliveryType: this.validateDeliveryType(order.deliveryType),
             address: this.validateAddress(order.address),
             user: this.validateUser(order.user),
+            status: this.validateStatus(order.status),
+            deliveryStatus: this.validateStatus(order.deliveryStatus),
+            promoCode: order.promoCode ? this.validateString(order.promoCode) : true,
+            timestamp: true,
             notes: true
         }
     }
@@ -19,7 +23,7 @@ export default class SchemaOrder {
         return products.every(product => {
            const amount = product.amount > 0;
            const id = !!Products.findOne({_id: product.productId});
-           const size = product.size.length > 0 && typeof size === 'string';
+           const size = product.size.length > 0 && typeof product.size === 'string';
            return amount && id && size;
         });
     }
@@ -51,6 +55,30 @@ export default class SchemaOrder {
         return name && surname && email && phone;
     }
 
+    validateStatus(status) {
+        const statusTypes = ['pending', 'completed', 'rejected'];
+        return statusTypes.indexOf(status) !== -1;
+    }
+
+    validate() {
+        return validateKeys(this.order, this.validationKeys);
+    }
+
+    insert(callback) {
+        if(this.validate()) {
+            Orders.insert(this.order, err => {
+                if(!err) {
+                    callback(null);
+                } else {
+                    callback('insertOrderFailed');
+                }
+            })
+        } else {
+            callback('validationOrderFailed');
+            console.log(this.validationKeys);
+            console.log(this.order);
+        }
+    }
 
 
 }

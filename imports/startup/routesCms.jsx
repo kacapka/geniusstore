@@ -13,6 +13,8 @@ import ProductDetails from "../components/cms/adminProduct/list/productDetails/p
 import ProductSales from "../components/cms/adminProduct/sales/productSales";
 import ProductColors from "../components/cms/adminProduct/colors/productColors";
 import PromoCodes from "../components/cms/adminPromoCodes/promoCodes";
+import AdminOrders from "../components/cms/adminOrders/adminOrders";
+import OrderDetails from "../components/cms/adminOrders/ordersList/orderDetails/orderDetails";
 
 FlowRouter.route('/admin', {
     action() {
@@ -109,6 +111,24 @@ FlowRouter.route('/admin/messages', {
     action() {
         mount(Admin, {
             content: <AdminMessages />
+        });
+    }
+});
+
+//orders
+FlowRouter.route('/admin/orders', {
+    action() {
+        mount(Admin, {
+            content: <AdminOrders />
+        });
+    }
+});
+
+//orders --> details
+FlowRouter.route('/admin/orders/:orderId', {
+    action(params) {
+        mount(Admin, {
+            content: <OrderDetails orderId={params.orderId} />
         });
     }
 });

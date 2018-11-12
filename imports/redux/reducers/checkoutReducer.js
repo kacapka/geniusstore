@@ -7,7 +7,7 @@ import storage from 'redux-persist/lib/storage';
 const inputsPersistConfig = {
     storage,
     key: 'inputs',
-    blacklist: ['terms', 'rodo']
+    blacklist: ['terms', 'rodo', 'notes']
 };
 
 const initialInputs = {
@@ -18,6 +18,7 @@ const initialInputs = {
     town: '',
     mail: '',
     phone: '',
+    notes: '',
     terms: false,
     rodo: false
 };

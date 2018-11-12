@@ -24,6 +24,7 @@ import './methods/Products/addNewEmptyProduct';
 import './methods/PromoCodes/insertPromoCode';
 import './methods/PromoCodes/deletePromoCode';
 import './methods/PromoCodes/verifyPromoCode';
+import './methods/Orders/insertOrder';
 
 import './methods/Messages/insertMessage';
 import './methods/Messages/deleteMessage';
@@ -46,6 +47,7 @@ import './publish/publish_collections';
 import './publish/publish_features';
 import './publish/publish_colors';
 import './publish/publish_promoCodes';
+import './publish/publish_orders';
 
 //fake data
 import './data';
