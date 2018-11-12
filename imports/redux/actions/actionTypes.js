@@ -5,7 +5,8 @@ const types = {
     ON_INPUT_CHANGE: 'on-input-change',
     SET_CHECKOUT_INPUT_VALUE: 'set-checkout-input-value',
     SET_CHECKOUT_INPUT_ERROR: 'set-checkout-input-error',
-    SELECT_DELIVERY: 'select-delivery-type'
+    SELECT_DELIVERY: 'select-delivery-type',
+    SET_PROMO_CODE: 'set-promo-code'
 };
 
 export default types;

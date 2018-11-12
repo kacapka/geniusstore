@@ -1,6 +1,14 @@
 import types from '../actions/actionTypes';
 import { combineReducers } from 'redux';
 import deliveryTypes from '../../data/delivery';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
+const inputsPersistConfig = {
+    storage,
+    key: 'inputs',
+    blacklist: ['terms', 'rodo']
+};
 
 const initialInputs = {
     name: '',
@@ -10,7 +18,6 @@ const initialInputs = {
     town: '',
     mail: '',
     phone: '',
-    delivery: true,
     terms: false,
     rodo: false
 };
@@ -78,10 +85,22 @@ const delivery = (state = initialDelivery, action) => {
 
 };
 
+const promoCode = (state = null, action) => {
+
+    switch(action.type) {
+        case types.SET_PROMO_CODE:
+            return action.promoCode;
+        default:
+            return state;
+    }
+
+};
+
 const checkout = combineReducers({
-    inputs,
+    inputs: persistReducer(inputsPersistConfig, inputs),
     errors,
-    delivery
+    delivery,
+    promoCode
 });
 
 

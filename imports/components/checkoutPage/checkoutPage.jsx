@@ -3,30 +3,25 @@ import './checkoutPage.scss';
 import {connect} from 'react-redux';
 import {FlowRouter} from 'meteor/kadira:flow-router';
 import {setInputValue, setInputError} from '../../redux/actions/index';
-import {selectDeliveryType} from '../../redux/actions/checkout';
+import {selectDeliveryType, setPromoCode} from '../../redux/actions/checkout';
+import {getDeliveryPrice} from '../../redux/selectors/deliveryPrice';
+import {getFinalPrice} from '../../redux/selectors/finalPrice';
 import Checkbox from "../../common/checkbox/checkbox";
 import emailValidation from '../../functions/emailValidation';
 import zipcodeValidation from '../../functions/zipcodeValidation';
 import getSalePrice from '../../functions/getSalePrice';
 import CheckoutPromoCode from "./checkoutPromoCode";
-import FinalPrice from "./finalPrice";
+
 
 class CheckoutPage extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            deliveryPrice: null,
-            finalPrice: null,
-            promoCode: null
-        };
         this.onInputChange = this.onInputChange.bind(this);
         this.onCheckboxClick = this.onCheckboxClick.bind(this);
         this.onSubmitCheckoutBtnClick = this.onSubmitCheckoutBtnClick.bind(this);
         this.onDeliveryCheckboxClick = this.onDeliveryCheckboxClick.bind(this);
         this.setPromoCode = this.setPromoCode.bind(this);
-
-        this.setFinalPrice = this.setFinalPrice.bind(this);
     }
 
     onCheckboxClick(value, name) {
@@ -42,20 +37,39 @@ class CheckoutPage extends Component {
     }
 
     setPromoCode(promoCode) {
-        this.setState({promoCode});
+        this.props.setPromoCode(promoCode);
     }
 
     onSubmitCheckoutBtnClick() {
         if(this.validateForm()) {
-            const finalPrice = this.refs['finalPrice'].getFinalPrice();
-            console.log(finalPrice);
-        };
+            const products = this.props.cart.map(item => {
+                return {
+                    productId: item.product._id,
+                    amount: item.amount,
+                    size: item.size.name
+                }
+            });
+            const {inputs, promoCode} = this.props.checkout;
+            const order = {
+                products,
+                price: this.props.finalPrice,
+                deliveryType: this.props.delivery.type,
+                address: {
+                    city: inputs.town,
+                    street: inputs.address,
+                    zipCode: inputs.zipCode
+                },
+                user: {
+                    name: inputs.name,
+                    surname: inputs.surname,
+                    email: inputs.mail,
+                    phone: inputs.phone
+                },
+                promoCode: promoCode ? promoCode.name : promoCode
+            };
+            console.log(order);
+        }
     }
-
-    setFinalPrice(price) {
-        this.setState({finalPrice: price});
-    }
-
 
     onInputChange(e) {
         const {name, value} = e.target;
@@ -142,6 +156,7 @@ class CheckoutPage extends Component {
     render() {
         const {name, surname, address, zipCode, town, mail, phone, terms, rodo} = this.props.checkout.inputs;
         const {nameErr, surnameErr, addressErr, zipCodeErr, townErr, mailErr, phoneErr, deliveryErr, termsErr} = this.props.checkout.errors;
+        const promoCode = this.props.checkout.promoCode;
 
         return (
             <div id='checkoutPage'>
@@ -261,16 +276,16 @@ class CheckoutPage extends Component {
                                     <div id='checkoutProductsList'>
                                         {this.renderCheckoutProducts()}
                                     </div>
-                                    {this.state.promoCode &&
+                                    {promoCode &&
                                         <div className='delivery-amount'>
                                             <span>znizka</span>
-                                            <span>{this.state.promoCode.value + ' ' + this.state.promoCode.type}</span>
+                                            <span>{promoCode.value + ' ' + promoCode.type}</span>
                                         </div>
                                     }
-                                    {this.state.deliveryPrice !== null &&
+                                    {this.props.delivery !== null &&
                                         <div className='delivery-amount'>
                                             <span>dostawa</span>
-                                            <span>{this.state.deliveryPrice} PLN</span>
+                                            <span>{this.props.delivery.price} PLN</span>
                                         </div>
                                     }
                                     <CheckoutPromoCode cart={this.props.cart}
@@ -278,12 +293,7 @@ class CheckoutPage extends Component {
                                     />
                                     <div className='final-amount'>
                                         <span>Razem</span>
-                                        <FinalPrice cart={this.props.cart}
-                                                    promoCode={this.state.promoCode}
-                                                    delivery={this.state.deliveryPrice}
-                                                    setFinalPrice={this.setFinalPrice}
-                                                    ref='finalPrice'
-                                        />
+                                        <span>{this.props.finalPrice} PLN</span>
                                     </div>
                                 </div>
                             </div>
@@ -301,8 +311,10 @@ class CheckoutPage extends Component {
 }
 
 const mapStateToProps = state => ({
+    delivery: getDeliveryPrice(state),
+    finalPrice: getFinalPrice(state),
     cart: state.cart.products,
     checkout: state.checkout
 });
 
-export default connect(mapStateToProps, {setInputValue, setInputError, selectDeliveryType})(CheckoutPage);
+export default connect(mapStateToProps, {setInputValue, setInputError, selectDeliveryType, setPromoCode})(CheckoutPage);

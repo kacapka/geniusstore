@@ -7,7 +7,7 @@ import storage from 'redux-persist/lib/storage';
 const cartPersistConfig = {
     storage,
     key: 'cart',
-    whiteList: ['products']
+    whitelist: ['products']
 };
 
 const rootReducer = combineReducers({
