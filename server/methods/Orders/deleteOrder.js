@@ -1,17 +1,17 @@
 import {Meteor} from 'meteor/meteor';
-import {Products} from "../../../lib/collections";
+import {Orders} from "../../../lib/collections";
 import Future from 'fibers/future';
 import checkIfAdmin from '../../functions/checkIfAdmin';
 
 Meteor.methods({
-    deleteProduct(productId) {
+    deleteOrder(orderId) {
         const future = new Future();
         if(checkIfAdmin(this.userId)) {
-            Products.remove({_id: productId}, err => {
+            Orders.remove({_id: orderId}, err => {
                 if(!err) {
                     future.return();
                 } else {
-                    future.throw(new Meteor.Error('deleteProductFailed'));
+                    future.throw(new Meteor.Error('orderRemoveFailed'))
                 }
             });
         } else {

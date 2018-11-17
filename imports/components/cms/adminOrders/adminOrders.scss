@@ -8,6 +8,7 @@
   flex-direction: column;
   @extend %cms-box;
   .orders-bar {
+    margin-bottom: 20px;
     .bar-title {
       @extend %heading-small;
     }
@@ -22,7 +23,20 @@
     .order-feature {
       flex: 1;
       &.order-icon {
+        font-size: 18px;
         @extend %cms-list-icon;
+        &.icon-details {
+          &:hover {
+            cursor: pointer;
+            color: $green;
+          }
+        }
+        &.icon-remove {
+          &:hover {
+            cursor: pointer;
+            color: $red;
+          }
+        }
       }
       &.order-products {
         display: flex;

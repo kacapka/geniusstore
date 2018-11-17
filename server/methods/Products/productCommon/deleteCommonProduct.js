@@ -1,11 +1,12 @@
 import {Meteor} from 'meteor/meteor';
 import Future from 'fibers/future';
 import{Products} from "../../../../lib/collections";
+import checkIfAdmin from '../../../functions/checkIfAdmin';
 
 Meteor.methods({
     deleteCommonProduct(productId, commonId) {
         const future = new Future();
-        if(this.userId) {
+        if(checkIfAdmin(this.userId)) {
             Products.update(
                 {_id: productId},
                 {$pull: {common: commonId}},

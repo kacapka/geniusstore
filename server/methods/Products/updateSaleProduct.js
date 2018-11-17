@@ -1,25 +1,27 @@
 import {Meteor} from 'meteor/meteor';
 import {Products} from "../../../lib/collections";
 import SchemaProduct from '../../schema/schemaProduct';
+import checkIfAdmin from '../../functions/checkIfAdmin';
+import Future from 'fibers/future';
 
 Meteor.methods({
    updateSaleProduct(id, sales) {
-       if(this.userId) {
+       const future = new Future();
+       if(checkIfAdmin(this.userId)) {
           const productToUpdate = Products.findOne({_id: id});
           productToUpdate.sales = sales;
           delete productToUpdate['_id'];
           const newProduct = new SchemaProduct(productToUpdate);
           newProduct.update(id, err => {
-            if(err){
-                if(err === 'productEditFailed') {
-                    throw new Meteor.Error('editFailed');
-                } else if (err === 'productEditValidationFailed') {
-                    throw new Meteor.Error('validationFailed');
-                }
+            if(!err){
+               future.return();
+            } else {
+                future.throw(new Meteor.Error('updateSaleFailed'));
             }
           });
        } else {
-           throw new Meteor.Error('notpermission');
+           future.throw(new Meteor.Error('notPermission'));
        }
+       future.wait();
    }
 });

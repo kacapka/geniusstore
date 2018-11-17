@@ -29,7 +29,7 @@ class ProductFeatures extends Component {
                 if(!err) {
                     console.log('feature deleteed success');
                 } else {
-                    alert('nie masz uprawnień so wykonania tej czynności');
+                    alert(err.error);
                 }
             });
         }
@@ -49,7 +49,7 @@ class ProductFeatures extends Component {
                 console.log('feature insert success');
                 this.setState({isForm: false, addValue: ''});
             } else {
-                alert('bload podczas dodwania opisu');
+                alert(err.error);
             }
         });
     }
@@ -66,7 +66,7 @@ class ProductFeatures extends Component {
                 console.log('feature insert success');
                 this.setState({isForm: false, editId: null});
             } else {
-                alert('bload podczas edycji opisu');
+                alert(err.error);
             }
         });
     }
@@ -124,7 +124,7 @@ class ProductFeatures extends Component {
         return (
             <div id='productFeatures'>
                 <ul id='featuresList'>
-                    <li className='feature-item feature-item-header'>
+                    <li className='feature-item-header'>
                         <div>nazwa</div>
                     </li>
                     {this.props.handleReady && this.renderFeatures()}

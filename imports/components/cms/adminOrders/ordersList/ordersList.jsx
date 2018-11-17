@@ -5,19 +5,9 @@ import {Meteor} from 'meteor/meteor';
 import {Orders, Products} from "../../../../../lib/collections";
 import dateAgoPL from "../../../../functions/dateAgo";
 import {FlowRouter} from 'meteor/kadira:flow-router';
+import renderOrderStatus from "./renderStatus";
 
 class OrdersList extends Component {
-
-    renderOrderStatus(status, type) {
-        switch (status) {
-            case 'pending':
-                return <span className='status-pending'>oczekujacy</span>;
-            case 'completed':
-                return <span className='status-completed'>{type === 'delivery' ? 'wyslano' : 'zaplacono'}</span>;
-            case 'rejected':
-                return <span className='status-rejected'>odrzucono</span>;
-        }
-    }
 
     renderOrders() {
         return this.props.orders.map(order => {
@@ -26,14 +16,14 @@ class OrdersList extends Component {
                    <div className='order-feature order-products'>11</div>
                    <div className='order-feature'>{dateAgoPL(order.timestamp).full}</div>
                    <div className='order-feature'>{order.price}</div>
-                   <div className='order-feature'>{this.renderOrderStatus(order.status, 'tran')}</div>
-                   <div className='order-feature'>{this.renderOrderStatus(order.status, 'delivery')}</div>
-                   <div className='order-feature order-icon'>
+                   <div className='order-feature'>{renderOrderStatus(order.status, 'tran')}</div>
+                   <div className='order-feature'>{renderOrderStatus(order.status, 'delivery')}</div>
+                   <div className='order-feature order-icon icon-details'>
                        <ion-icon name="search"
                                  onClick={() => this.onShowOrderClick(order._id)}
                        />
                    </div>
-                   <div className='order-feature order-icon'>
+                   <div className='order-feature order-icon icon-remove'>
                        <ion-icon name="remove-circle"
                                  onClick={() => this.onDeleteOrderClick(order._id)}
                        />
@@ -44,7 +34,16 @@ class OrdersList extends Component {
     }
 
     onDeleteOrderClick(orderId) {
-        console.log(orderId);
+        if(window.confirm('czy na pewno chcesz usunac to zamowienie?')) {
+            Meteor.call('deleteOrder', orderId, err => {
+                if(!err) {
+                    console.log('order deleted');
+                } else {
+                    console.error(err);
+                    alert(err.error);
+                }
+            });
+        }
     }
 
     onShowOrderClick(orderId) {
@@ -69,13 +68,6 @@ export default withTracker(() => {
     const handleReady = handle.ready();
     if(handleReady) {
         orders = Orders.find({}).fetch();
-        // for(let order of orders) {
-        //     for(let product of order.products) {
-        //         const orderProduct = Products.findOne({_id: product.productId}, {fields: {mainPhoto: 1, name: 1}});
-        //         product._name = orderProduct ? orderProduct.name : 'usuniety';
-        //         product._photo = orderProduct ? orderProduct.mainPhoto : '';
-        //     }
-        // }
     }
 
     return {

@@ -1,5 +1,5 @@
 import {Meteor} from 'meteor/meteor';
-import {Products, Messages, Collections, Features} from '/lib/collections';
+import {Products, Messages, Collections, Features, Settings} from '/lib/collections';
 
 const LOREM = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.;'
 
@@ -11,6 +11,7 @@ Meteor.methods({
         Meteor.call('resetCollections');
         Meteor.call('resetFeatures');
         Meteor.call('resetProducts');
+        Meteor.call('resetSettings');
     },
 
     resetUsers() {
@@ -195,6 +196,18 @@ Meteor.methods({
         for(let i=0; i<features.length; i++) {
             Meteor.call('insertFeature', features[i]);
         }
+    },
+
+    resetSettings() {
+        Settings.remove({});
+
+        const userId = Meteor.users.findOne({'emails.address': 'kasiaka@genius.pl'});
+        const settingsAdmin = {
+            label: 'admin',
+            userId: userId._id
+        };
+
+        Settings.insert(settingsAdmin);
     }
     
 });

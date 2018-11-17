@@ -1,18 +1,23 @@
 import {Meteor} from 'meteor/meteor';
 import SchemaCollection from '../../schema/schemaCollection';
+import checkIfAdmin from '../../functions/checkIfAdmin';
+import Future from 'fibers/future';
 
 Meteor.methods({
    insertCollection(collection) {
-       // if(this.userId) {
+       const future = new Future();
+       if(checkIfAdmin(this.userId)) {
            const newCollection = new SchemaCollection(collection);
            newCollection.insert(err => {
-               if(err) {
-                    throw new Meteor.Error('insertFailed');
+               if(!err) {
+                   future.return();
+               } else {
+                   future.throw(new Meteor.Error('insertCollectionFailed'));
                }
            });
-       // } else {
-       //     console.log('nie ma usera')
-       //     throw new Meteor.Error('notPermission');
-       // }
+       } else {
+           future.throw(new Meteor.Error('notPermission'));
+       }
+       future.wait();
    }
 });

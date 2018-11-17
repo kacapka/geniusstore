@@ -1,11 +1,12 @@
 import {Meteor} from 'meteor/meteor';
 import Future from 'fibers/future';
 import{Products} from "../../../../lib/collections";
+import checkIfAdmin from '../../../functions/checkIfAdmin';
 
 Meteor.methods({
     deleteProductPhoto(productId, photo) {
         const future = new Future();
-        if(this.userId) {
+        if(checkIfAdmin(this.userId)) {
             Products.update(
                 {_id: productId},
                 {$pull: {photos: photo}},
@@ -13,14 +14,12 @@ Meteor.methods({
                     if(!err) {
                         future.return();
                     } else {
-                        future.throw();
-                        throw new Meteor.Error('removeProductPhotoFailed');
+                        future.throw(new Meteor.Error('removeProductPhotoFailed'));
                     }
                 }
             );
         } else {
-            future.throw();
-            throw new Meteor.Error('notPermission');
+            future.throw(new Meteor.Error('notPermission'));
         }
         future.wait();
     }

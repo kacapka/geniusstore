@@ -24,7 +24,8 @@ export default class SchemaOrder {
            const amount = product.amount > 0;
            const id = !!Products.findOne({_id: product.productId});
            const size = product.size.length > 0 && typeof product.size === 'string';
-           return amount && id && size;
+           const price = product.price > 0 && typeof product.price === 'number';
+           return amount && id && size && price;
         });
     }
 

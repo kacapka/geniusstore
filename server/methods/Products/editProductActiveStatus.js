@@ -1,11 +1,12 @@
 import {Meteor} from 'meteor/meteor';
 import Future from 'fibers/future';
 import{Products} from "../../../lib/collections";
+import checkIfAdmin from '../../functions/checkIfAdmin';
 
 Meteor.methods({
     editProductActiveStatus(productId, bool) {
         const future = new Future();
-        if(this.userId) {
+        if(checkIfAdmin(this.userId)) {
             Products.update(
                 {_id: productId},
                 {$set: {isActive: bool}},

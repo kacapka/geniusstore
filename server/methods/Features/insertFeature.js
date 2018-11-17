@@ -1,18 +1,23 @@
 import {Meteor} from 'meteor/meteor';
 import SchemaFeature from '../../schema/schemaFeature';
+import checkIfAdmin from '../../functions/checkIfAdmin';
+import Future from 'fibers/future';
 
 Meteor.methods({
    insertFeature(feature) {
-       // if(this.userId) {
+       const future = new Future();
+       if(checkIfAdmin(this.userId)) {
            const newFeature = new SchemaFeature(feature);
            newFeature.insert(err => {
-               if(err) {
-                    throw new Meteor.Error('insertFailed');
+               if(!err) {
+                   future.return();
+               } else {
+                   future.throw(new Meteor.Error('insertFailed'));
                }
            });
-       // } else {
-       //     console.log('nie ma usera')
-       //     throw new Meteor.Error('notPermission');
-       // }
+       } else {
+           future.throw(new Meteor.Error('notPermission'));
+       }
+       future.wait();
    }
 });

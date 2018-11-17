@@ -3,13 +3,9 @@ import {FlowRouter} from 'meteor/kadira:flow-router';
 import {mount} from 'react-mounter';
 import App from '../components/App';
 import MainPage from '../components/mainPage/mainPage';
-import MainPageMen from '../components/mainPage/mainPageMen';
-import MainPageWomen from '../components/mainPage/mainPageWomen';
 import ProductPage from '../components/productPage/productPage';
 import CartPage from '../components/cartPage/cartPage';
 import './routesCms';
-import MainPageNews from "../components/mainPage/mainPageNews";
-import MainPageSales from "../components/mainPage/mainPageSales";
 import MainPageCollection from "../components/mainPage/mainPageCollection";
 import CheckoutPage from "../components/checkoutPage/checkoutPage";
 
@@ -24,7 +20,7 @@ FlowRouter.route('/', {
 FlowRouter.route('/men', {
     action() {
         mount(App, {
-            content: <MainPageMen />
+            content: <MainPage query={{gender: 'man'}} />
         });
     }
 });
@@ -32,7 +28,7 @@ FlowRouter.route('/men', {
 FlowRouter.route('/women', {
     action() {
         mount(App, {
-            content: <MainPageWomen />
+            content: <MainPage query={{gender: 'woman'}} />
         });
     }
 });
@@ -40,7 +36,7 @@ FlowRouter.route('/women', {
 FlowRouter.route('/new', {
     action() {
         mount(App, {
-            content: <MainPageNews />
+            content: <MainPage query={{isNew: true}} />
         });
     }
 });
@@ -48,7 +44,7 @@ FlowRouter.route('/new', {
 FlowRouter.route('/sales', {
     action() {
         mount(App, {
-            content: <MainPageSales />
+            content: <MainPage query={{isSale: true, 'sales.isActive': true}} />
         });
     }
 });

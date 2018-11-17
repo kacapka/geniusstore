@@ -1,11 +1,12 @@
 import {Meteor} from 'meteor/meteor';
 import {PromoCodes} from "../../../lib/collections";
 import Future from 'fibers/future';
+import checkIfAdmin from '../../functions/checkIfAdmin';
 
 Meteor.methods({
     deletePromoCode(id) {
         const future = new Future();
-        if(this.userId) {
+        if(checkIfAdmin(this.userId)) {
             PromoCodes.remove(
                 {_id: id},
                 err => {

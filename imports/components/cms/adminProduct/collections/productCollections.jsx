@@ -49,7 +49,7 @@ class ProductCollections extends Component {
                 console.log('collection insert success');
                 this.setState({isForm: false, addValue: ''});
             } else {
-                alert('bload podczas dodwania kolekcji');
+                alert(err.error);
             }
         });
     }
@@ -66,7 +66,7 @@ class ProductCollections extends Component {
                 console.log('collection insert success');
                 this.setState({isForm: false, editId: null});
             } else {
-                alert('bload podczas edycji kolekcji');
+                alert(err.error);
             }
         });
     }
@@ -124,8 +124,8 @@ class ProductCollections extends Component {
         return (
             <div id='productCollections'>
                 <ul id='collectionsList'>
-                    <li className='collection-item collection-item-header'>
-                        <div>nazwa</div>
+                    <li className='collection-item-header'>
+                        <div>Nazwa</div>
                     </li>
                     {this.props.handleReady && this.renderCollections()}
                 </ul>

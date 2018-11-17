@@ -9,7 +9,6 @@ import {compose} from 'redux';
 import {connect} from 'react-redux';
 import uniqid from 'uniqid';
 import {FlowRouter} from 'meteor/kadira:flow-router';
-import getSalePrice from "../../functions/getSalePrice";
 
 class Product extends Component {
 
@@ -38,7 +37,6 @@ class Product extends Component {
 
     checkIfProductIsAlreadyInCart() {
         const {cart, product} = this.props;
-        console.log(cart);
         return cart.some(item => {
             return item.size.name === this.state.sizeValue.name && item.product._id === product._id
         });

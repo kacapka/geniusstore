@@ -2,11 +2,12 @@ import {Meteor} from 'meteor/meteor';
 import Future from 'fibers/future';
 import SchemaPromoCode from "../../schema/schemaPromoCode";
 import {PromoCodes} from "../../../lib/collections";
+import checkIfAdmin from '../../functions/checkIfAdmin';
 
 Meteor.methods({
    insertPromoCode(code) {
        const future = new Future();
-       if(this.userId) {
+       if(checkIfAdmin(this.userId)) {
            const newPromoCode = new SchemaPromoCode(code);
            const nameExists = PromoCodes.findOne({name: code.name});
            if(nameExists) {

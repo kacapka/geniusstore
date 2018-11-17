@@ -1,11 +1,12 @@
 import {Meteor} from 'meteor/meteor';
 import {Features} from "../../../lib/collections";
+import checkIfAdmin from '../../functions/checkIfAdmin';
 import Future from 'fibers/future';
 
 Meteor.methods({
    deleteFeature(id) {
        const future = new Future();
-       if(this.userId) {
+       if(checkIfAdmin(this.userId)) {
            Features.remove({_id: id}, err => {
                if(!err) {
                    future.return();

@@ -64,11 +64,7 @@ class ProductSales extends Component {
                 this.setState({isModal: false});
                 console.log('sale added');
             } else {
-                if(err.error === '') {
-                    window.alert('wystapil problem z poprawna walidacja');
-                } else if(err.error === '') {
-                    window.alert('wystapil problem z edycja promocji');
-                }
+                alert(err.error);
             }
         });
     }

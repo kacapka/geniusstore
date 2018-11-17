@@ -46,7 +46,8 @@ class CheckoutPage extends Component {
                 return {
                     productId: item.product._id,
                     amount: item.amount,
-                    size: item.size.name
+                    size: item.size.name,
+                    price: getSalePrice(item.product) * item.amount
                 }
             });
             const {inputs, promoCode} = this.props.checkout;

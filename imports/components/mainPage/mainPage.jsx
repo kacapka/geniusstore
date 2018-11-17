@@ -25,8 +25,11 @@ class MainPage extends Component {
                         onClick={() => this.onProductClick(product._id)}
                    >
                        <img src={product.mainPhoto} className='product-img' />
+                       {product.isNew && !product.sales.isActive &&
+                            <div className='sale-label new-label'>NEW</div>
+                       }
                        {product.sales.isActive &&
-                           <div className='sale-label'>{product.sales.salePercentage} %</div>
+                            <div className='sale-label'>{product.sales.salePercentage} %</div>
                        }
                    </div>
                    <div className='product-info'>
@@ -58,12 +61,12 @@ class MainPage extends Component {
 
 }
 
-export default withTracker(() => {
+export default withTracker((props) => {
     let products = [];
     const handle = Meteor.subscribe('products.public');
     const handleReady = handle.ready();
     if(handleReady) {
-        products = Products.find({isActive: true}).fetch();
+        products = Products.find({isActive: true, ...props.query}).fetch();
         for(let i=0; i<products.length; i++) {
             products[i].collection = Collections.findOne({_id: products[i].collectionId});
         }

@@ -2,6 +2,11 @@ import React, {Component} from 'react';
 import './navBar.scss';
 import {FlowRouter} from 'meteor/kadira:flow-router';
 import {connect} from 'react-redux';
+import {compose} from 'redux';
+import {withTracker} from 'meteor/react-meteor-data';
+import {Meteor} from 'meteor/meteor';
+import {Products} from "../../../lib/collections";
+
 const ROUTES = [
     {name: 'kobiety', route: 'women'},
     {name: 'mezczyzni', route: 'men'},
@@ -9,7 +14,7 @@ const ROUTES = [
     {name: 'nowosci', route: 'new'}
 ];
 
-class NavBar extends Component {
+class Nav extends Component {
 
     constructor(props) {
         super(props);
@@ -30,7 +35,7 @@ class NavBar extends Component {
     }
     
     render() {
-        const cart = this.props.cart;
+        const {cart, isNews, isPromo} = this.props;
         return(
             <div id='navBar'>
                 <div id='navCart'>
@@ -47,6 +52,8 @@ class NavBar extends Component {
                 <div id='navRoutes'>
                     <ul id='nav'>
                         {ROUTES.map(link => {
+                            if(link.route === 'sales' && !isPromo) return;
+                            if(link.route === 'new' && !isNews) return;
                             return (
                                 <li key={link.name}
                                     onClick={() => this.onNavItemClick(link.route)}
@@ -67,4 +74,27 @@ const mapStateToProps = state => ({
     cart: state.cart.products
 });
 
-export default connect(mapStateToProps)(NavBar);
+const NavBar = compose(
+    connect(mapStateToProps),
+    withTracker(() => {
+        let isPromo = false;
+        let isNews = false;
+        const handle = Meteor.subscribe('nav.public');
+        const handleReady = handle.ready();
+        if(handleReady) {
+            const withPromo = Products.find({isActive: true, isSale: true, 'sales.isActive': true}, {fields: {_id: 1}}).fetch();
+            const withNew = Products.find({isActive: true, isNew: true}, {fields: {_id: 1}}).fetch();
+
+            isPromo = withPromo.length > 0;
+            isNews = withNew.length > 0;
+        }
+
+        return {
+            handleReady,
+            isPromo,
+            isNews
+        }
+    })
+)(Nav);
+
+export default NavBar;

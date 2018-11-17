@@ -1,11 +1,12 @@
 import {Meteor} from 'meteor/meteor';
 import Future from 'fibers/future';
 import{Products} from "../../../../lib/collections";
+import checkIfAdmin from '../../../functions/checkIfAdmin';
 
 Meteor.methods({
     deleteProductFeature(productId, featureId) {
         const future = new Future();
-        if(this.userId) {
+        if(checkIfAdmin(this.userId)) {
             Products.update(
                 {_id: productId},
                 {$pull: {featuresIds: featureId}},

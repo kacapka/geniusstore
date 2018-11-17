@@ -1,9 +1,10 @@
 import {Meteor} from 'meteor/meteor';
 import {Collections, Products} from "../../../lib/collections";
+import checkIfAdmin from '../../functions/checkIfAdmin';
 
 Meteor.methods({
    deleteCollection(id) {
-       if(this.userId) {
+       if(checkIfAdmin(this.userId)) {
            const products = Products.find({collectionId: id}).fetch();
            const baseCollectionId = Collections.findOne({isDefault: true})._id;
            for(let i=0; i<products.length; i++) {

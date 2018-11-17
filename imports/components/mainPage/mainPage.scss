@@ -22,6 +22,10 @@
           right: 0;
           background-color: $mint;
           color: #fff;
+          &.new-label {
+            background-color: #fff;
+            color: $mint;
+          }
         }
         &:hover {
           cursor: pointer;
@@ -65,8 +69,9 @@
     }
   }
   #collectionTitle {
-    @extend %text-large;
     @extend %heading-medium;
-    margin: 30px;
+    margin: 30px 15px;
+    display: flex;
+    color: $mint;
   }
 }
