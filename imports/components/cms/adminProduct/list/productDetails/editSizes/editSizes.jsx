@@ -51,7 +51,6 @@ class EditSizes extends Component {
         const productId = this.props.productId;
         const {unisex, S, M, L, XL} = this.state;
         const sizes = [unisex, S, M, L, XL];
-        console.log(sizes);
         Meteor.call('editProductSizes', productId, sizes, err => {
             if(!err) {
                 this.props.closeModal();
