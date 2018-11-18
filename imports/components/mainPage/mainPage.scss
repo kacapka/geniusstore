@@ -2,12 +2,76 @@
 @import '../../common/fonts';
 
 #mainPage {
-    #mainHero {
+  #productsAll {
+    display: flex;
+    flex-wrap: wrap;
+    .product-item {
+      width: 25%;
+      padding: 15px;
+      .product-img-wrapper {
         width: 100%;
-        height: 700px;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: top;
         position: relative;
+        .product-img {
+          width: 100%;
+        }
+        .sale-label {
+          @extend %text-medium;
+          padding: 5px 10px;
+          position: absolute;
+          top: 20px;
+          right: 0;
+          background-color: $mint;
+          color: #fff;
+          &.new-label {
+            background-color: #fff;
+            color: $mint;
+          }
+        }
+        &:hover {
+          cursor: pointer;
+          opacity: .9;
+        }
+      }
+      .product-info {
+        margin-top: 25px;
+        .product-info-collection {
+          @extend %text-small;
+          border-bottom: 1px solid transparent;
+          &:hover {
+            cursor: pointer;
+            border-bottom: 1px solid $mint;
+          }
+        }
+        .product-info-title {
+          @extend %text-large;
+          margin-top: 10px;
+          text-transform: capitalize;
+        }
+        .product-info-price {
+          @extend %text-medium;
+          margin-top: 15px;
+          display: flex;
+          flex-direction: column;
+          .price-none {
+            text-decoration: line-through;
+          }
+        }
+      }
     }
+    .products-not-found {
+      @extend %text-large;
+      width: 100%;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  }
+  #collectionTitle {
+    @extend %heading-medium;
+    margin: 30px 15px;
+    display: flex;
+    color: $mint;
+  }
 }

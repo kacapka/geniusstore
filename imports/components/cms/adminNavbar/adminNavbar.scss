@@ -1,0 +1,70 @@
+@import '../../../common/vars';
+@import '../../../common/fonts';
+
+#adminNavbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 160px;
+  height: 100vh;
+  background-color: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  #adminLogo {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid $grey;
+    img {
+      width: 100px;
+    }
+  }
+  #adminRoutes {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    list-style:none;
+    li {
+      width:100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+      span {
+        margin-bottom: 10px;
+      }
+      ion-icon {
+        font-size: 26px;
+        color: #000;
+      }
+      .count-alert {
+        @extend %text-small;
+        position: absolute;
+        top: 25%;
+        right: 35%;
+        background-color: $red;
+        border-radius: 50%;
+        color: #fff;
+        display: flex;
+        width: 20px;
+        height: 20px;
+        justify-content: center;
+        align-items: center;
+      }
+      &:hover {
+        background-color: $admin;
+        color: #fff;
+        cursor: pointer;
+        ion-icon {
+          color: #fff;
+        }
+      }
+    }
+  }
+}

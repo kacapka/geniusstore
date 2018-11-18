@@ -1,0 +1,97 @@
+@import '../../../../common/cms';
+@import '../../../../common/fonts';
+@import '../../../../common/vars';
+
+#ProductList {
+  #productsList {
+    @extend %cms-box;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    .product-item {
+      @extend %text-medium;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      border: 1px solid transparent;
+      .product-feature {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+      }
+      .product-status {
+        flex: 0 0 70px;
+        ion-icon {
+          font-size: 20px;
+        }
+        &.active {
+          ion-icon {
+            color: $green;
+          }
+        }
+        &.no-active {
+          ion-icon {
+            color: $red;
+          }
+        }
+      }
+      .product-thumbnail {
+        flex: 0 0 70px;
+        height: 100px;
+        img {
+          width: 100%;
+        }
+        .no-photo {
+          @extend %text-medium;
+          width: 100%;
+          height: 100%;
+          border: 1px solid $grey;
+          color: $grey;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+        }
+      }
+      .product-collection {
+        span {
+          font-style: oblique;
+        }
+      }
+      .product-sizes {
+        .sizes {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin: 0 10px;
+          .sizes-name {
+            margin-bottom: 5px;
+          }
+          .sizes-value {
+
+          }
+          &.empty {
+            color: $red;
+          }
+          &.last {
+            color: $yellow;
+          }
+        }
+      }
+      &.product-header {
+        border-bottom: 1px solid #000;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        font-weight: 800;
+        .product-photo {
+          flex: 0 0 70px;
+        }
+      }
+      &:hover {
+        border: 1px solid $admin;
+        cursor: pointer;
+      }
+    }
+  }
+}

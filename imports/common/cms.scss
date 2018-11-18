@@ -1,0 +1,50 @@
+@import "./vars";
+@import "./fonts";
+
+%cms-box {
+  background-color: #fff;
+  border-radius: 8px;
+  border-top: 4px solid $admin;
+  padding: 20px;
+}
+%cms-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+%cms-list-item {
+  @extend %text-medium;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  &:nth-child(odd) {
+    background-color: #dff9fb;
+  }
+}
+%cms-list-icon {
+  display: flex;
+  justify-content: center;
+  flex: 0 0 70px;
+}
+%cms-list-header {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #000;
+  padding: 20px 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+}
+%cms-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  &:nth-child(odd) {
+    margin-right: 20px;
+  }
+  &:nth-child(even) {
+    margin-left: 20px;
+  }
+}

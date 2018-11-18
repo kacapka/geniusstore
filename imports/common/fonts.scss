@@ -1,19 +1,46 @@
+@import './vars';
+
 %heading-small {
     font-size: 20px;  
-    font-weight: 700;
+    font-weight: 900;
     text-transform: uppercase;
 }
 %heading-medium {
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 900;
     text-transform: uppercase;
 }
 %heading-large {
-    font-size: 28px;
-    font-weight: 700;
+    font-size: 35px;
+    font-weight: 800;
     text-transform: uppercase;
 }
-%text {
-    font-size: 18px;
-    color:#000;
+%text-small {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+%text-medium {
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+%text-large {
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+%nav {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+%error {
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+    color: $red;
+}
+%label {
+    @extend %text-medium;
 }

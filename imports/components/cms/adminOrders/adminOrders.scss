@@ -1,0 +1,59 @@
+@import '../../../common/cms';
+@import '../../../common/fonts';
+@import '../../../common/vars';
+
+#adminOrders {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  @extend %cms-box;
+  .orders-bar {
+    margin-bottom: 20px;
+    .bar-title {
+      @extend %heading-small;
+    }
+  }
+  #ordersList {
+    .order-item {
+      @extend %cms-list-item;
+    }
+    .order-header {
+      @extend %cms-list-header;
+    }
+    .order-feature {
+      flex: 1;
+      &.order-icon {
+        font-size: 18px;
+        @extend %cms-list-icon;
+        &.icon-details {
+          &:hover {
+            cursor: pointer;
+            color: $green;
+          }
+        }
+        &.icon-remove {
+          &:hover {
+            cursor: pointer;
+            color: $red;
+          }
+        }
+      }
+      &.order-products {
+        display: flex;
+        flex-direction: column;
+        .product-wrap {
+          margin-bottom: 2px;
+        }
+      }
+      .status-pending {
+        color: $yellow;
+      }
+      .status-completed {
+        color: $green;
+      }
+      .status-rejected {
+        color: $red;
+      }
+    }
+  }
+}
