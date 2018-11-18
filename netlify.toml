@@ -1,3 +1,0 @@
-[build]
-  publish = "bundle"
-  command = "npm install && npm run build"
