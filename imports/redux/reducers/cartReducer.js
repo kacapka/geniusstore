@@ -24,6 +24,8 @@ const products = (state = [], action) => {
                     return item;
                 }
             });
+        case types.RESET_CART:
+            return [];
         default:
             return state;
     }

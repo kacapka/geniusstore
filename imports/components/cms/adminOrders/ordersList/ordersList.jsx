@@ -13,7 +13,7 @@ class OrdersList extends Component {
         return this.props.orders.map(order => {
            return (
                <div className='order-item' key={order._id}>
-                   <div className='order-feature order-products'>11</div>
+                   <div className='order-feature order-products'>{order.orderNumber}</div>
                    <div className='order-feature'>{dateAgoPL(order.timestamp).full}</div>
                    <div className='order-feature'>{order.price}</div>
                    <div className='order-feature'>{renderOrderStatus(order.status, 'tran')}</div>

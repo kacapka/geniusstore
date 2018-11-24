@@ -16,17 +16,28 @@ class OrderDetails extends Component {
     }
 
     onConfirmDeliveryClick() {
-        const orderId = this.props.order._id;
-        console.log(orderId);
+        const {orderNumber, user: {name, email}} = this.props.order;
+        const emailData = {
+            orderNumber,
+            name,
+            email
+        };
+        Meteor.call('sendDeliveryEmail', emailData, err => {
+            if(!err) {
+                console.log('seccess');
+            } else {
+                console.error(err);
+            }
+        })
     }
 
     render() {
         if(!this.props.handleReady) return <div>loading</div>;
-        const {notes, deliveryStatus, products, address, user} = this.props.order;
+        const {notes, deliveryStatus, products, address, user, orderNumber} = this.props.order;
         return (
             <div id='orderDetails'>
                 <div className='order-bar'>
-                    <div className='bar-title'>Zamowienie nr: 1</div>
+                    <div className='bar-title'>Zamowienie nr: {orderNumber}</div>
                     <div className='bar-actions'>
                         {deliveryStatus !== 'completed' &&
                             <div className='btn-delivery'

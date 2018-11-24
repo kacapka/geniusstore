@@ -14,6 +14,7 @@ export default class SchemaOrder {
             status: this.validateStatus(order.status),
             deliveryStatus: this.validateStatus(order.deliveryStatus),
             promoCode: order.promoCode ? this.validateString(order.promoCode) : true,
+            orderNumber: this.validateOrderNumber(order.orderNumber),
             timestamp: true,
             notes: true
         }
@@ -59,6 +60,10 @@ export default class SchemaOrder {
     validateStatus(status) {
         const statusTypes = ['pending', 'completed', 'rejected'];
         return statusTypes.indexOf(status) !== -1;
+    }
+
+    validateOrderNumber(orderNumber) {
+        return typeof orderNumber === 'string' && orderNumber.length >= 12;
     }
 
     validate() {
