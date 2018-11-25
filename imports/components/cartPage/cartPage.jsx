@@ -34,7 +34,6 @@ class CartPage extends Component {
 
     renderCartItems() {
         return this.props.cart.map(item => {
-            console.log(item);
             const {_id, mainPhoto, _collection, name, sales, price} = item.product;
             const amountOpt = [];
             for(let i=1; i<=item.size.value && i < 6; i++) {

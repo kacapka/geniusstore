@@ -41,6 +41,8 @@ import './methods/Features/editFeature';
 
 import './methods/Users/insertUser';
 
+import './functions/emails/sendEmail';
+
 //publish
 import './publish/publish_products';
 import './publish/publish_messages';
@@ -55,8 +57,8 @@ import './publish/publish_navbar';
 import './data';
 
 Meteor.startup(() => {
-    WebApp.connectHandlers.use('/hello', (req, res, next) => {
-        res.writeHead(200);
-        res.end(`Hello world from: ${Meteor.release}`);
-    });
+
+    //mail setup
+    process.env.MAIL_URL = 'smtps://postmaster@sandboxc36d09125ef94052a281a6594a9f6c6d.mailgun.org:geniusdot@smtp.mailgun.org:465';
+
 });

@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react';
 import './checkoutPage.scss';
 import {connect} from 'react-redux';
 import {FlowRouter} from 'meteor/kadira:flow-router';
-import {setInputValue, setInputError} from '../../redux/actions/index';
+import {setInputValue, setInputError, resetCart} from '../../redux/actions/index';
 import {selectDeliveryType, setPromoCode} from '../../redux/actions/checkout';
 import {getDeliveryPrice} from '../../redux/selectors/deliveryPrice';
 import {getFinalPrice} from '../../redux/selectors/finalPrice';
@@ -66,15 +66,16 @@ class CheckoutPage extends Component {
                     email: inputs.mail,
                     phone: inputs.phone
                 },
-                promoCode: promoCode ? promoCode.name : promoCode,
+                promoCode: promoCode ? `${promoCode.name} (${promoCode.value} ${promoCode.type})` : promoCode,
                 notes: inputs.notes,
                 status: 'pending',
                 deliveryStatus: 'pending'
             };
-            console.log(order);
             Meteor.call('insertOrder', order, err => {
                 if(!err) {
                     console.log('order insert success');
+                    // this.props.resetCart();
+                    // FlowRouter.go('/');
                 } else {
                     alert(err.error);
                 }
@@ -337,4 +338,4 @@ const mapStateToProps = state => ({
     checkout: state.checkout
 });
 
-export default connect(mapStateToProps, {setInputValue, setInputError, selectDeliveryType, setPromoCode})(CheckoutPage);
+export default connect(mapStateToProps, {setInputValue, setInputError, selectDeliveryType, setPromoCode, resetCart})(CheckoutPage);

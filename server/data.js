@@ -68,7 +68,17 @@ const resetSettings = callback => {
         userId: userId._id
     };
 
+    const settingsOrderCount = {
+        label: 'orderCount',
+        value: 1
+    };
+
     Settings.insert(settingsAdmin, err => {
+        if(!err) {
+            callback(null);
+        }
+    });
+    Settings.insert(settingsOrderCount, err => {
         if(!err) {
             callback(null);
         }
