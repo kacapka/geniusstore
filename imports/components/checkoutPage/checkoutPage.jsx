@@ -74,8 +74,8 @@ class CheckoutPage extends Component {
             Meteor.call('insertOrder', order, err => {
                 if(!err) {
                     console.log('order insert success');
-                    // this.props.resetCart();
-                    // FlowRouter.go('/');
+                    this.props.resetCart();
+                    FlowRouter.go('/');
                 } else {
                     alert(err.error);
                 }

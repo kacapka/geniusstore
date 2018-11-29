@@ -42,6 +42,8 @@ import './methods/Features/editFeature';
 import './methods/Users/insertUser';
 
 import './functions/emails/sendEmail';
+import './functions/emails/sendDeliveryConfirmation';
+import './functions/emails/sendOrderConfirmation';
 
 //publish
 import './publish/publish_products';

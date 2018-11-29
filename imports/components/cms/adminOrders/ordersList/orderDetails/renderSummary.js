@@ -2,7 +2,7 @@ import React from 'react';
 import dateAgoPL from "../../../../../functions/dateAgo";
 import renderOrderStatus from "../renderStatus";
 
-const OrderSummary = ({order: {deliveryType, promoCode, timestamp, status, price}}) => {
+const OrderSummary = ({order: {deliveryType, promoCode, timestamp, status, deliveryStatus, price}}) => {
     return (
         <div className='order-wrapper'>
             <div className='section-title'>Podsumowanie</div>
@@ -24,7 +24,7 @@ const OrderSummary = ({order: {deliveryType, promoCode, timestamp, status, price
             </div>
             <div className='info-item-wrap'>
                 <div className='info-label'>Status wysylki</div>
-                <div className='info-value'>{renderOrderStatus(status, 'delivery')}</div>
+                <div className='info-value'>{renderOrderStatus(deliveryStatus, 'delivery')}</div>
             </div>
             <div className='info-item-wrap'>
                 <div className='info-label'>Cena zamowienia</div>
