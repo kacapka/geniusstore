@@ -14,6 +14,10 @@ class CheckoutPromoCode extends Component {
         this.removeCode = this.removeCode.bind(this);
     }
 
+    componentWillUnmount() {
+        this.props.setPromoCode(null);
+    }
+
     onPromoCodeInputChange(e) {
         this.setState({promoCode: e.target.value});
     }

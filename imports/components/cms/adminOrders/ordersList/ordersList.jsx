@@ -17,7 +17,7 @@ class OrdersList extends Component {
                    <div className='order-feature'>{dateAgoPL(order.timestamp).full}</div>
                    <div className='order-feature'>{order.price}</div>
                    <div className='order-feature'>{renderOrderStatus(order.status, 'tran')}</div>
-                   <div className='order-feature'>{renderOrderStatus(order.status, 'delivery')}</div>
+                   <div className='order-feature'>{renderOrderStatus(order.deliveryStatus, 'delivery')}</div>
                    <div className='order-feature order-icon icon-details'>
                        <ion-icon name="search"
                                  onClick={() => this.onShowOrderClick(order._id)}

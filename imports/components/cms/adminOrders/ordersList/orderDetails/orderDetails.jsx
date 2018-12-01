@@ -16,15 +16,11 @@ class OrderDetails extends Component {
     }
 
     onConfirmDeliveryClick() {
-        const {orderNumber, user: {name, email}} = this.props.order;
-        const emailData = {
-            orderNumber,
-            name,
-            email
-        };
-        Meteor.call('sendDeliveryEmail', emailData, err => {
+        const orderId = this.props.order._id;
+        console.log(orderId);
+        Meteor.call('sendDeliveryEmail', orderId, err => {
             if(!err) {
-                console.log('seccess');
+                window.alert('wiadomosc wyslana');
             } else {
                 console.error(err);
             }
