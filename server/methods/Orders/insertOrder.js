@@ -14,6 +14,7 @@ Meteor.methods({
        order.orderNumber = orderDateString + '-' + orderNumber;
        order.timestamp = new Date();
        const newOrder = new SchemaOrder(order);
+
        newOrder.insert(err => {
            if(!err) {
                Settings.update(
@@ -21,7 +22,17 @@ Meteor.methods({
                    {$set: {value: orderNumber}},
                    err => {
                        if(!err) {
-                           future.return();
+                           if(order.promoCode) {
+                               Meteor.call('addUsePromoCode', order.promoCode._id, order.user.email, order.orderNumber, err => {
+                                   if(!err) {
+                                       future.return();
+                                   } else {
+                                       future.throw(err);
+                                   }
+                               } )
+                           } else {
+                               future.return();
+                           }
                        } else {
                            future.throw(new Meteor.Error('updateCounterFailed'));
                        }

@@ -24,6 +24,7 @@ import './methods/Products/addNewEmptyProduct';
 import './methods/PromoCodes/insertPromoCode';
 import './methods/PromoCodes/deletePromoCode';
 import './methods/PromoCodes/verifyPromoCode';
+import './methods/PromoCodes/addUsePromoCode';
 import './methods/Orders/insertOrder';
 import './methods/Orders/deleteOrder';
 

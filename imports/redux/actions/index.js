@@ -20,9 +20,7 @@ export const deleteProductFromCart = id => {
 
 export const resetCart = () => {
 
-    return {
-        type: types.RESET_CART
-    }
+    return({type: types.RESET_CART});
 
 };
 

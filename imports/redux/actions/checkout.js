@@ -8,6 +8,14 @@ export const selectDeliveryType = (name, value) => {
     }
 };
 
+export const resetDelivery = () => {
+
+    return {
+        type: TYPES.RESET_DELIVERY
+    }
+
+};
+
 export const setPromoCode = (promoCode) => {
     return {
         promoCode,

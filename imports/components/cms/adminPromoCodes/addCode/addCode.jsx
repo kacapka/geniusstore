@@ -77,11 +77,12 @@ class AddCode extends Component {
         if(this.validateCode()) {
             const state = this.state;
             const code = {
-                name: state.name,
+                name: state.name.toUpperCase(),
                 type: state.type,
                 value: state.value,
                 singleUse: state.singleUse,
-                exp: state.exp.toDate()
+                exp: state.exp.toDate(),
+                uses: []
             };
 
             Meteor.call('insertPromoCode', code, err => {

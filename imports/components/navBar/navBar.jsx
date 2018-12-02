@@ -40,7 +40,7 @@ class Nav extends Component {
             <div id='navBar'>
                 <div id='navCart'>
                     <div id='cartWrapper' onClick={this.onCartClick}>
-                        <img src='/cart.png' alt='shoping cart' id='cart' />
+                        <img src='/shoping_bag.png' alt='shoping cart' id='cart' />
                         {cart.length > 0 && <div id='cartItems'>{cart.length}</div>}
                     </div>
                 </div>
