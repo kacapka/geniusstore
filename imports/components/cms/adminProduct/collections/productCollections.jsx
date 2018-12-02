@@ -4,6 +4,7 @@ import {Collections} from "../../../../../lib/collections";
 import {withTracker} from 'meteor/react-meteor-data';
 import {Meteor} from 'meteor/meteor';
 import createPrompt from "../../../../functions/createPrompt";
+import GeniusSpinner from "../../../../common/spinner/spinner";
 
 class ProductCollections extends Component {
 
@@ -128,6 +129,7 @@ class ProductCollections extends Component {
 
     renderCollections() {
         const collections = this.props.collections;
+        if(!collections.length) return <div>brak dodanych kolekcji</div>;
         return collections.map(col => {
             if(col.isDefault) return;
             return (
@@ -152,7 +154,7 @@ class ProductCollections extends Component {
                     <li className='collection-item-header'>
                         <div>Nazwa</div>
                     </li>
-                    {this.props.handleReady && this.renderCollections()}
+                    {this.props.handleReady ? this.renderCollections() : <GeniusSpinner/>}
                 </ul>
                 <div id='collectionEdit'>
                     {(()=> {

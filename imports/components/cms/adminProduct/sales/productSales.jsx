@@ -7,6 +7,7 @@ import Modal from "../../../../common/modal/modal";
 import SwitchInput from "../../../../common/switchInput/switchInput";
 import getSalePrice from '../../../../functions/getSalePrice';
 import createPrompt from "../../../../functions/createPrompt";
+import GeniusSpinner from "../../../../common/spinner/spinner";
 
 class ProductSales extends Component {
 
@@ -80,7 +81,7 @@ class ProductSales extends Component {
 
     renderProducts() {
         const products = this.props.products;
-        if(products.length === 0) return <div>nie posiadasz produktów w promocji</div>;
+        if(!products.length) return <div>nie posiadasz produktów w promocji</div>;
         return products.map(product => {
             const {salePercentage, isActive, salePrice} = product.sales;
             const eyeColor = isActive ? 'active' : 'no-active';
@@ -106,7 +107,7 @@ class ProductSales extends Component {
     }
 
     render() {
-        if(!this.props.handleReady) return <div>loading...</div>;
+        if(!this.props.handleReady) return <GeniusSpinner/>;
         const {modalProduct, inputModal, switchModal} = this.state;
         return (
             <div id='productSales'>

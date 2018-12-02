@@ -8,6 +8,7 @@ import OrderAddress from "./renderAddress";
 import OrderUserData from "./renderUserData";
 import OrderSummary from "./renderSummary";
 import createPrompt from "../../../../../functions/createPrompt";
+import GeniusSpinner from "../../../../../common/spinner/spinner";
 
 class OrderDetails extends Component {
 
@@ -18,7 +19,6 @@ class OrderDetails extends Component {
 
     onConfirmDeliveryClick() {
         const orderId = this.props.order._id;
-        console.log(orderId);
         Meteor.call('sendDeliveryEmail', orderId, err => {
             if(!err) {
                 createPrompt('success', 'wysłano potwierdzenie');
@@ -39,7 +39,8 @@ class OrderDetails extends Component {
     }
 
     render() {
-        if(!this.props.handleReady) return <div>loading</div>;
+        if(!this.props.handleReady) return <GeniusSpinner/>;
+        if(!this.props.order) return <div>nie znaleziono zamówienia</div>;
         const {notes, deliveryStatus, products, address, user, orderNumber} = this.props.order;
         return (
             <div id='orderDetails'>

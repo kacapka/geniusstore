@@ -4,6 +4,7 @@ import {Features} from "../../../../../lib/collections";
 import {withTracker} from 'meteor/react-meteor-data';
 import {Meteor} from 'meteor/meteor';
 import createPrompt from "../../../../functions/createPrompt";
+import GeniusSpinner from "../../../../common/spinner/spinner";
 
 class ProductFeatures extends Component {
 
@@ -126,7 +127,7 @@ class ProductFeatures extends Component {
 
     renderFeatures() {
         const features = this.props.features;
-        if(features.length === 0) return <div>brak opisow</div>;
+        if(!features.length) return <div>brak dodanych szczegółów</div>;
         return features.map(col => {
             return (
                 <li className='feature-item' key={col._id}>
@@ -150,7 +151,7 @@ class ProductFeatures extends Component {
                     <li className='feature-item-header'>
                         <div>nazwa</div>
                     </li>
-                    {this.props.handleReady && this.renderFeatures()}
+                    {this.props.handleReady ? this.renderFeatures() : <GeniusSpinner/>}
                 </ul>
                 <div id='featureEdit'>
                     {(()=> {

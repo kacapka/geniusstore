@@ -4,6 +4,7 @@ import {Meteor} from 'meteor/meteor';
 import {withTracker} from 'meteor/react-meteor-data';
 import {Collections} from "../../../../../../../lib/collections";
 import createPrompt from "../../../../../../functions/createPrompt";
+import GeniusSpinner from "../../../../../../common/spinner/spinner";
 
 class EditCollection extends Component {
 
@@ -49,6 +50,7 @@ class EditCollection extends Component {
     }
 
     render() {
+        if(!this.prop.handleReady) return <GeniusSpinner/>;
         return (
             <div className='edit-modal-wrap'>
                 <div className='modal-title'>edytuj kolekcje</div>

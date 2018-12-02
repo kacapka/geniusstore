@@ -4,6 +4,7 @@ import './codesList.scss';
 import {PromoCodes} from "../../../../../lib/collections";
 import {Meteor} from 'meteor/meteor';
 import createPrompt from "../../../../functions/createPrompt";
+import GeniusSpinner from "../../../../common/spinner/spinner";
 
 class CodesList extends Component {
 
@@ -52,7 +53,7 @@ class CodesList extends Component {
     }
 
     render() {
-        if(!this.props.handleReady) return <div>loading...</div>;
+        if(!this.props.handleReady) return <GeniusSpinner/>;
         return(
             <div id='codesList'>
                 <div className='list-header'>

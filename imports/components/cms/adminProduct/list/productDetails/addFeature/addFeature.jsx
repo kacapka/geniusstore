@@ -4,6 +4,7 @@ import {Meteor} from 'meteor/meteor';
 import {Features} from '/lib/collections';
 import {withTracker} from 'meteor/react-meteor-data';
 import createPrompt from "../../../../../../functions/createPrompt";
+import GeniusSpinner from "../../../../../../common/spinner/spinner";
 
 class AddFeature extends Component {
 
@@ -47,7 +48,7 @@ class AddFeature extends Component {
     }
 
     render() {
-        if(!this.props.handleReady) return <div>loading...</div>;
+        if(!this.props.handleReady) return <GeniusSpinner />;
         return (
             <div className='edit-modal-wrap'>
                 <div className='modal-title'>dodaj szczegol</div>

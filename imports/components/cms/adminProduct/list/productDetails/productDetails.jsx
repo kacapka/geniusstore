@@ -17,6 +17,7 @@ import {FlowRouter} from 'meteor/kadira:flow-router';
 import AddCommon from "./addCommon/addCommon";
 import ActiveProduct from "./active/activeProduct";
 import createPrompt from "../../../../../functions/createPrompt";
+import GeniusSpinner from "../../../../../common/spinner/spinner";
 
 class ProductDetails extends Component {
 
@@ -273,7 +274,8 @@ class ProductDetails extends Component {
     }
 
     render() {
-        if(!this.props.handleReady) return <div>...loading</div>;
+        if(!this.props.handleReady) return <GeniusSpinner />;
+        if(!this.props.product) return <div>nie znaleziono produktu</div>;
         const {product, product: {isActive}} = this.props;
         const collectionName = product.collection ? product.collection.name : 'brak przypisanych kolekcji';
 
@@ -436,7 +438,6 @@ export default withTracker((props) => {
     const handleReady = handle.ready();
     if(handleReady) {
         product = Products.findOne({_id: props.productId});
-        console.log(product);
         if(product) {
             product.collection = Collections.findOne({_id: product.collectionId});
             product.features = Features.find({_id: {$in: product.featuresIds}}).fetch();

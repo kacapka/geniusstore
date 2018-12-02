@@ -2,11 +2,12 @@ import React, {Component, Fragment} from 'react';
 import './ordersList.scss';
 import {withTracker} from 'meteor/react-meteor-data';
 import {Meteor} from 'meteor/meteor';
-import {Orders, Products} from "../../../../../lib/collections";
+import {Orders} from "../../../../../lib/collections";
 import dateAgoPL from "../../../../functions/dateAgo";
 import {FlowRouter} from 'meteor/kadira:flow-router';
 import renderOrderStatus from "./renderStatus";
 import createPrompt from "../../../../functions/createPrompt";
+import GeniusSpinner from "../../../../common/spinner/spinner";
 
 class OrdersList extends Component {
 
@@ -59,8 +60,8 @@ class OrdersList extends Component {
     }
 
     render() {
-        if(!this.props.handleReady) return <div>loading...</div>;
-        console.log(this.props.orders);
+        if(!this.props.handleReady) return <GeniusSpinner/>;
+        if(this.props.orders.length === 0) return <div>brak zamówień</div>;
         return(
             <Fragment>
                 {this.renderOrders()}

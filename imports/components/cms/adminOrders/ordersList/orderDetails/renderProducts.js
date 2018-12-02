@@ -12,13 +12,20 @@ const OrderProducts = ({products}) => {
                 <div className='list-feature'>Cena</div>
             </div>
             {products.map((product, i) => {
+                const data = product._data;
                 return (
                     <Fragment key={product.productId + i}>
                         <div className='order-product'>
                             <div className='product-photo'>
-                                <div className='photo-wrap' style={{backgroundImage: `url(${product._data.mainPhoto})`}}/>
+                                {data ?
+                                    <div className='photo-wrap'
+                                         style={{backgroundImage: `url(${data.mainPhoto})`}}
+                                    />
+                                    :
+                                    <div>brak zdjęcia</div>
+                                }
                             </div>
-                            <div className='list-feature'>{product._data.name}</div>
+                            <div className='list-feature'>{data ? data.name : 'produkt usunięty'}</div>
                             <div className='list-feature'>{product.amount}</div>
                             <div className='list-feature'>{product.size}</div>
                             <div className='list-feature'>{product.price}</div>
