@@ -3,7 +3,7 @@ import './checkoutPage.scss';
 import {connect} from 'react-redux';
 import {FlowRouter} from 'meteor/kadira:flow-router';
 import {setInputValue, setInputError, resetCart} from '../../redux/actions/index';
-import {selectDeliveryType, setPromoCode, resetDelivery} from '../../redux/actions/checkout';
+import {selectDeliveryType, setPromoCode} from '../../redux/actions/checkout';
 import {getDeliveryPrice} from '../../redux/selectors/deliveryPrice';
 import {getFinalPrice} from '../../redux/selectors/finalPrice';
 import Checkbox from "../../common/checkbox/checkbox";
@@ -27,10 +27,6 @@ class CheckoutPage extends Component {
         this.onSubmitCheckoutBtnClick = this.onSubmitCheckoutBtnClick.bind(this);
         this.onDeliveryCheckboxClick = this.onDeliveryCheckboxClick.bind(this);
         this.setPromoCode = this.setPromoCode.bind(this);
-    }
-
-    componentWillUnmount() {
-        this.props.resetDelivery();
     }
 
     onCheckboxClick(value, name) {
@@ -348,4 +344,4 @@ const mapStateToProps = state => ({
     checkout: state.checkout
 });
 
-export default connect(mapStateToProps, {setInputValue, setInputError, selectDeliveryType, setPromoCode, resetCart, resetDelivery})(CheckoutPage);
+export default connect(mapStateToProps, {setInputValue, setInputError, selectDeliveryType, setPromoCode, resetCart})(CheckoutPage);

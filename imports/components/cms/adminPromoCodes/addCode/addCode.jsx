@@ -6,6 +6,7 @@ import moment from 'moment';
 import SelectInput from "../../../../common/selectInput/selectInput";
 import SwitchInput from "../../../../common/switchInput/switchInput";
 import {Meteor} from 'meteor/meteor';
+import createPrompt from "../../../../functions/createPrompt";
 
 const SELECT_DATA = [
     {name: 'PLN'},
@@ -87,16 +88,26 @@ class AddCode extends Component {
 
             Meteor.call('insertPromoCode', code, err => {
                if(!err) {
-                   console.log('promo code added');
+                   createPrompt('success', 'dodano');
                    this.props.closeModal();
                } else {
-                   if(err.error === 'codeNameExists') {
-                       alert('kod o tej nazwie juz instieje');
-                   } else {
-                       alert(err.error);
+                   console.error(err);
+                   switch(err.error) {
+                       case 'notPermission':
+                           return createPrompt('error', 'brak uprawnień');
+                       case 'codeNameExists':
+                           return createPrompt('error', 'kod o tej nazwie już istnieje');
+                       case 'codeInsertFailed':
+                           return createPrompt('error', 'problem z dodaniem');
+                       case 'codeValidationFailed':
+                           return createPrompt('error', 'problem z walidacją');
+                       default:
+                           return createPrompt('error', 'ups... wystąpił problem');
                    }
                }
             });
+        } else {
+            createPrompt('warning', 'niepoprawnie uzupełnione pola');
         }
     }
 

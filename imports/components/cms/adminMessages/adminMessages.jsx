@@ -4,6 +4,7 @@ import {Messages} from "../../../../lib/collections";
 import {withTracker} from 'meteor/react-meteor-data';
 import {Meteor} from 'meteor/meteor'
 import dateAgo from '/imports/functions/dateAgo';
+import createPrompt from "../../../functions/createPrompt";
 
 class AdminMessages extends Component {
 
@@ -11,9 +12,17 @@ class AdminMessages extends Component {
         if(window.confirm('czy na pewno chcesz usunąć tę wiadomość?')) {
             Meteor.call('deleteMessage', id, err => {
                if(!err) {
-                   console.log('messaged deleteed success');
+                   createPrompt('success', 'usunięto');
                } else {
-                   alert('nie masz uprawnień so wykonania tej czynności');
+                   console.error(err);
+                   switch(err.error) {
+                       case 'notPermission':
+                           return createPrompt('error', 'brak uprawnień');
+                       case 'deleteMessageFailed':
+                           return createPrompt('error', 'problem z usunięciem');
+                       default:
+                           return createPrompt('error', 'ups... wystąpił problem');
+                   }
                }
             });
         }
@@ -23,9 +32,7 @@ class AdminMessages extends Component {
         if(!isOpen) {
             Meteor.call('setMessageAsRead', id, err => {
                 if (!err) {
-                    console.log('messaged opened');
                 } else {
-                    alert('nie masz uprawnień so wykonania tej czynności');
                 }
             });
         }
@@ -58,7 +65,6 @@ class AdminMessages extends Component {
     }
 
     render() {
-        console.log(this.props.messages);
         return (
             <div id='adminMessages'>
                 <ul id='messagesList'>

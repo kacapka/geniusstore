@@ -7,6 +7,7 @@ import OrderProducts from "./renderProducts";
 import OrderAddress from "./renderAddress";
 import OrderUserData from "./renderUserData";
 import OrderSummary from "./renderSummary";
+import createPrompt from "../../../../../functions/createPrompt";
 
 class OrderDetails extends Component {
 
@@ -20,9 +21,19 @@ class OrderDetails extends Component {
         console.log(orderId);
         Meteor.call('sendDeliveryEmail', orderId, err => {
             if(!err) {
-                window.alert('wiadomosc wyslana');
+                createPrompt('success', 'wysłano potwierdzenie');
             } else {
                 console.error(err);
+                switch(err.error) {
+                    case 'notPermission':
+                        return createPrompt('error', 'brak uprawnień');
+                    case 'orderNotFound':
+                        return createPrompt('error', 'nie znalezniono zamówienia');
+                    case 'updateDeliveryStatusFailed':
+                        return createPrompt('error', 'problem ze zmianą statusu wysyłki');
+                    default:
+                        return createPrompt('error', 'ups... wystąpił problem');
+                }
             }
         })
     }

@@ -3,6 +3,7 @@ import {withTracker} from 'meteor/react-meteor-data';
 import './codesList.scss';
 import {PromoCodes} from "../../../../../lib/collections";
 import {Meteor} from 'meteor/meteor';
+import createPrompt from "../../../../functions/createPrompt";
 
 class CodesList extends Component {
 
@@ -10,9 +11,17 @@ class CodesList extends Component {
         if(window.confirm('Czy na pewno chcesz usnac ten kod?')) {
             Meteor.call('deletePromoCode', id, err => {
                 if(!err) {
-                    console.log('code deleted');
+                    createPrompt('success', 'usunięto');
                 } else {
-                    alert(err.error);
+                    console.error(err);
+                    switch(err.error) {
+                        case 'notPermission':
+                            return createPrompt('error', 'brak uprawnień');
+                        case 'promoCodeDeleteFailed':
+                            return createPrompt('error', 'problem z usunięciem');
+                        default:
+                            return createPrompt('error', 'ups... wystąpił problem');
+                    }
                 }
             })
         }

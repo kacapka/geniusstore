@@ -6,6 +6,7 @@ import {Orders, Products} from "../../../../../lib/collections";
 import dateAgoPL from "../../../../functions/dateAgo";
 import {FlowRouter} from 'meteor/kadira:flow-router';
 import renderOrderStatus from "./renderStatus";
+import createPrompt from "../../../../functions/createPrompt";
 
 class OrdersList extends Component {
 
@@ -37,10 +38,17 @@ class OrdersList extends Component {
         if(window.confirm('czy na pewno chcesz usunac to zamowienie?')) {
             Meteor.call('deleteOrder', orderId, err => {
                 if(!err) {
-                    console.log('order deleted');
+                    createPrompt('success', 'usunięto');
                 } else {
                     console.error(err);
-                    alert(err.error);
+                    switch(err.error) {
+                        case 'notPermission':
+                            return createPrompt('error', 'brak uprawnień');
+                        case 'orderRemoveFailed':
+                            return createPrompt('error', 'problem z usunięciem');
+                        default:
+                            return createPrompt('error', 'ups... wystąpił problem');
+                    }
                 }
             });
         }

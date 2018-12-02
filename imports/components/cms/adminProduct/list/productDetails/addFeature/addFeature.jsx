@@ -3,6 +3,7 @@ import SelectInput from "../../../../../../common/selectInput/selectInput";
 import {Meteor} from 'meteor/meteor';
 import {Features} from '/lib/collections';
 import {withTracker} from 'meteor/react-meteor-data';
+import createPrompt from "../../../../../../functions/createPrompt";
 
 class AddFeature extends Component {
 
@@ -26,9 +27,17 @@ class AddFeature extends Component {
         Meteor.call('addProductFeature', productId, featureId, err => {
             if(!err) {
                 this.props.closeModal();
+                createPrompt('success', 'dodano');
             } else {
                 console.error(err);
-                window.alert(err.error);
+                switch(err.error) {
+                    case 'notPermission':
+                        return createPrompt('error', 'brak uprawnień');
+                    case 'addProductFeatureFailed':
+                        return createPrompt('error', 'problem z dodaniem szczegółu');
+                    default:
+                        return createPrompt('error', 'ups... wystąpił problem');
+                }
             }
         });
     }

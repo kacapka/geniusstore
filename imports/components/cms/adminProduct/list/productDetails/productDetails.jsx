@@ -16,6 +16,7 @@ import AddFeature from "./addFeature/addFeature"
 import {FlowRouter} from 'meteor/kadira:flow-router';
 import AddCommon from "./addCommon/addCommon";
 import ActiveProduct from "./active/activeProduct";
+import createPrompt from "../../../../../functions/createPrompt";
 
 class ProductDetails extends Component {
 
@@ -52,10 +53,17 @@ class ProductDetails extends Component {
             if(window.confirm(confirmMessage)) {
                 Meteor.call('editProductPromoStatus', productId, val, err => {
                     if(!err) {
-                        console.log('zmienienow status promocji produktu'); //todo toast
+                        createPrompt('success', 'zmieniono');
                     } else {
                         console.error(err);
-                        window.alert(err.error);
+                        switch(err.error) {
+                            case 'notPermission':
+                                return createPrompt('error', 'brak uprawnień');
+                            case 'updateProductFailed':
+                                return createPrompt('error', 'problem z edycją');
+                            default:
+                                return createPrompt('error', 'ups... wystąpił problem');
+                        }
                     }
                 });
 
@@ -70,10 +78,17 @@ class ProductDetails extends Component {
             if(window.confirm(confirmMessage)) {
                 Meteor.call('editProductNewStatus', productId, val, err => {
                     if(!err) {
-                        console.log('zmienienow status nowosci produktu'); //todo toast
+                        createPrompt('success', 'zmieniono');
                     } else {
                         console.error(err);
-                        window.alert(err.error);
+                        switch(err.error) {
+                            case 'notPermission':
+                                return createPrompt('error', 'brak uprawnień');
+                            case 'updateProductFailed':
+                                return createPrompt('error', 'problem z edycją');
+                            default:
+                                return createPrompt('error', 'ups... wystąpił problem');
+                        }
                     }
                 });
 
@@ -86,10 +101,18 @@ class ProductDetails extends Component {
         if(window.confirm('czy na pewno chcesz usunac product?')) {
             FlowRouter.go('/admin/product/list');
             Meteor.call('deleteProduct', productId, err => {
-                if(err) {
-                    window.alert(err.error);
+                if(!err) {
+                    createPrompt('success', 'usunięto');
                 } else {
-                    console.log('produkt usuniety');
+                    console.error(err);
+                    switch(err.error) {
+                        case 'notPermission':
+                            return createPrompt('error', 'brak uprawnień');
+                        case 'deleteProductFailed':
+                            return createPrompt('error', 'problem z usunięciem');
+                        default:
+                            return createPrompt('error', 'ups... wystąpił problem');
+                    }
                 }
             })
         }
@@ -99,10 +122,18 @@ class ProductDetails extends Component {
         const productId = this.props.product._id;
         if(window.confirm('czy na pewno chcesz usunac zdjecie?')) {
             Meteor.call('deleteProductPhoto', productId, photo, err => {
-                if(err) {
-                    window.alert(err.error);
+                if(!err) {
+                    createPrompt('success', 'usunięto');
                 } else {
-                    console.log('zdjeceie usuniete');
+                    console.error(err);
+                    switch(err.error) {
+                        case 'notPermission':
+                            return createPrompt('error', 'brak uprawnień');
+                        case 'removeProductPhotoFailed':
+                            return createPrompt('error', 'problem z usunięciem zdjęcia');
+                        default:
+                            return createPrompt('error', 'ups... wystąpił problem');
+                    }
                 }
             })
         }
@@ -112,9 +143,17 @@ class ProductDetails extends Component {
         const productId = this.props.product._id;
         Meteor.call('deleteProductFeature', productId, featureId, err => {
             if(!err) {
-                console.log('szczegol usuniety')
+                createPrompt('success', 'usunięto');
             } else {
-                window.alert(err.error);
+                console.error(err);
+                switch(err.error) {
+                    case 'notPermission':
+                        return createPrompt('error', 'brak uprawnień');
+                    case 'removeProductFeatureFailed':
+                        return createPrompt('error', 'problem z usunięciem szczegółu');
+                    default:
+                        return createPrompt('error', 'ups... wystąpił problem');
+                }
             }
         });
     }
@@ -123,9 +162,17 @@ class ProductDetails extends Component {
         const productId = this.props.product._id;
         Meteor.call('deleteCommonProduct', productId, commonId, err => {
             if(!err) {
-                console.log('product usuniety')
+                createPrompt('success', 'usunięto');
             } else {
-                window.alert(err.error);
+                console.error(err);
+                switch(err.error) {
+                    case 'notPermission':
+                        return createPrompt('error', 'brak uprawnień');
+                    case 'removeCommonProductFailed':
+                        return createPrompt('error', 'problem z usunięciem produktu');
+                    default:
+                        return createPrompt('error', 'ups... wystąpił problem');
+                }
             }
         });
     }
@@ -227,7 +274,7 @@ class ProductDetails extends Component {
 
     render() {
         if(!this.props.handleReady) return <div>...loading</div>;
-        const product = this.props.product;
+        const {product, product: {isActive}} = this.props;
         const collectionName = product.collection ? product.collection.name : 'brak przypisanych kolekcji';
 
         return (
@@ -236,9 +283,11 @@ class ProductDetails extends Component {
                     <div id='productDetailsBar'>
                         <div id='barTitle' className='feature-edit-wrap'>
                             <div className='label'><span className='obligatory'>* </span>{product.name}</div>
-                            <ion-icon name="create" className='edit-icon'
-                                      onClick={() => this.openModal('name')}
-                            />
+                            {!isActive &&
+                                <ion-icon name="create" className='edit-icon'
+                                          onClick={() => this.openModal('name')}
+                                />
+                            }
                         </div>
                         <div id='barWrapper'>
                             <div className='feature-edit-wrap'>
@@ -268,9 +317,11 @@ class ProductDetails extends Component {
                             <div className='content-box content-info line'>
                                 <div className='feature-edit-wrap'>
                                     <div className='label'><span className='obligatory'>*</span> cena</div>
-                                    <ion-icon name="create" className='edit-icon'
-                                              onClick={() => this.openModal('price')}
-                                    />
+                                    {!isActive &&
+                                        <ion-icon name="create" className='edit-icon'
+                                                  onClick={() => this.openModal('price')}
+                                        />
+                                    }
                                 </div>
                                 <div className='value'>{product.price}</div>
                             </div>
@@ -304,9 +355,11 @@ class ProductDetails extends Component {
                             <div className='content-box content-sizes line'>
                                 <div className='feature-edit-wrap'>
                                     <div className='label'><span className='obligatory'>*</span> rozmiary</div>
-                                    <ion-icon name="create" className='edit-icon'
-                                              onClick={() => this.openModal('sizes')}
-                                    />
+                                    {!isActive &&
+                                        <ion-icon name="create" className='edit-icon'
+                                                  onClick={() => this.openModal('sizes')}
+                                        />
+                                    }
                                 </div>
                                 {this.renderSizes()}
                             </div>
@@ -330,9 +383,11 @@ class ProductDetails extends Component {
                                 </div>
                             }
                             <div className='add-btn-wrap line'>
-                                <div className='add-btn' onClick={() => this.openModal('addPhoto', {action: 'main'})}>
-                                    {product.mainPhoto.length > 0 ? 'zmien zdjecie' : 'dodaj zdjecie'}
-                                </div>
+                                {!isActive &&
+                                    <div className='add-btn' onClick={() => this.openModal('addPhoto', {action: 'main'})}>
+                                        {product.mainPhoto.length > 0 ? 'zmien zdjecie' : 'dodaj zdjecie'}
+                                    </div>
+                                }
                             </div>
                             <div className='label-photo'>zdjecia</div>
                             <div className='content-box content-photos'>

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Meteor} from 'meteor/meteor';
 import {Products} from '/lib/collections';
 import {withTracker} from 'meteor/react-meteor-data';
+import createPrompt from "../../../../../../functions/createPrompt";
 
 class AddCommon extends Component {
 
@@ -26,9 +27,17 @@ class AddCommon extends Component {
                 if(!err) {
                     Meteor.subscribe('product.admin', productId);
                     this.props.closeModal();
+                    createPrompt('success', 'powiązano produkt');
                 } else {
                     console.error(err);
-                    window.alert(err.error);
+                    switch(err.error) {
+                        case 'notPermission':
+                            return createPrompt('error', 'brak uprawnień');
+                        case 'addCommonProductFailed':
+                            return createPrompt('error', 'problem z powiązaniem produktu');
+                        default:
+                            return createPrompt('error', 'ups... wystąpił problem');
+                    }
                 }
             });
         }

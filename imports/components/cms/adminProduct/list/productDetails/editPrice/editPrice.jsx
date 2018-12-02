@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import createPrompt from "../../../../../../functions/createPrompt";
 
 class EditPrice extends Component {
 
@@ -24,12 +25,21 @@ class EditPrice extends Component {
             Meteor.call('editProductPrice', productId, price, err => {
                 if(!err) {
                     this.props.closeModal();
+                    createPrompt('success', 'zmieniono');
                 } else {
-                    window.alert(err.error);
+                    console.error(err);
+                    switch(err.error) {
+                        case 'notPermission':
+                            return createPrompt('error', 'brak uprawnień');
+                        case 'updateProductFailed':
+                            return createPrompt('error', 'problem z edycją ceny');
+                        default:
+                            return createPrompt('error', 'ups... wystąpił problem');
+                    }
                 }
             });
         } else {
-            alert('cena musi byc wieksza od zera');
+            createPrompt('warning', 'cena musi być większa od zera');
         }
     }
 

@@ -70,7 +70,7 @@ const resetSettings = callback => {
 
     const settingsOrderCount = {
         label: 'orderCount',
-        value: 1
+        value: 100
     };
 
     Settings.insert(settingsAdmin, err => {

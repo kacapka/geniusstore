@@ -3,6 +3,7 @@ import SelectInput from "../../../../../../common/selectInput/selectInput";
 import {Meteor} from 'meteor/meteor';
 import {withTracker} from 'meteor/react-meteor-data';
 import {Collections} from "../../../../../../../lib/collections";
+import createPrompt from "../../../../../../functions/createPrompt";
 
 class EditCollection extends Component {
 
@@ -28,9 +29,17 @@ class EditCollection extends Component {
            if(!err) {
                Meteor.subscribe('product.admin', productId);
                this.props.closeModal();
+               createPrompt('success', 'zmieniono');
            } else {
                console.error(err);
-               window.alert(err.error);
+               switch(err.error) {
+                   case 'notPermission':
+                       return createPrompt('error', 'brak uprawnień');
+                   case 'updateProductFailed':
+                       return createPrompt('error', 'problem z edycją kolekcji');
+                   default:
+                       return createPrompt('error', 'ups... wystąpił problem');
+               }
            }
         });
     }

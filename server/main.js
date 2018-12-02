@@ -18,6 +18,7 @@ import './methods/Products/productFeature/deleteProductFeature';
 import './methods/Products/productFeature/addProductFeature';
 import './methods/Products/productCommon/deleteCommonProduct';
 import './methods/Products/productCommon/addCommonProduct';
+import './methods/Products/updateProductSizeValue';
 import './methods/Products/deleteProduct';
 import './methods/Products/updateSaleProduct';
 import './methods/Products/addNewEmptyProduct';

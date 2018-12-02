@@ -81,8 +81,6 @@ const delivery = (state = initialDelivery, action) => {
             });
 
             return newState;
-        case types.RESET_DELIVERY:
-            return initialDelivery;
         default:
             return state;
     }
