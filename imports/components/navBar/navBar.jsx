@@ -38,16 +38,21 @@ class Nav extends Component {
         const {cart, isNews, isPromo} = this.props;
         return(
             <div id='navBar'>
+                <div id='navLogo'>
+                    <div id='logoWrapper'>
+                        <img src='/logo.png' alt='genius logo' id='logo-img' onClick={this.onLogoClick} />
+                    </div>
+                </div>
                 <div id='navCart'>
                     <div id='cartWrapper' onClick={this.onCartClick}>
                         <img src='/shoping_bag.png' alt='shoping cart' id='cart' />
                         {cart.length > 0 && <div id='cartItems'>{cart.length}</div>}
                     </div>
                 </div>
-                <div id='navLogo'>
-                    <div id='logoWrapper'>
-                        <img src='/logo.png' alt='genius logo' id='logo-img' onClick={this.onLogoClick} />
-                    </div>
+                <div id='navHamburger'>
+                    <div className='ham-top' />
+                    <div className='ham-middle' />
+                    <div className='ham-bottom' />
                 </div>
                 <div id='navRoutes'>
                     <ul id='nav'>

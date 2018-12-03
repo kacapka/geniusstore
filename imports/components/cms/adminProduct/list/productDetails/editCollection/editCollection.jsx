@@ -50,7 +50,7 @@ class EditCollection extends Component {
     }
 
     render() {
-        if(!this.prop.handleReady) return <GeniusSpinner/>;
+        if(!this.props.handleReady) return <GeniusSpinner/>;
         return (
             <div className='edit-modal-wrap'>
                 <div className='modal-title'>edytuj kolekcje</div>
