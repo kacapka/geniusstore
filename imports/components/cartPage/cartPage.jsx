@@ -52,20 +52,22 @@ class CartPage extends Component {
                            <p className='cart-name'>{name}</p>
                        </div>
                     </div>
-                    <div className='cart-feature cart-price'>{sales.isActive ? `PLN ${sales.salePrice}` : `PLN ${price}`}</div>
-                    <div className='cart-feature cart-size'>{item.size.name}</div>
-                    <div className='cart-feature cart-amount'>
-                       <SelectInput options={amountOpt}
-                                    selectedValue={item.amount}
-                                    selectValue={this.setProductAmount}
-                                    className='cart-amount-select'
-                                    selectName={item.cartId}
-                       />
-                    </div>
-                    <div className='cart-feature cart-remove'>
-                       <ion-icon name="remove-circle"
-                                onClick={() => this.onDeleteProductClick(item.cartId)}
-                       />
+                    <div className='cart-feature cart-details-wrap'>
+                        <div className='cart-feature cart-price'>{sales.isActive ? `PLN ${sales.salePrice}` : `PLN ${price}`}</div>
+                        <div className='cart-feature cart-size'>{item.size.name}</div>
+                        <div className='cart-feature cart-amount'>
+                           <SelectInput options={amountOpt}
+                                        selectedValue={item.amount}
+                                        selectValue={this.setProductAmount}
+                                        className='cart-amount-select'
+                                        selectName={item.cartId}
+                           />
+                        </div>
+                        <div className='cart-feature cart-remove'>
+                           <ion-icon name="remove-circle"
+                                    onClick={() => this.onDeleteProductClick(item.cartId)}
+                           />
+                        </div>
                     </div>
                 </div>
             );
