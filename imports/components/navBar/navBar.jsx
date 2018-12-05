@@ -36,6 +36,8 @@ class Nav extends Component {
     
     render() {
         const {cart, isNews, isPromo} = this.props;
+        console.log(this.props);
+
         return(
             <div id='navBar'>
                 <div id='navLogo'>
@@ -89,6 +91,8 @@ const NavBar = compose(
         if(handleReady) {
             const withPromo = Products.find({isActive: true, isSale: true, 'sales.isActive': true}, {fields: {_id: 1}}).fetch();
             const withNew = Products.find({isActive: true, isNew: true}, {fields: {_id: 1}}).fetch();
+
+            console.log(withPromo);
 
             isPromo = withPromo.length > 0;
             isNews = withNew.length > 0;

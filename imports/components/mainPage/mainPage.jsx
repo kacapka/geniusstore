@@ -4,6 +4,7 @@ import {withTracker} from 'meteor/react-meteor-data';
 import {Products, Collections} from '/lib/collections';
 import {Meteor} from 'meteor/meteor';
 import {FlowRouter} from 'meteor/kadira:flow-router';
+import GeniusSpinner from "../../common/spinner/spinner";
 
 class MainPage extends Component {
 
@@ -50,6 +51,7 @@ class MainPage extends Component {
     }
 
     render() {
+        if(!this.props.handleReady) return <GeniusSpinner client />;
         return (
             <div id='mainPage'>
                 <div id='productsAll'>

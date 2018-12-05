@@ -5,6 +5,7 @@ import {FlowRouter} from 'meteor/kadira:flow-router';
 import {deleteProductFromCart, updateProductAmount} from "../../redux/actions";
 import getSalePrice from "../../functions/getSalePrice";
 import SelectInput from "../../common/selectInput/selectInput";
+import NotFoundText from "../../common/notFound/notFound";
 
 class CartPage extends Component {
 
@@ -117,7 +118,7 @@ class CartPage extends Component {
                         );
                     } else {
                         return (
-                            <div id='cartNoResult'>Twój koszyk jest pusty</div>
+                            <NotFoundText>Twój koszyk jest pusty</NotFoundText>
                         );
                     }
                 })()}

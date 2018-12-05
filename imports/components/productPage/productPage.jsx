@@ -10,6 +10,8 @@ import {connect} from 'react-redux';
 import uniqid from 'uniqid';
 import {FlowRouter} from 'meteor/kadira:flow-router';
 import RenderCommonProducts from "./rednerCommonProducts";
+import GeniusSpinner from "../../common/spinner/spinner";
+import NotFoundText from "../../common/notFound/notFound";
 
 class Product extends Component {
 
@@ -66,8 +68,9 @@ class Product extends Component {
 
     render() {
         const {product, handleReady} = this.props;
+        if(!handleReady) return <GeniusSpinner client />;
+        if(!product) return <NotFoundText>nie znaleziono produktu</NotFoundText>;
         const mainPhoto = this.state.mainPhoto;
-        if(!handleReady) return <div>loading...</div>;
         const photo = mainPhoto ? mainPhoto : product.mainPhoto;
         const photos = [...product.photos, product.mainPhoto];
 

@@ -51,9 +51,11 @@
           @extend %text-medium;
           margin-top: 15px;
           display: flex;
-          flex-direction: column;
+          color: $mint;
           .price-none {
             text-decoration: line-through;
+            margin-right: 10px;
+            color: #000;
           }
         }
       }

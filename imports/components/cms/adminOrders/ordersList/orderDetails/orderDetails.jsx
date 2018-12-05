@@ -39,6 +39,7 @@ class OrderDetails extends Component {
     }
 
     render() {
+        console.log(this.props);
         if(!this.props.handleReady) return <GeniusSpinner/>;
         if(!this.props.order) return <div>nie znaleziono zamówienia</div>;
         const {notes, deliveryStatus, products, address, user, orderNumber} = this.props.order;

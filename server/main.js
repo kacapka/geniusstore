@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 
 //methods
 import './methods/Products/insertProduct';
+import './methods/Products/copyProduct';
 import './methods/Products/editProductName';
 import './methods/Products/editProductCollection';
 import './methods/Products/editProductPrice';

@@ -7,7 +7,7 @@ Meteor.methods({
        const future = new Future();
        PromoCodes.update(
            {_id: promoCodeId},
-           {$push: {uses: {user: userEmail, orderNumber}}},
+           {$push: {uses: {user: userEmail, orderNumber, timestamp: new Date()}}},
            err => {
                if(!err) {
                    future.return();

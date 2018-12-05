@@ -32,6 +32,7 @@ class ProductDetails extends Component {
         this.onDeleteProductClick = this.onDeleteProductClick.bind(this);
         this.closeModal = this.closeModal.bind(this);
         this.selectValue = this.selectValue.bind(this);
+        this.onCopyProductClick = this.onCopyProductClick.bind(this);
     }
 
     closeModal() {
@@ -94,6 +95,32 @@ class ProductDetails extends Component {
                 });
 
             }
+        }
+    }
+
+    onCopyProductClick() {
+        const {_id, name} = this.props.product;
+        if(window.confirm('czy na pewno chcesz usunac kopie produktu?')) {
+            Meteor.call('copyProduct', _id, err => {
+                if(!err) {
+                    FlowRouter.go('/admin/product/list');
+                    createPrompt('success', `utworzono kopię o nazwie - ${name} (KOPIA)`);
+                } else {
+                    console.error(err);
+                    switch(err.error) {
+                        case 'notPermission':
+                            return createPrompt('error', 'brak uprawnień');
+                        case 'productNotFound':
+                            return createPrompt('error', 'produkt który chcesz skopiować nie istnieje');
+                        case 'productInsertFailed':
+                            return createPrompt('error', 'probem z dodaniem kopii produktu');
+                        case 'productValidationFailed':
+                            return createPrompt('error', 'problem z walidacją');
+                        default:
+                            return createPrompt('error', 'ups... wystąpił problem');
+                    }
+                }
+            })
         }
     }
 
@@ -297,6 +324,11 @@ class ProductDetails extends Component {
                                 <ion-icon name="create" className='edit-icon'
                                           onClick={() => this.openModal('active')}
                                 />
+                            </div>
+                            <div id='barCopyBtn'
+                                 onClick={this.onCopyProductClick}
+                            >
+                                stwórz kopię
                             </div>
                             <div id='barEditBtn'
                                  onClick={this.onDeleteProductClick}
