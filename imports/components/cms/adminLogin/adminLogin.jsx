@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './adminLogin.scss';
 import {Meteor} from 'meteor/meteor';
+import createPrompt from "../../../functions/createPrompt";
 
 class AdminLogin extends Component {
 
@@ -9,7 +10,7 @@ class AdminLogin extends Component {
         this.state = {
             email: '',
             password: ''
-        }
+        };
         this.onInputChange = this.onInputChange.bind(this);
         this.onLoginClick = this.onLoginClick.bind(this);
         this.onSubmitLogIn = this.onSubmitLogIn.bind(this);
@@ -31,7 +32,7 @@ class AdminLogin extends Component {
            if(!err) {
 
            } else {
-               window.alert('niepopranny login lub haslo');
+               createPrompt('error', 'niepoprawny login lub hasło');
            }
         });
     }

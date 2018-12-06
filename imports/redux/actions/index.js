@@ -18,6 +18,13 @@ export const deleteProductFromCart = id => {
 
 };
 
+export const resetCart = () => {
+
+    return({type: types.RESET_CART});
+
+};
+
+
 export const updateProductAmount = (amount, id) => {
 
     return {

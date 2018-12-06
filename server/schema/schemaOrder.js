@@ -1,4 +1,4 @@
-import {Products, Orders} from "../../lib/collections";
+import {Products, Orders, PromoCodes} from "../../lib/collections";
 import {validateEmail, validateKeys} from './validation';
 
 export default class SchemaOrder {
@@ -13,7 +13,8 @@ export default class SchemaOrder {
             user: this.validateUser(order.user),
             status: this.validateStatus(order.status),
             deliveryStatus: this.validateStatus(order.deliveryStatus),
-            promoCode: order.promoCode ? this.validateString(order.promoCode) : true,
+            promoCode: order.promoCode ? this.validatePromoCode(order.promoCode) : true,
+            orderNumber: this.validateOrderNumber(order.orderNumber),
             timestamp: true,
             notes: true
         }
@@ -59,6 +60,14 @@ export default class SchemaOrder {
     validateStatus(status) {
         const statusTypes = ['pending', 'completed', 'rejected'];
         return statusTypes.indexOf(status) !== -1;
+    }
+
+    validatePromoCode(promoCode) {
+        return !!PromoCodes.findOne({_id: promoCode._id});
+    }
+
+    validateOrderNumber(orderNumber) {
+        return typeof orderNumber === 'string' && orderNumber.length >= 11;
     }
 
     validate() {

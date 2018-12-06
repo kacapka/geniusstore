@@ -3,8 +3,8 @@ import './cartPage.scss';
 import {connect} from 'react-redux';
 import {FlowRouter} from 'meteor/kadira:flow-router';
 import {deleteProductFromCart, updateProductAmount} from "../../redux/actions";
-import getSalePrice from "../../functions/getSalePrice";
 import SelectInput from "../../common/selectInput/selectInput";
+import NotFoundText from "../../common/notFound/notFound";
 
 class CartPage extends Component {
 
@@ -16,6 +16,7 @@ class CartPage extends Component {
     }
 
     onProductClick(id) {
+        window.scrollTo(0,0);
         FlowRouter.go(`/${id}`);
     }
 
@@ -24,17 +25,16 @@ class CartPage extends Component {
     }
 
     setProductAmount(opt, id) {
-        console.log(opt, id);
         this.props.updateProductAmount(opt.name, id);
     }
 
     onGoToCheckoutBtnClick() {
+        window.scrollTo(0,0);
         FlowRouter.go('/cart/checkout');
     }
 
     renderCartItems() {
         return this.props.cart.map(item => {
-            console.log(item);
             const {_id, mainPhoto, _collection, name, sales, price} = item.product;
             const amountOpt = [];
             for(let i=1; i<=item.size.value && i < 6; i++) {
@@ -42,10 +42,8 @@ class CartPage extends Component {
             }
             return (
                 <div className='cart-item' key={item.cartId}>
-                    <div className='cart-feature cart-product'
-                        onClick={() => this.onProductClick(_id)}
-                    >
-                       <div className='cart-product-thumbnail'>
+                    <div className='cart-feature cart-product'>
+                       <div className='cart-product-thumbnail' onClick={() => this.onProductClick(_id)}>
                            <img src={mainPhoto} alt='product thumbnail' />
                        </div>
                        <div className='cart-product-name'>
@@ -53,20 +51,22 @@ class CartPage extends Component {
                            <p className='cart-name'>{name}</p>
                        </div>
                     </div>
-                    <div className='cart-feature cart-price'>{sales.isActive ? `PLN ${sales.salePrice}` : `PLN ${price}`}</div>
-                    <div className='cart-feature cart-size'>{item.size.name}</div>
-                    <div className='cart-feature cart-amount'>
-                       <SelectInput options={amountOpt}
-                                    selectedValue={item.amount}
-                                    selectValue={this.setProductAmount}
-                                    className='cart-amount-select'
-                                    selectName={item.cartId}
-                       />
-                    </div>
-                    <div className='cart-feature cart-remove'>
-                       <ion-icon name="remove-circle"
-                                onClick={() => this.onDeleteProductClick(item.cartId)}
-                       />
+                    <div className='cart-feature cart-details-wrap'>
+                        <div className='cart-feature cart-price'>{sales.isActive ? `PLN ${sales.salePrice}` : `PLN ${price}`}</div>
+                        <div className='cart-feature cart-size'>{item.size.name}</div>
+                        <div className='cart-feature cart-amount'>
+                           <SelectInput options={amountOpt}
+                                        selectedValue={item.amount}
+                                        selectValue={this.setProductAmount}
+                                        className='cart-amount-select'
+                                        selectName={item.cartId}
+                           />
+                        </div>
+                        <div className='cart-feature cart-remove'>
+                           <ion-icon name="remove-circle"
+                                    onClick={() => this.onDeleteProductClick(item.cartId)}
+                           />
+                        </div>
                     </div>
                 </div>
             );
@@ -116,7 +116,7 @@ class CartPage extends Component {
                         );
                     } else {
                         return (
-                            <div id='cartNoResult'>Twój koszyk jest pusty</div>
+                            <NotFoundText>Twój koszyk jest pusty</NotFoundText>
                         );
                     }
                 })()}

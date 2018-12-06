@@ -15,9 +15,12 @@ class SelectInput extends Component {
 
     componentDidMount() {
         document.body.addEventListener('click', this.closeOptions);
+        document.body.addEventListener('touchstart', this.closeOptions);
+
     }
     componentWillUnmount() {
         document.body.removeEventListener('click', this.closeOptions);
+        document.body.removeEventListener('touchstart', this.closeOptions);
     }
 
     closeOptions(e){

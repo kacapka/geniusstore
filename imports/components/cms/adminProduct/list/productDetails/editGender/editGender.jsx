@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import SelectInput from "../../../../../../common/selectInput/selectInput";
 import {Meteor} from 'meteor/meteor';
+import createPrompt from "../../../../../../functions/createPrompt";
 
 const GENDERS = [
     {name: 'unisex'},
@@ -30,9 +31,17 @@ class EditGender extends Component {
         Meteor.call('editProductGender', productId, gender, err => {
             if(!err) {
                 this.props.closeModal();
+                createPrompt('success', 'zmieniono');
             } else {
                 console.error(err);
-                window.alert(err.error);
+                switch(err.error) {
+                    case 'notPermission':
+                        return createPrompt('error', 'brak uprawnień');
+                    case 'updateProductFailed':
+                        return createPrompt('error', 'problem z edycją rodzaju płci');
+                    default:
+                        return createPrompt('error', 'ups... wystąpił problem');
+                }
             }
         });
     }

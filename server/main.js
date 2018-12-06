@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 
 //methods
 import './methods/Products/insertProduct';
+import './methods/Products/copyProduct';
 import './methods/Products/editProductName';
 import './methods/Products/editProductCollection';
 import './methods/Products/editProductPrice';
@@ -18,12 +19,14 @@ import './methods/Products/productFeature/deleteProductFeature';
 import './methods/Products/productFeature/addProductFeature';
 import './methods/Products/productCommon/deleteCommonProduct';
 import './methods/Products/productCommon/addCommonProduct';
+import './methods/Products/updateProductSizeValue';
 import './methods/Products/deleteProduct';
 import './methods/Products/updateSaleProduct';
 import './methods/Products/addNewEmptyProduct';
 import './methods/PromoCodes/insertPromoCode';
 import './methods/PromoCodes/deletePromoCode';
 import './methods/PromoCodes/verifyPromoCode';
+import './methods/PromoCodes/addUsePromoCode';
 import './methods/Orders/insertOrder';
 import './methods/Orders/deleteOrder';
 
@@ -41,6 +44,10 @@ import './methods/Features/editFeature';
 
 import './methods/Users/insertUser';
 
+import './functions/emails/sendEmail';
+import './functions/emails/sendDeliveryConfirmation';
+import './functions/emails/sendOrderConfirmation';
+
 //publish
 import './publish/publish_products';
 import './publish/publish_messages';
@@ -55,8 +62,8 @@ import './publish/publish_navbar';
 import './data';
 
 Meteor.startup(() => {
-    WebApp.connectHandlers.use('/hello', (req, res, next) => {
-        res.writeHead(200);
-        res.end(`Hello world from: ${Meteor.release}`);
-    });
+
+    //mail setup
+    process.env.MAIL_URL = 'smtps://postmaster@sandboxc36d09125ef94052a281a6594a9f6c6d.mailgun.org:geniusdot@smtp.mailgun.org:465';
+
 });

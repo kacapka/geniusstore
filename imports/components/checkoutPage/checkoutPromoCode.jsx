@@ -1,4 +1,5 @@
 import React, {Component, Fragment} from 'react';
+import {Meteor} from 'meteor/meteor';
 
 class CheckoutPromoCode extends Component {
 
@@ -12,6 +13,10 @@ class CheckoutPromoCode extends Component {
         this.onPromoCodeInputChange = this.onPromoCodeInputChange.bind(this);
         this.verifyPromoCode = this.verifyPromoCode.bind(this);
         this.removeCode = this.removeCode.bind(this);
+    }
+
+    componentWillUnmount() {
+        this.props.setPromoCode(null);
     }
 
     onPromoCodeInputChange(e) {

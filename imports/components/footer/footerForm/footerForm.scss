@@ -54,3 +54,18 @@
     }
   }
 }
+
+@media all and (max-width: 767px) {
+
+  #footerForm {
+    flex-direction: column;
+    #footerFormLeft {
+      margin-right: 0;
+    }
+    #footerFormRight {
+      padding-left: 0;
+      margin-top: 20px;
+    }
+  }
+
+}

@@ -28,9 +28,11 @@ Meteor.publish('order.admin', function(orderId) {
     if(checkIfAdmin(this.userId)) {
         const order = Orders.findOne({_id: orderId});
         let productsIds = [];
-        for(let product of order.products) {
-            if(!~productsIds.indexOf(product.productId)) {
-                productsIds.push(product.productId);
+        if(order) {
+            for(let product of order.products) {
+                if(!~productsIds.indexOf(product.productId)) {
+                    productsIds.push(product.productId);
+                }
             }
         }
 

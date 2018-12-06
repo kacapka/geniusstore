@@ -45,25 +45,6 @@
           }
         }
       }
-      #commonPhotosWrap {
-        margin-top: 40px;
-        #commonTitle {
-          @extend %text-large;
-          margin-bottom: 10px;
-        }
-        #commonPhotos {
-          display: flex;
-          flex-wrap: wrap;
-          .thumbnail-wrap {
-            @extend %thumbnail;
-            margin-right: 10px;
-            &:hover {
-              cursor: pointer;
-              opacity: .9;
-            }
-          }
-        }
-      }
     }
     #productAreaDetails {
       flex: 1;
@@ -84,10 +65,13 @@
         }
         #title-price {
           @extend %text-large;
-          font-size: 18px;
+          font-size: 22px;
           display: flex;
           flex-direction: column;
+          color: $mint;
           .price-none {
+            color: #000;
+            font-size: 18px;
             text-decoration: line-through;
           }
         }
@@ -126,5 +110,172 @@
       }
     }
   }
+  #commonPhotosWrap {
+    margin-top: 40px;
+    #commonTitle {
+      @extend %text-large;
+      margin-bottom: 10px;
+    }
+    #commonPhotos {
+      display: flex;
+      flex-wrap: wrap;
+      .thumbnail-wrap {
+        @extend %thumbnail;
+        margin-right: 10px;
+        &:hover {
+          cursor: pointer;
+          opacity: .9;
+        }
+      }
+    }
+  }
 
 }
+
+@media all and (max-width: 1200px) {
+
+  #productPage {
+    #productArea {
+      #productAreaPhotos {
+        #productPhotosWrap {
+          #photosMain {
+            flex: 0 0 250px;
+            height: 400px;
+          }
+          #photosThumbnails {
+            padding-left: 20px;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@media all and (max-width: 1024px) {
+
+  %thumbnail {
+    width: 70px;
+    .photo-thumbnail {
+      width: 100%;
+    }
+  }
+
+  #productPage {
+    #productArea {
+      flex-direction: column;
+      #productAreaPhotos {
+        #productPhotosWrap {
+          justify-content: space-between;
+          #photosMain {
+            flex: 0 0 350px;
+            height: 500px;
+          }
+          #photosThumbnails {
+            flex: 0 0 250px;
+            flex-wrap: wrap;
+            padding-left: 30px;
+            align-items: flex-start;
+          }
+        }
+      }
+      #productAreaDetails {
+        margin-top: 30px;
+      }
+    }
+
+  }
+
+}
+
+@media all and (max-width: 767px) {
+
+  #productPage {
+    padding: 30px 0;
+    #productArea {
+      #productAreaPhotos {
+        #productPhotosWrap {
+          #photosThumbnails {
+            padding-left: 20px;
+          }
+          #photosMain {
+            flex: 0 0 280px;
+            height: 450px;
+          }
+        }
+      }
+    }
+    #commonPhotosWrap {
+      margin-top: 20px;
+      #commonTitle {
+        font-size: 22px;
+        margin-bottom: 20px;
+      }
+      #commonPhotos {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow: scroll;
+        .thumbnail-wrap {
+          flex: 0 0 25%;
+        }
+      }
+    }
+  }
+
+}
+
+@media all and (max-width: 500px) {
+
+  #productPage {
+    padding: 0;
+    #productArea {
+      #productAreaPhotos {
+        #productPhotosWrap {
+          flex-direction: column;
+          #photosThumbnails {
+            padding-left: 0;
+            flex-direction: row;
+            flex: 1;
+            flex-wrap: nowrap;
+            overflow: scroll;
+            .thumbnail-wrap {
+              flex: 0 0 25%;
+              margin-right: 10px;
+            }
+          }
+          #photosMain {
+            margin-bottom: 20px;
+            width: 100%;
+            flex: 0 0 400px;
+            background-position: top;
+          }
+        }
+      }
+      #productAreaDetails {
+        flex: 1;
+        #detailsTitle {
+          #title-price {
+            font-size: 30px;
+          }
+          #title-name {
+            margin: 5px 0 10px 0;
+          }
+        }
+        #detailsCart {
+          flex-direction: column-reverse;
+          .cart-select-size {
+            width: 180px;
+            margin-top: 20px;
+          }
+          #addToCartBtn {
+            background-color: #000;
+            color: #fff;
+          }
+        }
+      }
+    }
+
+  }
+
+}
+

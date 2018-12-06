@@ -3,6 +3,8 @@ import './productFeatures.scss';
 import {Features} from "../../../../../lib/collections";
 import {withTracker} from 'meteor/react-meteor-data';
 import {Meteor} from 'meteor/meteor';
+import createPrompt from "../../../../functions/createPrompt";
+import GeniusSpinner from "../../../../common/spinner/spinner";
 
 class ProductFeatures extends Component {
 
@@ -24,12 +26,20 @@ class ProductFeatures extends Component {
     }
 
     onDeleteFeatureClick(id) {
-        if(window.confirm('czy na pewno chcesz usunąć ten opis?')) {
+        if(window.confirm('czy na pewno chcesz usunąć szczegół?')) {
             Meteor.call('deleteFeature', id, err => {
                 if(!err) {
-                    console.log('feature deleteed success');
+                    createPrompt('success', 'usunięto');
                 } else {
-                    alert(err.error);
+                    console.error(err);
+                    switch(err.error) {
+                        case 'notPermission':
+                            return createPrompt('error', 'brak uprawnień');
+                        case 'featureRemoveFailed':
+                            return createPrompt('error', 'problem z usunięciem');
+                        default:
+                            return createPrompt('error', 'ups... wystąpił problem');
+                    }
                 }
             });
         }
@@ -38,18 +48,25 @@ class ProductFeatures extends Component {
     submitAddFeature() {
         const name = this.state.addValue;
         if(name.length < 2) {
-            alert('nazwa opisu musi miec przynajmnije 2 litery');
-            return;
+            return createPrompt('warning', 'zbyt krótka nazwa');
         }
         const newFeature = {
             name
         };
         Meteor.call('insertFeature', newFeature, err => {
             if(!err) {
-                console.log('feature insert success');
+                createPrompt('success', 'dodano');
                 this.setState({isForm: false, addValue: ''});
             } else {
-                alert(err.error);
+                console.error(err);
+                switch(err.error) {
+                    case 'notPermission':
+                        return createPrompt('error', 'brak uprawnień');
+                    case 'insertFailed':
+                        return createPrompt('error', 'problem z dodaniem');
+                    default:
+                        return createPrompt('error', 'ups... wystąpił problem');
+                }
             }
         });
     }
@@ -58,15 +75,22 @@ class ProductFeatures extends Component {
         const name = this.state.editValue;
         const id = this.state.editId;
         if(name.length < 2) {
-            alert('nazwa opisu musi miec przynajmnije 2 litery');
-            return;
+            return createPrompt('warning', 'zbyt krótka nazwa');
         };
         Meteor.call('editFeature', name, id, err => {
             if(!err) {
-                console.log('feature insert success');
+                createPrompt('success', 'zmieniono');
                 this.setState({isForm: false, editId: null});
             } else {
-                alert(err.error);
+                console.error(err);
+                switch(err.error) {
+                    case 'notPermission':
+                        return createPrompt('error', 'brak uprawnień');
+                    case 'updateFeatureFailed':
+                        return createPrompt('error', 'problem z edycją');
+                    default:
+                        return createPrompt('error', 'ups... wystąpił problem');
+                }
             }
         });
     }
@@ -103,7 +127,7 @@ class ProductFeatures extends Component {
 
     renderFeatures() {
         const features = this.props.features;
-        if(features.length === 0) return <div>brak opisow</div>;
+        if(!features.length) return <div>brak dodanych szczegółów</div>;
         return features.map(col => {
             return (
                 <li className='feature-item' key={col._id}>
@@ -127,7 +151,7 @@ class ProductFeatures extends Component {
                     <li className='feature-item-header'>
                         <div>nazwa</div>
                     </li>
-                    {this.props.handleReady && this.renderFeatures()}
+                    {this.props.handleReady ? this.renderFeatures() : <GeniusSpinner/>}
                 </ul>
                 <div id='featureEdit'>
                     {(()=> {
@@ -171,7 +195,7 @@ class ProductFeatures extends Component {
                                     <ion-icon name='add-circle-outline'
                                               onClick={this.onAddFeatureBtnClick}
                                     />
-                                    <span>dodaj kolekcje</span>
+                                    <span>dodaj szczegół</span>
                                 </div>
                             )
                         }

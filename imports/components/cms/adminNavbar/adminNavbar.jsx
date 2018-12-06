@@ -16,15 +16,23 @@ const ROUTES = [
 
 class AdminNavbar extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            activeRoute: 'stats'
+        }
+    }
+
     onRouteItemClick(route) {
         if(!route) {Meteor.logout(); return;}
+        this.setState({activeRoute: route});
         FlowRouter.go(`/admin/${route}`);
     }
 
     renderRoutes() {
         return ROUTES.map(route => {
            return (
-               <li key={route.name} onClick={() => this.onRouteItemClick(route.route)}>
+               <li key={route.name} onClick={() => this.onRouteItemClick(route.route)} className={this.state.activeRoute === route.route ? 'active' : ''}>
                    <ion-icon name={route.icon} />
                     <span>{route.name}</span>
                    {this.props.handleReady && route.route === 'messages' && this.props.messageCount !== 0 && <div className='count-alert'>{this.props.messageCount}</div>}
@@ -40,7 +48,7 @@ class AdminNavbar extends Component {
                     <img src='/logo.png' />
                 </div>
                 <ul id='adminRoutes'>
-                    {this.renderRoutes()}
+                    {this.props.handleReady && this.renderRoutes()}
                 </ul>
             </div>
 
@@ -49,7 +57,7 @@ class AdminNavbar extends Component {
 }
 
 export default withTracker(() => {
-    let messageCount;
+    let messageCount = 0;
     const handle = Meteor.subscribe('messageCount.admin');
     const handleReady = handle.ready();
     if(handleReady) {

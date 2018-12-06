@@ -3,6 +3,8 @@ import SelectInput from "../../../../../../common/selectInput/selectInput";
 import {Meteor} from 'meteor/meteor';
 import {withTracker} from 'meteor/react-meteor-data';
 import {Collections} from "../../../../../../../lib/collections";
+import createPrompt from "../../../../../../functions/createPrompt";
+import GeniusSpinner from "../../../../../../common/spinner/spinner";
 
 class EditCollection extends Component {
 
@@ -28,9 +30,17 @@ class EditCollection extends Component {
            if(!err) {
                Meteor.subscribe('product.admin', productId);
                this.props.closeModal();
+               createPrompt('success', 'zmieniono');
            } else {
                console.error(err);
-               window.alert(err.error);
+               switch(err.error) {
+                   case 'notPermission':
+                       return createPrompt('error', 'brak uprawnień');
+                   case 'updateProductFailed':
+                       return createPrompt('error', 'problem z edycją kolekcji');
+                   default:
+                       return createPrompt('error', 'ups... wystąpił problem');
+               }
            }
         });
     }
@@ -40,6 +50,7 @@ class EditCollection extends Component {
     }
 
     render() {
+        if(!this.props.handleReady) return <GeniusSpinner/>;
         return (
             <div className='edit-modal-wrap'>
                 <div className='modal-title'>edytuj kolekcje</div>

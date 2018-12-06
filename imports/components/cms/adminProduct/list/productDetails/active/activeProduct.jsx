@@ -3,6 +3,7 @@ import {Meteor} from 'meteor/meteor';
 import {Products} from '/lib/collections';
 import {withTracker} from 'meteor/react-meteor-data';
 import SwitchInput from "../../../../../../common/switchInput/switchInput";
+import createPrompt from "../../../../../../functions/createPrompt";
 
 class ActiveProduct extends Component {
 
@@ -47,9 +48,17 @@ class ActiveProduct extends Component {
             Meteor.call('editProductActiveStatus', productId, isActive, err => {
                 if(!err) {
                     this.props.closeModal();
+                    createPrompt('success', 'zmieniono');
                 } else {
                     console.error(err);
-                    alert(err.error);
+                    switch(err.error) {
+                        case 'notPermission':
+                            return createPrompt('error', 'brak uprawnień');
+                        case 'updateProductFailed':
+                            return createPrompt('error', 'problem z edycją');
+                        default:
+                            return createPrompt('error', 'ups... wystąpił problem');
+                    }
                 }
             })
         } else {
@@ -59,9 +68,17 @@ class ActiveProduct extends Component {
                 Meteor.call('editProductActiveStatus', productId, isActive, err => {
                     if(!err) {
                         this.props.closeModal();
+                        createPrompt('success', 'zmieniono');
                     } else {
                         console.error(err);
-                        alert(err.error);
+                        switch(err.error) {
+                            case 'notPermission':
+                                return createPrompt('error', 'brak uprawnień');
+                            case 'updateProductFailed':
+                                return createPrompt('error', 'problem z edycją');
+                            default:
+                                return createPrompt('error', 'ups... wystąpił problem');
+                        }
                     }
                 })
             }

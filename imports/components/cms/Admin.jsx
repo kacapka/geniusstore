@@ -15,6 +15,7 @@ class Admin extends Component {
                     <div id='adminContent'>
                         {this.props.content}
                     </div>
+                    <div id='prompt' />
                 </div>
             );
         } else {

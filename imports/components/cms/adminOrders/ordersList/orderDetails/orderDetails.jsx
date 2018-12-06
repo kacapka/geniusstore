@@ -7,6 +7,8 @@ import OrderProducts from "./renderProducts";
 import OrderAddress from "./renderAddress";
 import OrderUserData from "./renderUserData";
 import OrderSummary from "./renderSummary";
+import createPrompt from "../../../../../functions/createPrompt";
+import GeniusSpinner from "../../../../../common/spinner/spinner";
 
 class OrderDetails extends Component {
 
@@ -17,16 +19,34 @@ class OrderDetails extends Component {
 
     onConfirmDeliveryClick() {
         const orderId = this.props.order._id;
-        console.log(orderId);
+        Meteor.call('sendDeliveryEmail', orderId, err => {
+            if(!err) {
+                createPrompt('success', 'wysłano potwierdzenie');
+            } else {
+                console.error(err);
+                switch(err.error) {
+                    case 'notPermission':
+                        return createPrompt('error', 'brak uprawnień');
+                    case 'orderNotFound':
+                        return createPrompt('error', 'nie znalezniono zamówienia');
+                    case 'updateDeliveryStatusFailed':
+                        return createPrompt('error', 'problem ze zmianą statusu wysyłki');
+                    default:
+                        return createPrompt('error', 'ups... wystąpił problem');
+                }
+            }
+        })
     }
 
     render() {
-        if(!this.props.handleReady) return <div>loading</div>;
-        const {notes, deliveryStatus, products, address, user} = this.props.order;
+        console.log(this.props);
+        if(!this.props.handleReady) return <GeniusSpinner/>;
+        if(!this.props.order) return <div>nie znaleziono zamówienia</div>;
+        const {notes, deliveryStatus, products, address, user, orderNumber} = this.props.order;
         return (
             <div id='orderDetails'>
                 <div className='order-bar'>
-                    <div className='bar-title'>Zamowienie nr: 1</div>
+                    <div className='bar-title'>Zamowienie nr: {orderNumber}</div>
                     <div className='bar-actions'>
                         {deliveryStatus !== 'completed' &&
                             <div className='btn-delivery'

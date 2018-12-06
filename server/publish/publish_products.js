@@ -59,10 +59,9 @@ Meteor.publish('products.modal.admin', function() {
 Meteor.publish('product.admin', function(id) {
     const product = Products.findOne({_id: id});
 
-    const collectionId = product.collectionId || '';
-    const featuresIds = product.featuresIds || [];
-
-    const common = product.common || [];
+    const collectionId = product ? product.collectionId : '';
+    const featuresIds = product ? product.featuresIds : [];
+    const common = product ? product.common : [];
     let productsIds = [];
     for(let c of common) {
         productsIds.push(c);

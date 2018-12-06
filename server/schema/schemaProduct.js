@@ -2,6 +2,8 @@ import {Meteor} from 'meteor/meteor';
 import {Products, Features, Collections} from '/lib/collections';
 import {validateKeys} from './validation';
 
+const SIZES = ['unisex', 'S', 'M', 'L', 'XL'];
+
 export default class SchemaProduct {
 
     constructor(product) {
@@ -26,32 +28,35 @@ export default class SchemaProduct {
     }
 
     validateMainPhoto(photo) {
-        return typeof photo === 'string' && photo.length > 0;
+        return typeof photo === 'string';
     }
 
     validatePhotos(photos) {
-        return photos.length > 0;
+        return !photos.length || photos.some(p => typeof p === 'string');
     }
 
     validateSizes(sizes) {
-        return sizes.length > 0;
+        const validSize = sizes.every(size => {
+            const validName = SIZES.indexOf(size.name) !== -1;
+            const validValue = typeof size.value === 'number' || size.value === null;
+            const validActive = typeof size.active === 'boolean';
+            return validName && validValue && validActive;
+        });
+
+        return !sizes.length || validSize;
     }
 
     validateFeatures(features) {
-        if(features.length === 0) return true;
-        return features.map(featureId => {
-            return !!Features.findOne({_id: featureId});
-        })
+        const validFeatures = features.every(f => !!Features.findOne({_id: f}))
+        return !features.length || validFeatures;
     }
 
     validateCollection(collectionId) {
-        console.error(collectionId);
-        if(!collectionId) return true;
         return !!Collections.findOne({_id: collectionId});
     }
 
     validatePrice(price) {
-        return price > 0 && typeof price === 'number';
+        return typeof price === 'number';
     }
 
     validateGender(gender) {
@@ -62,7 +67,7 @@ export default class SchemaProduct {
     }
 
     validateText(text) {
-        return text.length > 2 && typeof text === 'string';
+        return typeof text === 'string';
     }
 
     validateBool(bool) {

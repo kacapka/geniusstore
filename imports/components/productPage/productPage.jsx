@@ -9,6 +9,9 @@ import {compose} from 'redux';
 import {connect} from 'react-redux';
 import uniqid from 'uniqid';
 import {FlowRouter} from 'meteor/kadira:flow-router';
+import RenderCommonProducts from "./rednerCommonProducts";
+import GeniusSpinner from "../../common/spinner/spinner";
+import NotFoundText from "../../common/notFound/notFound";
 
 class Product extends Component {
 
@@ -21,6 +24,7 @@ class Product extends Component {
         };
         this.selectNewValue = this.selectNewValue.bind(this);
         this.onAddToCartBtnClick = this.onAddToCartBtnClick.bind(this);
+        this.onCommonPhotoClick = this.onCommonPhotoClick.bind(this);
     }
 
     onThumbnailPhotoClick(photo) {
@@ -64,8 +68,9 @@ class Product extends Component {
 
     render() {
         const {product, handleReady} = this.props;
+        if(!handleReady) return <GeniusSpinner client />;
+        if(!product) return <NotFoundText>nie znaleziono produktu</NotFoundText>;
         const mainPhoto = this.state.mainPhoto;
-        if(!handleReady) return <div>loading...</div>;
         const photo = mainPhoto ? mainPhoto : product.mainPhoto;
         const photos = [...product.photos, product.mainPhoto];
 
@@ -88,21 +93,9 @@ class Product extends Component {
                                 })}
                             </div>
                         </div>
-                        {product._common.length > 0 &&
-                            <div id='commonPhotosWrap'>
-                                <div id='commonTitle'>Dostepne kolory</div>
-                                <div id='commonPhotos'>
-                                    {product._common.map(product => {
-                                        return (
-                                            <div className='thumbnail-wrap' key={product._id}
-                                                 onClick={() => this.onCommonPhotoClick(product._id)}
-                                            >
-                                                <img src={product.mainPhoto} className='photo-thumbnail' />
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-                            </div>
+                        {product._common.length > 0
+                            && window.matchMedia('(min-width: 768px)').matches
+                            && <RenderCommonProducts products={product._common} onThumbnailClick={this.onCommonPhotoClick} />
                         }
                     </div>
                     <div id='productAreaDetails'>
@@ -132,6 +125,10 @@ class Product extends Component {
                                 do koszyka
                             </div>
                         </div>
+                        {product._common.length > 0
+                            && window.matchMedia('(max-width: 767px)').matches
+                            && <RenderCommonProducts products={product._common} onThumbnailClick={this.onCommonPhotoClick} />
+                        }
                         <div id='detailsDescription'>
                             <div className='desc-title'>Opis</div>
                             <p id='descriptionProduct'>{product.description}</p>

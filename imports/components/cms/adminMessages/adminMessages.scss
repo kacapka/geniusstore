@@ -10,9 +10,6 @@
     @extend %cms-box;
     @extend %cms-list;
     .message-box {
-      &:nth-child(odd) {
-        background-color: #dff9fb;
-      }
       .message-item {
         @extend %text-medium;
         @extend %cms-list-item;
@@ -25,7 +22,7 @@
         .message-remove {
           flex: 0 0 50px;
           ion-icon {
-            font-size: 18px;
+            font-size: 14px;
             &:hover {
               cursor: pointer;
               color: $red;
@@ -35,25 +32,23 @@
         &.message--unread {
           font-weight: 800;
         }
+        &:nth-child(odd) {
+          background-color: #fff;
+        }
       }
       .message-full-text {
-          height: 0;
-          overflow: hidden;
-        &.message--open {
-          height: auto;
           padding: 40px 20px;
           border-bottom: 1px solid $grey;
           border-left: 1px solid $grey;
-        }
       }
     }
     .message-item{
       @extend %cms-list-item;
-      &.message-header {
-        @extend %cms-list-header;
-        .message-photo {
-          flex: 0 0 70px;
-        }
+    }
+    .message-header {
+      @extend %cms-list-header;
+      .message-photo {
+        flex: 0 0 70px;
       }
     }
   }

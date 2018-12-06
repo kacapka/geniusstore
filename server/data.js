@@ -68,7 +68,17 @@ const resetSettings = callback => {
         userId: userId._id
     };
 
+    const settingsOrderCount = {
+        label: 'orderCount',
+        value: 100
+    };
+
     Settings.insert(settingsAdmin, err => {
+        if(!err) {
+            callback(null);
+        }
+    });
+    Settings.insert(settingsOrderCount, err => {
         if(!err) {
             callback(null);
         }
@@ -158,67 +168,66 @@ const resetProducts = callback => {
         {name: 'L', value: 1, active: true},
         {name: 'XL', value: 5, active: true}
     ];
+    const root_link ='https://s3.eu-west-2.amazonaws.com/madeingenius/devProducts/';
+    const man1 = ['man1_2.jpg', 'man1_3.jpg'];
+    const man2 = ['man2_2.jpg', 'man2_3.jpg', 'man2_4.jpg'];
+    const man3 = ['man3_2.jpg', 'man3_3.jpg', 'man3_4.jpg'];
+    const man4 = ['man4_2.jpg', 'man4_3.jpg', 'man4_4.jpg'];
+
+    const woman1 = ['woman1_2.jpg', 'woman1_3.jpg'];
+    const woman2 = ['woman2_2.jpg', 'woman2_3.jpg', 'woman2_4.jpg'];
+    const woman3 = ['woman3_2.jpg', 'woman3_3.jpg', 'woman3_4.jpg'];
+    const woman4 = ['woman4_2.jpg', 'woman4_3.jpg', 'woman4_4.jpg'];
 
     const products = [
         {
-            mainPhoto: 'https://s3.eu-west-2.amazonaws.com/madeingenius/man1.jpg',
-            photos: ['https://s3.eu-west-2.amazonaws.com/madeingenius/man1.jpg', 'https://s3.eu-west-2.amazonaws.com/madeingenius/man2.jpeg', 'https://s3.eu-west-2.amazonaws.com/madeingenius/man3.jpg'],
+            mainPhoto: root_link + 'man1_1.jpg',
+            photos: man1.map(p => root_link + p),
             name: 'tank top original',
             description: LOREM,
-            price: 69,
+            price: 59,
             isNew: false,
             isSale: false,
             isActive: true,
             gender: 'man'
         },
         {
-            mainPhoto: 'https://s3.eu-west-2.amazonaws.com/madeingenius/woman6.jpg',
-            photos: ['https://s3.eu-west-2.amazonaws.com/madeingenius/woman8.jpg', 'https://s3.eu-west-2.amazonaws.com/madeingenius/woman6.jpg', 'https://s3.eu-west-2.amazonaws.com/madeingenius/woman7.jpeg'],
-            name: 'tank top original',
+            mainPhoto: root_link + 'woman4_1.jpg',
+            photos: woman4.map(p => root_link + p),
+            name: 'black top',
             description: LOREM,
-            price: 69,
+            price: 59,
             isNew: false,
             isSale: false,
             isActive: true,
-            gender: 'woman',
+            gender: 'woman'
         },
         {
-            mainPhoto: 'https://s3.eu-west-2.amazonaws.com/madeingenius/man6.jpeg',
-            photos: ['https://s3.eu-west-2.amazonaws.com/madeingenius/man2.jpeg', 'https://s3.eu-west-2.amazonaws.com/madeingenius/man1.jpg', 'https://s3.eu-west-2.amazonaws.com/madeingenius/man6.jpeg'],
-            name: 'tank top original',
+            mainPhoto: root_link + 'man2_1.jpg',
+            photos: man2.map(p => root_link + p),
+            name: 'genius t-shirt',
             description: LOREM,
-            price: 69,
+            price: 74,
             isNew: false,
             isSale: false,
             isActive: true,
-            gender: 'man'
+            gender: 'man',
         },
         {
-            mainPhoto: 'https://s3.eu-west-2.amazonaws.com/madeingenius/man1.jpg',
-            photos: ['https://s3.eu-west-2.amazonaws.com/madeingenius/man3.jpg', 'https://s3.eu-west-2.amazonaws.com/madeingenius/man6.jpeg', 'https://s3.eu-west-2.amazonaws.com/madeingenius/man1.jpg'],
-            name: 'tank top original',
+            mainPhoto: root_link + 'man3_1.jpg',
+            photos: man3.map(p => root_link + p),
+            name: 'summer top',
             description: LOREM,
-            price: 69,
-            isNew: false,
-            isSale: false,
-            isActive: true,
-            gender: 'man'
-        },
-        {
-            mainPhoto: 'https://s3.eu-west-2.amazonaws.com/madeingenius/man4.jpg',
-            photos: ['https://s3.eu-west-2.amazonaws.com/madeingenius/man2.jpeg', 'https://s3.eu-west-2.amazonaws.com/madeingenius/man4.jpg', 'https://s3.eu-west-2.amazonaws.com/madeingenius/man6.jpeg'],
-            name: 'tank top original',
-            description: LOREM,
-            price: 69,
+            price: 99,
             isNew: false,
             isSale: false,
             isActive: true,
             gender: 'man'
         },
         {
-            mainPhoto: 'https://s3.eu-west-2.amazonaws.com/madeingenius/man1.jpg',
-            photos: ['https://s3.eu-west-2.amazonaws.com/madeingenius/woman3.jpeg', 'https://s3.eu-west-2.amazonaws.com/madeingenius/woman7.jpeg', 'https://s3.eu-west-2.amazonaws.com/madeingenius/woman1.jpeg'],
-            name: 'tank top original',
+            mainPhoto: root_link + 'woman3_1.jpg',
+            photos: woman3.map(p => root_link + p),
+            name: 'koszulka',
             description: LOREM,
             price: 69,
             isNew: false,
@@ -227,11 +236,33 @@ const resetProducts = callback => {
             gender: 'woman'
         },
         {
-            mainPhoto: 'https://s3.eu-west-2.amazonaws.com/madeingenius/woman1.jpeg',
-            photos: ['https://s3.eu-west-2.amazonaws.com/madeingenius/woman1.jpeg', 'https://s3.eu-west-2.amazonaws.com/madeingenius/woman3.jpeg', 'https://s3.eu-west-2.amazonaws.com/madeingenius/woman7.jpeg'],
-            name: 'tank top original',
+            mainPhoto: root_link + 'man4_1.jpg',
+            photos: man4.map(p => root_link + p),
+            name: 'basic style',
             description: LOREM,
             price: 69,
+            isNew: false,
+            isSale: false,
+            isActive: true,
+            gender: 'man'
+        },
+        {
+            mainPhoto: root_link + 'woman1_1.jpg',
+            photos: woman1.map(p => root_link + p),
+            name: 'woman top',
+            description: LOREM,
+            price: 45,
+            isNew: false,
+            isSale: false,
+            isActive: true,
+            gender: 'woman'
+        },
+        {
+            mainPhoto: root_link + 'woman2_1.jpg',
+            photos: woman2.map(p => root_link + p),
+            name: 'basic t-shirt',
+            description: LOREM,
+            price: 119,
             isNew: false,
             isSale: false,
             isActive: true,
