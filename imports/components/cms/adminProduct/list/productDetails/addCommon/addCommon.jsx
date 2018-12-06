@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {Meteor} from 'meteor/meteor';
 import {Products} from '/lib/collections';
 import {withTracker} from 'meteor/react-meteor-data';
+import createPrompt from "../../../../../../functions/createPrompt";
+import GeniusSpinner from "../../../../../../common/spinner/spinner";
 
 class AddCommon extends Component {
 
@@ -26,9 +28,17 @@ class AddCommon extends Component {
                 if(!err) {
                     Meteor.subscribe('product.admin', productId);
                     this.props.closeModal();
+                    createPrompt('success', 'powiązano produkt');
                 } else {
                     console.error(err);
-                    window.alert(err.error);
+                    switch(err.error) {
+                        case 'notPermission':
+                            return createPrompt('error', 'brak uprawnień');
+                        case 'addCommonProductFailed':
+                            return createPrompt('error', 'problem z powiązaniem produktu');
+                        default:
+                            return createPrompt('error', 'ups... wystąpił problem');
+                    }
                 }
             });
         }
@@ -43,6 +53,7 @@ class AddCommon extends Component {
     }
 
     renderProducts() {
+        if(!this.props.products.length) return <div>brak produktów</div>;
         return this.props.products.map(product => {
             const wrapClassName = product._id === this.state.selectedId ? 'product-wrap active' : 'product-wrap';
             return (
@@ -58,7 +69,7 @@ class AddCommon extends Component {
     }
 
     render() {
-        if(!this.props.handleReady) return <div>loading...</div>;
+        if(!this.props.handleReady) return <GeniusSpinner />;
         return (
             <div className='edit-modal-wrap'>
                 <div className='modal-title'>wybierz produkt powiazany kolorem</div>

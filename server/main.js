@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 
 //methods
 import './methods/Products/insertProduct';
+import './methods/Products/copyProduct';
 import './methods/Products/editProductName';
 import './methods/Products/editProductCollection';
 import './methods/Products/editProductPrice';
@@ -18,12 +19,14 @@ import './methods/Products/productFeature/deleteProductFeature';
 import './methods/Products/productFeature/addProductFeature';
 import './methods/Products/productCommon/deleteCommonProduct';
 import './methods/Products/productCommon/addCommonProduct';
+import './methods/Products/updateProductSizeValue';
 import './methods/Products/deleteProduct';
 import './methods/Products/updateSaleProduct';
 import './methods/Products/addNewEmptyProduct';
 import './methods/PromoCodes/insertPromoCode';
 import './methods/PromoCodes/deletePromoCode';
 import './methods/PromoCodes/verifyPromoCode';
+import './methods/PromoCodes/addUsePromoCode';
 import './methods/Orders/insertOrder';
 import './methods/Orders/deleteOrder';
 

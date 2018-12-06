@@ -1,0 +1,54 @@
+@import "./fonts";
+@import "./vars";
+
+%prompt {
+  width: 350px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 20px;
+  z-index: 999999999999999;
+  .prompt-inner {
+    @extend %text-medium;
+    border: 1px solid #000;
+    background-color: #fff;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    margin-top: 20px;
+    text-align: center;
+    opacity: 1;
+    transition: .4s;
+    padding: 20px;
+    font-size: 40px;
+    p {
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    &.closed {
+      opacity: 0;
+    }
+    &.error {
+      .prompt-icon {
+        color: $red;
+      }
+    }
+    &.success {
+      .prompt-icon {
+        color: $green;
+      }
+    }
+    &.warning {
+      .prompt-icon {
+        color: $yellow;
+      }
+    }
+
+  }
+}

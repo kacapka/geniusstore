@@ -12,7 +12,7 @@ const OrderSummary = ({order: {deliveryType, promoCode, timestamp, status, deliv
             </div>
             <div className='info-item-wrap'>
                 <div className='info-label'>Kod promocyjny</div>
-                <div className='info-value'>{promoCode || 'brak'}</div>
+                <div className='info-value'>{promoCode ? `${promoCode.name} (${promoCode.value} ${promoCode.type})` : 'brak'}</div>
             </div>
             <div className='info-item-wrap'>
                 <div className='info-label'>Data zamowienia</div>

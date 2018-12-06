@@ -7,7 +7,7 @@ import storage from 'redux-persist/lib/storage';
 const inputsPersistConfig = {
     storage,
     key: 'inputs',
-    blacklist: ['terms', 'rodo', 'notes']
+    blacklist: ['notes']
 };
 
 const initialInputs = {
@@ -18,9 +18,7 @@ const initialInputs = {
     town: '',
     mail: '',
     phone: '',
-    notes: '',
-    terms: false,
-    rodo: false
+    notes: ''
 };
 
 const inputs = (state = initialInputs, action) => {
@@ -45,9 +43,7 @@ const initialErrors = {
     townErr: '',
     mailErr: '',
     phoneErr: '',
-    deliveryErr: '',
-    termsErr: '',
-    rodoErr: ''
+    deliveryErr: ''
 };
 
 const errors = (state = initialErrors, action) => {
@@ -58,13 +54,18 @@ const errors = (state = initialErrors, action) => {
                 ...state,
                 [action.name]: action.value
             };
+        case types.RESET_DELIVERY:
+            return {
+                ...state,
+                deliveryErr: ''
+            };
         default:
             return state;
     }
 
 };
 
-const initialDelivery =  deliveryTypes;
+const initialDelivery = deliveryTypes;
 
 const delivery = (state = initialDelivery, action) => {
 

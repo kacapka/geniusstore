@@ -8,6 +8,7 @@ Meteor.methods({
     sendOrderEmail(orderId) {
         const order = Orders.findOne({_id: orderId});
         if(order) {
+            const pC = order.promoCode;
             const emailData = {
                 address: order.address,
                 user: order.user.name + ' ' + order.user.surname,
@@ -16,7 +17,7 @@ Meteor.methods({
                 orderNumber: order.orderNumber,
                 delivery: order.deliveryType === 'personal' ? 'odbiór osobisty' : order.deliveryType,
                 deliveryPrice: deliveryTypes.find(del => del.name === order.deliveryType).price,
-                promoCode: order.promoCode
+                promoCode: pC || `${pC.name} (${pC.value} ${pC.type})`
             };
             for(let p of emailData.products) {
                 const product = Products.findOne({_id: p.productId});

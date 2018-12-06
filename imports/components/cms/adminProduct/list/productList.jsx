@@ -4,6 +4,7 @@ import {Products, Collections} from "../../../../../lib/collections";
 import {Meteor} from 'meteor/meteor';
 import {withTracker} from 'meteor/react-meteor-data';
 import {FlowRouter} from 'meteor/kadira:flow-router';
+import GeniusSpinner from "../../../../common/spinner/spinner";
 
 class ProductList extends Component {
 
@@ -12,6 +13,7 @@ class ProductList extends Component {
     }
 
     renderProducts() {
+        if(!this.props.products.length) return <div>brak dodanych produktów</div>;
         return this.props.products.map(product => {
             const eyeColor = product.isActive ? 'active' : 'no-active';
             return (
@@ -45,7 +47,7 @@ class ProductList extends Component {
     }
 
     render() {
-        if(!this.props.handleReady) return <div>...loading</div>;
+        if(!this.props.handleReady) return <GeniusSpinner />;
         return (
             <div id='ProductList'>
                 <div id='productsList'>

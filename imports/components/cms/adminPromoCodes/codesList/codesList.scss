@@ -1,4 +1,6 @@
 @import '../../../../common/cms';
+@import '../../../../common/vars';
+@import '../../../../common/fonts';
 
 #codesList {
   @extend %cms-list;
@@ -19,5 +21,35 @@
   }
   .list-feature {
     flex: 1;
+  }
+  .uses-list {
+    padding: 30px 30px 20px 30px;
+    border-left: 1px solid $grey;
+    border-bottom: 1px solid $grey;
+    .uses-list-item {
+      display: flex;
+      justify-content: space-between;
+      @extend %text-small;
+      margin-bottom: 20px;
+      div {
+        flex:1;
+        display: flex;
+        justify-content: center;
+        &.lp {
+          flex: 0 0 50px;
+        }
+        &.link {
+          text-decoration: underline;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+      &.header {
+        @extend %text-medium;
+        font-weight: 800;
+        margin-bottom: 10px;
+      }
+    }
   }
 }

@@ -3,6 +3,8 @@ import './productCollections.scss';
 import {Collections} from "../../../../../lib/collections";
 import {withTracker} from 'meteor/react-meteor-data';
 import {Meteor} from 'meteor/meteor';
+import createPrompt from "../../../../functions/createPrompt";
+import GeniusSpinner from "../../../../common/spinner/spinner";
 
 class ProductCollections extends Component {
 
@@ -27,9 +29,19 @@ class ProductCollections extends Component {
         if(window.confirm('usuniecie kolekcji spowoduje usuniecie jej rowniez do przypisanych produktow, czy napewno chesz kontynuowac?')) {
             Meteor.call('deleteCollection', id, err => {
                 if(!err) {
-                    console.log('collection deleteed success');
+                    createPrompt('success', 'usunięto');
                 } else {
-                    alert('nie masz uprawnień so wykonania tej czynności');
+                    console.error(err);
+                    switch(err.error) {
+                        case 'notPermission':
+                            return createPrompt('error', 'brak uprawnień');
+                        case 'removeCollectionFailed':
+                            return createPrompt('error', 'problem z usunięciem');
+                        case 'deleteCollectionFromProductFailed':
+                            return createPrompt('error', 'problem z usunięciem kolekcji z produktu');
+                        default:
+                            return createPrompt('error', 'ups... wystąpił problem');
+                    }
                 }
             });
         }
@@ -38,18 +50,25 @@ class ProductCollections extends Component {
     submitAddCollection() {
         const name = this.state.addValue;
         if(name.length < 2) {
-            alert('nazwa kolekcji musi miec przynajmnije 2 litery');
-            return;
+            return createPrompt('warning', 'zbyt krótka nazwa kolekcji');
         }
         const newCollection = {
             name
         };
         Meteor.call('insertCollection', newCollection, err => {
             if(!err) {
-                console.log('collection insert success');
+                createPrompt('success', 'dodano');
                 this.setState({isForm: false, addValue: ''});
             } else {
-                alert(err.error);
+                console.error(err);
+                switch(err.error) {
+                    case 'notPermission':
+                        return createPrompt('error', 'brak uprawnień');
+                    case 'insertCollectionFailed':
+                        return createPrompt('error', 'problem z dodaniem');
+                    default:
+                        return createPrompt('error', 'ups... wystąpił problem');
+                }
             }
         });
     }
@@ -58,15 +77,22 @@ class ProductCollections extends Component {
         const name = this.state.editValue;
         const id = this.state.editId;
         if(name.length < 2) {
-            alert('nazwa kolekcji musi miec przynajmnije 2 litery');
-            return;
+            return createPrompt('warning', 'zbyt krótka nazwa kolekcji');
         };
         Meteor.call('editCollection', name, id, err => {
             if(!err) {
-                console.log('collection insert success');
+                createPrompt('success', 'zmieniono');
                 this.setState({isForm: false, editId: null});
             } else {
-                alert(err.error);
+                console.error(err);
+                switch(err.error) {
+                    case 'notPermission':
+                        return createPrompt('error', 'brak uprawnień');
+                    case 'updateCollectionFailed':
+                        return createPrompt('error', 'problem z edycją');
+                    default:
+                        return createPrompt('error', 'ups... wystąpił problem');
+                }
             }
         });
     }
@@ -103,6 +129,7 @@ class ProductCollections extends Component {
 
     renderCollections() {
         const collections = this.props.collections;
+        if(!collections.length) return <div>brak dodanych kolekcji</div>;
         return collections.map(col => {
             if(col.isDefault) return;
             return (
@@ -127,7 +154,7 @@ class ProductCollections extends Component {
                     <li className='collection-item-header'>
                         <div>Nazwa</div>
                     </li>
-                    {this.props.handleReady && this.renderCollections()}
+                    {this.props.handleReady ? this.renderCollections() : <GeniusSpinner/>}
                 </ul>
                 <div id='collectionEdit'>
                     {(()=> {

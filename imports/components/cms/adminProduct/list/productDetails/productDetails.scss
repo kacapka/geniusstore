@@ -46,6 +46,11 @@
           @extend %btn--red;
           margin-left: 30px;
         }
+        #barCopyBtn {
+          @extend %btn;
+          @extend %btn--black;
+          margin-left: 30px;
+        }
       }
     }
     #productDetailsContent {

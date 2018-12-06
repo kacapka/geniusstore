@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './productCreate.scss';
+import createPrompt from "../../../../functions/createPrompt";
 
 class ProductCreate extends Component {
 
@@ -20,13 +21,26 @@ class ProductCreate extends Component {
 
     onSubmitNameBtnClick() {
         const name = this.state.name;
-        Meteor.call('addNewEmptyProduct', name, err => {
-            if(!err) {
-                this.props.closeModal();
-            } else {
-                window.alert(err.error);
-            }
-        });
+        if(name.length < 2) {
+            return createPrompt('warning', 'zbyt krótka nazwa produktu');
+        } else {
+            Meteor.call('addNewEmptyProduct', name, err => {
+                if(!err) {
+                    this.props.closeModal();
+                    createPrompt('success', 'dodano produkt');
+                } else {
+                    console.error(err);
+                    switch(err.error) {
+                        case 'notPermission':
+                            return createPrompt('error', 'brak uprawnień');
+                        case 'productAddFailed':
+                            return createPrompt('error', 'problem z dodaniem');
+                        default:
+                            return createPrompt('error', 'ups... wystąpił problem');
+                    }
+                }
+            });
+        }
     }
 
     onCancelNameBtnClick() {

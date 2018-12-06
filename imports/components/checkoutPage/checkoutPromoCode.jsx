@@ -1,4 +1,5 @@
 import React, {Component, Fragment} from 'react';
+import {Meteor} from 'meteor/meteor';
 
 class CheckoutPromoCode extends Component {
 

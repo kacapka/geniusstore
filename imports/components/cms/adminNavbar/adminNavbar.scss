@@ -65,6 +65,13 @@
           color: #fff;
         }
       }
+      &.active {
+        background-color: $admin;
+        color: #fff;
+        ion-icon {
+          color: #fff;
+        }
+      }
     }
   }
 }

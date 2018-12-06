@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import createPrompt from "../../../../../../functions/createPrompt";
 
 class AddPhoto extends Component {
 
@@ -22,21 +23,39 @@ class AddPhoto extends Component {
         const photo = this.state.photo;
         if(action === 'photos') {
             const exists = this.props.photos.some(ph => ph === photo);
-            if(exists) return window.alert('zdjecie jest juz przypisane do tego produktu');
+            if(exists) return createPrompt('warning', 'nie można przypisać tego samoeg zdjęcia ponownie');
 
             Meteor.call('addProductPhoto', productId, photo, err => {
                 if(!err) {
                     this.props.closeModal();
+                    createPrompt('success', 'dodano');
                 } else {
-                    window.alert(err.error);
+                    console.error(err);
+                    switch(err.error) {
+                        case 'notPermission':
+                            return createPrompt('error', 'brak uprawnień');
+                        case 'updateProductFailed':
+                            return createPrompt('error', 'problem z dodaniem zdjęcia');
+                        default:
+                            return createPrompt('error', 'ups... wystąpił problem');
+                    }
                 }
             });
         } else if(action === 'main') {
             Meteor.call('addProductMainPhoto', productId, photo, err => {
                 if(!err) {
                     this.props.closeModal();
+                    createPrompt('success', 'dodano');
                 } else {
-                    window.alert(err.error);
+                    console.error(err);
+                    switch(err.error) {
+                        case 'notPermission':
+                            return createPrompt('error', 'brak uprawnień');
+                        case 'updateProductFailed':
+                            return createPrompt('error', 'problem z dodaniem głównego zdjęcia');
+                        default:
+                            return createPrompt('error', 'ups... wystąpił problem');
+                    }
                 }
             });
         }

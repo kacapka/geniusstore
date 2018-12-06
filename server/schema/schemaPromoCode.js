@@ -13,7 +13,8 @@ export default class SchemaPromoCode {
             type: this.validateType(code.type),
             value: this.validateValue(code.value),
             singleUse: this.validateSingleUse(code.singleUse),
-            exp: validateDate(code.exp)
+            exp: validateDate(code.exp),
+            uses: true
         }
     }
 

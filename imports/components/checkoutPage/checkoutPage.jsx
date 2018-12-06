@@ -17,6 +17,11 @@ class CheckoutPage extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            terms: false,
+            rodo: false,
+            termsErr: false
+        };
         this.onInputChange = this.onInputChange.bind(this);
         this.onCheckboxClick = this.onCheckboxClick.bind(this);
         this.onSubmitCheckoutBtnClick = this.onSubmitCheckoutBtnClick.bind(this);
@@ -25,8 +30,7 @@ class CheckoutPage extends Component {
     }
 
     onCheckboxClick(value, name) {
-        this.props.setInputValue(name, value);
-        this.props.setInputError(`${name}Err`, '');
+        this.setState({[name]: value, termsErr: ''});
     }
 
     onDeliveryCheckboxClick(value, name, options) {
@@ -66,7 +70,7 @@ class CheckoutPage extends Component {
                     email: inputs.mail,
                     phone: inputs.phone
                 },
-                promoCode: promoCode ? `${promoCode.name} (${promoCode.value} ${promoCode.type})` : promoCode,
+                promoCode: promoCode,
                 notes: inputs.notes,
                 status: 'pending',
                 deliveryStatus: 'pending'
@@ -79,7 +83,7 @@ class CheckoutPage extends Component {
                 } else {
                     alert(err.error);
                 }
-            })
+            });
         }
     }
 
@@ -97,7 +101,8 @@ class CheckoutPage extends Component {
 
     validateForm() {
         let isValid = true;
-        const {name, surname, address, zipCode, town, mail, phone, terms, rodo} = this.props.checkout.inputs;
+        const {name, surname, address, zipCode, town, mail, phone} = this.props.checkout.inputs;
+        const {terms, rodo} = this.state;
         const strings = [
             {name: 'name', value: name},
             {name: 'surname', value: surname},
@@ -119,7 +124,7 @@ class CheckoutPage extends Component {
             isValid = false;
         }
         if(!terms || !rodo) {
-            this.props.setInputError('termsErr', 'pola wymagane');
+            this.setState({termsErr: 'pola wymagane'});
             isValid = false;
         }
         if(phone.length < 8) {
@@ -166,9 +171,10 @@ class CheckoutPage extends Component {
     }
 
     render() {
-        const {name, surname, address, zipCode, town, mail, phone, notes, terms, rodo} = this.props.checkout.inputs;
-        const {nameErr, surnameErr, addressErr, zipCodeErr, townErr, mailErr, phoneErr, deliveryErr, termsErr} = this.props.checkout.errors;
-        const promoCode = this.props.checkout.promoCode;
+        const {name, surname, address, zipCode, town, mail, phone, notes} = this.props.checkout.inputs;
+        const {nameErr, surnameErr, addressErr, zipCodeErr, townErr, mailErr, phoneErr, deliveryErr} = this.props.checkout.errors;
+        const promoCode = this.props.checkout.promoCode
+        const {rodo, terms, termsErr} = this.state;
 
         return (
             <div id='checkoutPage'>

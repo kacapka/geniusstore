@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import createPrompt from "../../../../../../functions/createPrompt";
 
 class EditName extends Component {
 
@@ -24,12 +25,21 @@ class EditName extends Component {
             Meteor.call('editProductName', productId, name, err => {
                 if(!err) {
                     this.props.closeModal();
+                    createPrompt('success', 'zmieniono');
                 } else {
-                    window.alert(err.error);
+                    console.error(err);
+                    switch(err.error) {
+                        case 'notPermission':
+                            return createPrompt('error', 'brak uprawnień');
+                        case 'updateProductFailed':
+                            return createPrompt('error', 'problem z edycją nazwy produktu');
+                        default:
+                            return createPrompt('error', 'ups... wystąpił problem');
+                    }
                 }
             });
         } else {
-            alert('zbyt krotka naza produkt');
+            createPrompt('warning', 'zbyt krótka nazwa');
         }
     }
 

@@ -6,6 +6,8 @@ import {Products} from "../../../../../lib/collections";
 import Modal from "../../../../common/modal/modal";
 import SwitchInput from "../../../../common/switchInput/switchInput";
 import getSalePrice from '../../../../functions/getSalePrice';
+import createPrompt from "../../../../functions/createPrompt";
+import GeniusSpinner from "../../../../common/spinner/spinner";
 
 class ProductSales extends Component {
 
@@ -50,7 +52,7 @@ class ProductSales extends Component {
         const {modalProduct, inputModal, switchModal} = this.state;
 
         if(inputModal < 5) {
-            return window.alert('promocja musi byc conajmniej 5 %');
+            return createPrompt('warning', 'promocja musi mieć co najmniej 5%');
         }
 
         const sales = {
@@ -62,19 +64,26 @@ class ProductSales extends Component {
         Meteor.call('updateSaleProduct', modalProduct._id, sales, err => {
             if(!err) {
                 this.setState({isModal: false});
-                console.log('sale added');
+                createPrompt('success', 'zmieniono');
             } else {
-                alert(err.error);
+                console.error(err);
+                switch(err.error) {
+                    case 'notPermission':
+                        return createPrompt('error', 'brak uprawnień');
+                    case 'updateSaleFailed':
+                        return createPrompt('error', 'problem z edycją');
+                    default:
+                        return createPrompt('error', 'ups... wystąpił problem');
+                }
             }
         });
     }
 
     renderProducts() {
         const products = this.props.products;
-        if(products.length === 0) return <div>nie posiadasz produktów w promocji</div>;
+        if(!products.length) return <div>nie posiadasz produktów w promocji</div>;
         return products.map(product => {
             const {salePercentage, isActive, salePrice} = product.sales;
-            console.log(product.sales);
             const eyeColor = isActive ? 'active' : 'no-active';
             return (
                 <div className='product-item' key={product._id}>
@@ -98,7 +107,7 @@ class ProductSales extends Component {
     }
 
     render() {
-        if(!this.props.handleReady) return <div>loading...</div>;
+        if(!this.props.handleReady) return <GeniusSpinner/>;
         const {modalProduct, inputModal, switchModal} = this.state;
         return (
             <div id='productSales'>
