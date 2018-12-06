@@ -9,10 +9,12 @@ import GeniusSpinner from "../../common/spinner/spinner";
 class MainPage extends Component {
 
     onProductClick(id) {
+        window.scrollTo(0,0);
         FlowRouter.go(`/${id}`);
     }
 
     onCollectionNameClick(id) {
+        window.scrollTo(0,0);
         FlowRouter.go(`/collection/${id}`);
     }
     
@@ -25,7 +27,7 @@ class MainPage extends Component {
                    <div className='product-img-wrapper'
                         onClick={() => this.onProductClick(product._id)}
                    >
-                       <img src={product.mainPhoto} className='product-img' />
+                       <img src={product.mainPhoto} className='product-img' alt='product' />
                        {product.isNew && !product.sales.isActive &&
                             <div className='sale-label new-label'>NEW</div>
                        }

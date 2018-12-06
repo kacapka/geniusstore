@@ -253,6 +253,14 @@
       }
       #productAreaDetails {
         flex: 1;
+        #detailsTitle {
+          #title-price {
+            font-size: 30px;
+          }
+          #title-name {
+            margin: 5px 0 10px 0;
+          }
+        }
         #detailsCart {
           flex-direction: column-reverse;
           .cart-select-size {
@@ -270,3 +278,4 @@
   }
 
 }
+

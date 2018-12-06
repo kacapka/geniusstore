@@ -8,6 +8,7 @@ import CartPage from '../components/cartPage/cartPage';
 import './routesCms';
 import MainPageCollection from "../components/mainPage/mainPageCollection";
 import CheckoutPage from "../components/checkoutPage/checkoutPage";
+import TermsPage from "../components/termsPage/termsPage";
 
 FlowRouter.route('/', {
     action() {
@@ -76,6 +77,15 @@ FlowRouter.route('/collection/:collectionId', {
     }
 });
 
+//terms
+FlowRouter.route('/terms', {
+    action() {
+        mount(App, {
+            content: <TermsPage />
+        });
+    }
+});
+
 //product page
 FlowRouter.route('/:productId', {
     action(params) {
@@ -84,5 +94,6 @@ FlowRouter.route('/:productId', {
         });
     }
 });
+
 
 

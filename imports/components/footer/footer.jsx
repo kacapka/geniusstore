@@ -16,12 +16,12 @@ class Footer extends Component {
                     </ul>
                     <div id='footerInsta'>
                         <ion-icon name="logo-instagram" id='instaIcon' />
-                        <div id='instaName'>#geniusstore</div>
+                        <div id='instaName'>#madeingenius</div>
                     </div>
                 </div>
                 <FooterForm />
                 <div id='footerCopyrights'>
-                    <div id='copyrightsStore'>all rights reserved | geniusstore 2018</div>
+                    <div id='copyrightsStore'>all rights reserved | madeingenius 2018</div>
                     <div id='copyrightsDev'>created by <a href='https://kacapka.github.io/portfolio/' target='_blank'>kacapka</a></div>
                 </div>
             </div>
