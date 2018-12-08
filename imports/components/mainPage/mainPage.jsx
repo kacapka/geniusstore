@@ -57,7 +57,7 @@ class MainPage extends Component {
         return (
             <div id='mainPage'>
                 <div id='productsAll'>
-                    {this.props.handleReady ? this.renderProducts() : <div>loading....</div>}
+                    {this.renderProducts()}
                 </div>
             </div>
         );

@@ -26,14 +26,18 @@
         bottom: 70%;
         left: 70%;
         border-radius: 50%;
-        width: 16px;
-        height: 16px;
+        width: 24px;
+        height: 24px;
         background-color: $mint;
         display: flex;
         justify-content: center;
         align-items: center;
         @extend %text-small;
         color: #fff;
+      }
+      &.back-icon {
+        font-size: 34px;
+        color: $mint;
       }
     }
   }
@@ -107,6 +111,15 @@
     #navCart {
       #cartWrapper {
         right: 15px;
+        #cartItems {
+          bottom: 65%;
+          left: 65%;
+          width: 20px;
+          height: 20px;
+        }
+        &.back-icon {
+          font-size: 26px;
+        }
       }
     }
     #navRoutes {
@@ -140,8 +153,8 @@
     }
     #navCart {
       #cartWrapper {
-        right: 15px;
-        top: 15px;
+        right: 20px;
+        top: 17px;
         width: 25px;
       }
     }

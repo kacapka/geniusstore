@@ -15,12 +15,28 @@
       margin-bottom: 50px;
       display: flex;
       flex-direction: column;
-      .term-desc {
-        @extend %text-medium;
+      .term-item-desc {
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 20px;
+        .term-desc-title {
+          display: flex;
+          font-weight: 800;
+          margin-bottom: 10px;
+          .title-num {
+            flex: 0 0 30px;
+          }
+          .title-text {
+            flex: 1;
+          }
+        }
+        .term-desc-text {
+          margin-left: 30px;
+        }
       }
       .term-title {
         @extend %heading-medium;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
       }
     }
   }
@@ -34,7 +50,69 @@
       ion-icon {
         font-size: 50px;
         color: $grey;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      &.active {
+        ion-icon {
+          color: $mint;
+        }
       }
     }
   }
+}
+
+@media all and (max-width: 1200px) {
+
+  #termsPage {
+    padding: 30px;
+    .terms-desc {
+      flex: 4;
+    }
+    .terms-nav {
+      flex: 1;
+    }
+  }
+
+}
+
+@media all and (max-width: 767px) {
+
+  #termsPage {
+    padding: 30px 0;
+    width: 100%;
+    .terms-desc {
+      flex: 4;
+    }
+    .terms-nav {
+      flex: 1;
+    }
+  }
+
+}
+
+@media all and (max-width: 500px) {
+
+  #termsPage {
+    flex-direction: column-reverse;
+    padding-top: 0;
+    .terms-desc {
+      flex: none;
+      border-right: none;
+      padding-right: 0;
+    }
+    .terms-nav {
+      border-bottom: 1px solid $grey;
+      margin-bottom: 30px;
+      padding-left: 0;
+      flex: none;
+      flex-direction: row;
+      justify-content: space-around;
+      .icon-wrap {
+        padding-top: 5px;
+      }
+    }
+  }
+
 }

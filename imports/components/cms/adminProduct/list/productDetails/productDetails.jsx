@@ -310,16 +310,14 @@ class ProductDetails extends Component {
             <div id='productDetails'>
                 <div id='details'>
                     <div id='productDetailsBar'>
-                        <div id='barTitle' className='feature-edit-wrap'>
-                            <div className='label'><span className='obligatory'>* </span>{product.name}</div>
-                            {!isActive &&
-                                <ion-icon name="create" className='edit-icon'
-                                          onClick={() => this.openModal('name')}
-                                />
-                            }
+                        <div id='barTitle'>
+                            <div className='info-box'>
+                                <ion-icon name="information-circle"></ion-icon>
+                                <p>Pola oznaczone <span className="red">*</span> obowiązkowe. Aby je edytować należy dezaktywować produkt.</p>
+                            </div>
                         </div>
                         <div id='barWrapper'>
-                            <div className='feature-edit-wrap'>
+                            <div className='feature-edit-wrap no-margin'>
                                 {product.isActive ? <span className='active'>aktywny</span> : <span className='no-active'>nieaktywny</span>}
                                 <ion-icon name="create" className='edit-icon'
                                           onClick={() => this.openModal('active')}
@@ -339,6 +337,14 @@ class ProductDetails extends Component {
                     </div>
                     <div id='productDetailsContent'>
                         <div className='content-column'>
+                            <div className='content-box content-info line'>
+                                <div className='label'><span className='obligatory'>* </span>{product.name}</div>
+                                {!isActive &&
+                                <ion-icon name="create" className='edit-icon'
+                                          onClick={() => this.openModal('name')}
+                                />
+                                }
+                            </div>
                             <div className='content-box content-info line'>
                                 <div className='feature-edit-wrap'>
                                     <div className='label'>kolekcja</div>
@@ -408,6 +414,10 @@ class ProductDetails extends Component {
                             </div>
                         </div>
                         <div className='content-column'>
+                            <div className='info-box margin'>
+                                <ion-icon name="information-circle"></ion-icon>
+                                <p>Zalecany stosunek szerokości do wysokości zdjęcia to: 3:4.</p>
+                            </div>
                             <div className='label-photo'><span className='obligatory'>*</span> zdjecie glowne</div>
                             {product.mainPhoto.length > 0 &&
                                 <div className='content-box content-photos'>

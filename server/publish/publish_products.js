@@ -30,6 +30,23 @@ Meteor.publish('product.public', function(id) {
     ];
 });
 
+Meteor.publish('products.cart.public', function(productsIds) {
+    const productsC = Products.find({_id: {$in: productsIds}});
+    const products = productsC.fetch();
+    let collectionsIds = [];
+    for(let p of products) {
+        if(!~collectionsIds.indexOf(p.collectionId)) {
+            collectionsIds.push(p.collectionId);
+        }
+    }
+
+    return [
+        productsC,
+        Collections.find({_id: {$in: collectionsIds}})
+    ];
+
+});
+
 
 Meteor.publish('products.admin', function() {
     const productsCursor = Products.find({});

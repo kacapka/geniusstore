@@ -15,4 +15,11 @@ export const setPromoCode = (promoCode) => {
     }
 };
 
+export const toggleCheckout = (bool) => {
+    return {
+        isCheckout: bool,
+        type: TYPES.TOGGLE_CHECKOUT
+    }
+};
+
 

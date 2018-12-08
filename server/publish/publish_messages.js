@@ -12,7 +12,7 @@ Meteor.publish('messages.admin', function() {
 
 Meteor.publish('messageCount.admin', function() {
     if(checkIfAdmin(this.userId)) {
-        return Messages.find({isOpen: false}, {fields: {_id: 1}});
+        return Messages.find({isOpen: false}, {fields: {isOpen: 1,_id: 1}});
     } else {
         return [];
     }

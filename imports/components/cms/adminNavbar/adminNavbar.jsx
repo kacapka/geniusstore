@@ -6,11 +6,11 @@ import {withTracker} from 'meteor/react-meteor-data';
 import {Meteor} from 'meteor/meteor';
 
 const ROUTES = [
-    {name: 'zestawienia', icon: 'stats', route: 'stats'},
-    {name: 'zamowienia', icon: 'cart', route: 'orders'},
+    // {name: 'zestawienia', icon: 'stats', route: 'stats'},
+    {name: 'zamówienia', icon: 'cart', route: 'orders'},
     {name: 'produkty', icon: 'shirt', route: 'product'},
     {name: 'kody promocyjne', icon: 'star', route: 'promo-codes'},
-    {name: 'wiadomosci', icon: 'mail', route: 'messages'},
+    {name: 'wiadomości', icon: 'mail', route: 'messages'},
     {name: 'wyloguj sie', icon: 'power', route: null},
 ];
 

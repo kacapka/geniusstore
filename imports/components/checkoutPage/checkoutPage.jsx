@@ -1,9 +1,9 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import './checkoutPage.scss';
 import {connect} from 'react-redux';
 import {FlowRouter} from 'meteor/kadira:flow-router';
 import {setInputValue, setInputError, resetCart} from '../../redux/actions/index';
-import {selectDeliveryType, setPromoCode} from '../../redux/actions/checkout';
+import {selectDeliveryType, setPromoCode, toggleCheckout} from '../../redux/actions/checkout';
 import {getDeliveryPrice} from '../../redux/selectors/deliveryPrice';
 import {getFinalPrice} from '../../redux/selectors/finalPrice';
 import Checkbox from "../../common/checkbox/checkbox";
@@ -20,13 +20,20 @@ class CheckoutPage extends Component {
         this.state = {
             terms: false,
             rodo: false,
-            termsErr: false
+            termsErr: false,
+
+            //dev
+            confirmation: false
         };
         this.onInputChange = this.onInputChange.bind(this);
         this.onCheckboxClick = this.onCheckboxClick.bind(this);
         this.onSubmitCheckoutBtnClick = this.onSubmitCheckoutBtnClick.bind(this);
         this.onDeliveryCheckboxClick = this.onDeliveryCheckboxClick.bind(this);
         this.setPromoCode = this.setPromoCode.bind(this);
+    }
+
+    componentWillUnmount() {
+        this.props.toggleCheckout(false);
     }
 
     onCheckboxClick(value, name) {
@@ -46,12 +53,12 @@ class CheckoutPage extends Component {
 
     onSubmitCheckoutBtnClick() {
         if(this.validateForm()) {
-            const products = this.props.cart.map(item => {
+            const products = this.props.cartProducts.map(item => {
                 return {
-                    productId: item.product._id,
+                    productId: item.productId,
                     amount: item.amount,
                     size: item.size.name,
-                    price: getSalePrice(item.product) * item.amount
+                    price: getSalePrice(item._product) * item.amount
                 }
             });
             const {inputs, promoCode} = this.props.checkout;
@@ -78,8 +85,9 @@ class CheckoutPage extends Component {
             Meteor.call('insertOrder', order, err => {
                 if(!err) {
                     console.log('order insert success');
-                    this.props.resetCart();
-                    FlowRouter.go('/');
+                    // this.props.resetCart();
+                    this.setState({confirmation: true});
+                    // FlowRouter.go('/');
                 } else {
                     alert(err.error);
                 }
@@ -140,15 +148,16 @@ class CheckoutPage extends Component {
     };
 
     renderCheckoutProducts() {
-        return this.props.cart.map(item => {
+        return this.props.cartProducts.map(item => {
+            if(!item._product) return;
             return (
                 <div key={item.cartId} className='checkout-product-item' >
                     <div className='checkout-product-img'>
-                        <img src={item.product.mainPhoto} />
+                        <img src={item._product.mainPhoto} />
                         <p>{item.amount}</p>
                     </div>
                     <div className='checkout-product-feature'>{item.size.name}</div>
-                    <div className='checkout-product-feature product-price'>{getSalePrice(item.product) * item.amount} PLN</div>
+                    <div className='checkout-product-feature product-price'>{getSalePrice(item._product) * item.amount} PLN</div>
                 </div>
             );
         })
@@ -173,13 +182,13 @@ class CheckoutPage extends Component {
     render() {
         const {name, surname, address, zipCode, town, mail, phone, notes} = this.props.checkout.inputs;
         const {nameErr, surnameErr, addressErr, zipCodeErr, townErr, mailErr, phoneErr, deliveryErr} = this.props.checkout.errors;
-        const promoCode = this.props.checkout.promoCode
+        const promoCode = this.props.checkout.promoCode;
         const {rodo, terms, termsErr} = this.state;
 
         return (
             <div id='checkoutPage'>
                 {(() => {
-                    if(this.props.cart.length > 0) {
+                    if(this.props.cartProducts.length > 0) {
                         return (
                             <div id='checkoutWrapper'>
                                 <div id='checkoutCta'>
@@ -260,7 +269,7 @@ class CheckoutPage extends Component {
                                             {phoneErr && <p className='input-error'>{phoneErr}</p>}
                                         </div>
                                         <div className='address-input-wrapper'>
-                                            <label className='address-label'>uwagi do zamowienia (dostawa, faktura VAT)</label>
+                                            <label className='address-label'>uwagi do zamówienia (dostawa, faktura VAT)</label>
                                             <textarea className='address-input'
                                                    name='notes'
                                                    onChange={this.onInputChange}
@@ -274,28 +283,23 @@ class CheckoutPage extends Component {
                                         {this.renderDeliveryTypes()}
                                         {deliveryErr && <p className='info-error'>{deliveryErr}</p>}
                                     </div>
-                                    <div className='checkout-title'>Platnosc</div>
+                                    <div className='checkout-title'>Płatnośc</div>
                                     <div id='checkoutPayment'>
                                         <div className='checkbox-wrapper'>
                                             <Checkbox value={terms}
                                                       name='terms'
                                                       selectCheckbox={this.onCheckboxClick}
                                             />
-                                            <label className='checkbox-label'>akceptuje regulamin sklepu</label>
+                                            <label className='checkbox-label'>akceptuję regulamin sklepu</label>
                                         </div>
                                         <div className='checkbox-wrapper'>
                                             <Checkbox value={rodo}
                                                       name='rodo'
                                                       selectCheckbox={this.onCheckboxClick}
                                             />
-                                            <label className='checkbox-label'>wyrazam zgode na przetwarzanie moich danych osobowych dla celow realizacji zamowien</label>
+                                            <label className='checkbox-label'>wyrażam zgodę na przetwarzanie moich danych osobowych dla celów realizacji zamówienia</label>
                                         </div>
                                         {termsErr && <p className='info-error'>{termsErr}</p>}
-                                        <div id='checkoutSubmitBtn'
-                                             onClick={this.onSubmitCheckoutBtnClick}
-                                        >
-                                            przejdz do platnosci
-                                        </div>
                                     </div>
                                 </div>
                                 <div id='checkoutProducts'>
@@ -305,7 +309,7 @@ class CheckoutPage extends Component {
                                     </div>
                                     {promoCode &&
                                         <div className='delivery-amount'>
-                                            <span>znizka</span>
+                                            <span>zniżka</span>
                                             <span>{promoCode.value + ' ' + promoCode.type}</span>
                                         </div>
                                     }
@@ -322,6 +326,11 @@ class CheckoutPage extends Component {
                                         <span>Razem</span>
                                         <span>{this.props.finalPrice} PLN</span>
                                     </div>
+                                    <div id='checkoutSubmitBtn'
+                                         onClick={this.onSubmitCheckoutBtnClick}
+                                    >
+                                        przejdź do płatności
+                                    </div>
                                 </div>
                             </div>
                         );
@@ -331,17 +340,24 @@ class CheckoutPage extends Component {
                         );
                     }
                 })()}
+                {/*dev*/}
+                {this.state.confirmation &&
+                    <div className='dev-confirmation'>
+                        <p className='dev-confirmation-text'>Dziękujemy za dokonanie zakupu.</p>
+                        <p className='dev-confirmation-text'>Wkrótce dostaniesz maila ze szczegółami zamówienia.</p>
+                        <div className='dev-confirmation-btn' onClick={() => {FlowRouter.go('/'); this.props.resetCart();}}>OK</div>
+                    </div>
+                }
             </div>
         );
     }
 
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, props) => ({
     delivery: getDeliveryPrice(state),
-    finalPrice: getFinalPrice(state),
-    cart: state.cart.products,
+    finalPrice: getFinalPrice(state, props),
     checkout: state.checkout
 });
 
-export default connect(mapStateToProps, {setInputValue, setInputError, selectDeliveryType, setPromoCode, resetCart})(CheckoutPage);
+export default connect(mapStateToProps, {setInputValue, setInputError, selectDeliveryType, setPromoCode, resetCart, toggleCheckout})(CheckoutPage);

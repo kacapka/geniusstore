@@ -1,18 +1,40 @@
 import React, {Component} from 'react';
 import './footer.scss';
 import FooterForm from "./footerForm/footerForm";
+import {FlowRouter} from 'meteor/kadira:flow-router';
+
+const TABS = [
+    {name: 'płatności', tab: 'payments'},
+    {name: 'dostawa', tab: 'delivery'},
+    {name: 'zwroty', tab: 'returns'},
+    {name: 'regulamin', tab: 'regulations'}
+]
 
 class Footer extends Component {
+
+    onTermsTabClick(tab) {
+        window.scrollTo(0,0);
+        FlowRouter.go(`/terms/${tab}`);
+    }
+
+    renderTabs() {
+        return TABS.map(item => {
+            return (
+                <li key={item.name}
+                    onClick={() => this.onTermsTabClick(item.tab)}
+                >
+                    {item.name}
+                </li>
+            )
+        })
+    }
 
     render() {
         return (
             <div id='footer'>
                 <div id='footerLinks'>
                     <ul id='footerRoutes'>
-                        <li>platnosci</li>
-                        <li>dostawa</li>
-                        <li>zwroty</li>
-                        <li>regulamin</li>
+                        {this.renderTabs()}
                     </ul>
                     <div id='footerInsta'>
                         <ion-icon name="logo-instagram" id='instaIcon' />
