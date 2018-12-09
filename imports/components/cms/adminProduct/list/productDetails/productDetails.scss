@@ -24,17 +24,23 @@
           cursor: pointer;
         }
       }
+      &.no-margin {
+        margin-bottom: 0;
+      }
     }
     #productDetailsBar {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       margin-bottom: 50px;
       #barTitle {
-        @extend %heading-small;
+        flex: 1;
       }
       #barWrapper {
+        flex: 1;
         display: flex;
         align-items: center;
+        justify-content: flex-end;
         .active {
           color: $green;
         }
@@ -302,6 +308,26 @@
           }
         }
       }
+    }
+  }
+  .info-box {
+    display: flex;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(255, 234, 167, 0.44);
+    ion-icon {
+      flex: 0 0 30px;
+      color: $admin;
+      margin-right: 10px;
+    }
+    p {
+      font-size: 12px;
+      .red {
+        color: $red;
+      }
+    }
+    &.margin {
+      margin-bottom: 20px;
     }
   }
 }

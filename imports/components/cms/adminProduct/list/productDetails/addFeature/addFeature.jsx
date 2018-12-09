@@ -49,6 +49,7 @@ class AddFeature extends Component {
 
     render() {
         if(!this.props.handleReady) return <GeniusSpinner />;
+        console.log(this.props.features);
         return (
             <div className='edit-modal-wrap'>
                 <div className='modal-title'>dodaj szczegol</div>
@@ -84,8 +85,8 @@ export default withTracker(props => {
     const handleReady = handle.ready();
     if(handleReady) {
         const usedFeaturesIds = props.featuresIds;
-        const AllFeatures = Features.find({}).fetch();
-        for(let f of AllFeatures) {
+        const allFeatures = Features.find({}).fetch();
+        for(let f of allFeatures) {
             if(!~usedFeaturesIds.indexOf(f._id)) {
                 features.push(f);
             }
