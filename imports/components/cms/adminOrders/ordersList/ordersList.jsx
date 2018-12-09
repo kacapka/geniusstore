@@ -16,10 +16,10 @@ class OrdersList extends Component {
            return (
                <div className='order-item' key={order._id}>
                    <div className='order-feature order-products'>{order.orderNumber}</div>
-                   <div className='order-feature'>{dateAgoPL(order.timestamp).full}</div>
-                   <div className='order-feature'>{order.price}</div>
-                   <div className='order-feature'>{renderOrderStatus(order.status, 'tran')}</div>
-                   <div className='order-feature'>{renderOrderStatus(order.deliveryStatus, 'delivery')}</div>
+                   <div className='order-feature mobile'>{dateAgoPL(order.timestamp).full}</div>
+                   <div className='order-feature mobile'>{order.price}</div>
+                   <div className='order-feature mobile'>{renderOrderStatus(order.status, 'tran')}</div>
+                   <div className='order-feature mobile'>{renderOrderStatus(order.deliveryStatus, 'delivery')}</div>
                    <div className='order-feature order-icon icon-details'>
                        <ion-icon name="search"
                                  onClick={() => this.onShowOrderClick(order._id)}

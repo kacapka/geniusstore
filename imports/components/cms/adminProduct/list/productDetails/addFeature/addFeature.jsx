@@ -84,8 +84,8 @@ export default withTracker(props => {
     const handleReady = handle.ready();
     if(handleReady) {
         const usedFeaturesIds = props.featuresIds;
-        const AllFeatures = Features.find({}).fetch();
-        for(let f of AllFeatures) {
+        const allFeatures = Features.find({}).fetch();
+        for(let f of allFeatures) {
             if(!~usedFeaturesIds.indexOf(f._id)) {
                 features.push(f);
             }

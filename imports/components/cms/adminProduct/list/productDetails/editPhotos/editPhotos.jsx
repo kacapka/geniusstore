@@ -76,6 +76,7 @@ class AddPhoto extends Component {
                            type='text'
                            name='photo'
                            onChange={this.onInputChange}
+                           placeholder='adres url zdjęcia, np z AWS'
                     />
                 </div>
                 <div className='modal-buttons-wrap'>

@@ -16,6 +16,7 @@ class ProductList extends Component {
         if(!this.props.products.length) return <div>brak dodanych produktów</div>;
         return this.props.products.map(product => {
             const eyeColor = product.isActive ? 'active' : 'no-active';
+            const mainPhoto = product.mainPhoto.length > 0 ? product.mainPhoto : '/no_photo.png';
             return (
                 <div className='product-item' key={product._id}
                      onClick={() => this.onProductItemClick(product._id)}
@@ -23,13 +24,11 @@ class ProductList extends Component {
                     <div className={`product-feature product-status ${eyeColor}`}>
                         <ion-icon name="eye" />
                     </div>
-                    <div className='product-feature product-thumbnail'>
-                        {product.mainPhoto.length > 0 ? <img src={product.mainPhoto} alt='product thumbnail' /> : <div className='no-photo'><span>brak</span> <span>zdjecia</span></div>}
-                    </div>
+                    <div className='product-feature product-thumbnail' style={{backgroundImage: `url(${mainPhoto})`}} />
                     <div className='product-feature product-title'>{product.name}</div>
-                    <div className='product-feature product-collection'>{product.collection ? product.collection.name : <span>brak przypisanej kolekcji !</span>}</div>
+                    <div className='product-feature product-collection mobile'>{product.collection ? product.collection.name : <span>brak przypisanej kolekcji !</span>}</div>
                     <div className='product-feature product-price'>{product.price}</div>
-                    <div className='product-feature product-sizes'>
+                    <div className='product-feature product-sizes mobile'>
                         {product.sizes.map(size => {
                             if(!size.active) return;
                             const sizeClassName = size.value === 0 ? 'empty' : size.value < 2 ? 'last' : '';
@@ -50,14 +49,17 @@ class ProductList extends Component {
         if(!this.props.handleReady) return <GeniusSpinner />;
         return (
             <div id='ProductList'>
+                <div className='products-bar'>
+                    <div className='bar-title'>Produkty</div>
+                </div>
                 <div id='productsList'>
                     <div className='product-item product-header'>
                         <div className='product-feature product-status'>status</div>
                         <div className='product-feature product-photo'>produkt</div>
                         <div className='product-feature product-title'>nazwa</div>
-                        <div className='product-feature product-collection'>kolekcja</div>
+                        <div className='product-feature product-collection mobile'>kolekcja</div>
                         <div className='product-feature product-price'>cena</div>
-                        <div className='product-feature product-sizes'>rozmiary</div>
+                        <div className='product-feature product-sizes mobile'>rozmiary</div>
                     </div>
                     {this.renderProducts()}
                 </div>

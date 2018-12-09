@@ -3,51 +3,15 @@ import './mainPage.scss';
 import {withTracker} from 'meteor/react-meteor-data';
 import {Products, Collections} from '/lib/collections';
 import {Meteor} from 'meteor/meteor';
-import {FlowRouter} from 'meteor/kadira:flow-router';
 import GeniusSpinner from "../../common/spinner/spinner";
+import ProductItem from "./productItem";
 
 class MainPage extends Component {
 
-    onProductClick(id) {
-        window.scrollTo(0,0);
-        FlowRouter.go(`/${id}`);
-    }
-
-    onCollectionNameClick(id) {
-        window.scrollTo(0,0);
-        FlowRouter.go(`/collection/${id}`);
-    }
-    
     renderProducts() {
         return this.props.products.map(product => {
            return (
-               <div key={product._id}
-                    className='product-item'
-               >
-                   <div className='product-img-wrapper'
-                        onClick={() => this.onProductClick(product._id)}
-                   >
-                       <img src={product.mainPhoto} className='product-img' alt='product' />
-                       {product.isNew && !product.sales.isActive &&
-                            <div className='sale-label new-label'>NEW</div>
-                       }
-                       {product.sales.isActive &&
-                            <div className='sale-label'>{product.sales.salePercentage} %</div>
-                       }
-                   </div>
-                   <div className='product-info'>
-                       <span className='product-info-collection'
-                            onClick={() => this.onCollectionNameClick(product.collectionId)}
-                       >
-                           {!product.collection.isDefault && product.collection.name}
-                       </span>
-                       <div className='product-info-title'>{product.name}</div>
-                       <div className='product-info-price'>
-                           {product.sales.isActive ? <span className='price-none'>PLN {product.price}</span> : `PLN ${product.price}`}
-                           {product.sales.isActive && `PLN ${product.sales.salePrice}`}
-                       </div>
-                   </div>
-               </div>
+               <ProductItem key={product._id} product={product} />
            );
         });
     }
@@ -57,7 +21,7 @@ class MainPage extends Component {
         return (
             <div id='mainPage'>
                 <div id='productsAll'>
-                    {this.props.handleReady ? this.renderProducts() : <div>loading....</div>}
+                    {this.renderProducts()}
                 </div>
             </div>
         );

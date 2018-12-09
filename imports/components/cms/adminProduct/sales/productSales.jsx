@@ -93,9 +93,9 @@ class ProductSales extends Component {
                     <div className='product-feature product-thumbnail'>
                         <img src={product.mainPhoto} alt='product thumbnail' />
                     </div>
-                    <div className='product-feature'><span className={isActive ? 'price-none' : 'price-active'}>{product.price}</span></div>
-                    <div className='product-feature'>{isActive ? <span className='price-active'>{salePrice}</span> : 'brak'}</div>
-                    <div className='product-feature'>{isActive ? salePercentage : 'brak'}</div>
+                    <div className='product-feature mobile'><span className={isActive ? 'price-none' : 'price-active'}>{product.price}</span></div>
+                    <div className='product-feature mobile'>{isActive ? <span className='price-active'>{salePrice}</span> : 'brak'}</div>
+                    <div className='product-feature mobile'>{isActive ? salePercentage : 'brak'}</div>
                     <div className='product-feature product-edit'>
                         <ion-icon name="create"
                                   onClick={() => this.onEditSaleBtnClick(product)}
@@ -111,13 +111,16 @@ class ProductSales extends Component {
         const {modalProduct, inputModal, switchModal} = this.state;
         return (
             <div id='productSales'>
+                <div className='sales-bar'>
+                    <div className='bar-title'>Promocje</div>
+                </div>
                 <div id='productsList'>
                     <div className='product-item product-header'>
                         <div className='product-feature product-status'>status</div>
                         <div className='product-feature product-photo'>product</div>
-                        <div className='product-feature'>cena podstawowa</div>
-                        <div className='product-feature'>cena w promocji</div>
-                        <div className='product-feature'>przecena %</div>
+                        <div className='product-feature mobile'>cena podstawowa</div>
+                        <div className='product-feature mobile'>cena w promocji</div>
+                        <div className='product-feature mobile'>przecena %</div>
                         <div className='product-feature'>edytuj</div>
                     </div>
                     {this.renderProducts()}

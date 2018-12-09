@@ -6,12 +6,13 @@ import {compose} from 'redux';
 import {withTracker} from 'meteor/react-meteor-data';
 import {Meteor} from 'meteor/meteor';
 import {Products} from "../../../lib/collections";
+import {toggleCheckout} from "../../redux/actions/checkout";
 
 const ROUTES = [
     {name: 'kobiety', route: 'women'},
-    {name: 'mezczyzni', route: 'men'},
+    {name: 'mężczyźni', route: 'men'},
     {name: 'promocje', route: 'sales'},
-    {name: 'nowosci', route: 'new'}
+    {name: 'nowości', route: 'new'}
 ];
 
 class Nav extends Component {
@@ -24,6 +25,7 @@ class Nav extends Component {
         this.onCartClick = this.onCartClick.bind(this);
         this.onLogoClick = this.onLogoClick.bind(this);
         this.onHamburgerClick = this.onHamburgerClick.bind(this);
+        this.onBackBtnClick = this.onBackBtnClick.bind(this);
     }
 
     onLogoClick() {
@@ -34,6 +36,10 @@ class Nav extends Component {
     onCartClick() {
         window.scrollTo(0,0);
         FlowRouter.go('/cart');
+    }
+
+    onBackBtnClick() {
+        this.props.toggleCheckout(false);
     }
 
     onNavItemClick(route) {
@@ -62,7 +68,7 @@ class Nav extends Component {
     }
     
     render() {
-        const {cart} = this.props;
+        const {cartCounter, isCheckout} = this.props;
         return(
             <div id='navBar'>
                 <div id='navLogo'>
@@ -71,10 +77,17 @@ class Nav extends Component {
                     </div>
                 </div>
                 <div id='navCart'>
-                    <div id='cartWrapper' onClick={this.onCartClick}>
-                        <img src='/shoping_bag.png' alt='shoping cart' id='cart' />
-                        {cart.length > 0 && <div id='cartItems'>{cart.length}</div>}
-                    </div>
+                    {!isCheckout
+                        ?
+                            <div id='cartWrapper' onClick={this.onCartClick}>
+                                <img src='/shoping_bag.png' alt='shoping cart' id='cart'/>
+                                {cartCounter && <div id='cartItems'>{cartCounter}</div>}
+                            </div>
+                        :
+                            <div id='cartWrapper' className='back-icon' onClick={this.onBackBtnClick}>
+                                <ion-icon name="arrow-back"></ion-icon>
+                            </div>
+                    }
                 </div>
                 <div id='navHamburger'
                      className={this.state.isHamOpen ? 'ham-open' : ''}
@@ -109,14 +122,16 @@ class Nav extends Component {
 }
 
 const mapStateToProps = state => ({
-    cart: state.cart.products
+    cart: state.cart.products,
+    isCheckout: state.checkout.isCheckout
 });
 
 const NavBar = compose(
-    connect(mapStateToProps),
-    withTracker(() => {
+    connect(mapStateToProps, {toggleCheckout}),
+    withTracker((props) => {
         let isPromo = false;
         let isNews = false;
+        let cartCounter = null;
         const handle = Meteor.subscribe('nav.public');
         const handleReady = handle.ready();
         if(handleReady) {
@@ -125,12 +140,19 @@ const NavBar = compose(
 
             isPromo = withPromo.length > 0;
             isNews = withNew.length > 0;
+
+            const productsIds = props.cart.map(el => el.productId);
+            const products = Products.find({_id: {$in: productsIds}}, {fileds: {_id: 1}}).fetch();
+            if(products.length > 0) {
+                cartCounter = products.length;
+            }
         }
 
         return {
             handleReady,
             isPromo,
-            isNews
+            isNews,
+            cartCounter
         }
     })
 )(Nav);

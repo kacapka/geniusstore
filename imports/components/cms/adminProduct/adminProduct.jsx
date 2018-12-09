@@ -45,8 +45,10 @@ class AdminProduct extends Component {
                                  key={link.id}
                                  onClick={() => this.onProductNavItemClick(link.route)}
                             >
-                                <ion-icon name={link.icon} />
-                                <span>{link.name}</span>
+                                <div className='nav-item-content'>
+                                    <ion-icon name={link.icon} />
+                                    <span>{link.name}</span>
+                                </div>
                             </div>
                         );
                     })}

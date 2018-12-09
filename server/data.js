@@ -1,5 +1,5 @@
 import {Meteor} from 'meteor/meteor';
-import {Products, Messages, Collections, Features, Settings} from '/lib/collections';
+import {Products, Messages, Collections, Features, Settings, Orders} from '/lib/collections';
 
 const LOREM = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.;'
 
@@ -37,8 +37,14 @@ Meteor.methods({
                 })
             }
         })
+
+        resetOrders();
     }
 });
+
+const resetOrders = () => {
+    Orders.remove({});
+};
 
 const resetUsers = (callback) => {
     Meteor.users.remove({});
@@ -96,7 +102,7 @@ const resetMessages = callback => {
         },
         {
             name: 'erynio',
-            email: 'ercion@hauhau.pl',
+            email: 'ercio@hauhau.pl',
             text: LOREM
         },
         {
@@ -219,7 +225,7 @@ const resetProducts = callback => {
             name: 'summer top',
             description: LOREM,
             price: 99,
-            isNew: false,
+            isNew: true,
             isSale: false,
             isActive: true,
             gender: 'man'
@@ -252,7 +258,7 @@ const resetProducts = callback => {
             name: 'woman top',
             description: LOREM,
             price: 45,
-            isNew: false,
+            isNew: true,
             isSale: false,
             isActive: true,
             gender: 'woman'
