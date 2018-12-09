@@ -42,7 +42,7 @@ class Product extends Component {
     checkIfProductIsAlreadyInCart() {
         const {cart, product} = this.props;
         return cart.some(item => {
-            return item.size.name === this.state.sizeValue.name && item.product._id === product._id
+            return item.size.name === this.state.sizeValue.name && item.productId === product._id;
         });
     }
 
@@ -53,7 +53,7 @@ class Product extends Component {
             this.setState({sizeError: 'wybierz rozmiar'});
         } else {
             const product = {
-                product: this.props.product,
+                productId: this.props.product._id,
                 size: this.state.sizeValue,
                 cartId: uniqid(),
                 amount: 1

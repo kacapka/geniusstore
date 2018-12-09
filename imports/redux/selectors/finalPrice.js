@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 
 import {getDeliveryPrice} from './deliveryPrice';
-const getProducts = state => state.cart.products;
+const getProducts = (state, props) => props.cartProducts;
 const getPromoCode = state => state.checkout.promoCode;
 
 export const getFinalPrice = createSelector(
@@ -11,10 +11,12 @@ export const getFinalPrice = createSelector(
         const deliveryPrice = delivery ? delivery.price : 0;
         let totalPrice = 0;
         for(let cartItem of products ) {
-            if(cartItem.product.sales.isActive) {
-                totalPrice += cartItem.product.sales.salePrice * cartItem.amount;
-            } else {
-                totalPrice += cartItem.product.price * cartItem.amount;
+            if(cartItem._product) {
+                if(cartItem._product.sales.isActive) {
+                    totalPrice += cartItem._product.sales.salePrice * cartItem.amount;
+                } else {
+                    totalPrice += cartItem._product.price * cartItem.amount;
+                }
             }
         }
 

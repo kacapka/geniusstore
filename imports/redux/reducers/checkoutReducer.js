@@ -98,11 +98,23 @@ const promoCode = (state = null, action) => {
 
 };
 
+const isCheckout = (state = false, action) => {
+
+    switch(action.type) {
+        case types.TOGGLE_CHECKOUT:
+            return action.isCheckout;
+        default:
+            return state;
+    }
+
+};
+
 const checkout = combineReducers({
     inputs: persistReducer(inputsPersistConfig, inputs),
     errors,
     delivery,
-    promoCode
+    promoCode,
+    isCheckout
 });
 
 

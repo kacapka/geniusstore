@@ -59,14 +59,14 @@ FlowRouter.route('/cart', {
     }
 });
 
-//cart
-FlowRouter.route('/cart/checkout', {
-    action() {
-        mount(App, {
-            content: <CheckoutPage />
-        });
-    }
-});
+// //cart
+// FlowRouter.route('/cart/checkout', {
+//     action() {
+//         mount(App, {
+//             content: <CheckoutPage />
+//         });
+//     }
+// });
 
 //product page
 FlowRouter.route('/collection/:collectionId', {
@@ -78,10 +78,10 @@ FlowRouter.route('/collection/:collectionId', {
 });
 
 //terms
-FlowRouter.route('/terms', {
-    action() {
+FlowRouter.route('/terms/:tab', {
+    action(params) {
         mount(App, {
-            content: <TermsPage />
+            content: <TermsPage tab={params.tab} />
         });
     }
 });

@@ -7,7 +7,8 @@ const types = {
     SET_CHECKOUT_INPUT_ERROR: 'set-checkout-input-error',
     SELECT_DELIVERY: 'select-delivery-type',
     SET_PROMO_CODE: 'set-promo-code',
-    RESET_CART: 'reset-cart'
+    RESET_CART: 'reset-cart',
+    TOGGLE_CHECKOUT: 'toggle-checkout'
 };
 
 export default types;

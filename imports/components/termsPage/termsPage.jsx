@@ -1,48 +1,35 @@
 import React, {Component} from 'react';
 import './termsPage.scss';
-import termsData from './termsData';
-
-const TERMS_ICONS = [
-    {name: 'cash'},
-    {name: 'cube'},
-    {name: 'hand'},
-    {name: 'clipboard'},
-];
+import Regulations from "./regulations";
+import Payments from "./payments";
+import Returns from "./returns";
+import Delivery from "./delivery";
+import TermsIcons from "./termsIcons";
 
 class TermsPage extends Component {
 
-    renderIcons() {
-        return TERMS_ICONS.map(icon => {
-            return (
-                <div key={icon.name} className='icon-wrap'>
-                    <ion-icon name={icon.name}>
-
-                    </ion-icon>
-                </div>
-            )
-        })
-    }
-
-    renderDesc() {
-        return termsData.map(item => {
-            return (
-                <div className='term-wrap' key={item.title} id={item.name}>
-                    <div className='term-title'>{item.title}</div>
-                    <div className='term-desc'>{item.desc}</div>
-                </div>
-            )
-        })
+    renderContent() {
+        switch (this.props.tab) {
+            case 'delivery':
+                return <Delivery />;
+            case 'payments':
+                return <Payments />;
+            case 'returns':
+                return <Returns />;
+            case 'regulations':
+                return <Regulations />;
+            default:
+                return null;
+        }
     }
 
     render() {
         return (
             <div id='termsPage'>
                 <div className='terms-desc'>
-                    {this.renderDesc()}
+                    {this.renderContent()}
                 </div>
-                <div className='terms-nav'>
-                    {this.renderIcons()}
-                </div>
+                   <TermsIcons activeTab={this.props.tab} />
             </div>
         );
     }
