@@ -1,23 +1,26 @@
 import React from 'react';
 import dateAgoPL from "../../../../functions/dateAgo";
 
-const RenderCodeUses = ({uses, onOrderNumberClick}) => {
-
-    console.log(uses);
+const RenderCodeUses = ({code, onOrderNumberClick}) => {
 
     return (
         <div className='uses-list'>
+            <div className='mobile-info'>
+                <div className='mobile-item'>typ: <span>{code.type}</span></div>
+                <div className='mobile-item'>wartość: <span>{code.value}</span></div>
+                <div className='mobile-item'>jednorazowy: <span>{code.singleUse ? 'tak' : 'nie'}</span></div>
+            </div>
             <div className='uses-list-item header'>
                 <div className="lp">L.p.</div>
-                <div>Użytkownik</div>
+                <div className='mobile'>Użytkownik</div>
                 <div>Nr Zamówienia</div>
                 <div>Data realizacji</div>
             </div>
-            {uses.map((use, i) => {
+            {code.uses.map((use, i) => {
                 return (
                     <div className='uses-list-item' key={use.orderNumber}>
                         <div className="lp">{i + 1}.</div>
-                        <div>{use.user}</div>
+                        <div className='mobile'>{use.user}</div>
                         <div onClick={() => onOrderNumberClick(use.orderId)}
                              className="link"
                         >

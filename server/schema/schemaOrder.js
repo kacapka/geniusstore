@@ -76,9 +76,9 @@ export default class SchemaOrder {
 
     insert(callback) {
         if(this.validate()) {
-            Orders.insert(this.order, err => {
+            Orders.insert(this.order, (err, orderId) => {
                 if(!err) {
-                    callback(null);
+                    callback(null, orderId);
                 } else {
                     callback('insertOrderFailed');
                 }

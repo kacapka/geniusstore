@@ -11,6 +11,12 @@
     @extend %cms-list;
     @extend %cms-box;
     margin: 25px;
+    .features-bar {
+      margin-bottom: 20px;
+      .bar-title {
+        @extend %heading-small;
+      }
+    }
     .feature-item {
       @extend %cms-list-item;
       div {
@@ -89,6 +95,37 @@
       span {
         @extend %text-medium;
       }
+    }
+  }
+
+}
+
+@media all and (max-width: 1024px) {
+
+  #productFeatures {
+    #featuresList {
+      margin: 0 10px 0 0;
+    }
+    #featureEdit {
+      margin: 0 0 0 10px;
+    }
+  }
+
+}
+
+@media all and (max-width: 767px) {
+
+  #productFeatures {
+    flex-direction: column-reverse;
+    #featuresList {
+      margin: 0;
+      border-top: none;
+    }
+    #featureEdit {
+      margin: 0 0 0 0;
+      height: 200px;
+      border-bottom: 1px solid $grey;
+      border-radius: 0;
     }
   }
 

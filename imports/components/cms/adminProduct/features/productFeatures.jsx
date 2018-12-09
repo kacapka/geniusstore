@@ -148,6 +148,9 @@ class ProductFeatures extends Component {
         return (
             <div id='productFeatures'>
                 <ul id='featuresList'>
+                    <div className='features-bar'>
+                        <div className='bar-title'>Szczegóły</div>
+                    </div>
                     <li className='feature-item-header'>
                         <div>nazwa</div>
                     </li>

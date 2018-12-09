@@ -2,7 +2,7 @@ import {Meteor} from 'meteor/meteor';
 import { Email } from 'meteor/email';
 import deliveryTypes from "../../data/delivery";
 import sendEmail from './sendEmail';
-import {Orders} from '/lib/collections';
+import {Orders, Products} from '/lib/collections';
 
 Meteor.methods({
     sendOrderEmail(orderId) {
@@ -17,7 +17,7 @@ Meteor.methods({
                 orderNumber: order.orderNumber,
                 delivery: order.deliveryType === 'personal' ? 'odbiór osobisty' : order.deliveryType,
                 deliveryPrice: deliveryTypes.find(del => del.name === order.deliveryType).price,
-                promoCode: pC || `${pC.name} (${pC.value} ${pC.type})`
+                promoCode: pC ? `${pC.name} (${pC.value} ${pC.type})` : null
             };
             for(let p of emailData.products) {
                 const product = Products.findOne({_id: p.productId});
@@ -31,8 +31,8 @@ Meteor.methods({
             SSR.compileTemplate('emailOrderConfirmation', Assets.getText('orderEmailTemp.html'));
             const {user, address, orderNumber, price, products, delivery, deliveryPrice, promoCode} = emailData;
             const html = SSR.render('emailOrderConfirmation', {user, address, orderNumber, price, products, delivery, deliveryPrice, promoCode});
-            emailData.email = 'wojciech.urbansk@gmail.com';
-            sendEmail(emailData.email, 'no-reply@genius.pl', 'potwierdzenie zamówienia', html);
+            // emailData.email = 'wojciech.urbansk@gmail.com';
+            sendEmail(order.user.email, 'no-reply@genius.pl', `GENIUS - potwierdzenie zamówienia`, html);
 
         } else {
             console.log('email send error, not order found');

@@ -11,6 +11,12 @@
     @extend %cms-list;
     @extend %cms-box;
     margin: 25px;
+    .collection-bar {
+      margin-bottom: 20px;
+      .bar-title {
+        @extend %heading-small;
+      }
+    }
   }
   .collection-item {
     @extend %cms-list-item;
@@ -88,6 +94,37 @@
       span {
         @extend %text-medium;
       }
+    }
+  }
+
+}
+
+@media all and (max-width: 1024px) {
+
+  #productCollections {
+    #collectionsList {
+      margin: 0 10px 0 0;
+    }
+    #collectionEdit {
+      margin: 0 0 0 10px;
+    }
+  }
+
+}
+
+@media all and (max-width: 767px) {
+
+  #productCollections {
+    flex-direction: column-reverse;
+    #collectionsList {
+      margin: 0;
+      border-top: none;
+    }
+    #collectionEdit {
+      margin: 0 0 0 0;
+      height: 200px;
+      border-bottom: 1px solid $grey;
+      border-radius: 0;
     }
   }
 

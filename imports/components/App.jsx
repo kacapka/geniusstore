@@ -19,6 +19,7 @@ class App extends Component {
                             {this.props.content}
                         </div>
                         <Footer/>
+                        <div id='prompt' />
                     </div>
                 </PersistGate>
             </Provider>

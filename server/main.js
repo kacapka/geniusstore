@@ -64,6 +64,6 @@ import './data';
 Meteor.startup(() => {
 
     //mail setup
-    process.env.MAIL_URL = 'smtps://postmaster@sandboxc36d09125ef94052a281a6594a9f6c6d.mailgun.org:geniusdot@smtp.mailgun.org:465';
+    process.env.MAIL_URL = 'smtps://postmaster@madeingenius.herokuapp.com:a47ad38de08d401151c29e0b8c1ee147-52cbfb43-74d624c@smtp.mailgun.org:587';
 
 });

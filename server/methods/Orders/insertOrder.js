@@ -15,7 +15,7 @@ Meteor.methods({
        order.timestamp = new Date();
        const newOrder = new SchemaOrder(order);
 
-       newOrder.insert(err => {
+       newOrder.insert((err, orderId) => {
            if(!err) {
                 Meteor.call('updateSizeValue', order.products, err => {
                     if(!err) {
@@ -47,6 +47,7 @@ Meteor.methods({
                         future.throw(err);
                     }
                 });
+                // Meteor.call('sendOrderEmail', orderId);
            } else {
                console.error('insert order failed');
                future.throw(new Meteor.Error(err));

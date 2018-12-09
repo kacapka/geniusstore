@@ -6,7 +6,7 @@ const OrderProducts = ({products}) => {
             <div className='section-title'>Produkty</div>
             <div className='product-header'>
                 <div className='product-photo'>Produkt</div>
-                <div className='list-feature'>Nazwa</div>
+                <div className='list-feature product-name'>Nazwa</div>
                 <div className='list-feature'>Ilosc</div>
                 <div className='list-feature'>Rozmiar</div>
                 <div className='list-feature'>Cena</div>
@@ -25,7 +25,7 @@ const OrderProducts = ({products}) => {
                                     <div>brak zdjęcia</div>
                                 }
                             </div>
-                            <div className='list-feature'>{data ? data.name : 'produkt usunięty'}</div>
+                            <div className='list-feature product-name'>{data ? data.name : 'produkt usunięty'}</div>
                             <div className='list-feature'>{product.amount}</div>
                             <div className='list-feature'>{product.size}</div>
                             <div className='list-feature'>{product.price}</div>
