@@ -12,6 +12,7 @@ import {FlowRouter} from 'meteor/kadira:flow-router';
 import RenderCommonProducts from "./rednerCommonProducts";
 import GeniusSpinner from "../../common/spinner/spinner";
 import NotFoundText from "../../common/notFound/notFound";
+import createPrompt from "../../functions/createPrompt";
 
 class Product extends Component {
 
@@ -47,10 +48,10 @@ class Product extends Component {
     }
 
     onAddToCartBtnClick() {
-        if(this.checkIfProductIsAlreadyInCart()) {
-            return window.alert('produkt juz dodany');
-        } else if(!this.state.sizeValue) {
+        if(!this.state.sizeValue) {
             this.setState({sizeError: 'wybierz rozmiar'});
+        } else if(this.checkIfProductIsAlreadyInCart()){
+            createPrompt('error', 'produkt już dodany');
         } else {
             const product = {
                 productId: this.props.product._id,

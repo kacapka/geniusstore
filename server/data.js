@@ -1,5 +1,5 @@
 import {Meteor} from 'meteor/meteor';
-import {Products, Messages, Collections, Features, Settings, Orders} from '/lib/collections';
+import {Products, Messages, Collections, Features, Settings, Orders, PromoCodes} from '/lib/collections';
 
 const LOREM = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.;'
 
@@ -36,9 +36,10 @@ Meteor.methods({
                     }
                 })
             }
-        })
+        });
 
         resetOrders();
+        resetPromoCodes();
     }
 });
 
@@ -46,14 +47,18 @@ const resetOrders = () => {
     Orders.remove({});
 };
 
+const resetPromoCodes = () => {
+    PromoCodes.remove({});
+};
+
 const resetUsers = (callback) => {
     Meteor.users.remove({});
 
     const user = {
-        email: 'kasiaka@genius.pl',
-        password: 'geniusdot',
-        firstName: 'kasiaka',
-        lastName: 'erynio'
+        email: 'test@admin.pl',
+        password: 'testadmin',
+        firstName: 'test',
+        lastName: 'admin'
     };
 
     Meteor.call('insertUser', user, err => {
@@ -68,7 +73,7 @@ const resetUsers = (callback) => {
 const resetSettings = callback => {
     Settings.remove({});
 
-    const userId = Meteor.users.findOne({'emails.address': 'kasiaka@genius.pl'});
+    const userId = Meteor.users.findOne({'emails.address': 'test@admin.pl'});
     const settingsAdmin = {
         label: 'admin',
         userId: userId._id
@@ -168,11 +173,11 @@ const resetProducts = callback => {
     Products.remove({});
 
     const sizes = [
-        {name: 'unisex', value: 2, active: true},
-        {name: 'S', value: 0, active: true},
+        {name: 'unisex', value: 10, active: true},
+        {name: 'S', value: 5, active: true},
         {name: 'M', value: null, active: false},
         {name: 'L', value: 1, active: true},
-        {name: 'XL', value: 5, active: true}
+        {name: 'XL', value: 20, active: true}
     ];
     const root_link ='https://s3.eu-west-2.amazonaws.com/madeingenius/devProducts/';
     const man1 = ['man1_2.jpg', 'man1_3.jpg'];

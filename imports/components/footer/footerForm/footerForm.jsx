@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './footerForm.scss';
 import emailValidation from '../../../functions/emailValidation';
+import createPrompt from "../../../functions/createPrompt";
 
 class FooterForm extends Component {
 
@@ -68,6 +69,8 @@ class FooterForm extends Component {
             Meteor.call('insertMessage', message, err => {
                if(err) {
                    console.log(err);
+               } else {
+                   createPrompt('success', 'wysłano');
                }
             });
         }

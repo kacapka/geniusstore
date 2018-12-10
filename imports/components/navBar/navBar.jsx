@@ -81,7 +81,7 @@ class Nav extends Component {
                         ?
                             <div id='cartWrapper' onClick={this.onCartClick}>
                                 <img src='/shoping_bag.png' alt='shoping cart' id='cart'/>
-                                {cartCounter && <div id='cartItems'>{cartCounter}</div>}
+                                {cartCounter > 0 && <div id='cartItems'>{cartCounter}</div>}
                             </div>
                         :
                             <div id='cartWrapper' className='back-icon' onClick={this.onBackBtnClick}>
@@ -131,7 +131,7 @@ const NavBar = compose(
     withTracker((props) => {
         let isPromo = false;
         let isNews = false;
-        let cartCounter = null;
+        let cartCounter = 0;
         const handle = Meteor.subscribe('nav.public');
         const handleReady = handle.ready();
         if(handleReady) {
@@ -142,9 +142,15 @@ const NavBar = compose(
             isNews = withNew.length > 0;
 
             const productsIds = props.cart.map(el => el.productId);
-            const products = Products.find({_id: {$in: productsIds}}, {fileds: {_id: 1}}).fetch();
-            if(products.length > 0) {
-                cartCounter = products.length;
+            // const products = Products.find({_id: {$in: productsIds}}, {fields: {_id: 1}}).fetch();
+            // if(products.length > 0) {
+            //     cartCounter = products.length;
+            // }
+            for(let p of productsIds) {
+                const product = Products.findOne({_id: p}, {fields: {_id: 1}});
+                if(product) {
+                    cartCounter ++;
+                }
             }
         }
 
