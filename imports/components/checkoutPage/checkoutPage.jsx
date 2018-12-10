@@ -79,7 +79,7 @@ class CheckoutPage extends Component {
                 },
                 promoCode: promoCode,
                 notes: inputs.notes,
-                status: 'pending',
+                status: 'completed',
                 deliveryStatus: 'pending'
             };
             Meteor.call('insertOrder', order, err => {

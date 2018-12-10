@@ -100,7 +100,7 @@ class ProductDetails extends Component {
 
     onCopyProductClick() {
         const {_id, name} = this.props.product;
-        if(window.confirm('czy na pewno chcesz usunac kopie produktu?')) {
+        if(window.confirm('czy na pewno chcesz utworzyc kopie produktu?')) {
             Meteor.call('copyProduct', _id, err => {
                 if(!err) {
                     FlowRouter.go('/admin/product/list');
@@ -311,7 +311,7 @@ class ProductDetails extends Component {
                 <div id='details'>
                     <div id='productDetailsBar'>
                         <div id='barTitle'>
-                            <div className='info-box'>
+                            <div className='info-box margin-right'>
                                 <ion-icon name="information-circle"></ion-icon>
                                 <p>Pola oznaczone <span className="red">*</span> obowiązkowe. Aby je edytować należy dezaktywować produkt.</p>
                             </div>
@@ -416,7 +416,7 @@ class ProductDetails extends Component {
                         <div className='content-column'>
                             <div className='info-box margin'>
                                 <ion-icon name="information-circle"></ion-icon>
-                                <p>Zalecany stosunek szerokości do wysokości zdjęcia to: 3:4.</p>
+                                <p>Zalecany wymiary zdjęcia 855px x 1290px.</p>
                             </div>
                             <div className='label-photo'><span className='obligatory'>*</span> zdjecie glowne</div>
                             {product.mainPhoto.length > 0 &&

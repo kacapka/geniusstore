@@ -49,7 +49,6 @@ class AddFeature extends Component {
 
     render() {
         if(!this.props.handleReady) return <GeniusSpinner />;
-        console.log(this.props.features);
         return (
             <div className='edit-modal-wrap'>
                 <div className='modal-title'>dodaj szczegol</div>

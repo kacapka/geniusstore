@@ -23,7 +23,6 @@
     .order-feature {
       flex: 1;
       &.order-icon {
-        font-size: 18px;
         @extend %cms-list-icon;
         &.icon-details {
           &:hover {
@@ -56,4 +55,18 @@
       }
     }
   }
+}
+
+@media all and (max-width: 767px) {
+
+  #adminOrders {
+    #ordersList {
+      .order-feature {
+        &.mobile {
+          display: none;
+        }
+      }
+    }
+  }
+
 }

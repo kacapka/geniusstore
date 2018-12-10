@@ -151,6 +151,9 @@ class ProductCollections extends Component {
         return (
             <div id='productCollections'>
                 <ul id='collectionsList'>
+                    <div className='collection-bar'>
+                        <div className='bar-title'>Kolekcje</div>
+                    </div>
                     <li className='collection-item-header'>
                         <div>Nazwa</div>
                     </li>

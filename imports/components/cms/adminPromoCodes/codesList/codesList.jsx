@@ -56,9 +56,9 @@ class CodesList extends Component {
                     <Fragment key={code._id}>
                         <div className='list-item' onClick={() => this.selectCode(code._id)}>
                             <div className='list-feature'>{code.name}</div>
-                            <div className='list-feature'>{code.type}</div>
-                            <div className='list-feature'>{code.value}</div>
-                            <div className='list-feature'>{code.singleUse ? 'TAK' : 'NIE'}</div>
+                            <div className='list-feature mobile'>{code.type}</div>
+                            <div className='list-feature mobile'>{code.value}</div>
+                            <div className='list-feature mobile'>{code.singleUse ? 'TAK' : 'NIE'}</div>
                             <div className='list-feature'>{code.exp.toLocaleString()}</div>
                             <div className='list-icon remove-icon'>
                                 <ion-icon name="remove-circle"
@@ -67,7 +67,7 @@ class CodesList extends Component {
                             </div>
                         </div>
                         {this.state.selectedCode === code._id
-                            && <RenderCodeUses uses={code.uses}
+                            && <RenderCodeUses code={code}
                                                onOrderNumberClick={this.onOrderNumberClick}
                                />
                         }
@@ -83,9 +83,9 @@ class CodesList extends Component {
             <div id='codesList'>
                 <div className='list-header'>
                     <div className='list-feature'>Nazwa</div>
-                    <div className='list-feature'>Typ</div>
-                    <div className='list-feature'>Wartosc</div>
-                    <div className='list-feature'>Jednorazowy</div>
+                    <div className='list-feature mobile'>Typ</div>
+                    <div className='list-feature mobile'>Wartosc</div>
+                    <div className='list-feature mobile'>Jednorazowy</div>
                     <div className='list-feature'>Data waznosci</div>
                     <div className='list-icon'>Usun</div>
                 </div>

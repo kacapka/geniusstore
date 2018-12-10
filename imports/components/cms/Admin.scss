@@ -19,3 +19,33 @@
     @extend %prompt;
   }
 }
+
+@media all and (max-width: 1200px) {
+
+  #admin {
+    #adminContent {
+      padding: 20px 20px 20px 150px;
+    }
+  }
+
+}
+
+@media all and (max-width: 1024px) {
+
+  #admin {
+    #adminContent {
+      padding: 20px;
+    }
+  }
+
+}
+
+@media all and (max-width: 500px) {
+
+  #admin {
+    #adminContent {
+      padding: 0;
+    }
+  }
+
+}

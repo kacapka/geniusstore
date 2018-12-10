@@ -19,14 +19,20 @@ class AdminNavbar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeRoute: 'stats'
-        }
+            activeRoute: 'stats',
+            isMenu: false
+        };
+        this.onHamIconClick = this.onHamIconClick.bind(this);
     }
 
     onRouteItemClick(route) {
         if(!route) {Meteor.logout(); return;}
-        this.setState({activeRoute: route});
+        this.setState({activeRoute: route, isMenu: false});
         FlowRouter.go(`/admin/${route}`);
+    }
+
+    onHamIconClick() {
+        this.setState({isMenu: !this.state.isMenu});
     }
 
     renderRoutes() {
@@ -43,13 +49,18 @@ class AdminNavbar extends Component {
 
     render() {
         return (
-            <div id='adminNavbar'>
+            <div id='adminNavbar' className={this.state.isMenu ? 'show' : 'hide'}>
                 <div id='adminLogo'>
                     <img src='/logo.png' />
                 </div>
                 <ul id='adminRoutes'>
                     {this.props.handleReady && this.renderRoutes()}
                 </ul>
+                <div className='mobile-ham'
+                     onClick={this.onHamIconClick}
+                >
+                    <ion-icon name={this.state.isMenu ? 'close' : 'menu'}></ion-icon>
+                </div>
             </div>
 
         );

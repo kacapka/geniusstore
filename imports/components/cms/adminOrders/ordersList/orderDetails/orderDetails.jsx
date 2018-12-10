@@ -19,27 +19,28 @@ class OrderDetails extends Component {
 
     onConfirmDeliveryClick() {
         const orderId = this.props.order._id;
-        Meteor.call('sendDeliveryEmail', orderId, err => {
-            if(!err) {
-                createPrompt('success', 'wysłano potwierdzenie');
-            } else {
-                console.error(err);
-                switch(err.error) {
-                    case 'notPermission':
-                        return createPrompt('error', 'brak uprawnień');
-                    case 'orderNotFound':
-                        return createPrompt('error', 'nie znalezniono zamówienia');
-                    case 'updateDeliveryStatusFailed':
-                        return createPrompt('error', 'problem ze zmianą statusu wysyłki');
-                    default:
-                        return createPrompt('error', 'ups... wystąpił problem');
+        if(confirm('czy na pewno chcesz wysłać maila potwierdzającego wysyłkę zamówienia?')) {
+            Meteor.call('sendDeliveryEmail', orderId, err => {
+                if(!err) {
+                    createPrompt('success', 'wysłano potwierdzenie');
+                } else {
+                    console.error(err);
+                    switch(err.error) {
+                        case 'notPermission':
+                            return createPrompt('error', 'brak uprawnień');
+                        case 'orderNotFound':
+                            return createPrompt('error', 'nie znalezniono zamówienia');
+                        case 'updateDeliveryStatusFailed':
+                            return createPrompt('error', 'problem ze zmianą statusu wysyłki');
+                        default:
+                            return createPrompt('error', 'ups... wystąpił problem');
+                    }
                 }
-            }
-        })
+            })
+        }
     }
 
     render() {
-        console.log(this.props);
         if(!this.props.handleReady) return <GeniusSpinner/>;
         if(!this.props.order) return <div>nie znaleziono zamówienia</div>;
         const {notes, deliveryStatus, products, address, user, orderNumber} = this.props.order;

@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import {Meteor} from 'meteor/meteor';
+import createPrompt from "../../functions/createPrompt";
 
 class CheckoutPromoCode extends Component {
 
@@ -34,8 +35,18 @@ class CheckoutPromoCode extends Component {
             if(!err) {
                 this.props.setPromoCode(res);
                 this.setState({activeCode: true});
+                createPrompt('success', 'kod dodany');
             } else {
-                alert(err.error);
+                switch (err.error) {
+                    case 'invalidPromoCode':
+                        return createPrompt('error', 'niepoprawny kod');
+                    case 'expiredPromoCode':
+                        return createPrompt('error', 'ważność kodu wygasła');
+                    case 'usedPromoCode':
+                        return createPrompt('error', 'kod zużyty');
+                    default:
+                        return createPrompt('error', 'błąd');
+                }
             }
         });
     }

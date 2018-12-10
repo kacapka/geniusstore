@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import './adminMessages.scss';
 import {Messages} from "../../../../lib/collections";
 import {withTracker} from 'meteor/react-meteor-data';
@@ -56,8 +56,8 @@ class AdminMessages extends Component {
                 <li className='message-box' key={message._id} onClick={() => this.onMessageClick(message._id, message.isOpen)}>
                    <div className={messageClassName}>
                        <div className='message-feature message-name'>{message.name}</div>
-                       <div className='message-feature message-email'>{message.email}</div>
-                       <div className='message-feature message-text'>{`${message.text.slice(0, 20)}...`}</div>
+                       <div className='message-feature message-email mobile'>{message.email}</div>
+                       <div className='message-feature message-text mobile'>{`${message.text.slice(0, 20)}...`}</div>
                        <div className='message-feature message-date'>{dateAgo(message.date).full}</div>
                        <div className='message-feature message-remove'>
                            <ion-icon name="remove-circle"
@@ -66,7 +66,10 @@ class AdminMessages extends Component {
                        </div>
                    </div>
                     {this.state.selectedMessage === message._id &&
-                        <div className='message-full-text'>{message.text}</div>
+                        <Fragment>
+                            <div className='mobile-mail'>Od: <span>{message.email}</span></div>
+                            <div className='message-full-text'>{message.text}</div>
+                        </Fragment>
                     }
                 </li>
             );
@@ -76,11 +79,14 @@ class AdminMessages extends Component {
     render() {
         return (
             <div id='adminMessages'>
+                <div className='messages-bar'>
+                    <div className='bar-title'>Wiadomości</div>
+                </div>
                 <ul id='messagesList'>
                     <li className='message-header'>
                         <div className='message-feature message-name'>uzytkownik</div>
-                        <div className='message-feature message-email'>email</div>
-                        <div className='message-feature message-text'>wiadomosc</div>
+                        <div className='message-feature message-email mobile'>email</div>
+                        <div className='message-feature message-text mobile'>wiadomosc</div>
                         <div className='message-feature message-date'>data</div>
                         <div className='message-feature message-remove'>usun</div>
                     </li>

@@ -19,8 +19,8 @@ Meteor.methods({
 
                 SSR.compileTemplate('emailDeliveryConfirmation', Assets.getText('deliveryEmailTemp.html'));
                 const html = SSR.render('emailDeliveryConfirmation', {userName: emailData.name, orderNr: emailData.orderNumber});
-                emailData.email = 'wojciech.urbansk@gmail.com';
-                sendEmail(emailData.email, 'no-reply@genius.pl', 'potwierdzenie wysyłki', html);
+                // emailData.email = 'wojciech.urbansk@gmail.com';
+                // sendEmail(email, 'no-reply@genius.pl', 'GENISU - potwierdzenie wysyłki', html);
 
                 Orders.update(
                     {_id: orderId},
