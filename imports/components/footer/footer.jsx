@@ -37,8 +37,10 @@ class Footer extends Component {
                         {this.renderTabs()}
                     </ul>
                     <div id='footerInsta'>
-                        <ion-icon name="logo-instagram" id='instaIcon' />
-                        <div id='instaName'>#madeingenius</div>
+                        <a href='https://www.instagram.com/genius__fitness/' target='_blank'>
+                            <ion-icon name="logo-instagram" id='instaIcon' />
+                            <div id='instaName'>#madeingenius</div>
+                        </a>
                     </div>
                 </div>
                 <FooterForm />
