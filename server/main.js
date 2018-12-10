@@ -59,7 +59,7 @@ import './publish/publish_orders';
 import './publish/publish_navbar';
 
 //fake data
-import './data';
+// import './data';
 
 Meteor.startup(() => {
 
